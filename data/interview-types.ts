@@ -1,6 +1,9 @@
 export type InterviewListItem = {
   heading: string;
   content: string;
+  code?: string;
+  language?: string;
+  bottomContent?: string;
 };
 
 export type InterviewAnswerBlock =

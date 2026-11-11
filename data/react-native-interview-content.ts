@@ -76,12 +76,12 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "The React Native bridge is a communication mechanism that allows JavaScript code to interact with native code in a React Native application. Since React Native apps run JavaScript code, but need to interface with the native components and APIs of the platform (iOS or Android), the bridge serves as a connection between these two worlds. In Android development, you write views in Kotlin or Java; in iOS development, you use Swift or Objective-C. With React Native, you can invoke these views with JavaScript using React components. At runtime, React Native creates the corresponding Android and iOS views for those components. Because React Native components are backed by the same views as Android and iOS, React Native apps look, feel, and perform like any other apps. We call these platform-backed components Native Components. React Native comes with a set of essential, ready-to-use Native Components you can use to start building your app today. These are React Native's Core Components.",
+          "The React Native bridge is a communication mechanism that allows JavaScript code to interact with native code in a React Native application. Since React Native apps run JavaScript code, but need to interface with the native components and APIs of the platform (iOS or Android), the bridge serves as a connection between these two worlds. In Android development, you write views in Kotlin or Java; in iOS development, you use Swift or Objective-C. With React Native, you can invoke these views with JavaScript using React components. At runtime, React Native creates the corresponding Android and iOS views for those components. Because React Native components are backed by the same views as Android and iOS, React Native apps look, feel, and perform like any other apps. We call these platform-backed components Native Components. React Native comes with a set of essential, ready-to-use Native Components you can use to start building your app today. These are React Native's {color:#2b8a3e}Core Components.{/color}",
       },
       {
         type: "paragraph",
         content:
-          "Here\u2019s how it works: 1. JavaScript Side: On the JavaScript side, when you write React Native code, you\u2019re essentially writing JavaScript that describes how your app should look and behave. This code interacts with React Native components and APIs just like you would in a web environment. 2. Native Side: On the native side (iOS or Android), React Native provides a set of native modules and components that correspond to the functionality you use in your JavaScript code. These native modules and components are written in the respective platform\u2019s native languages (Objective-C/Swift for iOS, Java/Kotlin for Android). 3. Bridge: The React Native bridge serves as a communication channel between the JavaScript runtime and the native runtime. When you use a React Native component or call a native module from your JavaScript code, React Native translates these calls into messages that are passed over the bridge to the native side. 4. Execution: On the native side, these messages are received by the bridge and interpreted. If it\u2019s a request to create or update a native UI component, the native code handles the creation or update. If it\u2019s a request to execute a native function, the corresponding native code is invoked. 5. Return Values: Similarly, if the native code needs to communicate back to the JavaScript side (for example, when an event occurs in the native UI), it sends messages back over the bridge to the JavaScript runtime.",
+          "Here\u2019s how it works: \n**JavaScript Side**: On the JavaScript side, when you write React Native code, you\u2019re essentially writing JavaScript that describes how your app should look and behave. This code interacts with React Native components and APIs just like you would in a web environment.\n**Native Side**: On the native side (iOS or Android), React Native provides a set of native modules and components that correspond to the functionality you use in your JavaScript code. These native modules and components are written in the respective platform\u2019s native languages (Objective-C/Swift for iOS, Java/Kotlin for Android).\n**Bridge**: The React Native bridge serves as a communication channel between the JavaScript runtime and the native runtime. When you use a React Native component or call a native module from your JavaScript code, React Native translates these calls into messages that are passed over the bridge to the native side.\n**Execution**: On the native side, these messages are received by the bridge and interpreted. If it\u2019s a request to create or update a native UI component, the native code handles the creation or update. If it\u2019s a request to execute a native function, the corresponding native code is invoked.\n**Return Values**: Similarly, if the native code needs to communicate back to the JavaScript side (for example, when an event occurs in the native UI), it sends messages back over the bridge to the JavaScript runtime.",
       },
       {
         type: "paragraph",
@@ -123,7 +123,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "React Native Yoga is a cross-platform layout engine developed by Facebook for React Native applications. It\u2019s responsible for calculating and applying the layout of components within a React Native app. Here\u2019s a brief explanation: 1. Cross-Platform: React Native Yoga is designed to work consistently across different platforms (iOS, Android, and others). This ensures that your app\u2019s layout behaves consistently regardless of the underlying platform. 2.Flexbox-based: React Native Yoga implements the Flexbox layout model, which is a popular layout system used in web development. Flexbox allows you to create complex layouts with ease by providing a set of rules for distributing and aligning elements within a container. 3. Efficient and Performant: React Native Yoga is optimized for performance. It uses a highly efficient algorithm to calculate the layout of components, ensuring smooth rendering and responsiveness even in complex UIs. 4. Responsive Design: With Flexbox, React Native Yoga enables responsive design, allowing components to adapt their layout based on factors such as screen size, orientation, and device type. This makes it easier to create apps that look good on a wide range of devices. 5. Integration with React Native: React Native Yoga seamlessly integrates with the React Native framework, allowing developers to define layout rules using React Native\u2019s declarative syntax. This makes it easy to create and manage layouts within React Native apps using familiar tools and techniques.",
+          "React Native Yoga is a cross-platform layout engine developed by Facebook for React Native applications. It\u2019s responsible for calculating and applying the layout of components within a React Native app. Here\u2019s a brief explanation: \n**1.Cross-Platform**: React Native Yoga is designed to work consistently across different platforms (iOS, Android, and others). This ensures that your app\u2019s layout behaves consistently regardless of the underlying platform. \n**2.Flexbox-based**: React Native Yoga implements the Flexbox layout model, which is a popular layout system used in web development. Flexbox allows you to create complex layouts with ease by providing a set of rules for distributing and aligning elements within a container. \n**3. Efficient and Performant**: React Native Yoga is optimized for performance. It uses a highly efficient algorithm to calculate the layout of components, ensuring smooth rendering and responsiveness even in complex UIs. \n**4. Responsive Design**: With Flexbox, React Native Yoga enables responsive design, allowing components to adapt their layout based on factors such as screen size, orientation, and device type. This makes it easier to create apps that look good on a wide range of devices. \n**5. Integration with React Native**: React Native Yoga seamlessly integrates with the React Native framework, allowing developers to define layout rules using React Native\u2019s declarative syntax. This makes it easy to create and manage layouts within React Native apps using familiar tools and techniques.",
       },
       {
         type: "paragraph",
@@ -167,7 +167,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "1.Main/UI Thread (UI Thread): Responsible for handling the native UI rendering, user interactions, and UI updates. All UI-related operations, such as rendering components, responding to touch events, and updating the layout, occur on this thread. It\u2019s crucial to keep this thread responsive to ensure smooth user experience. Long-running tasks should be avoided on this thread to prevent UI freezes. 2. JavaScript Thread (JS Thread): The JavaScript thread, sometimes referred to as the \u201cJS thread\u201d or \u201cBridge thread\u201d executes your JavaScript code. Responsible for running your React Native application\u2019s JavaScript logic, including handling state changes, executing business logic, and managing application flow. Communicates with the native UI thread via the bridge. Since JavaScript execution can be computationally intensive, performing heavy computations or blocking operations on this thread can degrade performance and lead to UI unresponsiveness. 3. Shadow Thread: React Native introduced a concept called the \u201cShadow Thread\u201d in later versions. This thread is responsible for preparing UI updates based on the changes in the JavaScript state. It works in tandem(Together/In sync) with the JavaScript thread to calculate the layout changes and prepare UI updates to be sent over the bridge. By offloading some work from the main JavaScript thread, the shadow thread helps improve performance and UI responsiveness.",
+          "**1.Main/UI Thread**: Responsible for handling the native UI rendering, user interactions, and UI updates. All UI-related operations, such as rendering components, responding to touch events, and updating the layout, occur on this thread. It\u2019s crucial to keep this thread responsive to ensure smooth user experience. Long-running tasks should be avoided on this thread to prevent UI freezes. \n**2.JavaScript Thread (JS Thread)**: The JavaScript thread, sometimes referred to as the \u201cJS thread\u201d or \u201cBridge thread\u201d executes your JavaScript code. Responsible for running your React Native application\u2019s JavaScript logic, including handling state changes, executing business logic, and managing application flow. Communicates with the native UI thread via the bridge. Since JavaScript execution can be computationally intensive, performing heavy computations or blocking operations on this thread can degrade performance and lead to UI unresponsiveness. \n**3.Shadow Thread**: React Native introduced a concept called the \u201cShadow Thread\u201d in later versions. This thread is responsible for preparing UI updates based on the changes in the JavaScript state. It works in tandem(Together/In sync) with the JavaScript thread to calculate the layout changes and prepare UI updates to be sent over the bridge. By offloading some work from the main JavaScript thread, the shadow thread helps improve performance and UI responsiveness.",
       },
       {
         type: "paragraph",
@@ -217,7 +217,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "In React Native, JavaScript and native code (Java/Swift/Objective-C) live in separate realms. JavaScript runs in its own thread using the JavaScript engine, while native UI components run in the main thread of the device. To make them work together, React Native uses a \u201cbridge\u201d \u2013 an asynchronous communication layer that allows data to pass between the JavaScript and native worlds. Whenever JavaScript wants to interact with something native\u2014like triggering a camera, updating a view, or responding to a gesture\u2014it sends a message across this bridge. The same happens when native code needs to notify JavaScript, such as after a button is pressed or a device sensor changes. The bridge works fine for many use cases, but it becomes a problem when there's a lot of back-and-forth communication or time-sensitive data transfer. Since it's asynchronous and serializes the data (turns it into strings), large or frequent data exchanges can introduce delays. This makes things like high-frame-rate animations, real-time audio processing, or rapid gesture interactions harder to implement smoothly. That\u2019s why in performance-critical areas, developers either move logic to the native side, reduce the frequency of communication, or use newer solutions like JSI (JavaScript Interface) and Fabric architecture, which aim to eliminate the old bridge altogether by allowing synchronous, direct access between JavaScript and native code.",
+          "In React Native, JavaScript and native code (Java/Swift/Objective-C) live in separate realms. JavaScript runs in its own thread using the JavaScript engine, while native UI components run in the main thread of the device. To make them work together, React Native uses a \u201cbridge\u201d \u2013 an asynchronous communication layer that allows data to pass between the JavaScript and native worlds. Whenever JavaScript wants to interact with something native\u2014like triggering a camera, updating a view, or responding to a gesture\u2014it sends a message across this bridge. The same happens when native code needs to notify JavaScript, such as after a button is pressed or a device sensor changes. The bridge works fine for many use cases, but it becomes a problem when there's a lot of back-and-forth communication or time-sensitive data transfer. Since it's asynchronous and serializes the data (bundled into JSON strings), large or frequent data exchanges can introduce delays(serializing and deserializing). This makes things like high-frame-rate animations, real-time audio processing, or rapid gesture interactions harder to implement smoothly. That\u2019s why in performance-critical areas, developers either move logic to the native side, reduce the frequency of communication, or use newer solutions like JSI (JavaScript Interface) and Fabric architecture, which aim to eliminate the old bridge altogether by allowing synchronous, direct access between JavaScript and native code.",
       },
       {
         type: "paragraph",
@@ -227,12 +227,12 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "Why It Can Be a Bottleneck The bridge: Is not synchronous \u2014 it works like a message queue. Has a limited bandwidth \u2014 only a certain amount of data can be passed per frame. Adds latency because every interaction between JS and native layers needs a round-trip. So when there's a lot of communication \u2014 like in smooth animations, real-time updates, or heavy user interactions \u2014 the bridge can get overwhelmed, causing: UI lag Dropped frame Slow responses \ud83d\udd79 Example Suppose you're building a real-time drawing app: Every finger movement generates dozens of touch events per second. Each touch event needs to go from native \u2192 bridge \u2192 JS \u2192 bridge \u2192 native to update the drawing on screen. This constant back-and-forth slows things down, making the drawing appear laggy.",
+          "Why It Can Be a Bottleneck The bridge: Is not synchronous it works like a message queue. Has a limited bandwidth only a certain amount of data can be passed per frame. Adds latency because every interaction between JS and native layers needs a round-trip. So when there's a lot of communication \u2014 like in smooth animations, real-time updates, or heavy user interactions the bridge can get overwhelmed, causing: UI lag Dropped frame Slow responses Example Suppose you're building a real-time drawing app: Every finger movement generates dozens of touch events per second. Each touch event needs to go from native \u2192 bridge \u2192 JS \u2192 bridge \u2192 native to update the drawing on screen. This constant back-and-forth slows things down, making the drawing appear laggy.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 Native Apps Don't Have This Problem In pure native apps, everything runs on the native side, so there's no bridge \u2014 operations are faster and more seamless.",
+          "Native Apps don't have this problem. In pure native apps, everything runs on the native side, so there's no bridge \u2014 operations are faster and more seamless.",
       },
       {
         type: "diagram",
@@ -259,6 +259,95 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         label: "About the New Architecture",
         href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "what-should-be-handled-in-ui-thread",
+    question: "What Should be handled in UI Thread?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Rendering views needs to update screen quickly and smoothly Animations (native). To ensure 60 FPS and fluid experience responding to touch events fast response to user interactions layout changes (e.g., resize) happens on native view hierarchy",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Rule: Anything that directly affects what the user sees or interacts with should stay on the UI thread.",
+      },
+      {
+        type: "diagram",
+        title: "How JavaScript and UI work together",
+        nodes: [
+          {
+            label: "JavaScript thread",
+            detail: "React render work, app logic, state, and events",
+          },
+          {
+            label: "Renderer",
+            detail: "Schedules and prepares UI changes",
+          },
+          {
+            label: "UI thread",
+            detail: "The only thread that manipulates native host views",
+          },
+        ],
+        note: "In the New Architecture, render and layout work can move across JS and UI threads depending on event priority; keep heavy work off the critical path.",
+      },
+    ],
+    topic: "Architecture",
+    references: [
+      {
+        label: "React Native threading model",
+        href: "https://reactnative.dev/architecture/threading-model",
+      },
+    ],
+  },
+  {
+    id: "what-should-be-handled-in-javascript-thread",
+    question: "What Should be handled in JavaScript Thread?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Business logic Doesn\u2019t need direct access to native views API calls / network requests can run in background and update state later State updates and logic Managed by React on JS side Redux, context, local storage Non-UI logic that shouldn\u2019t block rendering",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Rule: Anything related to logic, decisions, or data should be handled in the JS thread Problems. If not used properly mistake consequence heavy JS work (e.g., looping over 1000 items) freezes the UI since JS thread is blocked. Too many UI updates from JS Bridge gets overloaded, causing jank Animating via JS (instead of native driver) lower frame rate, laggy UI.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "So, in short: the UI thread is best for visuals and interactivity, while the JS thread is for logic and decision-making. The two work together\u2014but if either one is overworked, your app will suffer.",
+      },
+      {
+        type: "diagram",
+        title: "How JavaScript and UI work together",
+        nodes: [
+          {
+            label: "JavaScript thread",
+            detail: "React render work, app logic, state, and events",
+          },
+          {
+            label: "Renderer",
+            detail: "Schedules and prepares UI changes",
+          },
+          {
+            label: "UI thread",
+            detail: "The only thread that manipulates native host views",
+          },
+        ],
+        note: "In the New Architecture, render and layout work can move across JS and UI threads depending on event priority; keep heavy work off the critical path.",
+      },
+    ],
+    topic: "Architecture",
+    references: [
+      {
+        label: "React Native threading model",
+        href: "https://reactnative.dev/architecture/threading-model",
       },
     ],
   },
@@ -311,98 +400,17 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
     ],
   },
   {
-    id: "what-should-be-handled-in-ui-thread",
-    question: "What Should Be Handled in UI Thread?",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "Rendering views Needs to update screen quickly and smoothly Animations (native) To ensure 60 FPS and fluid experience Responding to touch events Fast response to user interactions Layout changes (e.g., resize) Happens on native view hierarchy",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Rule: Anything that directly affects what the user sees or interacts with should stay on the UI thread.",
-      },
-      {
-        type: "diagram",
-        title: "How JavaScript and UI work together",
-        nodes: [
-          {
-            label: "JavaScript thread",
-            detail: "React render work, app logic, state, and events",
-          },
-          {
-            label: "Renderer",
-            detail: "Schedules and prepares UI changes",
-          },
-          {
-            label: "UI thread",
-            detail: "The only thread that manipulates native host views",
-          },
-        ],
-        note: "In the New Architecture, render and layout work can move across JS and UI threads depending on event priority; keep heavy work off the critical path.",
-      },
-    ],
-    topic: "Architecture",
-    references: [
-      {
-        label: "React Native threading model",
-        href: "https://reactnative.dev/architecture/threading-model",
-      },
-    ],
-  },
-  {
-    id: "what-should-be-handled-in-javascript-thread",
-    question: "What Should Be Handled in JavaScript Thread?",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "Business logic Doesn\u2019t need direct access to native views API calls / network requests Can run in background and update state later State updates and logic Managed by React on JS side Redux, context, local storage Non-UI logic that shouldn\u2019t block rendering",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Rule: Anything related to logic, decisions, or data should be handled in the JS thread Problems If Not Used Properly Mistake Consequence Heavy JS work (e.g., looping over 1000 items) Freezes the UI since JS thread is blocked Too many UI updates from JS Bridge gets overloaded, causing jank Animating via JS (instead of native driver) Lower frame rate, laggy UI",
-      },
-      {
-        type: "paragraph",
-        content:
-          "So, in short: the UI thread is best for visuals and interactivity, while the JS thread is for logic and decision-making. The two work together\u2014but if either one is overworked, your app will suffer.",
-      },
-      {
-        type: "diagram",
-        title: "How JavaScript and UI work together",
-        nodes: [
-          {
-            label: "JavaScript thread",
-            detail: "React render work, app logic, state, and events",
-          },
-          {
-            label: "Renderer",
-            detail: "Schedules and prepares UI changes",
-          },
-          {
-            label: "UI thread",
-            detail: "The only thread that manipulates native host views",
-          },
-        ],
-        note: "In the New Architecture, render and layout work can move across JS and UI threads depending on event priority; keep heavy work off the critical path.",
-      },
-    ],
-    topic: "Architecture",
-    references: [
-      {
-        label: "React Native threading model",
-        href: "https://reactnative.dev/architecture/threading-model",
-      },
-    ],
-  },
-  {
     id: "memory-leaks-in-react-native",
     question: "Memory leaks in react native?",
     answer: [
+      {
+        type: "paragraph",
+        content: `A memory leak in React Native occurs when an application continues holding references to objects, components, event listeners, timers, subscriptions, or other resources that are no longer needed.As a result, memory usage keeps increasing even when the user navigates between screens or performs repeated actions.\nEventually, this can cause:\n- App performance degradation.\n- Slow screen navigation.\n- UI freezing or unexpected crashes.\n- Increased battery consumption.\n- Android OutOfMemoryError.\n- iOS memory warnings or app termination.`,
+      },
+      {
+        type: "paragraph",
+        content: "How memory leaks happen(with solution)?",
+      },
       {
         type: "ordered-list",
         items: [
@@ -412,9 +420,171 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
               "When you use functions like setInterval, setTimeout, or setImmediate, and don\u2019t clear them using clearInterval() or clearTimeout() during component unmount, they continue to run in the background. This keeps the component in memory, even though it\u2019s no longer on screen.",
           },
           {
+            heading: "Event listeners and Subscriptions",
+            content:
+              "If you don't remove the listener, it can remain registered after the component unmounts. For example, if you add a listener to the device orientation or network status and forget to remove it, the callback function will still hold a reference to the component.",
+          },
+          {
             heading: "Retaining References in Closures",
             content:
               "Sometimes closures (functions defined inside components) retain references to variables or component state. If these closures are used in timers, listeners, or background tasks, they can accidentally keep the whole component in memory. Example: An async function capturing this or state and still running after the component unmounts will prevent garbage collection.",
+          },
+          {
+            heading: "API calls after component unmounts",
+            content:
+              "Imagine a screen that calls an API. Before the response arrives, the user navigates away.The request may still complete, and its callback may attempt to update state unnecessarily.Solution using AbortController:",
+            language: "javascript",
+            code: `useEffect(() => {
+  const controller = new AbortController();
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users",
+        { signal: controller.signal }
+      );
+
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        console.log(error);
+      }
+    }
+  };
+
+  fetchUsers();
+
+  return () => controller.abort();
+}, []);`,
+            bottomContent:
+              "This cancels the request when the component unmounts, provided the underlying request supports cancellation.",
+          },
+          {
+            heading: "WebSocket subscriptions",
+            content:
+              "WebSockets can remain connected even after the screen is closed.",
+            code: `useEffect(() => {
+  const socket = new WebSocket("wss://example.com");
+
+  socket.onmessage = event => {
+    console.log(event.data);
+  };
+
+  return () => {
+    socket.close();
+  };
+}, []);`,
+          },
+          {
+            heading: "Navigation event listeners",
+            content:
+              "When using React Navigation, screen components may remain mounted even when they are not visible.For example, you might subscribe to a location update or socket event every time a screen gains focus. Use useFocusEffect with cleanup:",
+            code: `import { useFocusEffect } from "@react-navigation/native";
+import React, { useCallback } from "react";
+
+function HomeScreen() {
+  useFocusEffect(
+    useCallback(() => {
+      const subscription = someEventEmitter.addListener(
+        "update",
+        data => {
+          console.log(data);
+        }
+      );
+
+      return () => {
+        subscription.remove();
+      };
+    }, [])
+  );
+
+  return null;
+}`,
+          },
+          {
+            heading: "AppState listeners",
+            content:
+              "React Native provides AppState to monitor whether the application is active, inactive or in the background.",
+            code: `import { AppState } from "react-native";
+
+useEffect(() => {
+  const subscription = AppState.addEventListener(
+    "change",
+    nextState => {
+      console.log(nextState);
+    }
+  );
+
+  return () => {
+    subscription.remove();
+  };
+}, []);`,
+          },
+          {
+            heading: "Large images and FlatList",
+            content:
+              "Loading too many large images or rendering thousands of components can cause excessive memory consumption. For large datasets, prefer FlatList.",
+            code: `<FlatList
+  data={users}
+  keyExtractor={item => item.id.toString()}
+  renderItem={({ item }) => <UserCard user={item} />}
+  initialNumToRender={10}
+  maxToRenderPerBatch={10}
+  windowSize={5}
+  removeClippedSubviews
+/>`,
+            bottomContent:
+              "FlatList virtualizes the list, reducing the number of items rendered at once. This helps manage memory, although it does not guarantee that every image or resource is released immediately.",
+          },
+        ],
+      },
+    ],
+    topic: "Performance",
+  },
+  {
+    id: "How to identify memory leaks in React Native",
+    question: "How to identify memory leaks in React Native?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Identifying memory leaks in React Native involves monitoring the app's memory usage and looking for signs that certain objects or components are not being released from memory as expected. Here are some methods to identify memory leaks:",
+      },
+      {
+        type: "ordered-list",
+        items: [
+          {
+            heading: "Android Studio Profiler",
+            content: `Monitor memory consumption. Identify increasing Java/Kotlin heap usage. Inspect allocations and garbage collection.`,
+          },
+          {
+            heading: "Xcode Instruments",
+            content: `Use Allocations.
+Use Leaks instrument.
+Inspect memory allocations and retained objects.`,
+          },
+          {
+            heading: "React Native DevTools",
+            content: `Inspect JavaScript heap.
+Take heap snapshots.
+Identify retained objects and memory growth.
+Investigate component-related issues.`,
+          },
+          {
+            heading: "Use Flipper with React Native Debugger",
+            content:
+              "Flipper is a platform for debugging mobile apps. It provides a Memory plugin that allows you to monitor memory usage, take snapshots, and analyze retained objects.",
+          },
+          {
+            heading: "Enable and Use Hermes Engine",
+            content:
+              "Hermes is an open-source JavaScript engine optimized for React Native. It provides tools to profile memory usage and detect leaks.",
+          },
+          {
+            heading: "Watch for Warnings in Console",
+            content:
+              'React Native sometimes shows warnings like: "Can\'t perform a React state update on an unmounted component." This is often a sign of memory leaks, especially due to uncleaned timers, async tasks, or setState after unmount.',
           },
         ],
       },
@@ -428,7 +598,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "Monitoring memory leaks in a React Native app involves using tools to track memory usage over time, identify unreleased objects, and trace back to the code causing the leak. Here's how you can do it: 1. Use Flipper with React Native Debugger 2. Enable and Use Hermes Engine 3. Watch for Warnings in Console React Native sometimes shows warnings like: \"Can't perform a React state update on an unmounted component.\" This is often a sign of memory leaks, especially due to: Uncleaned timers Async tasks SetState after unmount",
+          "Monitoring memory leaks in a React Native app involves using tools to track memory usage over time, identify unreleased objects, and trace back to the code causing the leak. Here's how you can do it: \n1. Use Flipper with React Native Debugger \n2. Enable and Use Hermes Engine \n3. Watch for Warnings in Console React Native sometimes shows warnings like: \"Can't perform a React state update on an unmounted component.\" This is often a sign of memory leaks, especially due to: Uncleaned timers Async tasks SetState after unmount",
       },
       {
         type: "paragraph",
@@ -470,7 +640,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "A react native app is made up of two separate pieces the native code and the javascript code the problem is since it's two different languages they can't speak to each other they are isolated in their own little lonely worlds but luckily we have the react native bridge which is how the native code and the javascript code talk to each other. Without the bridge there is no way for the native code to send any information to the javascript code or vice versa. But how does it work to figure that out let's look at what happens when an app starts up you tap the app icon and the operating system creates a main thread also called a ui thread and assigns it to our app the main thread spawns(creates and starts) a javascript thread and then the shadow thread sometimes called the shadow tree. Now the shadow tree's job is to calculate the layouts that we define on the javascript side and send that information to the native side what if we want to disable a button we've created well to disable a button we set a property on the javascript side which will be sent over the bridge as a serialized json object updates to native views are batched together and sent over to the native side at the end of each iteration of the javascript event loop in addition to passing properties across the bridge. We can also pass a function across the page to use as a callback. Say if a button is pressed then the native event is sent to the javascript site and the callback is executed now the majority of the time everything runs smoothly. But like a real-life fridge you can occasionally get traffic jams when you have a big list of items and start scrolling really fast you might see a blank screen before the rest of the items are shown this is because the on scroll native event is being sent to the javascript thread the javascript thread sends the new layout information to the shadow tree the shadow tree calculates the layout and sends it back to the native side.",
+          "A react native app is made up of two separate pieces: **native code** and  **javascript code**. The problem is since it's two different languages they can't speak to each other, they are isolated in their own little lonely worlds. But luckily we have the react native bridge which is how the native code and the javascript code talk to each other. Without the bridge there is no way for the native code to send any information to the javascript code or vice versa. But how does it work to figure that out let's look at what happens when an app starts up: you tap the app icon and the operating system creates a main thread also called a ui thread and assigns it to our app the main thread spawns(creates and starts) a javascript thread and then the shadow thread sometimes called the shadow tree. Now the shadow tree's job is to calculate the layouts that we define on the javascript side and send that information to the native side what if we want to disable a button we've created well to disable a button we set a property on the javascript side which will be sent over the bridge as a {color:#339af0}serialized json object{/color} updates to native views are batched together and sent over to the native side at the end of each iteration of the javascript event loop in addition to passing properties across the bridge. We can also pass a function across the page to use as a callback. Say if a button is pressed then the native event is sent to the javascript site and the callback is executed now the majority of the time everything runs smoothly. But like a real-life fridge you can occasionally get traffic jams when you have a big list of items and start scrolling really fast you might see a blank screen before the rest of the items are shown this is because the on scroll native event is being sent to the javascript thread the javascript thread sends the new layout information to the shadow tree the shadow tree calculates the layout and sends it back to the native side.",
       },
       {
         type: "paragraph",
@@ -480,17 +650,17 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "For example say we have an ios device running at 60 frames per second which gives it that nice smooth lifelike feel after one frame is shown you have roughly 16 milliseconds to run code and display the next frame if you take too long then the frame is dropped and your app appears unresponsive or just laggy so with complex animations it's best to say on the ui thread as much as possible now facebook is well aware of some of the performance hits when using the bridge and they've been working on a whole new architecture for react native. That will address these performance issues. They're implementing something called the javascript interface or jsi which will sit between the javascript code and the javascript engine. Currently react native runs on javascript core which is already part of ios because it runs a safari browser but javascript core has to be shipped with your android react native app and it has some performance issues on low end or older androids not to mention making the bundle larger. But now we have hermes which is a lightweight javascript engine optimized for running react native on android so this new JSI will sit in between the javascript code and either javascript core or hermes or any other javascript engine we want to swap to as a side. Note when you run react native and debug mode it actually runs in chrome which uses the v8 engine in rare cases that can lead to some inconsistencies between how javascript runs in debug versus production swapping out javascript engines is nice and all but the real benefit to using JSI is the javascript side and the native side can finally talk to each other you will not have to serialize a json message and send it over the bridge to talk to the other side holy the new shadow tree will be written in c plus and shared across both sides currently all interactions over the bridge are asynchronous.",
+          "For example say we have an ios device running at 60 frames per second which gives it that nice smooth lifelike feel after one frame is shown you have roughly 16 milliseconds to run code and display the next frame if you take too long then the frame is dropped and your app appears unresponsive or just laggy so with complex animations it's best to say on the ui thread as much as possible. Now facebook is well aware of some of the performance hits when using the bridge and they've been working on a whole new architecture for react native. That will address these performance issues. They have implemented called the javascript interface or jsi which will sit between the javascript code and the javascript engine. Currently react native runs on javascript core which is already part of ios because it runs a safari browser but javascript core has to be shipped with your android react native app and it has some performance issues on low end or older androids not to mention making the bundle larger. But now we have hermes which is a lightweight javascript engine optimized for running react native on android so this new JSI will sit in between the javascript code and either javascript core or hermes or any other javascript engine we want to swap to as a side. Note when you run react native and debug mode it actually runs in chrome which uses the v8 engine in rare cases that can lead to some inconsistencies between how javascript runs in debug versus production swapping out javascript engines is nice and all but the real benefit to using JSI is the javascript side and the native side can finally talk to each other you will not have to serialize a json message and send it over the bridge to talk to the other side holy the new shadow tree will be written in C++ and shared across both sides currently all interactions over the bridge are asynchronous.",
       },
       {
         type: "paragraph",
         content:
-          "But in the future we will be able to synchronously execute actions over the bridge solving the performance issues around scrolling large lists that we just talked about this works because javascript will be able to have a reference to the c plus object and invoke methods on it at the time of this video jsi is mostly stable but still needs improvements before being production ready.",
+          "But in the future we will be able to synchronously execute actions over the bridge solving the performance issues around scrolling large lists that we just talked about this works because javascript will be able to have a reference to the C++ object and invoke methods on it.",
       },
       {
         type: "paragraph",
         content:
-          "Earlier I mentioned all native modules used by the javascript code have to be initialized on startup which can impact performance as a part of the new react native architecture that will change the javascript code will load only the module when it's actually needed no more using the old bridge because a javascript code can hold a direct reference to what is now called a turbo module this is going to improve startup times for apps that use a lot of native modules at the time of this video turbo modules seem to be mostly working but they haven't been officially released facebook is using turbo modules internally and react native reanimated recently released version 2 using turbo modules the new react native architecture is going to bring some awesome improvements to the platform.",
+          "Earlier I mentioned all native modules used by the javascript code have to be initialized on startup which can impact performance as a part of the new react native architecture that will change the javascript code will load only the module when it's actually needed no more using the old bridge because a javascript code can hold a direct reference to what is now called a turbo module this is going to improve startup times for apps that use a lot of native modules.",
       },
       {
         type: "diagram",
@@ -540,12 +710,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "The New Architecture was introduced as an opt-in in React Native 0.68 and became enabled by default in React Native 0.76. That release made Fabric and TurboModules available by default for new projects; earlier releases introduced the pieces incrementally.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "As of November 10, 2026, React Native 0.88 is the latest stable release. Check the official release schedule when you need the current version.",
+          "The New Architecture was introduced in React Native{color:#1c7ed6} 0.68{/color} and became enabled by default in React Native {color:#1c7ed6}0.76{/color}. That release made Fabric and TurboModules available by default for new projects; earlier releases introduced the pieces incrementally.",
       },
     ],
     topic: "Architecture",
@@ -567,22 +732,22 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "AsyncStorage is a simple, unencrypted, persistent, key-value storage system that is global to the app. Four key features React Native provides a simple and efficient way to persist data locally using the AsyncStorage module. This is particularly useful for storing user preferences, authentication tokens, or any other data that needs to persist across app restarts. 1. Simple: Core Functionality Involves Set And Get Methods.                                                       2. Unencrypted: Access is controlled by location access. 3. Persistent: Data Is Saved Until It Is Explicitly Deleted. 4. Global: Saved data is global to the app All AsyncStorage operations are asynchronous and therefore return a Promise.",
+          "AsyncStorage is a simple, unencrypted, persistent, key-value storage system that is global to the app. Four key features React Native provides a simple and efficient way to persist data locally using the AsyncStorage module. This is particularly useful for storing user preferences, authentication tokens, or any other data that needs to persist across app restarts. \n1. Simple: Core Functionality Involves Set And Get Methods.\n2. Unencrypted: Access is controlled by location access. \n3. Persistent: Data Is Saved Until It Is Explicitly Deleted. \n4. Global: Saved data is global to the app All AsyncStorage operations are asynchronous and therefore return a Promise.",
       },
-      {
-        type: "paragraph",
-        content: "App Lifecycle Using AppState",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Everything we have been doing so far assumes that our app is loaded on the screen and is running as a foreground process. We need to be able to perform background processes or safely save the user's data in case the OS suspends it or the user quits it. AppState provides information on the current state of the app: active indicates that the app is running in the foreground background indicates that the app is running in the background inactive indicates that the app is transitioning between foreground and background",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Reconciliation: The Dynamic Dance of Components In React, when you change something in your app (like updating some data), React wants to update what the user sees on the screen accordingly. But rather than re- rendering everything from scratch every time there\u2019s a change, React is smart about it. Here\u2019s how it works: 1. Virtual DOM: React keeps a virtual representation of what your UI looks like. It\u2019s like a blueprint of your actual UI, but it\u2019s not directly visible to the user. 2. Diffing Algorithm: When there\u2019s a change, React compares this new blueprint (virtual DOM) with the previous one to see what\u2019s different. It\u2019s like comparing two versions of a drawing to see what lines were added, removed, or changed. 3. Minimal Changes: React figures out the smallest possible number of changes needed to update the actual UI based on the differences it found. It\u2019s like finding the most efficient way to tweak your drawing to reflect the changes. 4. Updating the DOM: Finally, React applies these minimal changes to the real DOM (what the user sees on the screen) so that it accurately reflects the updated virtual DOM. It does this in the most efficient way possible, so it\u2019s fast and doesn\u2019t cause unnecessary work. In simple terms, React\u2019s reconciliation with a diffing algorithm is like a clever artist who only makes the necessary adjustments to a drawing instead of redrawing everything from scratch every time there\u2019s a change. This approach makes React apps are fast and efficient, providing a smooth user experience.",
-      },
+      // {
+      //   type: "paragraph",
+      //   content: "App Lifecycle Using AppState",
+      // },
+      // {
+      //   type: "paragraph",
+      //   content:
+      //     "Everything we have been doing so far assumes that our app is loaded on the screen and is running as a foreground process. We need to be able to perform background processes or safely save the user's data in case the OS suspends it or the user quits it. AppState provides information on the current state of the app: active indicates that the app is running in the foreground background indicates that the app is running in the background inactive indicates that the app is transitioning between foreground and background",
+      // },
+      // {
+      //   type: "paragraph",
+      //   content:
+      //     "Reconciliation: The Dynamic Dance of Components In React, when you change something in your app (like updating some data), React wants to update what the user sees on the screen accordingly. But rather than re- rendering everything from scratch every time there\u2019s a change, React is smart about it. Here\u2019s how it works: 1. Virtual DOM: React keeps a virtual representation of what your UI looks like. It\u2019s like a blueprint of your actual UI, but it\u2019s not directly visible to the user. 2. Diffing Algorithm: When there\u2019s a change, React compares this new blueprint (virtual DOM) with the previous one to see what\u2019s different. It\u2019s like comparing two versions of a drawing to see what lines were added, removed, or changed. 3. Minimal Changes: React figures out the smallest possible number of changes needed to update the actual UI based on the differences it found. It\u2019s like finding the most efficient way to tweak your drawing to reflect the changes. 4. Updating the DOM: Finally, React applies these minimal changes to the real DOM (what the user sees on the screen) so that it accurately reflects the updated virtual DOM. It does this in the most efficient way possible, so it\u2019s fast and doesn\u2019t cause unnecessary work. In simple terms, React\u2019s reconciliation with a diffing algorithm is like a clever artist who only makes the necessary adjustments to a drawing instead of redrawing everything from scratch every time there\u2019s a change. This approach makes React apps are fast and efficient, providing a smooth user experience.",
+      // },
     ],
     topic: "State & data",
   },
@@ -664,7 +829,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "The React Native component lifecycle consists of the following phases. Mounting Phase Creation: When a component is first created, it enters the mounting phase. Constructor: The component\u2019s constructor is called, where you can initialize state and bind methods. Render: The render( ) method is invoked, returning the initial UI representation. ComponentDidMount: After rendering, componentDidMount( ) is called. It\u2019s a good place for side effects (e.g., data fetching) and setting up subscriptions. Updating Phase Props or State Change: When a component\u2019s props or state changes, it re-enters the updating phase. ShouldComponentUpdate: React checks if the component should update by calling shouldComponentUpdate( ). You can optimize performance here. Render: If the component should update, it re-renders using the updated props and state. ComponentDidUpdate: After rendering, componentDidUpdate( ) is called. Useful for handling side effects after an update. Unmounting Phase Removal: When a component is removed from the DOM, it enters the unmounting phase. ComponentWillUnmount: Before unmounting, componentWillUnmount( ) is called. Clean up resources (e.g., cancel subscriptions). Error Handling If an error occurs during rendering or in lifecycle methods, the error handling phase is triggered. Use componentDidCatch( ) to handle errors gracefully.",
+          "The React Native component lifecycle consists of the following phases. Mounting Phase Creation: When a component is first created, it enters the mounting phase. Constructor: The component\u2019s constructor is called, where you can initialize state and bind methods. Render: The render( ) method is invoked, returning the initial UI representation. \nComponentDidMount: After rendering, componentDidMount( ) is called. It\u2019s a good place for side effects (e.g., data fetching) and setting up subscriptions. Updating Phase Props or State Change: When a component\u2019s props or state changes, it re-enters the updating phase. ShouldComponentUpdate: React checks if the component should update by calling shouldComponentUpdate( ). You can optimize performance here. Render: If the component should update, it re-renders using the updated props and state. ComponentDidUpdate: After rendering, componentDidUpdate( ) is called. Useful for handling side effects after an update. Unmounting Phase Removal: When a component is removed from the DOM, it enters the unmounting phase. \nComponentWillUnmount: Before unmounting, componentWillUnmount( ) is called. Clean up resources (e.g., cancel subscriptions). Error Handling If an error occurs during rendering or in lifecycle methods, the error handling phase is triggered. Use componentDidCatch( ) to handle errors gracefully.",
       },
     ],
     topic: "Core concepts",
@@ -777,18 +942,6 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       },
     ],
     topic: "App development",
-  },
-  {
-    id: "describe-the-purpose-of-asyncstorage-in-react-native",
-    question: "Describe the purpose of 'AsyncStorage' in React Native.",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "'AsyncStorage' is an API in React Native for asynchronous, unencrypted, and persistent storage of small amounts of data. It's often used to store settings, preferences, or authentication tokens locally on the user's device.",
-      },
-    ],
-    topic: "State & data",
   },
   {
     id: "how-can-you-integrate-redux-with-a-react-native-app",
@@ -923,15 +1076,31 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
         content:
           "React Native provides the 'platform' module to handle platform-specific code. You can use it to conditionally render components or apply styles based on the platform (iOS/Android). Alternatively, you can create separate platform-specific files using naming conventions (e.g., 'MyComponent.ios.js' and 'MyComponent.android.js').",
       },
+    ],
+    topic: "App development",
+  },
+  {
+    id: "Discuss-the-benefits-and-drawbacks-of-using-Expo-for-React-Native-development",
+    question:
+      "Discuss the benefits and drawbacks of using Expo for React Native development",
+    answer: [
       {
         type: "paragraph",
         content:
-          "Discuss the benefits and drawbacks of using Expo for React Native development. Expo offers a streamlined way to start React Native development, providing a set of pre-built components, tools, and services. This accelerates the development process and reduces the need for native module configuration. However, there are benefits and drawbacks to using Expo: Benefits: Expo simplifies setup: It abstracts the complexity of native modules, making it easier for developers to start building quickly without dealing with platform-specific configuration. Over-the-air updates: Expo enables seamless updates to apps without requiring users to download new versions from the app store. Access to native functionality: Expo provides a wide range of APIs to access device features like camera, location, and more. Unified codebase: With Expo, you can develop for both iOS and Android using a single codebase, saving time and effort. Drawbacks: Limited native module support: Expo restricts access to certain native modules which might limit your app's capability if you require deep native integration. Bigger app size: Expo includes its runtime in the app package, potentially leading to larger app sizes compared to bare React Native projects. Dependency on Expo services: If Expo services are discontinued or changed, it could impact your app's functionality and maintenance. Customization constraints: Expo's tooling might not provide the flexibility needed for complex customization, especially in cases where you need to integrate third-party native libraries. In summary, Expo is an excellent choice for rapid prototyping, smaller apps, or when you want to get started quickly. However, for more complex applications that require deep native integrations and greater customization, a bare React Native setup might be more suitable.",
+          "Expo offers a streamlined way to start React Native development, providing a set of pre-built components, tools, and services. This accelerates the development process and reduces the need for native module configuration. However, there are benefits and drawbacks to using Expo: \nBenefits: \nExpo simplifies setup: It abstracts the complexity of native modules, making it easier for developers to start building quickly without dealing with platform-specific configuration. \nOver-the-air updates: Expo enables seamless updates to apps without requiring users to download new versions from the app store. \nAccess to native functionality: Expo provides a wide range of APIs to access device features like camera, location, and more. \nUnified codebase: With Expo, you can develop for both iOS and Android using a single codebase, saving time and effort. \nDrawbacks: \nLimited native module support: Expo restricts access to certain native modules which might limit your app's capability if you require deep native integration. \nBigger app size: Expo includes its runtime in the app package, potentially leading to larger app sizes compared to bare React Native projects. \nDependency on Expo services: If Expo services are discontinued or changed, it could impact your app's functionality and maintenance. \nCustomization constraints: Expo's tooling might not provide the flexibility needed for complex customization, especially in cases where you need to integrate third-party native libraries. \nIn summary, Expo is an excellent choice for rapid prototyping, smaller apps, or when you want to get started quickly. However, for more complex applications that require deep native integrations and greater customization, a bare React Native setup might be more suitable.",
       },
+    ],
+    topic: "App development",
+  },
+  {
+    id: "benefits-and-drawbacks-of-using-React-Native-for-cross-platform-mobile-development",
+    question:
+      "Discuss the benefits and drawbacks of using React native cli for React Native development.",
+    answer: [
       {
         type: "paragraph",
         content:
-          "Discuss the benefits and drawbacks of using React native cli for React Native development Benefits Full control over native code (Android/iOS) and project configuration. Ideal for integrating custom native modules or third-party SDKs not supported by Expo. No dependency on a managed ecosystem like Expo \u2013 fewer abstractions. More lightweight project setup \u2013 only includes what you add. Better suited for complex or enterprise-level applications with custom requirements. Easier to optimize performance through native-level tweaks. Drawbacks Steeper learning curve, especially for developers without native mobile development experience. More complex setup and configuration (e.g., Xcode, Android Studio, SDK paths). Manual linking and native dependency management can be time-consuming. Harder to debug issues that originate from native code or build configurations. No out-of-the-box features like Expo provides (e.g., over-the-air updates, device preview tools). Updating React Native and related dependencies requires more effort and care.",
+          "Full control over native code (Android/iOS) and project configuration. \nIdeal for integrating custom native modules or third-party SDKs not supported by Expo. \nNo dependency on a managed ecosystem like Expo \u2013 fewer abstractions. \nMore lightweight project setup \u2013 only includes what you add. \nBetter suited for complex or enterprise-level applications with custom requirements. \nEasier to optimize performance through native-level tweaks. \nDrawbacks: \nSteeper learning curve, especially for developers without native mobile development experience. \nMore complex setup and configuration (e.g., Xcode, Android Studio, SDK paths). \nManual linking and native dependency management can be time-consuming. \nHarder to debug issues that originate from native code or build configurations. \nNo out-of-the-box features like Expo provides (e.g., over-the-air updates, device preview tools). \nUpdating React Native and related dependencies requires more effort and care",
       },
     ],
     topic: "App development",
@@ -943,22 +1112,10 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "Props drilling occurs when props are passed from a top-level component to multiple nested components, even though some intermediate components do not use those props. This can lead to cluttered code and reduced maintainability. To avoid props drilling, you can use techniques like Context API or Redux. Context API: React's Context API allows you to share the state between components without directly passing props. You can create a context at the top level and provide it to any component that needs the shared data. Redux: Redux is a state management library that centralizes the state of your app. It eliminates the need to pass props down through many layers of components by allowing any component to access the state from the store. These approaches can help you ensure that components only receive the data they need, reducing unnecessary prop passing and making your codebase cleaner and more maintainable.",
+          "Props drilling occurs when props are passed from a top-level component to multiple nested components, even though some intermediate components do not use those props. This can lead to cluttered code and reduced maintainability. To avoid props drilling, you can use techniques like Context API or Redux. \nContext API: React's Context API allows you to share the state between components without directly passing props. You can create a context at the top level and provide it to any component that needs the shared data. \nRedux: Redux is a state management library that centralizes the state of your app. It eliminates the need to pass props down through many layers of components by allowing any component to access the state from the store. These approaches can help you ensure that components only receive the data they need, reducing unnecessary prop passing and making your codebase cleaner and more maintainable.",
       },
     ],
     topic: "Core concepts",
-  },
-  {
-    id: "explain-the-role-of-managed-and-bare-workflows-in-expo",
-    question: "Explain the role of managed and bare workflows in Expo.",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "Expo's managed workflow offers simplicity and speed but limited access to native modules. The bare workflow provides full control but requires more setup and native code management.",
-      },
-    ],
-    topic: "App development",
   },
   {
     id: "what-is-the-importance-of-gesture-handling-for-creating-rich-and-respons",
@@ -987,10 +1144,17 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
         content:
           "AsyncStorage is suitable for smaller amounts of data. For larger or more complex data, you might consider using libraries like react-native-sqlite-storage for an SQLite database or realm for a NoSQL database. Remember to handle errors appropriately and provide user feedback when dealing with offline storage.",
       },
+    ],
+    topic: "State & data",
+  },
+  {
+    id: "shouldcomponentupdate-in-react-native",
+    question: "What is the purpose of shouldComponentUpdate in React Native?",
+    answer: [
       {
         type: "paragraph",
         content:
-          "Discuss the role of 'shouldComponentUpdate' in React Native. shouldComponentUpdate is a lifecycle method that allows you to control whether a component should update and re-render when its props or state change. By default, React components re-render whenever there's a change in props or state. However, in some cases, you might want to optimize performance by preventing unnecessary renders. Use **shouldComponentUpdate **when you have expensive operations in your render method or when you want to avoid re-renders that wouldn't change the component's output. However, don\u2019t overuse it as it can make your code more complex and harder to maintain. Note: In modern React, you might prefer using React.memo higher-order component (HOC) or the useMemo hook for similar optimization purposes.",
+          "ShouldComponentUpdate is a lifecycle method that allows you to control whether a component should update and re-render when its props or state change. By default, React components re-render whenever there's a change in props or state. However, in some cases, you might want to optimize performance by preventing unnecessary renders. Use **shouldComponentUpdate **when you have expensive operations in your render method or when you want to avoid re-renders that wouldn't change the component's output. However, don\u2019t overuse it as it can make your code more complex and harder to maintain. \n\nNote: In modern React, you might prefer using React.memo higher-order component (HOC) or the useMemo hook for similar optimization purposes.",
       },
     ],
     topic: "State & data",
@@ -1002,7 +1166,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "The Virtual DOM is a concept in React (and React Native) that represents the UI as an in-memory tree structure of components. When there are changes to a component's props or state, React generates a new Virtual DOM tree, compares it with the previous one using a process called \"reconciliation\", and then updates the actual DOM with the minimal necessary changes. In React Native, the Virtual DOM operates similarly to how it does in the web version of React. However, instead of directly manipulating the browser's DOM, React Native's Virtual DOM communicates with the native platform's UI elements. The relevance of the Virtual DOM in React Native includes: Performance optimization: The Virtual DOM allows React Native to minimize actual DOM manipulations, resulting in improved performance by batching updates and reducing the number of reflows and repaints. Cross-platform consistency: React Native's Virtual DOM enables a consistent development experience across different platforms (iOS, Android). Developers write code targeting the Virtual DOM which is then translated to platform-specific UI components. Developer productivity: Developers can focus on writing declarative UI code while letting React Native handle the efficient rendering updates. This makes the development process more productive and less error-prone. Reconciliation control: The Virtual DOM's reconciliation process ensures that only necessary updates are applied to the UI. This avoids unnecessary re-renders and enhances the app's responsiveness. In summary, the Virtual DOM is a key component of React Native's architecture that contributes to its performance, cross-platform capabilities, and developer-friendly approach.",
+          "The Virtual DOM is a concept in React (and React Native) that represents the UI as an in-memory tree structure of components. When there are changes to a component's props or state, React generates a new Virtual DOM tree, compares it with the previous one using a process called \"reconciliation\", and then updates the actual DOM with the minimal necessary changes. In React Native, the Virtual DOM operates similarly to how it does in the web version of React. However, instead of directly manipulating the browser's DOM, React Native's Virtual DOM communicates with the native platform's UI elements. \nThe relevance of the Virtual DOM in React Native includes: \nPerformance optimization: The Virtual DOM allows React Native to minimize actual DOM manipulations, resulting in improved performance by batching updates and reducing the number of reflows and repaints. \nCross-platform consistency: React Native's Virtual DOM enables a consistent development experience across different platforms (iOS, Android). Developers write code targeting the Virtual DOM which is then translated to platform-specific UI components. \nDeveloper productivity: Developers can focus on writing declarative UI code while letting React Native handle the efficient rendering updates. This makes the development process more productive and less error-prone. \nReconciliation control: The Virtual DOM's reconciliation process ensures that only necessary updates are applied to the UI. This avoids unnecessary re-renders and enhances the app's responsiveness. \nIn summary, the Virtual DOM is a key component of React Native's architecture that contributes to its performance, cross-platform capabilities, and developer-friendly approach.",
       },
       {
         type: "diagram",
@@ -1051,7 +1215,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "Achieving a responsive design in React Native involves creating layouts that adapt effectively to different screen sizes and orientations. Here are some techniques: Flexbox: React Native uses Flexbox for layout which allows components to dynamically adjust their size and position based on available space. It's crucial for creating responsive designs. Dimensions API: You can use the Dimensions module to get the screen dimensions and adjust your layout accordingly. Platform-specific code: React Native provides platform-specific extensions (e.g., Platform.OS) to write code that's specific to iOS or Android. This allows you to fine-tune your design for each platform. Orientation changes: Listen for orientation change events and update your UI accordingly. You can use the Dimensions module or the react-native-orientation-locker library. Responsive fonts: Use the PixelRatio module to adjust font sizes based on screen density. Layout components: Libraries like react-native-responsive-screen provide components that adapt their size based on the screen dimensions. Media queries: You can use the react-native-responsive library to implement CSS-like media queries for responsive styling. By combining these techniques, you can create UIs that look and feel great on a variety of devices and screen sizes.",
+          "Achieving a responsive design in React Native involves creating layouts that adapt effectively to different screen sizes and orientations. Here are some techniques: \nFlexbox: React Native uses Flexbox for layout which allows components to dynamically adjust their size and position based on available space. It's crucial for creating responsive designs. \nDimensions API: You can use the Dimensions module to get the screen dimensions and adjust your layout accordingly. \nPlatform-specific code: React Native provides platform-specific extensions (e.g., Platform.OS) to write code that's specific to iOS or Android. This allows you to fine-tune your design for each platform. \nOrientation changes: Listen for orientation change events and update your UI accordingly. You can use the Dimensions module or the react-native-orientation-locker library. \nResponsive fonts: Use the PixelRatio module to adjust font sizes based on screen density. \nLayout components: Libraries like react-native-responsive-screen provide components that adapt their size based on the screen dimensions. \nMedia queries: You can use the react-native-responsive library to implement CSS-like media queries for responsive styling. By combining these techniques, you can create UIs that look and feel great on a variety of devices and screen sizes.",
       },
     ],
     topic: "Core concepts",
@@ -1063,7 +1227,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "Push notifications are essential for keeping users engaged with an app. To handle push notifications in a React Native app, these steps can be followed: Set up push notification services Integrate a push notification service like Firebase Cloud Messaging (FCM) or Apple Push Notification Service (APNs) for iOS. Request permissions Use the react-native-push-notification or @react-native-community/push-notification-ios library to request notification permissions from users. Handle registration Register the device token with the push notification service. The token is necessary for sending notifications to the device. Handle notifications Configure the app to handle incoming notifications, whether the app is foregrounded, backgrounded, or closed. You can define custom behaviors based on notification data. Display notifications Use the notification library to display local or remote notifications to users. Here's a basic example of handling push notifications using react-native-push-notification:",
+          "Push notifications are essential for keeping users engaged with an app. To handle push notifications in a React Native app, these steps can be followed: \nSet up push notification services Integrate a push notification service like Firebase Cloud Messaging (FCM) or Apple Push Notification Service (APNs) for iOS. \nRequest permissions Use the react-native-push-notification or @react-native-community/push-notification-ios library to request notification permissions from users. \nHandle registration Register the device token with the push notification service. The token is necessary for sending notifications to the device. \nHandle notifications Configure the app to handle incoming notifications, whether the app is foregrounded, backgrounded, or closed. You can define custom behaviors based on notification data. \nDisplay notifications Use the notification library to display local or remote notifications to users. Here's a basic example of handling push notifications using react-native-push-notification:",
       },
       {
         type: "paragraph",
@@ -1081,12 +1245,20 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "Bi-directional communication involves the exchange of data and events between parent and child components. React Native provides ways to achieve this: Props: Pass data from parent to child components using props. Child components receive data as props and can trigger events by using callbacks passed from the parent. Context API: Use the Context API to share data between components that are not directly connected in the component tree. This avoids the need to pass props through intermediate components. State management libraries: Libraries like Redux and MobX enable global state management, allowing any component to access and modify shared state. Events and callbacks: Child components can emit events or call callbacks provided by the parent components to communicate changes or trigger actions. React hooks: Use custom hooks to encapsulate stateful logic and share it across components, enabling reusable behavior. Native modules (for native communication): For complex scenarios, you can create native modules that expose native functionality to JavaScript and vice versa. The choice of communication method depends on the complexity of your app and the level of decoupling you need between components.",
+          "Bi-directional communication involves the exchange of data and events between parent and child components. React Native provides ways to achieve this: \nProps: Pass data from parent to child components using props. Child components receive data as props and can trigger events by using callbacks passed from the parent. \nContext API: Use the Context API to share data between components that are not directly connected in the component tree. This avoids the need to pass props through intermediate components. State management libraries: Libraries like Redux and MobX enable global state management, allowing any component to access and modify shared state. \nEvents and callbacks: Child components can emit events or call callbacks provided by the parent components to communicate changes or trigger actions. \nReact hooks: Use custom hooks to encapsulate stateful logic and share it across components, enabling reusable behavior. Native modules (for native communication): For complex scenarios, you can create native modules that expose native functionality to JavaScript and vice versa. The choice of communication method depends on the complexity of your app and the level of decoupling you need between components.",
       },
+    ],
+    topic: "App development",
+  },
+  {
+    id: "role-safeareaview-react-native",
+    question:
+      "Discuss the role of 'SafeAreaView' in React Native and why it's important. ",
+    answer: [
       {
         type: "paragraph",
         content:
-          "Discuss the role of 'SafeAreaView' in React Native and why it's important. SafeAreaView is a component provided by React Native that ensures content is displayed within safe insets, avoiding overlaps with notches, status bars, and navigation bars on various devices. It's particularly important for creating a consistent and user-friendly UI across different screen sizes and device types. Key points: Safe insets: Notches, status bars, and navigation bars can vary in size and shape across devices. SafeAreaView automatically calculates and applies insets to your content to prevent it from being obstructed. Consistent UI: By using SafeAreaView, you ensure that critical UI elements and content are always visible and accessible, enhancing the user experience. Platform specifics: SafeAreaView accounts for platform-specific guidelines and automatically adjusts the layout based on the device's platform (iOS or Android). Ease of use: Wrapping your top-level components or screens with SafeAreaView will enable it to handle insets for you. Here's a basic example of how to use SafeAreaView:",
+          "SafeAreaView is a component provided by React Native that ensures content is displayed within safe insets, avoiding overlaps with notches, status bars, and navigation bars on various devices. It's particularly important for creating a consistent and user-friendly UI across different screen sizes and device types. \nKey points: \nSafe insets: Notches, status bars, and navigation bars can vary in size and shape across devices. SafeAreaView automatically calculates and applies insets to your content to prevent it from being obstructed. \nConsistent UI: By using SafeAreaView, you ensure that critical UI elements and content are always visible and accessible, enhancing the user experience. \nPlatform specifics: SafeAreaView accounts for platform-specific guidelines and automatically adjusts the layout based on the device's platform (iOS or Android). \nEase of use: Wrapping your top-level components or screens with SafeAreaView will enable it to handle insets for you. Here's a basic example of how to use SafeAreaView:",
       },
       {
         type: "paragraph",
@@ -1094,7 +1266,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
           "Using SafeAreaView helps you design your app in a way that accommodates the unique characteristics of different devices, providing a polished and visually pleasing experience for users.",
       },
     ],
-    topic: "App development",
+    topic: "Core concepts",
   },
   {
     id: "how-can-you-implement-a-custom-font-in-a-react-native-app",
@@ -1103,7 +1275,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "To implement a custom font in a React Native app, these steps can be followed: Add the font files Place your font files (usually in .ttf or .otf format) in a folder within your project directory. Link fonts For iOS, add the font files to your Xcode project and ensure they're included in the target. For Android, create an XML font resource file and link the font files. Install dependencies Install the react-native-vector-icons package, which provides a convenient way to manage and use custom fonts. Import and use fonts Import and use the custom font in your components using the Text component. You can set the fontFamily style property to the font's name. Here's an example of implementing a custom font:",
+          "To implement a custom font in a React Native app, these steps can be followed: \nPlace your font files (usually in .ttf or .otf format) in a folder within your project directory. \nLink fonts For iOS, add the font files to your Xcode project and ensure they're included in the target. \nFor Android, create an XML font resource file and link the font files. \nInstall dependencies Install the react-native-vector-icons package, which provides a convenient way to manage and use custom fonts. \nImport and use fonts Import and use the custom font in your components using the Text component. You can set the fontFamily style property to the font's name. Here's an example of implementing a custom font:",
       },
       {
         type: "paragraph",
@@ -1139,12 +1311,25 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "Bridge communication in React Native refers to the mechanism that enables JavaScript code to communicate with native code on the device. Since React Native apps run JavaScript code on a separate thread from the native UI, this bridge facilitates the exchange of data and events between the two environments. Key points: Asynchronous communication: The bridge handles asynchronous communication between JavaScript and native modules. JavaScript sends requests to native modules, which are executed on the native thread, and the results are then sent back to JavaScript. Native modules: Native modules are JavaScript modules that expose methods to be called from JavaScript. These modules are implemented in the native code (Java/Objective-C) and provide access to native functionality. Performance: The bridge allows React Native to achieve native performance by delegating heavy computations and UI rendering to the native side. Serialization and deserialization: Data sent between JavaScript and native code is serialized and deserialized as JSON, ensuring compatibility between the two environments.",
+          "Bridge communication in React Native refers to the mechanism that enables JavaScript code to communicate with native code on the device. Since React Native apps run JavaScript code on a separate thread from the native UI, this bridge facilitates the exchange of data and events between the two environments. Key points: \nAsynchronous communication: The bridge handles asynchronous communication between JavaScript and native modules. JavaScript sends requests to native modules, which are executed on the native thread, and the results are then sent back to JavaScript. Native modules: Native modules are JavaScript modules that expose methods to be called from JavaScript. These modules are implemented in the native code (Java/Objective-C) and provide access to native functionality.\nPerformance: The bridge allows React Native to achieve native performance by delegating heavy computations and UI rendering to the native side. \nSerialization and deserialization: Data sent between JavaScript and native code is serialized and deserialized as JSON, ensuring compatibility between the two environments.\nCommunication overhead: Frequent communication between JavaScript and native code can introduce communication overhead. It's important to optimize communication patterns for performance. The bridge communication is a fundamental part of React Native's architecture, enabling seamless integration of native functionality into the JavaScript-based UI layer. ",
       },
+    ],
+    topic: "Architecture",
+    references: [
+      {
+        label: "About the New Architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "native-modules-in-react-native",
+    question: "Explain the use of 'native modules' in React Native.",
+    answer: [
       {
         type: "paragraph",
         content:
-          "Communication overhead: Frequent communication between JavaScript and native code can introduce communication overhead. It's important to optimize communication patterns for performance. The bridge communication is a fundamental part of React Native's architecture, enabling seamless integration of native functionality into the JavaScript-based UI layer. Explain the use of 'native modules' in React Native. Native modules in React Native are JavaScript modules that provide a bridge between the JavaScript code and the native code of the underlying platforms (iOS and Android). They enable you to access native functionality and APIs that are not available out-of-the-box in React Native. Key points: Accessing native APIs: Native modules allow you to tap into the platform-specific APIs and capabilities of iOS and Android. This is crucial when you need to perform tasks like accessing device sensors, interacting with device hardware, and using platform-specific UI components. Custom functionality: You can create native modules to expose custom native functionality to your React Native app. Method exports: Native modules export methods that can be called from JavaScript. These methods can accept parameters and return values. Asynchronous communication: Methods in native modules often involve asynchronous communication with the native side, which is common for tasks like fetching data from a network. Platform-specific implementation: Each platform (iOS and Android) requires separate implementation of native modules using platform-specific code (Objective-C/Swift for iOS and Java/Kotlin for Android).",
+          "Native modules in React Native are JavaScript modules that provide a bridge between the JavaScript code and the native code of the underlying platforms (iOS and Android). They enable you to access native functionality and APIs that are not available out-of-the-box in React Native. \nKey points: \nAccessing native APIs: Native modules allow you to tap into the platform-specific APIs and capabilities of iOS and Android. This is crucial when you need to perform tasks like accessing device sensors, interacting with device hardware, and using platform-specific UI components. \nCustom functionality: You can create native modules to expose custom native functionality to your React Native app. \nMethod exports: Native modules export methods that can be called from JavaScript. These methods can accept parameters and return values. \nAsynchronous communication: Methods in native modules often involve asynchronous communication with the native side, which is common for tasks like fetching data from a network. \nPlatform-specific implementation: Each platform (iOS and Android) requires separate implementation of native modules using platform-specific code (Objective-C/Swift for iOS and Java/Kotlin for Android).",
       },
       {
         type: "heading",
@@ -1180,25 +1365,19 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       },
     ],
     topic: "Architecture",
-    references: [
-      {
-        label: "About the New Architecture",
-        href: "https://reactnative.dev/architecture/landing-page",
-      },
-    ],
   },
-  {
-    id: "what-are-the-limitations-of-react-native",
-    question: "What are the limitations of React Native?",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "While React Native offers many advantages, it also has some limitations: Performance: React Native achieves native performance for most use cases but certain complex and graphics-intensive tasks may still require native code for optimal performance. Limited access to native APIs: While React Native provides access to many native APIs, there might be cases where you need to write custom native modules to access specific platform features. Third-party libraries: Not all native libraries are readily available for React Native. Some might need to be wrapped or rewritten to work with React Native. UI flexibility: Although React Native provides a rich set of UI components, intricate UI designs might require custom native code or third-party libraries. Debugging: Debugging React Native apps can sometimes be more challenging compared to debugging web applications, particularly when dealing with interactions between JavaScript and native code. Version compatibility: Keeping up with React Native updates and ensuring compatibility with third-party libraries can sometimes be time-consuming. Platform-specific design: Some platform-specific design guidelines might be challenging to implement consistently across iOS and Android. Learning curve: React Native has a learning curve, especially for developers new to JavaScript or those transitioning from native app development. Despite these limitations, React Native remains a powerful framework for cross-platform app development, offering a productive and efficient way to build mobile applications.",
-      },
-    ],
-    topic: "App development",
-  },
+  // {
+  //   id: "what-are-the-limitations-of-react-native",
+  //   question: "What are the limitations of React Native?",
+  //   answer: [
+  //     {
+  //       type: "paragraph",
+  //       content:
+  //         "While React Native offers many advantages, it also has some limitations: Performance: React Native achieves native performance for most use cases but certain complex and graphics-intensive tasks may still require native code for optimal performance. Limited access to native APIs: While React Native provides access to many native APIs, there might be cases where you need to write custom native modules to access specific platform features. Third-party libraries: Not all native libraries are readily available for React Native. Some might need to be wrapped or rewritten to work with React Native. UI flexibility: Although React Native provides a rich set of UI components, intricate UI designs might require custom native code or third-party libraries. Debugging: Debugging React Native apps can sometimes be more challenging compared to debugging web applications, particularly when dealing with interactions between JavaScript and native code. Version compatibility: Keeping up with React Native updates and ensuring compatibility with third-party libraries can sometimes be time-consuming. Platform-specific design: Some platform-specific design guidelines might be challenging to implement consistently across iOS and Android. Learning curve: React Native has a learning curve, especially for developers new to JavaScript or those transitioning from native app development. Despite these limitations, React Native remains a powerful framework for cross-platform app development, offering a productive and efficient way to build mobile applications.",
+  //     },
+  //   ],
+  //   topic: "App development",
+  // },
   {
     id: "how-would-you-handle-state-synchronization-between-react-components",
     question:
@@ -1207,12 +1386,20 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "State synchronization involves ensuring that different React components share and display the same state accurately. You can achieve this using the following approaches: Lifting state: If multiple components need to share the same state, lift that state to their common ancestor. Pass the state down as props to child components, ensuring they stay in sync. Context API: Use the Context API to share the state between components that are not directly connected in the component tree. This avoids prop drilling and simplifies state management. State management libraries: Use state management libraries like Redux or MobX to centralize and manage the state of your application, ensuring that all components access the same source of truth. React hooks: Use React hooks like useState, useEffect, and useContext to manage and share states within functional components. Event emitter/observer pattern: Implement a custom event emitter or observer pattern to notify components of state changes and keep them synchronized. Local storage/AsyncStorage: For persisting data across components or sessions, you can store the state in local storage or AsyncStorage. The approach you choose depends on the complexity of your app and the scale of state synchronization needed.",
+          "State synchronization involves ensuring that different React components share and display the same state accurately. You can achieve this using the following approaches: \nLifting state: If multiple components need to share the same state, lift that state to their common ancestor. Pass the state down as props to child components, ensuring they stay in sync. \nContext API: Use the Context API to share the state between components that are not directly connected in the component tree. This avoids prop drilling and simplifies state management. State management libraries: Use state management libraries like Redux or MobX to centralize and manage the state of your application, ensuring that all components access the same source of truth. \nReact hooks: Use React hooks like useState, useEffect, and useContext to manage and share states within functional components. Event emitter/observer pattern: Implement a custom event emitter or observer pattern to notify components of state changes and keep them synchronized. Local storage/AsyncStorage: For persisting data across components or sessions, you can store the state in local storage or AsyncStorage. The approach you choose depends on the complexity of your app and the scale of state synchronization needed.",
       },
+    ],
+    topic: "State & data",
+  },
+  {
+    id: "role-layoutanimation-react-native",
+    question:
+      "Discuss the role of 'LayoutAnimation' for creating smooth transitions in React Native.",
+    answer: [
       {
         type: "paragraph",
         content:
-          "Discuss the role of 'LayoutAnimation' for creating smooth transitions in React Native. LayoutAnimation is a module in React Native that allows you to create smooth animations and transitions for layout changes. It simplifies the process of animating changes in component sizes, positions, and appearances. Key points: Ease of use: LayoutAnimation provides a simple way to create animations without needing to explicitly manage animation frames. Implicit animations: With LayoutAnimation, you define animation properties (such as duration and easing) and the framework automatically animates the changes for you. Integration with state changes: You can use LayoutAnimation alongside state changes to create animations that respond to changes in your app's data. Performance: LayoutAnimation is designed to be performant and efficient, ensuring smooth animations even on lower-end devices. Supported animations: LayoutAnimation supports various types of animations including scaling, fading, and sliding. Example:",
+          "LayoutAnimation is a module in React Native that allows you to create smooth animations and transitions for layout changes. It simplifies the process of animating changes in component sizes, positions, and appearances. \nKey points: \nEase of use: LayoutAnimation provides a simple way to create animations without needing to explicitly manage animation frames. \nImplicit animations: With LayoutAnimation, you define animation properties (such as duration and easing) and the framework automatically animates the changes for you. \nIntegration with state changes: You can use LayoutAnimation alongside state changes to create animations that respond to changes in your app's data. \nPerformance: LayoutAnimation is designed to be performant and efficient, ensuring smooth animations even on lower-end devices. \nSupported animations: LayoutAnimation supports various types of animations including scaling, fading, and sliding. Example:",
       },
       {
         type: "paragraph",
@@ -1220,7 +1407,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
           'In this example, when the "Toggle Expansion" button is pressed, the height of the blue View element smoothly transitions between two values.',
       },
     ],
-    topic: "State & data",
+    topic: "Animation",
   },
   {
     id: "how-can-you-implement-background-tasks-in-a-react-native-app",
@@ -1229,7 +1416,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "Background tasks are important for performing operations that don't require user interaction when the app is not in the foreground. React Native provides mechanisms to achieve background tasks: Headless JS: Use Headless JS to run JavaScript code in the background, even when the app is closed. This is useful for tasks like data synchronization, sending analytics, and processing notifications. Background fetch: Use the react-native-background-fetch library to schedule background fetches that can periodically update data or trigger actions. Push notifications: While not true background tasks, push notifications can be used to prompt the app to perform certain actions or updates when they arrive. Native nodules: For tasks that require native capabilities, you can create custom native modules that handle background tasks on the native side. Background geolocation: Use the react-native-background-geolocation library to track device location and perform tasks based on location changes, even when the app is in the background. Example (Headless JS):",
+          "Background tasks are important for performing operations that don't require user interaction when the app is not in the foreground. React Native provides mechanisms to achieve background tasks: \nHeadless JS: Use Headless JS to run JavaScript code in the background, even when the app is closed. This is useful for tasks like data synchronization, sending analytics, and processing notifications. \nBackground fetch: Use the react-native-background-fetch library to schedule background fetches that can periodically update data or trigger actions. \nPush notifications: While not true background tasks, push notifications can be used to prompt the app to perform certain actions or updates when they arrive. Native nodules: For tasks that require native capabilities, you can create custom native modules that handle background tasks on the native side. \nBackground geolocation: Use the react-native-background-geolocation library to track device location and perform tasks based on location changes, even when the app is in the background. Example (Headless JS):",
       },
       {
         type: "paragraph",
@@ -1262,7 +1449,7 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
       {
         type: "paragraph",
         content:
-          "The react-navigation library is a popular choice for handling navigation in React Native apps. It provides a flexible and customizable way to manage navigation between different screens and components. Basic usage: Installation: Install the required packages using npm or yarn. npm install @react-navigation/native @react-navigation/stack Create navigator: Set up a navigation stack by creating a navigator using createStackNavigator.",
+          "The react-navigation library is a popular choice for handling navigation in React Native apps. It provides a flexible and customizable way to manage navigation between different screens and components. Basic usage: \nInstallation: Install the required packages using npm or yarn. npm install @react-navigation/native @react-navigation/stack \nCreate navigator: Set up a navigation stack by creating a navigator using createStackNavigator.",
       },
       {
         type: "paragraph",
@@ -1329,13 +1516,21 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
         content:
           "Babel is a JavaScript compiler that converts modern JavaScript code (ES6/ES7) into an older version (ES5) that is compatible with most browsers and environments. In React Native development, Babel allows developers to write modern JavaScript syntax in their codebase, which is then transformed into code that the React Native runtime can understand. This enables the use of features like arrow functions, classes, and destructuring. Babel is crucial for ensuring cross-platform compatibility and leveraging the latest language features while maintaining broader device support.",
       },
+    ],
+    topic: "Native & tooling",
+  },
+  {
+    id: "error-handling-in-react-native",
+    question:
+      "Discuss the use of 'ErrorUtils' in error handling within a React Native app.",
+    answer: [
       {
         type: "paragraph",
         content:
-          "Discuss the use of 'ErrorUtils' in error handling within a React Native app. 'ErrorUtils' is a utility provided by React Native to enhance error handling. It allows you to catch JavaScript errors that occur outside of the normal execution flow such as those in asynchronous code or event handlers. By wrapping your code with ErrorUtils.setGlobalHandler, you can specify a custom function to handle these errors. This is especially useful in production environments to gracefully handle unexpected errors and prevent crashes, enabling you to provide a better user experience.",
+          "ErrorUtils' is a utility provided by React Native to enhance error handling. It allows you to catch JavaScript errors that occur outside of the normal execution flow such as those in asynchronous code or event handlers. By wrapping your code with ErrorUtils.setGlobalHandler, you can specify a custom function to handle these errors. This is especially useful in production environments to gracefully handle unexpected errors and prevent crashes, enabling you to provide a better user experience.",
       },
     ],
-    topic: "Native & tooling",
+    topic: "Error handling",
   },
   {
     id: "explain-the-concept-of-code-signing-and-its-importance-in-react-native-a",
@@ -1347,23 +1542,62 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
         content:
           "Code signing is a security practice used in app deployment to ensure the authenticity and integrity of the app. In React Native, when you build an app for distribution (iOS or Android), the app is digitally signed using cryptographic signatures. This process involves generating a unique signature for your app and linking it to your developer account. Code signing is crucial as it prevents unauthorized modifications to your app's code and ensures that the app comes from a trusted source. It is a key step in in-app security and app store approval processes.",
       },
-      {
-        type: "paragraph",
-        content:
-          "Discuss the role of 'PureComponent' in React Native and when to use it. 'PureComponent' is a base class in React Native (and React) that optimizes the rendering performance of a component by automatically implementing a shallow comparison of the component's props and state. It helps to prevent unnecessary re-renders when there are no changes in the data. Use 'PureComponent' when a component's output is solely determined by its props and state without any additional complex logic or side effects. This can lead to performance improvements, especially in components that render frequently.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Discuss the use of 'react-native-webview' for embedding web content in a React Native app. 'react-native-webview' is a component that allows you to embed web content (HTML, JavaScript, etc.) within a React Native app. It provides a bridge between native code and web code, enabling you to display web-based features seamlessly. This can be useful for showing external websites, web-based authentication, and integrating third-party web services. However, it\u2019s important to be cautious with security and performance considerations as web views can impact app performance and introduce potential vulnerabilities if not used carefully.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "'WebViews' in React Native allows you to embed web content (HTML, JavaScript, etc.) within your app as a separate view. It's useful when you need to display external web pages, render interactive web-based components, or integrate third-party web services. While 'WebViews' provide flexibility, keep in mind that they introduce additional memory and performance overhead. Use them judiciously and consider factors like security, loading times, and responsiveness when integrating them in an app.",
-      },
     ],
     topic: "Build & release",
+  },
+  {
+    id: "pure-component-in-react-native",
+    question:
+      "Discuss the role of 'PureComponent' in React Native and when to use it.",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "'PureComponent' is a base class in React Native (and React) that optimizes the rendering performance of a component by automatically implementing a shallow comparison of the component's props and state. It helps to prevent unnecessary re-renders when there are no changes in the data.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Use 'PureComponent' when a component's output is solely determined by its props and state without any additional complex logic or side effects. This can lead to performance improvements, especially in components that render frequently.",
+      },
+    ],
+    topic: "Performance optimization",
+  },
+  {
+    id: "react-native-webview",
+    question:
+      "Discuss the use of 'react-native-webview' for embedding web content in a React Native app.",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "'react-native-webview' is a component that allows you to embed web content (HTML, JavaScript, etc.) within a React Native app. It provides a bridge between native code and web code, enabling you to display web-based features seamlessly.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This can be useful for showing external websites, web-based authentication, and integrating third-party web services. However, it's important to be cautious with security and performance considerations as web views can impact app performance and introduce potential vulnerabilities if not used carefully.",
+      },
+    ],
+    topic: "WebView",
+  },
+  {
+    id: "webviews-in-react-native",
+    question:
+      "What are WebViews in React Native, and when should you use them?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "'WebViews' in React Native allows you to embed web content (HTML, JavaScript, etc.) within your app as a separate view. It's useful when you need to display external web pages, render interactive web-based components, or integrate third-party web services.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "While 'WebViews' provide flexibility, keep in mind that they introduce additional memory and performance overhead. Use them judiciously and consider factors like security, loading times, and responsiveness when integrating them in an app.",
+      },
+    ],
+    topic: "WebView",
   },
   {
     id: "how-do-you-handle-orientation-changes-in-a-react-native-app",
@@ -1400,47 +1634,74 @@ export const importedReactNativeQuestions: InterviewQuestion[] = [
         content:
           "Handling version updates and migrations in a React Native project involves a systematic approach: Maintain a version control system (e.g., Git) to track changes. Document your codebase and dependencies, and keep your project's dependencies up-to-date. Use tools like 'react-native-git-upgrade' to update the React Native version while managing compatibility issues. Additionally, follow platform-specific guidelines for handling version updates, especially for native modules. Thorough testing and continuous integration help ensure a smooth transition during updates.",
       },
-      {
-        type: "paragraph",
-        content:
-          "Discuss the role of 'Geolocation' in obtaining the user's current location in a React Native app. 'Geolocation' is a React Native API that provides access to the device's GPS capabilities to determine the user's current geographic location. By using the 'navigator.geolocation' object, you can request the user's permission to access location services and retrieve latitude and longitude coordinates. This is useful for building location-based apps, mapping features, and providing location-specific content. Keep in mind that handling location permissions and accuracy considerations are crucial aspects of using 'Geolocation'.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Discuss the concept of 'Bridgeless' architecture in React Native (Hermes engine). The 'Bridgeless' architecture is a concept introduced in the Hermes JavaScript engine. It is an alternative runtime for React Native apps. It aims to reduce the communication overhead between JavaScript and native code (the \"bridge\") by optimizing the execution of JavaScript code on the native side. This leads to improved app startup performance and reduced memory consumption. By minimizing the need for frequent data serialization and deserialization across the bridge, 'Bridgeless' architecture enhances the overall React Native app experience.",
-      },
-      {
-        type: "heading",
-        content: "Additional notes",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Handling version updates and migrations in a React Native project involves several steps: Version control: Use a version control system (e.g., Git) to track changes and maintain different app versions. Dependency management: Keep track of your app's dependencies and ensure they are up-to-date. Use tools like 'yarn' or 'npm' for managing packages. React Native upgrade: Regularly update your React Native version to benefit from performance improvements, bug fixes, and new features. Test updates: Thoroughly test your app after each update to ensure compatibility and identify any issues. Continuous integration: Implement a CI/CD pipeline to automate testing and deployment for smoother updates. Backward compatibility: Ensure backward compatibility with older app versions and handle data migration if needed.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "\u202d Difference between navigation.push and navigation.navigate ?\u202c",
-      },
-      {
-        type: "paragraph",
-        content:
-          '\u202d Navigation.push()\u202c - Always pushes a new instance of the route onto the navigation stack.\u202c \u202d- Even if you\'re already on that screen, it will duplicate it.\u202c \u202d Use case: When you want to visit the same screen multiple times with different data (e.g.,\u202c \u202d pushing a new "Profile" screen for a different user).\u202c',
-      },
-      {
-        type: "paragraph",
-        content:
-          "navigation.push('Profile', { userId: 123 }); navigation.push('Profile', { userId: 456 }); // another Profile screen added on top",
-      },
-      {
-        type: "paragraph",
-        content:
-          "\u202d Navigation.navigate(routeName, params?)\u202c \u202c\u202d If the screen is already in the stack, it navigates back to it instead of adding a new one.\u202c \u202d If it\u2019s not in the stack, it behaves like push and adds it.\u202c \u202d Use case: General navigation where you don\u2019t want duplicate screens on the stack.\u202c \u202d navigation.navigate('Home');",
-      },
     ],
     topic: "Native & tooling",
+  },
+  {
+    id: "geolocation-in-react-native",
+    question:
+      "Discuss the role of Geolocation in obtaining the user's current location in a React Native app.",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Geolocation provides access to the device's GPS capabilities to determine the user's current geographic location. By using the navigator.geolocation object, you can request the user's permission to access location services and retrieve latitude and longitude coordinates. This is useful for building location-based apps, mapping features, and providing location-specific content. Handling location permissions and accuracy considerations are crucial aspects of using Geolocation.",
+      },
+    ],
+    topic: "Geolocation",
+  },
+  {
+    id: "bridgeless-architecture-react-native",
+    question:
+      "Explain the concept of Bridgeless architecture in React Native and its relationship with the Hermes engine.",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Bridgeless architecture is an approach in React Native that aims to reduce communication overhead between JavaScript and native code by minimizing reliance on the traditional bridge. It optimizes communication between JavaScript and native components, reducing frequent data serialization and deserialization. This can improve app startup performance and reduce memory consumption.",
+      },
+    ],
+    topic: "React Native architecture",
+  },
+  {
+    id: "react-native-version-updates-migrations",
+    question:
+      "How do you handle version updates and migrations in a React Native project?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Handling version updates and migrations in a React Native project involves several steps: Version control: Use a version control system (e.g., Git) to track changes and maintain different app versions. Dependency management: Keep track of your app's dependencies and ensure they are up-to-date. Use tools like yarn or npm for managing packages. React Native upgrade: Regularly update your React Native version to benefit from performance improvements, bug fixes, and new features. Test updates: Thoroughly test your app after each update to ensure compatibility and identify any issues. Continuous integration: Implement a CI/CD pipeline to automate testing and deployment for smoother updates. Backward compatibility: Ensure backward compatibility with older app versions and handle data migration if needed.",
+      },
+    ],
+    topic: "Version updates and migrations",
+  },
+  {
+    id: "navigation-push-vs-navigate",
+    question:
+      "What is the difference between navigation.push() and navigation.navigate() in React Navigation?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "navigation.push() always pushes a new instance of the route onto the navigation stack. Even if you're already on that screen, it creates another instance. Use it when you want to visit the same screen multiple times with different data, such as opening a Profile screen for different users.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: navigation.push('Profile', { userId: 123 }); navigation.push('Profile', { userId: 456 }); // Another Profile screen is added on top.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "navigation.navigate(routeName, params?) generally navigates to an existing route when possible rather than always adding a duplicate screen. If the route is not already in the stack, it adds it. Use it for general navigation where you don't want unnecessary duplicate screens.",
+      },
+      {
+        type: "paragraph",
+        content: "Example: navigation.navigate('Home');",
+      },
+    ],
+    topic: "React Navigation",
   },
   {
     id: "describe-the-use-of-the-animated-library-for-creating-complex-animations",

@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { InterviewAnswerBlock, InterviewQuestion, InterviewQuestionMeta } from "@/data/interview-types";
+import type {
+  InterviewAnswerBlock,
+  InterviewQuestion,
+  InterviewQuestionMeta,
+} from "@/data/interview-types";
 import { subjects } from "@/data/subjects";
 
 const groupedSubjects = subjects.reduce<Record<string, typeof subjects>>(
@@ -12,10 +16,72 @@ const groupedSubjects = subjects.reduce<Record<string, typeof subjects>>(
   {},
 );
 
+function renderTextWithLineBreaks(text: string, keyPrefix: string) {
+  return text
+    .split(/(\r?\n)/)
+    .map((part, index) =>
+      part === "\n" || part === "\r\n" ? (
+        <br key={`${keyPrefix}-${index}`} />
+      ) : (
+        part
+      ),
+    );
+}
+
+function renderAnswerText(content: string) {
+  const formattedParts =
+    /(\{color:#[\da-fA-F]{6}\}[\s\S]*?\{\/color\}|\*\*[^*]+\*\*|__[^_]+__|~~[^~]+~~|\*[^*]+\*)/g;
+
+  return content.split(formattedParts).map((part, index) => {
+    if (part.startsWith("{color:")) {
+      const match = part.match(
+        /^\{color:(#[\da-fA-F]{6})\}([\s\S]*)\{\/color\}$/,
+      );
+      if (match) {
+        return (
+          <span key={index} style={{ color: match[1] }}>
+            {renderTextWithLineBreaks(match[2], `color-${index}`)}
+          </span>
+        );
+      }
+    }
+
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index}>
+          {renderTextWithLineBreaks(part.slice(2, -2), `bold-${index}`)}
+        </strong>
+      );
+    }
+    if (part.startsWith("__") && part.endsWith("__")) {
+      return (
+        <u key={index}>
+          {renderTextWithLineBreaks(part.slice(2, -2), `underline-${index}`)}
+        </u>
+      );
+    }
+    if (part.startsWith("~~") && part.endsWith("~~")) {
+      return (
+        <s key={index}>
+          {renderTextWithLineBreaks(part.slice(2, -2), `strike-${index}`)}
+        </s>
+      );
+    }
+    if (part.startsWith("*") && part.endsWith("*")) {
+      return (
+        <em key={index}>
+          {renderTextWithLineBreaks(part.slice(1, -1), `italic-${index}`)}
+        </em>
+      );
+    }
+    return renderTextWithLineBreaks(part, `text-${index}`);
+  });
+}
+
 function AnswerBlockView({ block }: { block: InterviewAnswerBlock }) {
   switch (block.type) {
     case "paragraph":
-      return <p>{block.content}</p>;
+      return <p>{renderAnswerText(block.content)}</p>;
     case "heading":
       return <h3 className="interview-answer-heading">{block.content}</h3>;
     case "ordered-list":
@@ -27,6 +93,18 @@ function AnswerBlockView({ block }: { block: InterviewAnswerBlock }) {
             <li key={`${item.heading}-${index}`}>
               {item.heading && <strong>{item.heading}</strong>}
               {item.content && <p>{item.content}</p>}
+              {item.code && (
+                <div className="interview-code-block">
+                  <div className="interview-code-label">
+                    <span aria-hidden="true">&lt;/&gt;</span>
+                    {item.language}
+                  </div>
+                  <pre>
+                    <code>{item.code}</code>
+                  </pre>
+                </div>
+              )}
+              {item.bottomContent && <p>{item.bottomContent}</p>}
             </li>
           ))}
         </List>
@@ -54,7 +132,10 @@ function AnswerBlockView({ block }: { block: InterviewAnswerBlock }) {
           <h3>{block.title}</h3>
           <div className="interview-diagram-flow">
             {block.nodes.map((node, index) => (
-              <div className="interview-diagram-step-wrap" key={`${node.label}-${index}`}>
+              <div
+                className="interview-diagram-step-wrap"
+                key={`${node.label}-${index}`}
+              >
                 <div className="interview-diagram-node">
                   <strong>{node.label}</strong>
                   {node.detail && <span>{node.detail}</span>}
@@ -93,7 +174,9 @@ export function InterviewExplorer({
   const [openQuestion, setOpenQuestion] = useState<string | null>(
     "what-is-react-native",
   );
-  const [loadedAnswers, setLoadedAnswers] = useState<Record<string, InterviewQuestion>>({});
+  const [loadedAnswers, setLoadedAnswers] = useState<
+    Record<string, InterviewQuestion>
+  >({});
   const [failedAnswer, setFailedAnswer] = useState<string | null>(null);
   const [retryVersion, setRetryVersion] = useState(0);
 
@@ -144,7 +227,13 @@ export function InterviewExplorer({
       });
 
     return () => controller.abort();
-  }, [contentRevision, loadedAnswers, openQuestion, retryVersion, selectedSlug]);
+  }, [
+    contentRevision,
+    loadedAnswers,
+    openQuestion,
+    retryVersion,
+    selectedSlug,
+  ]);
 
   function chooseSubject(slug: string) {
     setSelectedSlug(slug);
@@ -327,7 +416,9 @@ export function InterviewExplorer({
                       {expanded && (
                         <div className="interview-answer" id={answerId}>
                           {!loadedAnswer && failedAnswer !== answerKey && (
-                            <p className="interview-answer-pending">Loading answer…</p>
+                            <p className="interview-answer-pending">
+                              Loading answer…
+                            </p>
                           )}
                           {failedAnswer === answerKey && (
                             <div className="interview-answer-callout info">
@@ -361,25 +452,26 @@ export function InterviewExplorer({
                               )}
                             </div>
                           )}
-                          {loadedAnswer?.references && loadedAnswer.references.length > 0 && (
-                            <div className="interview-references">
-                              <span>Read more</span>
-                              {loadedAnswer.references.map((reference) => (
-                                <a
-                                  href={reference.href}
-                                  key={reference.href}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                >
-                                  {reference.label}
-                                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M14 4h6v6m0-6-9 9" />
-                                    <path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6" />
-                                  </svg>
-                                </a>
-                              ))}
-                            </div>
-                          )}
+                          {loadedAnswer?.references &&
+                            loadedAnswer.references.length > 0 && (
+                              <div className="interview-references">
+                                <span>Read more</span>
+                                {loadedAnswer.references.map((reference) => (
+                                  <a
+                                    href={reference.href}
+                                    key={reference.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    {reference.label}
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                      <path d="M14 4h6v6m0-6-9 9" />
+                                      <path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6" />
+                                    </svg>
+                                  </a>
+                                ))}
+                              </div>
+                            )}
                         </div>
                       )}
                     </article>

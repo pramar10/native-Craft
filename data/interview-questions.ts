@@ -1,6 +1,4 @@
 import { importedReactNativeQuestions } from "./react-native-interview-content";
-import { architectureSecurityQuestions } from "./react-native-architecture-security-content";
-import { dataManagementQuestions } from "./react-native-data-management-content";
 import type { InterviewQuestion } from "./interview-types";
 
 /** Add subject slugs here as interview content is prepared. */
@@ -117,11 +115,6 @@ function mergeQuestionContent(
   return merged;
 }
 
-const reactNativeQuestions = mergeQuestionContent(baseReactNativeQuestions, [
-  ...architectureSecurityQuestions,
-  ...dataManagementQuestions,
-]);
-
 export const interviewQuestions: Record<string, InterviewQuestion[]> = {
-  "react-native": reactNativeQuestions,
+  "react-native": baseReactNativeQuestions,
 };

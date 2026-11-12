@@ -1,4 +1,5 @@
 import type { InterviewQuestion } from "./interview-types";
+import { code, diagram, list, namedPoints, paragraph, points } from "./utils";
 
 export const importedReactNativeQuestions: InterviewQuestion[] = [
   {
@@ -1671,7 +1672,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "Handling version updates and migrations in a React Native project involves several steps: Version control: Use a version control system (e.g., Git) to track changes and maintain different app versions. Dependency management: Keep track of your app's dependencies and ensure they are up-to-date. Use tools like yarn or npm for managing packages. React Native upgrade: Regularly update your React Native version to benefit from performance improvements, bug fixes, and new features. Test updates: Thoroughly test your app after each update to ensure compatibility and identify any issues. Continuous integration: Implement a CI/CD pipeline to automate testing and deployment for smoother updates. Backward compatibility: Ensure backward compatibility with older app versions and handle data migration if needed.",
+          "Handling version updates and migrations in a React Native project involves several steps: \nVersion control: Use a version control system (e.g., Git) to track changes and maintain different app versions. \nDependency management: Keep track of your app's dependencies and ensure they are up-to-date. Use tools like yarn or npm for managing packages. \nReact Native upgrade: Regularly update your React Native version to benefit from performance improvements, bug fixes, and new features. \nTest updates: Thoroughly test your app after each update to ensure compatibility and identify any issues. \nContinuous integration: Implement a CI/CD pipeline to automate testing and deployment for smoother updates. \nBackward compatibility: Ensure backward compatibility with older app versions and handle data migration if needed.",
       },
     ],
     topic: "Version updates and migrations",
@@ -1684,7 +1685,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "navigation.push() always pushes a new instance of the route onto the navigation stack. Even if you're already on that screen, it creates another instance. Use it when you want to visit the same screen multiple times with different data, such as opening a Profile screen for different users.",
+          "Navigation.push() always pushes a new instance of the route onto the navigation stack. Even if you're already on that screen, it creates another instance. Use it when you want to visit the same screen multiple times with different data, such as opening a Profile screen for different users.",
       },
       {
         type: "paragraph",
@@ -1724,7 +1725,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "The Animated API in React Native runs on the JavaScript thread. This means any animation is processed through the JS runtime, which can lead to performance issues if the JS thread is busy\u2014for example, when handling network calls or heavy computations. Animations may stutter or lag in such scenarios. It\u2019s suitable for simple animations like fading, scaling, or basic transitions, and is often used for lightweight UI work. On the other hand, react-native-reanimated runs animations on the UI thread using a system of \u201cworklets.\u201d This allows animations to stay smooth even when the JS thread is blocked. It\u2019s highly optimized and designed for complex, gesture-driven interfaces. It integrates deeply with react-native-gesture-handler, supports native gesture coordination, and allows writing declarative animation logic that executes independently from the JS thread. In short, use Animated for simple animations when performance isn't a critical concern. Use react-native-reanimated for smoother, more complex, and gesture-aware animations that need native-level responsiveness.",
+          "The Animated API in React Native runs on the JavaScript thread. This means any animation is processed through the JS runtime, which can lead to performance issues if the JS thread is busy\u2014for example, when handling network calls or heavy computations. Animations may stutter or lag in such scenarios. It\u2019s suitable for simple animations like fading, scaling, or basic transitions, and is often used for lightweight UI work. \nOn the other hand, react-native-reanimated runs animations on the UI thread using a system of \u201cworklets.\u201d This allows animations to stay smooth even when the JS thread is blocked. It\u2019s highly optimized and designed for complex, gesture-driven interfaces. It integrates deeply with react-native-gesture-handler, supports native gesture coordination, and allows writing declarative animation logic that executes independently from the JS thread. In short, use Animated for simple animations when performance isn't a critical concern. Use react-native-reanimated for smoother, more complex, and gesture-aware animations that need native-level responsiveness.",
       },
     ],
     topic: "Animation",
@@ -1780,15 +1781,28 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "'DeviceEventEmitter' and 'NativeEventEmitter' are mechanisms for handling events between JavaScript and native code in React Native. 'DeviceEventEmitter' is a part of the core 'react-native' package and is used for emitting and listening to events from the native side in JavaScript. 'NativeEventEmitter' is a wrapper around the native platform's event emitter and provides a more consistent API. These mechanisms allow you to communicate changes, actions, or events between different parts of your app's codebase, enabling seamless coordination and interaction.",
+          "'DeviceEventEmitter' and 'NativeEventEmitter' are mechanisms for handling events between JavaScript and native code in React Native. 'DeviceEventEmitter' is a part of the core 'react-native' package and is used for emitting and listening to events from the native side in JavaScript. \n'NativeEventEmitter' is a wrapper around the native platform's event emitter and provides a more consistent API. These mechanisms allow you to communicate changes, actions, or events between different parts of your app's codebase, enabling seamless coordination and interaction.",
+      },
+    ],
+    topic: "App development",
+  },
+  {
+    id: "navigation-container-react-native",
+    question:
+      "Discuss the role of NavigationContainer and its significance in React Native.",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "NavigationContainer is a core component of the React Navigation library that manages the navigation tree for an app. It acts as a container for navigation components such as StackNavigator, DrawerNavigator, and TabNavigator.",
       },
       {
         type: "paragraph",
         content:
-          "Discuss the role of 'NavigationContainer' and its significance. 'NavigationContainer' is a core component in the 'react-navigation' library that manages the navigation tree for an app. It acts as a container for all your navigation components, such as 'StackNavigator', 'DrawerNavigator', and 'TabNavigator'. 'NavigationContainer' provides a common context for navigation state, enabling navigation components to communicate and coordinate seamlessly. It simplifies the setup of navigation and ensures a consistent navigation experience throughout your React Native app.",
+          "NavigationContainer provides a common context for navigation state, enabling navigation components to communicate and coordinate seamlessly. It simplifies navigation setup and ensures a consistent navigation experience throughout your React Native app.",
       },
     ],
-    topic: "App development",
+    topic: "React Navigation",
   },
   {
     id: "how-can-you-optimize-a-react-native-application",
@@ -1797,7 +1811,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "This question reveals applicants' ability to optimize React Native applications for speed and usability. A strong answer should mention at least three of the following points: Optimize native libraries Compress graphic elements and images Reduce image size using file types such as APNG instead of PNG Compress raw JSON data or convert them into static object IDs Optimize the number of state operations and use React components when necessary Use SectionList, FlatList, and VirtualizedList for large data sets Clear active timers, which can lead to heavy memory leakage problems",
+          "Optimize native libraries, Compress graphic elements and images Reduce image size using file types such as APNG instead of PNG Compress raw JSON data or convert them into static object IDs. Optimize the number of state operations and use React components when necessary Use SectionList, FlatList, and VirtualizedList for large data sets,clear active timers which can lead to heavy memory leakage problems",
       },
     ],
     topic: "Performance",
@@ -1822,332 +1836,4713 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "Touchable components capture tapping gestures. They can display feedback when a hand gesture is recognized. However, because they don't provide a default styling, It requires work to make them look nice. For instance, they can be implemented as user-friendly buttons. They should also explain the four types of touchable components: TouchableHighlight is used when creating a link or button on the web; the background of this component becomes dark when the user presses it. TouchableNativeFeedback creates a view to respond properly to touch. It only works for Android systems. TouchableOpacity is used to lower the opacity of a button. TouchableWithoutFeedback is used to tap functionality without displaying any feedback. What Is a flexbox? Name three important flexbox properties. A flexbox in React Native is a CSS display type design that helps developers create CSS layouts. Developers can use flexboxes to control elements' size, position, and spacing relative to each other and their parent elements. Flexboxes are great for responsive designs. Three important flexbox properties include: flexDirection(column:default): which allows developers to style React Native components in the primary axis. justifyContent: which states the distribution of the children's components toward the primary axis. Developers can use it to distribute the children's components at the center, start, end, and in space. alignItems: which is mostly for the secondary axis. It states the alignments of any children component inside another component toward the secondary axis.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Publishing to Google Play Store . APK (Android Package)[Android Application Package] Definition: APK is the standard format for packaging Android applications for distribution and installation. Purpose: It's the file that gets installed on Android devices directly. AAB (Android App Bundle) Definition: AAB is a publishing format introduced by Google Play. It contains all the app's code and resources but is not installable directly. Purpose: It allows Google Play to generate optimized APKs for each user's device. IOS:IPA stands for iOS App Store Package",
+          "Touchable components capture tapping gestures. They can display feedback when a hand gesture is recognized. However, because they don't provide a default styling. It requires work to make them look nice. For instance, they can be implemented as user-friendly buttons. They should also explain the four types of touchable components: \nTouchableHighlight is used when creating a link or button on the web; the background of this component becomes dark when the user presses it. \nTouchableNativeFeedback creates a view to respond properly to touch. It only works for Android systems. \nTouchableOpacity is used to lower the opacity of a button. \nTouchableWithoutFeedback is used to tap functionality without displaying any feedback. ",
       },
     ],
     topic: "Core concepts",
   },
   {
-    id: "give-me-ways-to-increase-the-performance-of-react-native-apps",
-    question: "Give me ways to increase the performance of react native apps?",
+    id: "flexbox-react-native",
+    question: "What is Flexbox? Name three important Flexbox properties.",
     answer: [
       {
         type: "paragraph",
         content:
-          "Improving the performance of a React Native app involves a multi-pronged approach that addresses architecture, rendering efficiency, memory management, network usage, and build optimizations. Below are key performance optimization strategies along with detailed explanations and concrete recommendations:",
+          "Flexbox in React Native is a layout system that helps developers create flexible and responsive UI layouts. It allows developers to control the size, position, and spacing of elements relative to their parent and sibling components.",
       },
       {
         type: "paragraph",
-        content:
-          "Discuss the use of 'CodePush' for over-the-air updates in React Native. CodePush is a cloud service by Microsoft (via App Center) that enables over-the-air (OTA) updates for React Native apps. It allows you to push JavaScript, images, and other assets to users' devices without going through the App Store or Play Store review process.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "How It Works When you use CodePush, only the JavaScript bundle and assets are updated \u2014 not native code. It wraps your React Native app and checks for updates on app launch or resume. If an update is available, it downloads and applies it\u2014either immediately, on the next app start, or manually, depending on how you configure it. Why It\u2019s Useful You can deploy bug fixes, features, or design tweaks instantly without waiting for app store approval. It helps in A/B testing or quickly rolling back a bad release. It's cross-platform and works for both Android and iOS with a unified deployment process.",
-      },
-      {
-        type: "code",
-        language: "JavaScript",
-        content:
-          "import codePush from 'react-native-code-push';\nlet codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_START };\n\nfunction App() {\n  // your main component\n}\nexport default codePush(codePushOptions)(App);",
-      },
-      {
-        type: "paragraph",
-        content:
-          "You then push updates using the CodePush CLI: appcenter codepush release-react -a <owner>/<app-name> -d Production Limitations You can\u2019t update native code (e.g., new native modules, SDK upgrades). You must ensure your updates are compatible with the version of the app installed on users' devices. For iOS, Apple allows OTA updates, but you must avoid using it to add new features that require review. In Summary CodePush is ideal for delivering fast fixes and UI updates in React Native apps. It improves iteration speed, reduces dependency on app store timelines, and enhances user experience by keeping apps up to date automatically. Headless JS Headless JS is a way to run tasks in JavaScript while your app is in the background. It can be used, for example, to sync fresh data, handle push notifications, or play music. Profiling Profiling is the process of analyzing an app's performance, resource usage, and behavior to identify potential bottlenecks or inefficiencies. It's worth making use of profiling tools to ensure your app works smoothly across different devices and conditions. Profiling is essential to understanding the runtime performance of the app through analysis that measures the memory or time complexity, frequency, and duration of function calls, etc. Getting all this information helps you to track down and provide proper solutions to keep your app healthy and your users engaged. 70% of the users will leave your app if the response to a given action takes too long. And once they do, they aren\u2019t likely to return ever again, which can seriously harm your business. For that reason alone, profiling your React Native application with native tools for iOS and Android may turn out a game changer \u2014 for both your organization and your user base.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "For iOS, Instruments is an invaluable tool, and on Android you should learn to use systrace. But first, make sure that Development Mode is OFF! You should see __DEV__ === false, development-level warnings are OFF, performance optimizations are ON in your application logs. Optimizing JavaScript loading Parsing and running JavaScript code requires memory and time. Because of this, as your app grows, it's often useful to delay loading code until it's needed for the first time. React Native comes with some standard optimizations that are on by default, and there are techniques you can adopt in your own code to help React load your app more efficiently. There are also some advanced automatic optimizations (with their own tradeoffs) that are suitable for very large apps. Recommended: Use Hermes\u200b Hermes is the default engine for new React Native apps, and is highly optimized for efficient code loading. In release builds, JavaScript code is fully compiled to bytecode ahead of time. Bytecode is loaded to memory on-demand and does not need to be parsed like plain JavaScript does. Recommended: Lazy-load large components\u200b If a component with a lot of code/dependencies is not likely to be used when initially rendering your app, you can use React's lazy API to defer loading its code until it's rendered for the first time. Typically, you should consider lazy-loading screen-level components in your app, so that adding new screens to your app does not increase its startup time.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "FlatList: FlatList also uses the principle of virtualization to optimize performance. It only loads the currently visible items on the screen, automatically removing items from memory when they are out of the user\u2019s view. As a result, this approach improves performance and reduces memory consumption.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "By passing extraData={selectedId} to FlatList we make sure FlatList itself will re-render when the state changes. Without setting this prop, FlatList would not know it needs to re-render any items because it is a PureComponent and the prop comparison will not show any changes. keyExtractor tells the list to use the ids for the react keys instead of the default key property. getItemLayout is an optional optimization that allows skipping the measurement of dynamic content if you know the size (height or width) of items ahead of time. getItemLayout is efficient if you have fixed size items, for example:",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Ultimate Guide on Performance Optimization To keep your app running smoothly and responsively, you need to display a frame within 16.67 milliseconds \u2014 that\u2019s how long a modern mobile device takes to show 60 frames in one second. If you fail to do this, your app will perform poorly and the UI may seem to freeze. Use FlatList or SectionList to display large lists in React Native: If you have a large list, rendering all the items at once can cause a performance issue, but lazy loading with FlatList can improve performance.The FlatList component renders only the items that will be displayed on the screen and removes them when they are no longer displayed. This saves a lot of memory, making the app much faster: Delete all console statements Console statements are necessary for debugging JavaScript codes, but they are only meant for development purposes. These statements could cause serious performance issues in your React Native application if they are not removed before bundling. While you could install plugins such as babel-plugin-transform-remove-console to remove these statements from production, it is better to manually remove them if you don\u2019t want to add additional dependencies to your app. Cache expensive computations React introduced the memo HOC (Higher Order Component) in React v16.6 for preventing unnecessary re-rendering and the useMemo hook in React v16.8 for optimizing expensive computations. However, it is also possible to use the useCallback hook to do that. The major difference between useMemo and useCallback is that useMemo returns a memoized value, but useCallback returns a memoized callback. React.memo was introduced to functional components to serve the same purpose that React PureComponents serve in class components. memo prevents unnecessary re-rendering of a component and can help to optimize an application. However, like other optimization techniques, memo should only be used when it is necessary. In some cases, unnecessary re-rendering will not impact performance much. Adjust (resize and scale down) image sizes",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Images can contribute significantly to performance issues in React Native applications. They can also pose issues in web apps, but the browser has the capability of downloading and even scaling the images. In some cases, it may even cache them. But this is different with mobile apps. React Native ships with an Image component that can handle a single image very well, but it performs poorly with many large-sized images. The best way to solve this problem is by loading the exact size of the image you need. In other words, you should resize and scale down the image size before loading them to your app. Cache images locally Caching is another solution to image problems in a React Native app. It saves the images locally the first time they are loaded and uses the local cache in the subsequent requests. This could improve the app performance remarkably.",
-      },
-      {
-        type: "ordered-list",
-        items: [
-          {
-            heading:
-              "Use Native Modules Wisely and Avoid the JS Bridge Bottleneck",
-            content:
-              "Problem: React Native communicates between JavaScript and native threads via a bridge. This communication is asynchronous and can become a bottleneck if overused. Solution: Use native modules for CPU-intensive tasks (e.g. image/video processing, heavy animations, complex calculations).",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content:
-          "Use libraries that utilize TurboModules and Fabric (new architecture in RN) for faster and more efficient native-bridge communication.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Avoid excessive use of setTimeout, setInterval, and frequent state updates that lead to bridge overload.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Example: If you\u2019re using libraries like react-native-video or react-native-image-picker, make sure they support TurboModules or are optimized natively.",
-      },
-      {
-        type: "ordered-list",
-        items: [
-          {
-            heading: "Optimize Rendering via Memoization and Pure Components",
-            content:
-              "Problem: Unnecessary re-renders due to parent component updates. Solution: Use React.memo, useMemo, and useCallback to avoid recalculating values or recreating functions on every render. Break down large components and use PureComponent or functional equivalents. Avoid anonymous functions and inline styles inside render functions. const MemoizedComponent = React.memo(({ data }) => { return <Text>{data.name}</Text>; });",
-          },
-          {
-            heading: "Avoid Anonymous Inline Functions and Styles",
-            content:
-              "Problem: Recreating new function or object instances on each render causes unnecessary reconciliation. Solution: Declare styles outside render methods.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content:
-          "Memoize functions with useCallback. // BAD <Button onPress={() => doSomething(item)} />",
-      },
-      {
-        type: "code",
-        language: "Gradle",
-        content:
-          "// GOOD\nconst handlePress = useCallback(() => doSomething(item), [item]);\n<Button onPress={handlePress} />\n5. Enable Hermes Engine\nProblem: The default JS engine (JavaScriptCore) has a higher memory and CPU overhead.\nSolution:\nUse Hermes, a lightweight JS engine optimized for React Native, which improves startup time, memory usage, and overall app performance.\nMake sure you're using React Native 0.64+ and enable Hermes in android/app/build.gradle and Podfile.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Benefit: Significantly reduces TTI (Time to Interactive) and memory footprint. 6. Image Optimization Problem: Large or poorly managed images can cause memory spikes and frame drops. Solution: Use react-native-fast-image which uses native caching and performance optimizations.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Compress images before bundling or at runtime using services like Cloudinary or TinyPNG.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Avoid resizing images with inline styles; instead, serve appropriately sized images from the backend. 7. Reduce App Size with Proguard and Resource Shrinking Problem: Larger APKs/APKs affect download and startup time. Solution: Enable Proguard for Android to strip unused code.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Use resConfigs, shrinkResources, and minifyEnabled in build.gradle.",
-      },
-      {
-        type: "paragraph",
-        content: "gradle",
-      },
-      {
-        type: "paragraph",
-        content:
-          "release { minifyEnabled true shrinkResources true proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro' } 8. Code Splitting and Lazy Loading Problem: Loading too much JavaScript on app startup. Solution: Dynamically load non-essential screens or features using React.lazy or similar patterns.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Use chunking to split JS bundles logically (this is more advanced and generally done via Metro configuration or native code splitting).",
-      },
-      {
-        type: "ordered-list",
-        items: [
-          {
-            heading: "Minimize Reconciliation by Controlling State Scope",
-            content:
-              "Problem: Global or shared state updates re-render large parts of the UI. Solution: Localize the state as much as possible.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content:
-          "Use Recoil, Zustand, or Jotai instead of Redux if only simple state management is needed.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Use selectors and memoized state slices to avoid re-rendering unrelated components.",
-      },
-      {
-        type: "ordered-list",
-        items: [
-          {
-            heading: "Performance Monitoring and Profiling",
-            content:
-              "Problem: Lack of visibility into performance bottlenecks. Solution: Use Flipper, React DevTools, and Perf Monitor to track re-renders and memory leaks.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content:
-          "Use why-did-you-render for identifying unnecessary re-renders during development.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Profile using Xcode Instruments and Android Systrace for native performance issues.",
-      },
-    ],
-    topic: "Performance",
-  },
-  {
-    id: "how-to-reduce-the-app-size-in-react-native",
-    question: "How to reduce the app size in react native?",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "Reducing the app size in a React Native project is critical, especially for production releases targeting emerging markets or users with low-end devices. As a senior developer, the focus should be on trimming the APK/IPA size without sacrificing app features or user experience. Here's a detailed breakdown of effective strategies, categorized by platform and scope.",
-      },
-      {
-        type: "ordered-list",
-        items: [
-          {
-            heading: "Remove Unused Dependencies and Assets",
-            content:
-              "Problem: Many npm packages include native binaries or assets that significantly inflate build size. Solution: Audit package.json regularly using tools like depcheck or npm prune.",
-          },
-        ],
-      },
-      {
-        type: "paragraph",
-        content:
-          "Check android/app/src/main/assets/ and ios bundles for large, unused assets.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Remove unused fonts, icons, and images from the project. npx depcheck",
-      },
-      {
-        type: "ordered-list",
-        items: [
-          {
-            heading: "Use Code Splitting and Dynamic Imports (Where Possible)",
-            content:
-              "React Native doesn't have built-in code splitting like Webpack, but you can simulate it: Solution: Dynamically import screens or large components using React.lazy() or by splitting logic into native modules.",
-          },
-        ],
-      },
-      {
-        type: "code",
-        language: "JavaScript",
-        content:
-          "const SettingsScreen = React.lazy(() => import('./screens/SettingsScreen'));",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Note: Full tree-shaking and lazy loading benefits require Metro bundler config tweaks or native-side optimizations. 3. Hermes Engine (JavaScript Engine Optimization) Problem: JavaScriptCore increases APK size (~6\u20138MB extra). Solution: Enable Hermes, which compiles JavaScript to bytecode ahead of time, reducing runtime and bundle size. 4. Image Optimization Problem: Large uncompressed images increase bundle size. Solution: Compress all images using TinyPNG, ImageOptim, or Squoosh.",
-      },
-      {
-        type: "paragraph",
-        content: "Use WebP format where supported (react-native-webp-support).",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Host large assets on a CDN and download them as needed. For Android: 5. Enable Proguard & Resource Shrinking Problem: Android builds often include unused Java classes and resources. Solution: Enable Proguard to shrink, obfuscate, and optimize the bytecode.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Enable shrinkResources to remove unused resources (drawables, strings, layouts). Use App Bundles (AAB) Problem: APKs deliver all resources and code, even if unused on a specific device. Solution: Use Android App Bundles (AAB) to let Google Play generate optimized APKs per device. Fast Refresh Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. Fast Refresh is enabled by default, and you can toggle \u201cEnable Fast Refresh\u201d in the React Native Dev Menu. With Fast Refresh enabled, most edits should be visible within a second or two.",
-      },
-    ],
-    topic: "Build & release",
-  },
-  {
-    id: "how-fast-refresh-works",
-    question: "How Fast Refresh works?",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "If you edit a module that only exports React component(s), Fast Refresh will update the code only for that module, and re-render your component. You can edit anything in that file, including styles, rendering logic, event handlers, or effects. If you edit a module with exports that aren\u2019t React components, Fast Refresh will re-run both that module, and the other modules importing it. So if both Button.js and Modal.js import Theme.js, editing Theme.js will update both components. Finally, if you edit a file that\u2019s imported by modules outside of the React tree, Fast Refresh will fall back to doing a full reload. You might have a file which renders a React component but also exports a value that is imported by a non-React component. Error Resilience of Fast Refresh If you make a syntax error during a Fast Refresh session, you can fix it and save the file again. The redbox will disappear. Modules with syntax errors are prevented from running, so you won\u2019t need to reload the app. If you make a runtime error during the module initialization (for example, typing Style.create instead of StyleSheet.create), the Fast Refresh session will continue once you fix the error. The redbox will disappear, and the module will be updated. If you make a mistake that leads to a runtime error inside your component, the Fast Refresh session will also continue after you fix the error. In that case, React will remount your application using the updated code. Limitations of Fast Refresh Fast Refresh tries to preserve local React state in the component you\u2019re editing, but only if it\u2019s safe to do so. Here\u2019s a few reasons why you might see local state being reset on every edit to a file: Local state is not preserved for class components (only function components and Hooks preserve state). The module you\u2019re editing might have other exports in addition to a React component. Sometimes, a module would export the result of calling a higher-order component like createNavigationContainer(MyScreen). If the returned component is a class, the state will be reset. Pro Tips about Fast Refresh Sometimes you might want to force the state to be reset, and a component to be remounted. For example, this can be handy if you\u2019re tweaking an animation that only happens on mount. To do this, you can add // @refresh reset anywhere in the file you're editing. This directive is local to the file, and instructs Fast Refresh to remount components defined in that file on every edit. Fast Refresh and Hooks\u200b When possible, Fast Refresh attempts to preserve the state of your component between edits. In particular, useState and useRef preserve their previous values as long as you don't change their arguments or the order of the Hook calls. Hooks with dependencies \u2014 such as useEffect, useMemo, and useCallback\u2014will always update during Fast Refresh. Their list of dependencies will be ignored while Fast Refresh is happening.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Native Modules \u201cNative modules\u201d are pieces of Native code that are written in a native platform language, such as Java for Android or Objective-C for iOS, and can be called from JavaScript.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Native Module System Native module system is a system by which JavaScript and \u201cNative modules\u201d communicate with each other. The Native module system allows your JavaScript code to use native features and libraries that are not available in JavaScript, such as camera, sensors, or encryption. There are 2 types of Native Module System in React Native OLD native module system (aka: \u201cBridge based Native Module system\u201d or \u201cLegacy native module system\u201d that uses JSON data Serialization). New native module system (aka: Turbo Module system that uses JSI. JSI (JavaScript Interface) is written in C++). Typed JavaScript code Typed JavaScript code is code that is written in JavaScript (using Flow or Typescript), but with some extra information about the types of the variables and functions. Types are labels that tell you what kind of data a variable or a function can hold or return. For example, a type can be a number, a string, a Boolean, an array, an object, or a function. Typed JavaScript code can help you avoid errors and bugs caused by incorrect or missing types. For example, if you try to add a number and a string together, typed JavaScript code will warn you that this is not possible. Interface elements Interface elements are components or modules that can be used in a React Native app. A component is a part of the user interface (UI), such as a button, a text, or an image. A module is a piece of code that can perform some logic or functionality, such as accessing the camera, the sensors, or the encryption libraries. An interface element has an \u201cinterface\u201d and \u201can implementation\u201d. The \u201cinterface\u201d is a set of properties and methods that define how it can be used and interacted with. The \u201cimplementation\u201d is the code that actually performs the logic and functionality of the element.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "\u2014--------------------------------------Old Architecture\u2014----------------------------------------",
-      },
-      {
-        type: "paragraph",
-        content:
-          "In a nutshell, each react native app is composed of two main parts The JavaScript code and The native code. The code is executed over three threads: The JavaScript thread: to run JS Bundle with specific JavaScript engine The Native/UI thread: it runs the native code and handles any user interface operation like rendering or gesture events. The Shadow thread: which calculates the position of native elements in the layout.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "The relationship between the JavaScript and Native threads is mediated by a component called the Bridge.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "OLD Architecture drawbacks Although React Native apps are fast enough, they still lag behind native solutions in terms of performance. The reason lies with the architecture used. The bridge in the old architecture works by serializing all data that must be passed from JavaScript to native. The Bridge have some limitations: It is asynchronous: one layer submits data to a bridge and waits for the data to be processed by the other layer, even when it\u2019s unnecessary. Instead, when JavaScript wants to talk to native code (e.g., to access the camera or GPS), it sends a message across the bridge, and then continues executing without waiting. The native side processes the request and eventually sends a response back to JavaScript \u2014 also through the bridge. This process introduces a delay and can\u2019t be used for real-time or blocking operations, because the two sides operate on separate threads and queues. So, \u201casynchronous bridge\u201d simply means the JS and native sides send messages back and forth, but they don\u2019t wait for each other, which is good for performance but can be tricky for timing-sensitive operations. It is single threaded: JavaScript used to be single-threaded, so computation that takes place has to be performed on that single thread. Overhead costs: each time one layer communicates with another, it must serialize the data. The other layer must deserialize it. JSON was chosen for its simplicity and human readability, despite being a lightweight format it has a cost associated with it.",
+        content: "Three important Flexbox properties include:",
       },
       {
         type: "heading",
-        content: "Synchronous and Asynchronous",
+        content: "1. flexDirection",
       },
       {
         type: "paragraph",
         content:
-          "Synchronous Definition: Tasks are executed one at a time, in sequence. Each task waits for the previous one to finish before starting. Blocking: If one task takes time (like fetching data), it blocks the next one.",
+          "The flexDirection property defines the primary axis along which child components are arranged. React Native uses column as the default value. Other values include row, row-reverse, and column-reverse.",
+      },
+      {
+        type: "heading",
+        content: "2. justifyContent",
       },
       {
         type: "paragraph",
         content:
-          "Asynchronous Definition: Tasks are executed independently, not necessarily in order. Non-blocking: Allows other tasks to run while waiting for something (e.g., API response). Often uses callbacks, Promises, or async/await.",
+          "The justifyContent property defines how child components are distributed along the primary axis. Common values include flex-start, center, flex-end, space-between, space-around, and space-evenly.",
+      },
+      {
+        type: "heading",
+        content: "3. alignItems",
       },
       {
         type: "paragraph",
         content:
-          "Old Architecture The old React Native architecture refers to the framework's original design, which was the foundation for app development until the introduction of the New React Native Architecture (Fabric and TurboModules). The old architecture served well for several years but had certain limitations that the newer architecture sought to address. Key Features of the Old Architecture: Bridge-Based Communication:",
-      },
-      {
-        type: "paragraph",
-        content:
-          "The old architecture relied on a bridge to facilitate communication between JavaScript (JS) and native platforms (Android and iOS). Data passed over the bridge was serialized as JSON and sent asynchronously between the JavaScript thread and native threads. While effective, the asynchronous nature introduced performance bottlenecks for certain use cases like animations or complex interactions.",
+          "The alignItems property defines how child components are aligned along the secondary (cross) axis. Common values include flex-start, center, flex-end, stretch, and baseline.",
       },
     ],
-    topic: "App development",
+    topic: "Flexbox and Layout",
+  },
+  {
+    id: "apk-aab-ipa-react-native",
+    question:
+      "Explain the difference between APK, AAB, and IPA formats when publishing mobile applications.",
+    answer: [
+      {
+        type: "heading",
+        content: "1. APK (Android Package)",
+      },
+      {
+        type: "paragraph",
+        content:
+          "APK is the standard format for packaging Android applications for distribution and installation. It is the file that gets installed directly on Android devices.",
+      },
+      {
+        type: "heading",
+        content: "2. AAB (Android App Bundle)",
+      },
+      {
+        type: "paragraph",
+        content:
+          "AAB is a publishing format introduced by Google Play. It contains the app's code and resources but is not directly installable on Android devices. Instead, Google Play uses it to generate optimized APKs tailored to each user's device configuration.",
+      },
+      {
+        type: "heading",
+        content: "3. IPA (iOS App Store Package)",
+      },
+      {
+        type: "paragraph",
+        content:
+          "IPA is the application package format used for iOS apps. It contains the app's executable and resources and is used for distribution through Apple's App Store and other supported distribution methods.",
+      },
+    ],
+    topic: "App build and deployment",
+  },
+  {
+    id: "react-native-performance-optimization",
+    question:
+      "How do you improve the performance of a React Native application?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Improving the performance of a React Native app involves a multi-pronged approach that addresses architecture, rendering efficiency, memory management, network usage, and build optimizations.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Key strategies include optimizing FlatList, reducing unnecessary re-renders, using Hermes, optimizing images, lazy-loading components, managing application state efficiently, and profiling the application to identify bottlenecks.",
+      },
+    ],
+    topic: "Performance optimization",
+  },
+  {
+    id: "codepush-react-native",
+    question:
+      "Discuss the use of CodePush for over-the-air (OTA) updates in React Native.",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "CodePush is an over-the-air update service originally provided by Microsoft through App Center. It enables React Native developers to deliver JavaScript code, images, and other assets to users without requiring a new app store release for every update.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It is useful for delivering bug fixes, feature updates, and UI changes quickly. It also supports deployment strategies such as staged rollouts and rolling back problematic updates.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "CodePush updates only JavaScript bundles and assets. It cannot update native code, such as native modules or SDK upgrades. Updates must remain compatible with the native application version installed on the user's device.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Note: Microsoft App Center retired its CodePush service in 2025. For new projects, developers should evaluate maintained alternatives such as Expo Updates.",
+      },
+    ],
+    topic: "OTA updates",
+  },
+  {
+    id: "codepush-implementation",
+    question: "How do you integrate CodePush into a React Native application?",
+    answer: [
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "import codePush from 'react-native-code-push';\n\nconst codePushOptions = {\n  checkFrequency: codePush.CheckFrequency.ON_APP_START,\n};\n\nfunction App() {\n  // Your main component\n}\n\nexport default codePush(codePushOptions)(App);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Updates can be released using the CodePush CLI. For example: appcenter codepush release-react -a <owner>/<app-name> -d Production.",
+      },
+    ],
+    topic: "OTA updates",
+  },
+  {
+    id: "headless-js-react-native",
+    question: "What is Headless JS in React Native, and where is it used?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Headless JS is a React Native feature that allows JavaScript tasks to run in the background without displaying a user interface.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It can be used for background tasks such as synchronizing fresh data, handling certain push notification workflows, and performing background processing.",
+      },
+    ],
+    topic: "Background processing",
+  },
+  {
+    id: "profiling-react-native",
+    question: "What is profiling in React Native, and why is it important?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Profiling is the process of analyzing an application's performance, resource usage, and runtime behavior to identify bottlenecks and inefficiencies.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Profiling helps developers measure memory consumption, execution time, function call frequency, and rendering performance. This information helps identify performance issues and implement appropriate solutions.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Profiling is essential for maintaining a responsive application and delivering a smooth user experience across different devices and operating conditions.",
+      },
+    ],
+    topic: "Performance profiling",
+  },
+  {
+    id: "native-profiling-tools",
+    question:
+      "Which tools can be used to profile React Native applications on Android and iOS?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "For iOS, Xcode Instruments is an important profiling tool that helps analyze CPU usage, memory consumption, leaks, and application performance.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For Android, Android Studio Profiler and system tracing tools can be used to analyze CPU usage, memory, network activity, and rendering performance.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Performance should be evaluated using release builds with development mode disabled. Development mode introduces additional overhead and can produce misleading performance results.",
+      },
+    ],
+    topic: "Performance profiling",
+  },
+  {
+    id: "hermes-engine-performance",
+    question:
+      "What is Hermes in React Native, and how does it improve performance?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Hermes is an open-source JavaScript engine optimized for running React Native applications. It improves application startup time, memory usage, and JavaScript execution efficiency.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In release builds, Hermes compiles JavaScript into bytecode ahead of time. This reduces the need to parse JavaScript source code during application startup.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Hermes also supports features such as bytecode precompilation and optimized garbage collection, helping improve application performance.",
+      },
+    ],
+    topic: "Hermes engine",
+  },
+  {
+    id: "lazy-loading-react-native",
+    question:
+      "What is lazy loading in React Native, and how does it improve application performance?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Lazy loading is a technique that delays loading components or modules until they are actually required. It helps reduce the amount of JavaScript code that needs to be loaded during the initial application startup.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React provides the lazy API, which can be used with Suspense to load components when they are first rendered.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "import React, { lazy, Suspense } from 'react';\n\nconst ProfileScreen = lazy(() => import('./ProfileScreen'));\n\nfunction App() {\n  return (\n    <Suspense fallback={<LoadingScreen />}>\n      <ProfileScreen />\n    </Suspense>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Lazy loading is particularly useful for screen-level components that are not required immediately when the application starts.",
+      },
+    ],
+    topic: "Lazy loading",
+  },
+  {
+    id: "flatlist-react-native-fundamentals",
+    question:
+      "What is FlatList in React Native, how does it work internally, and why is it preferred over ScrollView for large lists?",
+    answer: [
+      {
+        type: "heading",
+        content: "1. What is FlatList?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "FlatList is a React Native component used to render a scrollable list of data efficiently. It is designed for lists where the number of items can be large or can change dynamically, such as product listings, transaction histories, chat messages, user lists, and order histories.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "FlatList is built on top of VirtualizedList. It uses virtualization, which means it does not need to mount every item in a large dataset at the same time. Instead, it maintains a render window around the visible area and renders additional items as the user scrolls.",
+      },
+      {
+        type: "heading",
+        content: "2. FlatList vs ScrollView",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ScrollView renders all of its children at once. If an API returns 1,000 records and we map all 1,000 records inside ScrollView, React Native creates and maintains all those item views, even though most are outside the screen.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "FlatList virtualizes the list. It renders an initial batch and additional items around the viewport as needed. This generally reduces the number of mounted item views and helps control memory consumption.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "// ScrollView: renders all mapped items\n<ScrollView>\n  {users.map(user => (\n    <UserCard key={user.id} user={user} />\n  ))}\n</ScrollView>\n\n// FlatList: virtualized list rendering\n<FlatList\n  data={users}\n  keyExtractor={item => item.id.toString()}\n  renderItem={({ item }) => <UserCard user={item} />}\n/>",
+      },
+      {
+        type: "heading",
+        content: "3. How virtualization works",
+      },
+      {
+        type: "paragraph",
+        content:
+          "FlatList maintains a render window around the visible viewport. It initially renders a batch of items, keeps a configurable number of viewports around the visible area, and schedules more cells as the user scrolls. Items outside the active render window can be unmounted, while their data remains available in the data source.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Rendering outside the viewport can happen asynchronously. If a user scrolls faster than the list can render new cells, blank areas may briefly appear. This is why windowSize, maxToRenderPerBatch, updateCellsBatchingPeriod, and item complexity need to be tuned together.",
+      },
+      {
+        type: "heading",
+        content: "4. Important internal behavior",
+      },
+      {
+        type: "paragraph",
+        content:
+          "FlatList behaves as a PureComponent. It performs shallow comparisons of props. If data or another dependency remains the same reference, FlatList may not know that the UI needs to update. This is why immutable data updates and extraData are important.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Virtualized items may be unmounted when they leave the render window. Do not rely on local component state inside a row to preserve important information such as form values, selected state, or draft content. Store that information in the data model or an appropriate external state store.",
+      },
+      {
+        type: "heading",
+        content: "5. Experienced developer answer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In a production application, I use FlatList for large or dynamic datasets because it provides virtualization and better control over rendering and memory usage than rendering every row inside ScrollView. I first measure the item height, complexity, dataset size, and expected scroll behavior. Then I tune the initial render count, window size, batch rendering, and getItemLayout where dimensions are predictable. I also optimize the row component using React.memo where beneficial, use stable keys, avoid unnecessary state updates, and profile scrolling in release builds.",
+      },
+    ],
+    topic: "FlatList fundamentals",
+  },
+  {
+    id: "flatlist-performance-props-deep-dive",
+    question: "Explain FlatList performance optimization props in detail.",
+    answer: [
+      {
+        type: "heading",
+        content: "1. initialNumToRender",
+      },
+      {
+        type: "paragraph",
+        content:
+          "initialNumToRender controls how many items FlatList renders in its initial batch. Its documented default is 10. The goal is to render enough items to fill the initial viewport without mounting too many unnecessary rows.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, if approximately six rows fit on the screen, rendering around six to eight rows may be a reasonable starting point. The exact number depends on row height, device dimensions, headers, and spacing.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If the value is too low, the user may see blank areas during the initial display. If it is unnecessarily high, initial rendering takes more time and mounts more components than needed. The initial items are also retained as part of FlatList's scroll-to-top optimization.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  initialNumToRender={8}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "2. maxToRenderPerBatch",
+      },
+      {
+        type: "paragraph",
+        content:
+          "maxToRenderPerBatch controls the maximum number of new items rendered in one batch. The documented default is 10.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Increasing this value can reduce blank areas during fast scrolling because more rows are rendered in each batch. However, rendering too many rows at once can occupy the JavaScript thread for longer and delay interactions such as button presses.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "As an experienced developer, I would not simply increase this value to the maximum. I would check whether blank cells are actually occurring and balance the fill rate against responsiveness.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  maxToRenderPerBatch={8}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "3. updateCellsBatchingPeriod",
+      },
+      {
+        type: "paragraph",
+        content:
+          "updateCellsBatchingPeriod controls the delay in milliseconds between scheduled cell-rendering batches. Its documented default is 50 milliseconds.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It works together with maxToRenderPerBatch. A shorter interval schedules batches more frequently, while a longer interval reduces how often new batches are scheduled.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If the interval is too long, the list may not fill quickly enough during fast scrolling. If batches are scheduled too frequently, JavaScript execution can compete with other work.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  maxToRenderPerBatch={8}\n  updateCellsBatchingPeriod={50}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "4. windowSize",
+      },
+      {
+        type: "paragraph",
+        content:
+          "windowSize controls how many viewport lengths are included in the render window. The documented default is 21: approximately 10 viewports above, one visible viewport, and 10 below.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A larger windowSize keeps more rows mounted around the visible area. This can reduce the chance of seeing blank spaces during fast scrolling, but it increases the number of mounted components and memory usage.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A smaller windowSize reduces the number of mounted rows and can help memory-constrained devices. However, the user may scroll beyond the rendered area before the next batch is ready.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  windowSize={15}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "5. getItemLayout",
+      },
+      {
+        type: "paragraph",
+        content:
+          "getItemLayout allows developers to provide the length and offset of an item when its dimensions are known in advance. It avoids the need for FlatList to dynamically measure item layouts in situations where fixed dimensions are available.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It is especially useful for fixed-height rows, simple transaction lists, menu rows, and other predictable layouts. It can improve scrollToIndex behavior and reduce layout measurement work.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const ITEM_HEIGHT = 70;\nconst SEPARATOR_HEIGHT = 1;\n\n<FlatList\n  data={transactions}\n  getItemLayout={(data, index) => ({\n    length: ITEM_HEIGHT,\n    offset: (ITEM_HEIGHT + SEPARATOR_HEIGHT) * index,\n    index,\n  })}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: The length and offset must reflect the actual layout. Include separator size in the offset calculation where applicable. Do not use a fixed getItemLayout if rows have variable heights caused by text wrapping, expanded content, or dynamic images.",
+      },
+      {
+        type: "heading",
+        content: "6. removeClippedSubviews",
+      },
+      {
+        type: "paragraph",
+        content:
+          "removeClippedSubviews allows offscreen child views to be detached from their native backing view hierarchy. It can reduce work during native view traversal and drawing. The documented default is true on Android and false on iOS.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This is not the same as freeing all memory occupied by those views. Detached views are not necessarily deallocated. Also, this prop can cause missing-content or layout issues in some cases, especially with transforms and absolute positioning.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "As an experienced developer, I would test it on both platforms with the actual row design instead of assuming that enabling it always improves performance.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  removeClippedSubviews={true}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "7. How these props work together",
+      },
+      {
+        type: "paragraph",
+        content:
+          "initialNumToRender affects the first batch, maxToRenderPerBatch controls how many cells are added in a batch, updateCellsBatchingPeriod controls the interval between batches, and windowSize controls the overall render window. getItemLayout reduces measurement work for predictable rows. removeClippedSubviews can reduce native drawing and traversal work in suitable layouts.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "There is no universally best combination. For a list with complex cards and images, I would usually start conservatively, profile on a lower-end Android device, and adjust one variable at a time.",
+      },
+      {
+        type: "heading",
+        content: "8. Experienced developer interview answer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When optimizing FlatList, I focus on three areas: initial rendering, scrolling fill rate, and memory usage. I use initialNumToRender to cover the first viewport, maxToRenderPerBatch and updateCellsBatchingPeriod to balance rendering throughput with interaction responsiveness, and windowSize to control how many viewports stay mounted. If row dimensions are fixed, I use getItemLayout to avoid unnecessary measurement. I evaluate removeClippedSubviews carefully because it can help native rendering work but may introduce visual issues. I validate the result using release builds and real devices.",
+      },
+    ],
+    topic: "FlatList performance optimization",
+  },
+  {
+    id: "flatlist-core-props-explained",
+    question:
+      "Explain the important FlatList props such as data, renderItem, keyExtractor, extraData, ListHeaderComponent, ListFooterComponent, ItemSeparatorComponent, and ListEmptyComponent.",
+    answer: [
+      {
+        type: "heading",
+        content: "1. data",
+      },
+      {
+        type: "paragraph",
+        content:
+          "data is the array or array-like collection containing the items that FlatList should display. Each element is passed to renderItem.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For predictable updates, treat the data immutably. Do not mutate the existing array using methods such as push or splice and then pass the same array reference. Create a new array when adding, removing, or updating records.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const [users, setUsers] = useState([]);\n\n// Add an item immutably\nsetUsers(previous => [...previous, newUser]);\n\n// Update an item immutably\nsetUsers(previous =>\n  previous.map(user =>\n    user.id === updatedUser.id ? updatedUser : user\n  )\n);",
+      },
+      {
+        type: "heading",
+        content: "2. renderItem",
+      },
+      {
+        type: "paragraph",
+        content:
+          "renderItem is the function responsible for rendering each item. It receives an object containing item, index, and separators. It should return the React element for that row.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For performance, avoid putting expensive calculations, filtering, sorting, or complex data transformations inside renderItem. Prepare the data before rendering, and extract complex row UI into a separate component.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const renderItem = useCallback(({ item, index }) => {\n  return <UserCard user={item} index={index} />;\n}, []);\n\n<FlatList data={users} renderItem={renderItem} />",
+      },
+      {
+        type: "heading",
+        content: "3. keyExtractor",
+      },
+      {
+        type: "paragraph",
+        content:
+          "keyExtractor returns a unique string key for each item. React uses keys to identify items during reconciliation, including when records are inserted, removed, or reordered.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Prefer a stable backend ID or another persistent unique identifier. Avoid using the array index as the key when list items can be inserted, deleted, or reordered, because component identity can become associated with the wrong record.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={users}\n  keyExtractor={(item) => item.id.toString()}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "4. extraData",
+      },
+      {
+        type: "paragraph",
+        content:
+          "extraData tells FlatList that its output depends on something outside the data prop. This matters because FlatList performs shallow prop comparisons. If an external value changes but the list's relevant props remain shallow-equal, the list may not update.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, if a row displays whether it is selected, selectedId is an external dependency. Passing it through extraData makes that dependency explicit.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const [selectedId, setSelectedId] = useState(null);\n\nconst renderItem = useCallback(({ item }) => (\n  <Pressable onPress={() => setSelectedId(item.id)}>\n    <Text>\n      {selectedId === item.id ? 'Selected' : item.name}\n    </Text>\n  </Pressable>\n), [selectedId]);\n\n<FlatList\n  data={users}\n  extraData={selectedId}\n  keyExtractor={item => item.id.toString()}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If renderItem is recreated when selectedId changes, FlatList may already receive a changed function reference. extraData is particularly important when renderItem or other list callbacks are stable and depend on external values. It is not a replacement for immutable state updates.",
+      },
+      {
+        type: "heading",
+        content: "5. ItemSeparatorComponent",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ItemSeparatorComponent renders a component between list items, but not before the first item or after the last item. It is useful for dividers, spacing, and visual separation.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Using this prop keeps separator rendering separate from the row component. If the separator has a fixed size and getItemLayout is used, include its size in the item offset calculation.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const Separator = () => <View style={{ height: 1, backgroundColor: '#ddd' }} />;\n\n<FlatList\n  data={users}\n  ItemSeparatorComponent={Separator}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "6. ListHeaderComponent",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ListHeaderComponent renders content before the list items. It can be used for search fields, filters, summary cards, banners, or category information.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  ListHeaderComponent={<ProductHeader />}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "7. ListHeaderComponentStyle",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ListHeaderComponentStyle applies styling to the internal container that wraps the header component. It is useful for header container layout, padding, and alignment.",
+      },
+      {
+        type: "heading",
+        content: "8. ListFooterComponent",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ListFooterComponent renders after the list items. It is commonly used for a load-more indicator, pagination status, or footer information.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  ListFooterComponent={isLoadingMore ? <ActivityIndicator /> : null}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "9. ListFooterComponentStyle",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ListFooterComponentStyle styles the internal container around the footer. For example, it can add vertical padding or center a loading indicator.",
+      },
+      {
+        type: "heading",
+        content: "10. ListEmptyComponent",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ListEmptyComponent renders when the list has no items. It is useful for empty states such as No transactions found, No products available, or No search results.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          '<FlatList\n  data={products}\n  ListEmptyComponent={<EmptyState message="No products found" />}\n  renderItem={renderItem}\n/>',
+      },
+      {
+        type: "heading",
+        content: "11. ListItemComponent",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ListItemComponent is an alternative component for rendering each data item. It receives the same item-related props as renderItem and takes precedence over renderItem when both are supplied. In most application code, renderItem is the more commonly used and recognizable API.",
+      },
+      {
+        type: "heading",
+        content: "12. Experienced developer considerations",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I keep the row component independent from the screen, pass only the data it needs, use stable identifiers, and avoid changing the entire dataset for a small row update. I also keep empty, loading, error, and pagination states separate so the list behavior remains predictable.",
+      },
+    ],
+    topic: "FlatList core props",
+  },
+  {
+    id: "flatlist-scrolling-pagination-viewability",
+    question:
+      "Explain FlatList scrolling, pagination, pull-to-refresh, and viewability props with practical examples.",
+    answer: [
+      {
+        type: "heading",
+        content: "1. horizontal",
+      },
+      {
+        type: "paragraph",
+        content:
+          "horizontal changes the list direction from vertical to horizontal. It is useful for carousels, category chips, recommended products, and horizontally scrolling cards.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  horizontal\n  data={categories}\n  keyExtractor={item => item.id.toString()}\n  renderItem={renderCategory}\n  showsHorizontalScrollIndicator={false}\n/>",
+      },
+      {
+        type: "heading",
+        content: "2. inverted",
+      },
+      {
+        type: "paragraph",
+        content:
+          "inverted reverses the scroll direction using scale transforms. It is useful for chat interfaces where new messages appear at the bottom and the conversation is commonly presented in reverse scroll order.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={messages}\n  inverted\n  keyExtractor={item => item.id.toString()}\n  renderItem={renderMessage}\n/>",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Be careful with inverted lists: visual ordering, keyboard behavior, separators, and scroll-to-index calculations need to be tested against the desired message ordering.",
+      },
+      {
+        type: "heading",
+        content: "3. numColumns",
+      },
+      {
+        type: "paragraph",
+        content:
+          "numColumns allows FlatList to render multiple items in each row. It is useful for product grids, photo galleries, and category grids. Multiple columns require horizontal to be false, and the items should have consistent heights. FlatList does not provide a masonry layout through numColumns.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  numColumns={2}\n  columnWrapperStyle={{ justifyContent: 'space-between' }}\n  keyExtractor={item => item.id.toString()}\n  renderItem={renderProduct}\n/>",
+      },
+      {
+        type: "heading",
+        content: "4. columnWrapperStyle",
+      },
+      {
+        type: "paragraph",
+        content:
+          "columnWrapperStyle styles the row wrapper created when numColumns is greater than one. It can be used for horizontal spacing, alignment, and row-level layout.",
+      },
+      {
+        type: "heading",
+        content: "5. onEndReached",
+      },
+      {
+        type: "paragraph",
+        content:
+          "onEndReached is called when the scroll position approaches the end of the content, according to onEndReachedThreshold. It is commonly used to implement infinite scrolling or API pagination.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A production implementation must guard against duplicate requests. Keep track of whether a request is already in progress, whether another page exists, and which page or cursor is being requested. Do not assume onEndReached will fire exactly once.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const loadMore = useCallback(() => {\n  if (isLoadingMore || !hasNextPage) return;\n  fetchNextPage();\n}, [isLoadingMore, hasNextPage, fetchNextPage]);\n\n<FlatList\n  data={products}\n  onEndReached={loadMore}\n  onEndReachedThreshold={0.5}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "6. onEndReachedThreshold",
+      },
+      {
+        type: "paragraph",
+        content:
+          "onEndReachedThreshold controls how close the scroll position must be to the end before onEndReached is triggered. It is measured in units of visible list length. For example, 0.5 means the callback can be triggered when the end is within approximately half a viewport.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A larger threshold starts loading earlier, which can reduce the chance that the user reaches the bottom before the next page arrives. A smaller threshold delays the request. Choose it based on API latency, row height, and scroll speed.",
+      },
+      {
+        type: "heading",
+        content: "7. onRefresh",
+      },
+      {
+        type: "paragraph",
+        content:
+          "onRefresh is called when the user performs a pull-to-refresh gesture. When supplied, FlatList displays a standard RefreshControl. It is normally paired with the refreshing prop.",
+      },
+      {
+        type: "heading",
+        content: "8. refreshing",
+      },
+      {
+        type: "paragraph",
+        content:
+          "refreshing is a boolean that indicates whether the refresh operation is currently running. It must be set to true while refreshing; otherwise, the refresh indicator may not remain visible.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const [refreshing, setRefreshing] = useState(false);\n\nconst onRefresh = async () => {\n  setRefreshing(true);\n  try {\n    await fetchLatestProducts();\n  } finally {\n    setRefreshing(false);\n  }\n};\n\n<FlatList\n  data={products}\n  refreshing={refreshing}\n  onRefresh={onRefresh}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "9. progressViewOffset",
+      },
+      {
+        type: "paragraph",
+        content:
+          "progressViewOffset adjusts the vertical position of the refresh loading indicator. It is useful when the list has a custom header or when the refresh indicator needs to appear below an overlapping toolbar.",
+      },
+      {
+        type: "heading",
+        content: "10. onViewableItemsChanged",
+      },
+      {
+        type: "paragraph",
+        content:
+          "onViewableItemsChanged is called when items enter or leave the viewability criteria. It receives changed and viewableItems arrays. It is useful for tracking visible content, autoplaying videos only when visible, marking messages as seen, and analytics.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const onViewableItemsChanged = useCallback(({ viewableItems }) => {\n  // Process currently viewable items\n  console.log(viewableItems.map(token => token.item.id));\n}, []);\n\n<FlatList\n  data={videos}\n  onViewableItemsChanged={onViewableItemsChanged}\n  renderItem={renderVideo}\n/>",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Keep the callback reference stable. Avoid doing expensive work or updating large amounts of state every time viewability changes, because that can itself create performance problems.",
+      },
+      {
+        type: "heading",
+        content: "11. viewabilityConfig",
+      },
+      {
+        type: "paragraph",
+        content:
+          "viewabilityConfig determines when an item counts as viewable. It supports minimumViewTime, itemVisiblePercentThreshold, viewAreaCoveragePercentThreshold, and waitForInteraction.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "minimumViewTime specifies how long an item must remain visible before it is counted. itemVisiblePercentThreshold defines the percentage of the item's own area that must be visible. viewAreaCoveragePercentThreshold defines the percentage of the viewport covered by an item. waitForInteraction delays viewability reporting until the user interacts or the list records an interaction.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const viewabilityConfig = {\n  itemVisiblePercentThreshold: 70,\n  minimumViewTime: 500,\n};\n\n<FlatList\n  data={videos}\n  viewabilityConfig={viewabilityConfig}\n  onViewableItemsChanged={onViewableItemsChanged}\n  renderItem={renderVideo}\n/>",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Define viewabilityConfig outside the component or memoize it. React Native does not support changing the viewability configuration dynamically after the list has been initialized.",
+      },
+      {
+        type: "heading",
+        content: "12. viewabilityConfigCallbackPairs",
+      },
+      {
+        type: "paragraph",
+        content:
+          "viewabilityConfigCallbackPairs allows multiple viewability configurations to be paired with separate callbacks. It is useful when the same list needs different visibility rules for different purposes, such as analytics and video playback.",
+      },
+      {
+        type: "heading",
+        content: "13. Experienced developer pagination approach",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For a real API-driven list, I separate initial loading, pull-to-refresh, load-more, empty state, and error handling. I use a page number or cursor from the backend, prevent concurrent pagination requests, append new records immutably, and avoid requesting beyond the last page. I also test slow networks and repeated onEndReached events.",
+      },
+    ],
+    topic: "FlatList scrolling and pagination",
+  },
+  {
+    id: "flatlist-advanced-and-inherited-props",
+    question:
+      "What are the additional FlatList props and inherited ScrollView props that an experienced React Native developer should know?",
+    answer: [
+      {
+        type: "heading",
+        content: "1. initialScrollIndex",
+      },
+      {
+        type: "paragraph",
+        content:
+          "initialScrollIndex tells FlatList to start at a particular item instead of the first item. It is useful for opening a chat at a particular message or navigating directly to a selected record. It requires getItemLayout to be implemented.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={messages}\n  initialScrollIndex={20}\n  getItemLayout={(data, index) => ({\n    length: 60,\n    offset: 60 * index,\n    index,\n  })}\n  renderItem={renderItem}\n/>",
+      },
+      {
+        type: "heading",
+        content: "2. onScroll",
+      },
+      {
+        type: "paragraph",
+        content:
+          "onScroll is a ScrollView prop inherited by FlatList. It is called while the list scrolls and provides information such as contentOffset, contentSize, and layoutMeasurement. It is useful for tracking scroll position, implementing custom headers, and showing a back-to-top button.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Avoid performing expensive calculations or frequent React state updates on every scroll event. For high-frequency animation, consider using React Native's native-driven animation capabilities or an appropriate animation library.",
+      },
+      {
+        type: "heading",
+        content: "3. scrollEventThrottle",
+      },
+      {
+        type: "paragraph",
+        content:
+          "scrollEventThrottle controls the minimum time interval between scroll events, in milliseconds. It is useful when you need to control how frequently JavaScript receives scroll events. A very frequent callback can add JavaScript workload.",
+      },
+      {
+        type: "heading",
+        content: "4. contentContainerStyle",
+      },
+      {
+        type: "paragraph",
+        content:
+          "contentContainerStyle applies styles to the container wrapping the list content. It is useful for content padding, alignment, and spacing. For example, paddingBottom can prevent the last item from being hidden behind a bottom tab bar.",
+      },
+      {
+        type: "heading",
+        content: "5. style",
+      },
+      {
+        type: "paragraph",
+        content:
+          "style applies styles to the FlatList's outer scroll container. Use it to control dimensions, flex behavior, and positioning.",
+      },
+      {
+        type: "heading",
+        content:
+          "6. showsVerticalScrollIndicator and showsHorizontalScrollIndicator",
+      },
+      {
+        type: "paragraph",
+        content:
+          "These inherited ScrollView props control whether the vertical or horizontal scroll indicator is visible. They are primarily presentation properties and are not major virtualization optimizations.",
+      },
+      {
+        type: "heading",
+        content: "7. keyboardShouldPersistTaps",
+      },
+      {
+        type: "paragraph",
+        content:
+          "keyboardShouldPersistTaps controls whether taps on children are handled while the keyboard is open. It is important for searchable lists and forms containing text inputs. For example, using handled allows child controls to receive taps without requiring the keyboard to be dismissed first.",
+      },
+      {
+        type: "heading",
+        content: "8. nestedScrollEnabled",
+      },
+      {
+        type: "paragraph",
+        content:
+          "nestedScrollEnabled enables nested scrolling behavior on supported platforms, particularly Android. It can be useful when a FlatList is placed inside another scrollable container. However, nesting virtualized lists inside ScrollViews can undermine virtualization and cause layout or scrolling problems. Prefer a single virtualized list with headers and footers where possible.",
+      },
+      {
+        type: "heading",
+        content: "9. maintainVisibleContentPosition",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This inherited scroll-view capability helps maintain the visible content position when items are inserted or removed before the current visible position. It can be useful for chat timelines and live feeds where new records are added. Test it carefully with inverted lists and complex layouts.",
+      },
+      {
+        type: "heading",
+        content: "10. extra VirtualizedList debugging props",
+      },
+      {
+        type: "paragraph",
+        content:
+          "VirtualizedList exposes additional props such as debug and disableVirtualization in some React Native versions. Debugging options can help investigate rendering behavior, but debug mode has a performance cost. Do not use development-only debugging settings as production optimizations.",
+      },
+      {
+        type: "heading",
+        content: "11. Experienced developer rule",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I distinguish between props that control virtualization, props that control scrolling behavior, and props that control presentation. I don't change every prop for every list. I select only the options required by the user experience and validate them on the target Android and iOS devices.",
+      },
+    ],
+    topic: "FlatList advanced props",
+  },
+  {
+    id: "flatlist-optimized-product-list-implementation",
+    question:
+      "How would you implement and optimize a product listing screen in React Native using FlatList, including memoization, pull-to-refresh, infinite scrolling, and virtualization?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "This implementation demonstrates a production-oriented product list using FlatList. It combines React.memo, useCallback, useState, stable keys, virtualization properties, pull-to-refresh, and pagination to improve rendering efficiency and user experience.",
+      },
+      {
+        type: "heading",
+        content: "1. Import required components and hooks",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "import React, { memo, useCallback, useState } from 'react';\nimport {\n  ActivityIndicator,\n  FlatList,\n  Image,\n  Pressable,\n  StyleSheet,\n  Text,\n  View,\n} from 'react-native';",
+      },
+      {
+        type: "paragraph",
+        content:
+          "memo prevents ProductCard from re-rendering when its props remain shallow-equal. useCallback memoizes function references when their dependencies have not changed. useState manages the local refreshing state.",
+      },
+      {
+        type: "heading",
+        content: "2. ProductCard component using React.memo",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const ProductCard = memo(({ item, onPress }) => {\n  return (\n    <Pressable\n      style={styles.card}\n      onPress={() => onPress(item)}\n    >\n      <Image\n        source={{ uri: item.image }}\n        style={styles.image}\n      />\n\n      <Text numberOfLines={1} style={styles.name}>\n        {item.name}\n      </Text>\n\n      <Text style={styles.price}>\n        ₹{item.price}\n      </Text>\n    </Pressable>\n  );\n});",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ProductCard is a separate reusable component wrapped with React.memo. React compares its props using shallow comparison. If item and onPress references have not changed, React can skip rendering that card when its parent renders again.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The inline onPress function inside Pressable is created when ProductCard renders. This does not automatically cause a problem because it is internal to the memoized component. The important point is that the parent passes a stable onPress reference.",
+      },
+      {
+        type: "heading",
+        content: "3. ProductList component and props",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const ProductList = ({\n  products,\n  fetchNextPage,\n  refreshProducts,\n  hasNextPage,\n  isLoadingMore,\n}) => {\n  const [refreshing, setRefreshing] = useState(false);\n\n  // Remaining implementation follows below\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "products contains the product records received from the API. fetchNextPage loads the next page. refreshProducts fetches the latest products. hasNextPage indicates whether another page is available. isLoadingMore prevents concurrent pagination requests.",
+      },
+      {
+        type: "heading",
+        content: "4. handleProductPress using useCallback",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const handleProductPress = useCallback((product) => {\n  console.log('Selected product:', product.id);\n}, []);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "useCallback preserves the function reference between renders because the dependency array is empty. This is useful when passing the callback to memoized child components. Here, ProductCard receives the same onPress function reference unless the parent component is remounted.",
+      },
+      {
+        type: "heading",
+        content: "5. renderItem using useCallback",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const renderItem = useCallback(({ item }) => (\n  <ProductCard\n    item={item}\n    onPress={handleProductPress}\n  />\n), [handleProductPress]);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "renderItem is the function FlatList calls to render each item. useCallback keeps its reference stable while handleProductPress remains unchanged. This can avoid unnecessary list updates caused by a newly created renderItem reference.",
+      },
+      {
+        type: "heading",
+        content: "6. keyExtractor",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const keyExtractor = useCallback(\n  item => item.id.toString(),\n  []\n);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "keyExtractor provides a unique and stable key for each product. React uses keys to identify list elements during reconciliation. A backend ID is preferred over an array index, especially when records can be inserted, removed, or reordered.",
+      },
+      {
+        type: "heading",
+        content: "7. Pull-to-refresh implementation",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const handleRefresh = useCallback(async () => {\n  setRefreshing(true);\n\n  try {\n    await refreshProducts();\n  } finally {\n    setRefreshing(false);\n  }\n}, [refreshProducts]);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When the user pulls the list downward, handleRefresh executes. refreshing becomes true to display the refresh indicator. After the API request finishes, the finally block resets refreshing to false, including when the request fails.",
+      },
+      {
+        type: "heading",
+        content: "8. Infinite scrolling and pagination",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const handleLoadMore = useCallback(() => {\n  if (isLoadingMore || !hasNextPage) {\n    return;\n  }\n\n  fetchNextPage();\n}, [isLoadingMore, hasNextPage, fetchNextPage]);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "onEndReached invokes handleLoadMore when the user approaches the end of the list. The function checks isLoadingMore to avoid starting another request while the current request is running. It also checks hasNextPage to avoid unnecessary API calls when there are no more records.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In a production application, the pagination logic should also handle duplicate triggers, API failures, page or cursor tracking, and request cancellation where appropriate. A request-level guard is useful because onEndReached is not guaranteed to execute exactly once.",
+      },
+      {
+        type: "heading",
+        content: "9. ListFooterComponent",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const ListFooter = useCallback(() => {\n  if (!isLoadingMore) return null;\n\n  return (\n    <ActivityIndicator style={styles.loader} />\n  );\n}, [isLoadingMore]);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ListFooterComponent displays a loading indicator when the next page is being fetched. It returns null when pagination is not active. This provides visual feedback to users during infinite scrolling.",
+      },
+      {
+        type: "heading",
+        content: "10. FlatList implementation and performance props",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={products}\n  renderItem={renderItem}\n  keyExtractor={keyExtractor}\n\n  // Initial rendering\n  initialNumToRender={8}\n\n  // Virtualization tuning\n  windowSize={15}\n  maxToRenderPerBatch={8}\n  updateCellsBatchingPeriod={50}\n\n  // Fixed row dimensions\n  getItemLayout={(data, index) => ({\n    length: 130,\n    offset: 130 * index,\n    index,\n  })}\n\n  // Refresh\n  refreshing={refreshing}\n  onRefresh={handleRefresh}\n\n  // Pagination\n  onEndReached={handleLoadMore}\n  onEndReachedThreshold={0.5}\n\n  // List UI\n  ListFooterComponent={ListFooter}\n  ListEmptyComponent={\n    <Text>No products available</Text>\n  }\n\n  // Layout\n  contentContainerStyle={styles.container}\n  showsVerticalScrollIndicator={false}\n/>",
+      },
+      {
+        type: "paragraph",
+        content:
+          "initialNumToRender={8} renders an initial batch of eight items. windowSize={15} controls the render window in viewport units. maxToRenderPerBatch={8} controls the maximum number of new cells rendered in one batch. updateCellsBatchingPeriod={50} controls the interval between scheduled batches in milliseconds.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "getItemLayout provides fixed item dimensions and offsets so FlatList does not need to measure every row dynamically. In this example, the card height is 118 and its bottom margin is 12, giving a total item stride of 130 points.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "onEndReachedThreshold={0.5} starts the pagination callback when the end is approximately half a viewport away. refreshing and onRefresh implement pull-to-refresh. ListEmptyComponent displays a message when the list has no records.",
+      },
+      {
+        type: "heading",
+        content: "11. Stylesheet",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "const styles = StyleSheet.create({\n  container: {\n    padding: 12,\n  },\n  card: {\n    height: 118,\n    marginBottom: 12,\n    padding: 10,\n    backgroundColor: '#fff',\n    borderRadius: 8,\n  },\n  image: {\n    width: 60,\n    height: 60,\n  },\n  name: {\n    fontSize: 14,\n    fontWeight: '600',\n  },\n  price: {\n    fontSize: 13,\n  },\n  loader: {\n    marginVertical: 16,\n  },\n});",
+      },
+      {
+        type: "paragraph",
+        content:
+          "StyleSheet.create defines reusable styles outside the component. The product card has a fixed height of 118 points and a bottom margin of 12 points. Together, they produce the 130-point item stride used by getItemLayout.",
+      },
+      {
+        type: "heading",
+        content: "12. Export component",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content: "export default ProductList;",
+      },
+      {
+        type: "heading",
+        content: "13. Complete execution flow",
+      },
+      {
+        type: "list",
+        content: [
+          "The parent component fetches product data and passes it to ProductList.",
+          "FlatList receives the products array and initially renders a limited number of rows.",
+          "renderItem creates a ProductCard for each rendered product.",
+          "React.memo helps skip unnecessary ProductCard renders when its props remain shallow-equal.",
+          "keyExtractor provides stable product identities.",
+          "getItemLayout provides predictable row measurements and offsets.",
+          "When the user pulls down, handleRefresh fetches the latest products.",
+          "When the user scrolls near the bottom, handleLoadMore requests another page.",
+          "ListFooterComponent displays a loading indicator during pagination.",
+          "FlatList manages its render window as the user scrolls.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "14. Experienced developer performance considerations",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React.memo and useCallback are not automatic performance improvements in every situation. I use them when profiling or component structure shows that stable references can prevent meaningful unnecessary work.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For a production implementation, I would also verify image caching and image dimensions, use immutable product updates, handle API errors, prevent duplicate pagination requests with a request-level guard, and test on lower-end Android devices.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I would validate getItemLayout against the actual rendered row dimensions. I would also profile the release build to determine whether the bottleneck is JavaScript execution, native rendering, image loading, or network latency.",
+      },
+      {
+        type: "heading",
+        content: "15. Important interview follow-up",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Question: If a parent component re-renders, will all ProductCard components re-render? Answer: Not necessarily. ProductCard is wrapped with React.memo, and if its item and onPress props retain the same references, React can skip rendering that card. However, if the product object changes, the callback reference changes, or the component's own state or consumed context changes, it may render again.",
+      },
+    ],
+    topic: "FlatList practical implementation and performance",
+  },
+  {
+    id: "flatlist-virtualization",
+    question: "How does FlatList improve performance in React Native?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "FlatList uses virtualization to efficiently render large lists. Instead of rendering every item at once, it renders items around the visible area and manages additional items as the user scrolls.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This reduces unnecessary rendering work and helps control memory consumption, making FlatList suitable for displaying large datasets.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "FlatList also provides optimization properties such as initialNumToRender, maxToRenderPerBatch, windowSize, removeClippedSubviews, and getItemLayout.",
+      },
+    ],
+    topic: "List optimization",
+  },
+
+  {
+    id: "flatlist-extradata",
+    question: "What is the purpose of extraData in FlatList?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "FlatList is a PureComponent, so it performs shallow comparisons of its props to determine whether it needs to re-render. If the data used by a list item changes without the relevant FlatList props changing, the list might not update as expected.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The extraData property tells FlatList that it depends on additional external data. When that data changes, FlatList can re-render accordingly.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={items}\n  extraData={selectedId}\n  keyExtractor={(item) => item.id.toString()}\n  renderItem={renderItem}\n/>",
+      },
+    ],
+    topic: "List optimization",
+  },
+  {
+    id: "flatlist-keyextractor",
+    question: "What is keyExtractor in FlatList, and why is it important?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "keyExtractor is a FlatList property that extracts a unique key for each item in the list. React uses these keys to identify items efficiently during reconciliation.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Using stable and unique IDs helps React identify added, removed, or updated items correctly and avoids unnecessary rendering issues.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={users}\n  keyExtractor={(item) => item.id.toString()}\n  renderItem={({ item }) => <Text>{item.name}</Text>}\n/>",
+      },
+    ],
+    topic: "List optimization",
+  },
+  {
+    id: "flatlist-getitemlayout",
+    question:
+      "What is getItemLayout in FlatList, and how does it improve performance?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "getItemLayout is an optional FlatList optimization property that allows developers to provide the dimensions and offsets of list items in advance.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When item dimensions are fixed, FlatList does not need to measure each item dynamically. This can improve scrolling performance and make operations such as scrollToIndex more efficient.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "<FlatList\n  data={items}\n  getItemLayout={(data, index) => ({\n    length: 60,\n    offset: 60 * index,\n    index,\n  })}\n  renderItem={renderItem}\n/>",
+      },
+    ],
+    topic: "List optimization",
+  },
+  {
+    id: "react-native-60fps",
+    question:
+      "Why is the 16.67-millisecond frame duration important in React Native?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "At a refresh rate of 60 frames per second, the application has approximately 16.67 milliseconds to produce each frame.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If the application takes longer than the available frame time to process and render a frame, users may experience dropped frames, stuttering, or an unresponsive interface.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Developers should optimize JavaScript execution, rendering, animations, and expensive operations to maintain smooth UI performance.",
+      },
+    ],
+    topic: "Rendering performance",
+  },
+  {
+    id: "remove-console-statements",
+    question:
+      "Why should console statements be removed from production React Native applications?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Console statements are useful during development for debugging JavaScript code. However, excessive logging in production can introduce unnecessary processing overhead and expose sensitive debugging information.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Developers should remove unnecessary console statements before creating production builds. Tools such as babel-plugin-transform-remove-console can help automate this process.",
+      },
+    ],
+    topic: "Performance optimization",
+  },
+  {
+    id: "react-memo-usememo-usecallback-differences",
+    question:
+      "What is the difference between React.memo, useMemo, and useCallback? Explain with practical examples.",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "React.memo, useMemo, and useCallback are React performance optimization techniques. They help prevent unnecessary component renders or expensive recalculations. However, each one solves a different problem.",
+      },
+      {
+        type: "heading",
+        content: "1. React.memo",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React.memo is a higher-order component (HOC) that memoizes a functional component. It prevents the component from re-rendering when its props have not changed according to a shallow comparison using Object.is.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It is useful when a child component receives the same props repeatedly, but its parent re-renders because of unrelated state changes.",
+      },
+      {
+        type: "heading",
+        content: "Example: Without React.memo",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { useState } from 'react';\n\nfunction Child({ name }) {\n  console.log('Child rendered');\n  return <h2>Hello {name}</h2>;\n}\n\nexport default function Parent() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <h1>Count: {count}</h1>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n      <Child name=\"Prashant\" />\n    </div>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Execution: Every time the parent state changes, Parent re-renders. Since Child is not memoized, Child also re-renders even though its name prop remains unchanged.",
+      },
+      {
+        type: "heading",
+        content: "Example: With React.memo",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { memo, useState } from 'react';\n\nconst Child = memo(function Child({ name }) {\n  console.log('Child rendered');\n  return <h2>Hello {name}</h2>;\n});\n\nexport default function Parent() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <h1>Count: {count}</h1>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n      <Child name=\"Prashant\" />\n    </div>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Execution: When count changes, Parent re-renders. React.memo compares the previous and new props of Child. Since name is unchanged, React can skip rendering Child.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: React.memo does not prevent re-rendering when the component's own state or consumed context changes. It is also not a guarantee that React will never render the component.",
+      },
+      {
+        type: "heading",
+        content: "2. useMemo",
+      },
+      {
+        type: "paragraph",
+        content:
+          "useMemo is a React Hook that memoizes the result of a calculation. It caches a computed value between renders and recalculates it only when one of its dependencies changes.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It is useful for expensive calculations, filtering large datasets, sorting records, or creating derived values that should remain stable between renders.",
+      },
+      {
+        type: "heading",
+        content: "Syntax",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "const memoizedValue = useMemo(() => {\n  return expensiveCalculation(data);\n}, [data]);",
+      },
+      {
+        type: "heading",
+        content: "Example: Without useMemo",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { useState } from 'react';\n\nexport default function ProductList({ products }) {\n  const [count, setCount] = useState(0);\n\n  const filteredProducts = products.filter(product => {\n    console.log('Filtering products');\n    return product.price > 1000;\n  });\n\n  return (\n    <div>\n      <h2>Count: {count}</h2>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n\n      {filteredProducts.map(product => (\n        <p key={product.id}>{product.name}</p>\n      ))}\n    </div>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Problem: Every time count changes, the component re-renders and the filter operation runs again, even though products have not changed.",
+      },
+      {
+        type: "heading",
+        content: "Example: With useMemo",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { useMemo, useState } from 'react';\n\nexport default function ProductList({ products }) {\n  const [count, setCount] = useState(0);\n\n  const filteredProducts = useMemo(() => {\n    console.log('Filtering products');\n\n    return products.filter(product => product.price > 1000);\n  }, [products]);\n\n  return (\n    <div>\n      <h2>Count: {count}</h2>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n\n      {filteredProducts.map(product => (\n        <p key={product.id}>{product.name}</p>\n      ))}\n    </div>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Execution: When count changes, the component re-renders, but useMemo returns the previously cached filteredProducts value because products has not changed. The filtering calculation runs again only when the products dependency changes.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: useMemo memoizes a value, not a function. It should be used for expensive calculations or when stable object/array references are useful to memoized children.",
+      },
+      {
+        type: "heading",
+        content: "3. useCallback",
+      },
+      {
+        type: "paragraph",
+        content:
+          "useCallback is a React Hook that memoizes a function reference between renders. It returns the same function reference until one of its dependencies changes.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It is useful when passing callbacks to memoized child components or when a function is a dependency of another Hook, such as useEffect.",
+      },
+      {
+        type: "heading",
+        content: "Syntax",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "const memoizedFunction = useCallback(() => {\n  // Function logic\n}, [dependencies]);",
+      },
+      {
+        type: "heading",
+        content: "Example: Without useCallback",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { memo, useState } from 'react';\n\nconst Child = memo(function Child({ onClick }) {\n  console.log('Child rendered');\n  return <button onClick={onClick}>Click Child</button>;\n});\n\nexport default function Parent() {\n  const [count, setCount] = useState(0);\n\n  const handleClick = () => {\n    console.log('Child button clicked');\n  };\n\n  return (\n    <div>\n      <h2>Count: {count}</h2>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n      <Child onClick={handleClick} />\n    </div>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Problem: Every parent render creates a new handleClick function reference. React.memo compares the previous and new onClick props, finds that the references are different, and renders Child again.",
+      },
+      {
+        type: "heading",
+        content: "Example: With useCallback",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { memo, useCallback, useState } from 'react';\n\nconst Child = memo(function Child({ onClick }) {\n  console.log('Child rendered');\n  return <button onClick={onClick}>Click Child</button>;\n});\n\nexport default function Parent() {\n  const [count, setCount] = useState(0);\n\n  const handleClick = useCallback(() => {\n    console.log('Child button clicked');\n  }, []);\n\n  return (\n    <div>\n      <h2>Count: {count}</h2>\n      <button onClick={() => setCount(count + 1)}>\n        Increment\n      </button>\n      <Child onClick={handleClick} />\n    </div>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Execution: useCallback returns the same handleClick reference while its dependencies remain unchanged. React.memo sees that the onClick prop has not changed and can skip rendering Child.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: useCallback memoizes the function reference; it does not execute the function or memoize its return value. Be careful with dependencies because a missing dependency can cause stale closures.",
+      },
+      {
+        type: "heading",
+        content: "4. Main Differences",
+      },
+      {
+        type: "list",
+        content: [
+          "React.memo: Memoizes a component and can skip re-rendering when props are unchanged.",
+          "useMemo: Memoizes the result of a calculation or a value.",
+          "useCallback: Memoizes a function reference.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "5. Comparison Table",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "React.memo", "useMemo", "useCallback"],
+          ["Type", "Higher-order component", "React Hook", "React Hook"],
+          [
+            "Memoizes",
+            "Component rendering",
+            "Computed value",
+            "Function reference",
+          ],
+          [
+            "Used for",
+            "Child component optimization",
+            "Expensive calculations",
+            "Stable callbacks",
+          ],
+          ["Returns", "Memoized component", "Cached value", "Cached function"],
+          [
+            "Prevents",
+            "Some unnecessary child renders",
+            "Repeated calculations",
+            "New function references",
+          ],
+          ["Dependency array", "No", "Yes", "Yes"],
+        ],
+      },
+      {
+        type: "heading",
+        content: "6. Real-World Example: Product List",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Consider an e-commerce application with thousands of products, a search field, category filters, and a product card component. We can combine all three techniques where they provide measurable value.",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { memo, useCallback, useMemo, useState } from 'react';\n\nconst ProductCard = memo(function ProductCard({ product, onSelect }) {\n  console.log('Rendering:', product.name);\n\n  return (\n    <div>\n      <h3>{product.name}</h3>\n      <p>Price: ₹{product.price}</p>\n      <button onClick={() => onSelect(product.id)}>\n        View Product\n      </button>\n    </div>\n  );\n});\n\nexport default function ProductList({ products }) {\n  const [search, setSearch] = useState('');\n  const [count, setCount] = useState(0);\n\n  const filteredProducts = useMemo(() => {\n    return products.filter(product =>\n      product.name.toLowerCase().includes(search.toLowerCase())\n    );\n  }, [products, search]);\n\n  const handleSelect = useCallback((productId) => {\n    console.log('Selected product:', productId);\n  }, []);\n\n  return (\n    <div>\n      <input\n        value={search}\n        onChange={e => setSearch(e.target.value)}\n        placeholder=\"Search products\"\n      />\n\n      <button onClick={() => setCount(count + 1)}>\n        Counter: {count}\n      </button>\n\n      {filteredProducts.map(product => (\n        <ProductCard\n          key={product.id}\n          product={product}\n          onSelect={handleSelect}\n        />\n      ))}\n    </div>\n  );\n}",
+      },
+      {
+        type: "heading",
+        content: "7. How All Three Work Together",
+      },
+      {
+        type: "list",
+        content: [
+          "useMemo filters the products and caches the filtered array until products or search changes.",
+          "useCallback keeps the handleSelect function reference stable.",
+          "React.memo prevents a ProductCard from re-rendering when its product and onSelect props remain unchanged.",
+          "When search changes, the filtered list is recalculated and the list updates to show matching products.",
+          "When count changes, the parent re-renders, but unchanged ProductCard props allow React.memo to skip those child renders.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "8. Important Points for Experienced Developers",
+      },
+      {
+        type: "list",
+        content: [
+          "Do not use memoization everywhere. It adds complexity and has its own overhead.",
+          "Use React.memo when a component renders frequently with unchanged props and rendering is costly enough to justify it.",
+          "Use useMemo for expensive calculations or to preserve a value reference when that stability matters.",
+          "Use useCallback when function identity matters, especially when passing callbacks to memoized children.",
+          "React.memo performs a shallow prop comparison by default. New object, array, or function references can defeat it.",
+          "Avoid mutating objects and arrays. Use immutable updates so React can detect reference changes.",
+          "Always provide correct dependencies to useMemo and useCallback to avoid stale values and stale closures.",
+          "Measure performance using React DevTools Profiler rather than assuming memoization improves it.",
+          "React Compiler can automatically memoize many values and functions in supported projects when enabled; follow the project's configuration and compiler guidance.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "9. Common Interview Questions",
+      },
+      {
+        type: "list",
+        content: [
+          "Can React.memo prevent re-rendering when the component's state changes? No. Its own state updates can still trigger a render.",
+          "Does useMemo prevent a component from rendering? No. It only caches a value.",
+          "Does useCallback execute a function? No. It returns a memoized function reference.",
+          "What happens if we pass an object as a prop to a React.memo component? A newly created object has a different reference and can trigger a render.",
+          "Can we use useMemo instead of useCallback? Yes. useCallback(fn, deps) is conceptually equivalent to useMemo(() => fn, deps), but useCallback is clearer for functions.",
+          "Should we use React.memo for every component? No. Use it when profiling or component behavior shows a worthwhile benefit.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "10. Interview-Ready Answer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React.memo, useMemo, and useCallback are used for performance optimization, but they work at different levels. React.memo memoizes a component and can skip rendering when its props remain unchanged. useMemo caches the result of a calculation so expensive operations do not run unnecessarily. useCallback caches a function reference so passing callbacks to memoized child components does not cause avoidable renders due to new function identities. In real projects, I use them selectively in large lists, complex forms, filtered datasets, and frequently rendered child components, and I validate the improvement with profiling.",
+      },
+    ],
+    topic: "React Performance Optimization",
+  },
+  {
+    id: "inline-functions-and-styles",
+    question:
+      "Why should you avoid unnecessary inline functions and styles in React Native?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Creating new function and object references during every render can cause unnecessary reconciliation and re-rendering, particularly when those references are passed to memoized child components.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Developers can define styles outside the component or use StyleSheet.create. They can also use useCallback to memoize callbacks when stable references are beneficial.",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "// Avoid unnecessary inline callbacks\n<Button onPress={() => doSomething(item)} />\n\n// Memoized callback\nconst handlePress = useCallback(() => {\n  doSomething(item);\n}, [item]);\n\n<Button onPress={handlePress} />",
+      },
+    ],
+    topic: "Rendering optimization",
+  },
+  {
+    id: "image-optimization-react-native",
+    question: "How do you optimize images in a React Native application?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Large images can increase memory consumption, cause rendering delays, and affect application performance.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Developers should resize and compress images before loading them into the application. Images should be served at dimensions appropriate for the screen instead of downloading unnecessarily large files.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Image caching can also improve performance by storing previously downloaded images locally and reusing them instead of downloading them repeatedly.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Libraries such as react-native-fast-image have traditionally provided native image caching and performance optimizations. Check library maintenance and React Native compatibility before selecting an image library.",
+      },
+    ],
+    topic: "Image optimization",
+  },
+  {
+    id: "native-modules-performance",
+    question:
+      "When should you use Native Modules in React Native to improve performance?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Native Modules allow JavaScript code to interact with platform-specific native functionality. They can be useful for CPU-intensive or platform-specific tasks such as image processing, video processing, complex calculations, and device hardware integration.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Moving suitable workloads to native code can reduce JavaScript-side processing overhead. However, native modules should be used when there is a clear performance or platform integration requirement rather than for every operation.",
+      },
+    ],
+    topic: "Native modules",
+  },
+
+  {
+    id: "react-native-old-architecture-complete-guide",
+    question:
+      "Explain React Native Old Architecture (Legacy Architecture) in detail.",
+    answer: [
+      {
+        type: "heading",
+        content: "1. What is React Native Old Architecture?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native Old Architecture, also known as Legacy Architecture, is the original architecture used by React Native to connect JavaScript code with native Android and iOS functionality.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It uses an asynchronous Bridge to communicate between JavaScript and native code. JavaScript and native code execute in separate environments, and messages are serialized and transferred through the Bridge.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Legacy Architecture mainly consists of the JavaScript Thread, Bridge, Native Modules, Shadow Thread, UIManager, UI Thread, and Paper Renderer.",
+      },
+      {
+        type: "heading",
+        content: "2. Main components of Old Architecture",
+      },
+      {
+        type: "list",
+        content: [
+          "JavaScript Thread: Executes JavaScript code, React components, event handlers, and application logic.",
+          "Bridge: Transfers serialized messages between JavaScript and native code asynchronously.",
+          "Native Modules: Expose Android and iOS platform functionality to JavaScript.",
+          "Native Modules Thread: Executes native module operations using the module's assigned execution queue.",
+          "Shadow Thread: Calculates layout and maintains the native shadow representation of the UI.",
+          "UIManager: Coordinates creation, updating, and deletion of native views.",
+          "UI Thread: Handles actual native view operations and screen rendering.",
+          "Paper Renderer: The legacy renderer responsible for translating React components into native platform views.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "3. Architecture diagram",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "           JavaScript Application\n                    |\n                    v\n             React Components\n                    |\n                    v\n              JavaScript Thread\n                    |\n                    v\n              Bridge (Batched)\n                    |\n          ----------------------\n          |                    |\n          v                    v\n    Native Modules        UIManager\n          |                    |\n          v                    v\n   Native Module          Shadow Thread\n   Execution Queue             |\n          |                    v\n          v                 Yoga Layout\n   Android / iOS               |\n   Native APIs                 v\n                         Native UI Operations\n                                |\n                                v\n                             UI Thread\n                                |\n                                v\n                          Native Views\n                                |\n                                v\n                             Screen",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This is a conceptual diagram. Native module execution and UI rendering use different execution paths. UIManager coordinates native view updates, while native modules can execute on their configured queues.",
+      },
+      {
+        type: "heading",
+        content: "4. What is the Bridge?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Bridge is the communication layer between JavaScript and native Android/iOS code in the Legacy Architecture.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "JavaScript and native code cannot directly exchange ordinary JavaScript and native objects. The Bridge transfers messages using a serialized representation, traditionally JSON-compatible data, and processes them asynchronously.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Bridge uses batched communication. Instead of sending every operation individually, multiple messages can be grouped and transferred between the JavaScript and native environments.",
+      },
+      {
+        type: "heading",
+        content: "How the Bridge works",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "JavaScript Code\n      |\n      v\nJavaScript Thread\n      |\n      v\nSerialize Data\n      |\n      v\nJavaScript-to-Native Queue\n      |\n      v\nNative Bridge Processing\n      |\n      v\nNative Module / UIManager\n      |\n      v\nNative Operation\n      |\n      v\nNative-to-JavaScript Queue\n      |\n      v\nJavaScript Callback / Promise",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: JavaScript requests the device name from an Android native module. The request crosses the Bridge, the native module executes the operation, and the result is sent back through the Bridge to JavaScript.",
+      },
+      {
+        type: "heading",
+        content: "5. What is serialization?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Serialization is the process of converting data into a representation that can be transferred between different execution environments.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In the Legacy Architecture, Bridge messages were traditionally serialized into JSON-compatible data. Native objects, functions, and complex platform-specific objects could not simply be passed as ordinary JavaScript objects.",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content:
+          'const user = {\n  id: 101,\n  name: \'Prashant\',\n  active: true\n};\n\nconst serializedData = JSON.stringify(user);\n\nconsole.log(serializedData);\n\n// {"id":101,"name":"Prashant","active":true}\n\nconst originalData = JSON.parse(serializedData);\n\nconsole.log(originalData.name);',
+      },
+      {
+        type: "paragraph",
+        content:
+          "This example demonstrates serialization using JSON. It is not a literal implementation of every internal Bridge message format.",
+      },
+      {
+        type: "heading",
+        content: "6. Why was the Bridge a performance bottleneck?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Bridge was asynchronous, but that did not mean communication was free. Serialization, queue scheduling, data conversion, and frequent cross-boundary messages could introduce overhead.",
+      },
+      {
+        type: "list",
+        content: [
+          "Serialization overhead: Data needed to be converted into a transferable format.",
+          "Queue overhead: Messages were scheduled and processed across different execution queues.",
+          "Large payloads: Frequently transferring large amounts of data could increase memory and processing overhead.",
+          "Frequent communication: High-frequency events such as sensor updates, animations, and camera frames could generate many messages.",
+          "Asynchronous limitations: JavaScript could not always synchronously access native functionality when required.",
+          "Rendering coordination: JavaScript and native rendering operations had to coordinate through the legacy communication mechanism.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: If a native sensor produces hundreds of updates per second and every update is sent to JavaScript, Bridge message processing can become expensive. The solution may involve throttling, batching, or processing more data on the native side.",
+      },
+      {
+        type: "heading",
+        content: "7. What is the JavaScript Thread?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The JavaScript Thread is responsible for executing the application's JavaScript code.",
+      },
+      {
+        type: "list",
+        content: [
+          "Executes React component logic.",
+          "Processes JavaScript event handlers.",
+          "Handles application state updates.",
+          "Runs JavaScript business logic.",
+          "Processes callbacks and Promise continuations.",
+          "Schedules JavaScript-to-native Bridge messages.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "If expensive synchronous JavaScript operations block this thread, JavaScript-driven interactions and rendering updates may become delayed.",
+      },
+      {
+        type: "heading",
+        content: "Example: Blocking JavaScript Thread",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content:
+          "function heavyCalculation() {\n  const start = Date.now();\n\n  while (Date.now() - start < 5000) {\n    // Blocking JavaScript execution\n  }\n\n  console.log('Calculation completed');\n}\n\nheavyCalculation();",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The JavaScript thread is blocked for approximately five seconds. JavaScript event handling and JS-driven UI updates cannot proceed normally during that time.",
+      },
+      {
+        type: "heading",
+        content: "8. What is the Native Modules Thread?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Native Modules expose platform-specific functionality to JavaScript. Their methods execute on the native module's configured execution queue or thread.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "There is not necessarily one dedicated thread for all native modules. In the Legacy Architecture, modules could use different execution queues depending on their implementation.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Examples of native functionality include Bluetooth, camera, GPS, device information, file system, notifications, and secure storage.",
+      },
+      {
+        type: "heading",
+        content: "9. What are Native Modules?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Native Modules are native Android or iOS classes that expose functionality to JavaScript through React Native's native module system.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, JavaScript cannot directly call Android's Build.MODEL API. A native Android module can expose a method that returns the device model to JavaScript.",
+      },
+      {
+        type: "heading",
+        content: "JavaScript usage",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content:
+          "import { NativeModules } from 'react-native';\n\nconst { DeviceInfo } = NativeModules;\n\nDeviceInfo.getDeviceName()\n  .then(name => {\n    console.log('Device name:', name);\n  })\n  .catch(error => {\n    console.log('Error:', error);\n  });",
+      },
+      {
+        type: "heading",
+        content: "Android implementation (Java)",
+      },
+      {
+        type: "code",
+        language: "java",
+        content:
+          'package com.myapp;\n\nimport com.facebook.react.bridge.Promise;\nimport com.facebook.react.bridge.ReactApplicationContext;\nimport com.facebook.react.bridge.ReactContextBaseJavaModule;\nimport com.facebook.react.bridge.ReactMethod;\n\npublic class DeviceInfoModule extends ReactContextBaseJavaModule {\n\n  DeviceInfoModule(ReactApplicationContext context) {\n    super(context);\n  }\n\n  @Override\n  public String getName() {\n    return "DeviceInfo";\n  }\n\n  @ReactMethod\n  public void getDeviceName(Promise promise) {\n    try {\n      String deviceName = android.os.Build.MODEL;\n      promise.resolve(deviceName);\n    } catch (Exception error) {\n      promise.reject("DEVICE_ERROR", error);\n    }\n  }\n}',
+      },
+      {
+        type: "paragraph",
+        content:
+          "The method is exposed using @ReactMethod. A Promise is used to return the result asynchronously to JavaScript.",
+      },
+      {
+        type: "heading",
+        content: "Registering the module",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A legacy Android native module also needs to be registered through a ReactPackage and included in the application's package registration.",
+      },
+      {
+        type: "code",
+        language: "java",
+        content:
+          "public class DeviceInfoPackage implements ReactPackage {\n\n  @Override\n  public List<NativeModule> createNativeModules(\n      ReactApplicationContext context) {\n    return Arrays.<NativeModule>asList(\n      new DeviceInfoModule(context)\n    );\n  }\n\n  @Override\n  public List<ViewManager> createViewManagers(\n      ReactApplicationContext context) {\n    return Collections.emptyList();\n  }\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This is a simplified legacy package registration example. Exact registration in an application depends on its React Native version and project setup.",
+      },
+      {
+        type: "heading",
+        content: "10. What is the Shadow Thread?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Shadow Thread is associated with the legacy renderer's layout calculation and shadow representation of the UI hierarchy.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When React Native components are rendered, the renderer maintains a shadow representation of the component hierarchy. The layout engine Yoga calculates positions and dimensions based on styles and layout constraints.",
+      },
+      {
+        type: "list",
+        content: [
+          "Maintains the shadow representation of UI elements.",
+          "Calculates layout positions and dimensions.",
+          "Uses Yoga for Flexbox-based layout calculation.",
+          "Coordinates layout updates with UIManager.",
+          "Helps avoid performing all layout calculations directly on the UI Thread.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "Example",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React from 'react';\nimport { View, Text } from 'react-native';\n\nexport default function Profile() {\n  return (\n    <View style={{\n      flex: 1,\n      justifyContent: 'center',\n      alignItems: 'center'\n    }}>\n      <Text>Welcome to React Native</Text>\n    </View>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Yoga calculates the layout dimensions and positions of these components. The resulting native view updates are coordinated through the renderer and UIManager.",
+      },
+      {
+        type: "heading",
+        content: "11. What is Yoga?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Yoga is a cross-platform layout engine used by React Native. It implements Flexbox-style layout calculations and helps determine the size and position of UI components.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, when we use flexDirection, justifyContent, alignItems, flex, width, and height, Yoga calculates the resulting layout.",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content:
+          "const styles = StyleSheet.create({\n  container: {\n    flex: 1,\n    flexDirection: 'row',\n    justifyContent: 'space-between',\n    alignItems: 'center'\n  }\n});",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Yoga is a layout engine, not a UI renderer. It calculates layout; the renderer and native platform are responsible for applying that layout to actual views.",
+      },
+      {
+        type: "heading",
+        content: "12. What is UIManager?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "UIManager is part of the Legacy Architecture's native UI management system. It coordinates native view creation, updates, and deletion based on operations produced by the React Native renderer.",
+      },
+      {
+        type: "list",
+        content: [
+          "Creates native views.",
+          "Updates view properties such as dimensions, colors, and text.",
+          "Removes native views.",
+          "Coordinates native view hierarchy updates.",
+          "Works with the renderer's layout information.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "UIManager receives view-management operations through the legacy communication system and coordinates their execution on the appropriate native UI context.",
+      },
+      {
+        type: "heading",
+        content: "13. What is the UI Thread?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The UI Thread, also known as the Main Thread on Android and iOS, is responsible for native user interface operations.",
+      },
+      {
+        type: "list",
+        content: [
+          "Processes native UI interactions.",
+          "Creates and updates native views.",
+          "Handles view hierarchy changes.",
+          "Coordinates drawing and layout with the platform.",
+          "Displays the final UI on the screen.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Heavy operations on the UI Thread can cause dropped frames and a frozen interface. Native UI updates must be coordinated with the platform's main UI execution context.",
+      },
+      {
+        type: "heading",
+        content: "14. What is Paper Renderer?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Paper is the legacy React Native rendering system. It translates React Native components into native Android and iOS views.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It uses a shadow representation of the UI hierarchy, Yoga for layout calculations, and UIManager to coordinate native view operations.",
+      },
+      {
+        type: "heading",
+        content: "Paper rendering flow",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "React Components (JSX)\n          |\n          v\n      React Renderer\n          |\n          v\n       Shadow Tree\n          |\n          v\n      Yoga Layout\n          |\n          v\n        UIManager\n          |\n          v\n       UI Thread\n          |\n          v\n   Native Android / iOS Views",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: When a React Native component changes its backgroundColor, React calculates the updated component output, the legacy renderer determines the required view updates, and UIManager coordinates the native property update.",
+      },
+      {
+        type: "heading",
+        content: "15. How does a UI update happen?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Consider a button that changes its text when the user taps it.",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { useState } from 'react';\nimport { View, Text, Button } from 'react-native';\n\nexport default function Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <View>\n      <Text>Count: {count}</Text>\n      <Button\n        title=\"Increment\"\n        onPress={() => setCount(count + 1)}\n      />\n    </View>\n  );\n}",
+      },
+      {
+        type: "heading",
+        content: "Execution flow",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "1. User taps the native button.\n             |\n             v\n2. Native event is dispatched.\n             |\n             v\n3. Event crosses the Bridge.\n             |\n             v\n4. JavaScript onPress handler executes.\n             |\n             v\n5. setCount updates React state.\n             |\n             v\n6. React calculates the updated UI.\n             |\n             v\n7. Legacy renderer calculates required changes.\n             |\n             v\n8. Shadow Thread / Yoga processes layout.\n             |\n             v\n9. UIManager coordinates native view updates.\n             |\n             v\n10. UI Thread applies native changes.\n             |\n             v\n11. Updated screen is displayed.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This is a simplified logical sequence. In practice, event dispatch, rendering, layout, and native updates are scheduled and batched, and not every state update requires a complete layout recalculation.",
+      },
+      {
+        type: "heading",
+        content: "16. How does communication work in both directions?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "There are two major communication paths in the Legacy Architecture: JavaScript-to-native and native-to-JavaScript.",
+      },
+      {
+        type: "heading",
+        content: "JavaScript to Native",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "JavaScript\n    |\n    v\nNativeModules.DeviceInfo.getDeviceName()\n    |\n    v\nBridge Queue\n    |\n    v\nAndroid / iOS Native Module\n    |\n    v\nExecute Native Operation",
+      },
+      {
+        type: "heading",
+        content: "Native to JavaScript",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "Native Event / Result\n       |\n       v\nNative-to-JS Bridge Queue\n       |\n       v\nJavaScript Thread\n       |\n       v\nCallback / Promise / Event Listener\n       |\n       v\nReact State Update",
+      },
+      {
+        type: "heading",
+        content: "17. What are Native Events?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Native Events allow native platform code to notify JavaScript when something happens. They are useful for Bluetooth updates, device events, connectivity changes, location updates, and native UI interactions.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In the legacy module system, native modules can use RCTEventEmitter on iOS or DeviceEventManagerModule.RCTDeviceEventEmitter on Android to send events to JavaScript.",
+      },
+      {
+        type: "heading",
+        content: "JavaScript example",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content:
+          "import { NativeEventEmitter, NativeModules } from 'react-native';\n\nconst { DeviceEvents } = NativeModules;\nconst eventEmitter = new NativeEventEmitter(DeviceEvents);\n\nconst subscription = eventEmitter.addListener(\n  'DeviceStatusChanged',\n  data => {\n    console.log('Device status:', data);\n  }\n);\n\n// When the screen or component is no longer interested:\nsubscription.remove();",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The native module must implement and emit the corresponding event. On Android, the module also needs the appropriate event-emission implementation and listener lifecycle handling.",
+      },
+      {
+        type: "heading",
+        content: "18. Legacy Architecture threading model",
+      },
+      {
+        type: "paragraph",
+        content:
+          "An experienced React Native developer should understand that the JavaScript Thread, Shadow Thread, UI Thread, and native module execution queues have different responsibilities.",
+      },
+      {
+        type: "table",
+        content: [
+          ["Thread / Queue", "Responsibility"],
+          ["JavaScript Thread", "Executes JavaScript and React logic"],
+          [
+            "Native Modules Queue",
+            "Executes native module methods on configured queues",
+          ],
+          ["Shadow Thread", "Processes legacy shadow UI and layout work"],
+          ["UI Thread", "Performs native UI operations"],
+          [
+            "Bridge Queues",
+            "Transfer serialized messages between JS and native",
+          ],
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: Do not assume that all native module methods run on one fixed background thread. Their execution queue is determined by the native module implementation and React Native's legacy module infrastructure.",
+      },
+      {
+        type: "heading",
+        content: "19. What are the limitations of Old Architecture?",
+      },
+      {
+        type: "list",
+        content: [
+          "Bridge serialization introduces overhead for cross-boundary communication.",
+          "High-frequency events can create large queues of messages.",
+          "Large data payloads can increase processing and memory costs.",
+          "JavaScript and native code cannot freely share arbitrary objects.",
+          "Synchronous native access is not naturally supported by the asynchronous Bridge model.",
+          "Legacy native module initialization can introduce startup overhead.",
+          "The old renderer has limitations around modern concurrent rendering and scheduling.",
+          "Complex native integrations can require substantial manual interface and registration code.",
+        ],
+      },
+      {
+        type: "heading",
+        content:
+          "20. Real-world example: BLE integration with an electric bike",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Consider an application that connects to an electric-bike dashboard through Bluetooth Low Energy. The application displays speed, battery percentage, and temperature.",
+      },
+      {
+        type: "list",
+        content: [
+          "React Native screen displays the bike telemetry.",
+          "JavaScript calls a legacy BLE Native Module.",
+          "The BLE request is serialized and passed through the Bridge.",
+          "Android Bluetooth APIs or iOS Core Bluetooth perform scanning and connection operations.",
+          "The native module receives notifications from the bike dashboard.",
+          "Telemetry data is sent back through the Bridge.",
+          "JavaScript receives the event and updates application state.",
+          "React renders the updated UI through Paper.",
+        ],
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "React Native Dashboard\n          |\n          v\n     NativeModules.BLE\n          |\n          v\n      Bridge Queue\n          |\n          v\n   Native BLE Module\n          |\n          v\n Android Bluetooth / iOS Core Bluetooth\n          |\n          v\n       Bike Dashboard\n          |\n          v\n    BLE Notifications\n          |\n          v\n       Native Module\n          |\n          v\n      Bridge Queue\n          |\n          v\n     JavaScript Event\n          |\n          v\n       React State\n          |\n          v\n      Paper Renderer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For a high-frequency telemetry use case, sending every individual update through the Bridge can create unnecessary overhead. Native-side filtering, batching, and event throttling can reduce the communication load.",
+      },
+      {
+        type: "heading",
+        content:
+          "21. How did developers optimize performance in Old Architecture?",
+      },
+      {
+        type: "list",
+        content: [
+          "Avoid unnecessary Bridge communication.",
+          "Batch native events instead of sending too many individual messages.",
+          "Throttle high-frequency sensor and location updates.",
+          "Move expensive calculations to native code or suitable background execution.",
+          "Optimize React component rendering using React.memo, useMemo, and useCallback where appropriate.",
+          "Use FlatList instead of rendering thousands of items through ScrollView.",
+          "Optimize images and avoid unnecessarily large payloads.",
+          "Avoid blocking the JavaScript Thread with expensive synchronous operations.",
+          "Avoid performing heavy work on the native UI Thread.",
+          "Use profiling tools to identify actual bottlenecks.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "22. Legacy Architecture vs New Architecture",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "Old Architecture", "New Architecture"],
+          ["Communication", "Bridge", "JSI-based interoperability"],
+          [
+            "Data transfer",
+            "Serialized Bridge messages",
+            "Direct native/C++ interoperability where supported",
+          ],
+          ["Native modules", "Legacy Native Modules", "TurboModules"],
+          ["Rendering", "Paper", "Fabric"],
+          ["UI representation", "Legacy Shadow Tree", "Fabric Shadow Tree"],
+          [
+            "Native component integration",
+            "Legacy Native Components",
+            "Fabric Native Components",
+          ],
+          ["Interface generation", "Mostly manual contracts", "Codegen"],
+          [
+            "Module initialization",
+            "Legacy initialization model",
+            "Lazy loading supported",
+          ],
+          [
+            "React concurrent features",
+            "Limited support",
+            "Supported by the New Architecture",
+          ],
+          ["Bridge dependency", "Required", "Removed in Bridgeless Mode"],
+        ],
+      },
+      {
+        type: "heading",
+        content: "23. Example: Same functionality in both architectures",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Suppose we want to get the device name from native Android code.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Old Architecture: Create a legacy Native Module, expose a method using @ReactMethod, register it through ReactPackage, and access it through NativeModules in JavaScript.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "New Architecture: Define a typed TurboModule specification, configure Codegen, implement the generated native interface, and access the module through TurboModuleRegistry.",
+      },
+      {
+        type: "heading",
+        content: "24. How to identify an old architecture project?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In older React Native projects, inspect the React Native version, Android Gradle configuration, iOS Podfile, native module implementations, and dependencies.",
+      },
+      {
+        type: "code",
+        language: "properties",
+        content: "# android/gradle.properties\nnewArchEnabled=false",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In React Native versions where the legacy opt-out was supported, newArchEnabled=false selected the Legacy Architecture. The exact supported versions matter.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native 0.76 introduced the New Architecture as the default while retaining an opt-out. React Native 0.82 removed the opt-out, so this flag cannot be used to switch current versions back to the Legacy Architecture.",
+      },
+      {
+        type: "heading",
+        content: "25. Common problems in Old Architecture",
+      },
+      {
+        type: "list",
+        content: [
+          "Bridge queue congestion caused by frequent native events.",
+          "Large serialized payloads causing performance overhead.",
+          "JavaScript Thread blocked by heavy business logic.",
+          "UI Thread blocked by expensive native view operations.",
+          "Native module registration issues.",
+          "Incorrect native event listener cleanup.",
+          "Memory leaks due to subscriptions not being removed.",
+          "Native dependency compatibility issues after React Native upgrades.",
+          "Unexpected rendering delays due to coordination between JavaScript and native UI operations.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "26. Senior-level interview questions",
+      },
+      {
+        type: "list",
+        content: [
+          "Explain the complete React Native Legacy Architecture.",
+          "What is the Bridge and how does it work internally?",
+          "Why is the Bridge asynchronous?",
+          "What is serialization and why is it required?",
+          "What is Bridge batching?",
+          "What are JavaScript-to-native and native-to-JavaScript queues?",
+          "What is the difference between JavaScript Thread and UI Thread?",
+          "What is the Shadow Thread?",
+          "What is Yoga and what does it do?",
+          "What is UIManager?",
+          "What is Paper Renderer?",
+          "What is the difference between a Native Module and a Native Component?",
+          "How do you create a custom Android Native Module?",
+          "What is @ReactMethod?",
+          "What is ReactPackage?",
+          "How do you send events from native code to JavaScript?",
+          "What happens when the Bridge is overloaded?",
+          "How do you optimize high-frequency BLE notifications?",
+          "Can native modules block the JavaScript Thread?",
+          "How would you troubleshoot a frozen React Native application?",
+          "What are the major limitations of the Legacy Architecture?",
+        ],
+      },
+      {
+        type: "heading",
+        content: "27. Interview-ready answer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native Old Architecture, also called Legacy Architecture, uses an asynchronous Bridge to communicate between JavaScript and native Android/iOS code. JavaScript sends serialized messages through the Bridge, and native code processes those messages using Native Modules or UIManager. The main execution areas include the JavaScript Thread, native module execution queues, Shadow Thread, and UI Thread. For rendering, it uses Paper Renderer, which maintains a shadow representation of the UI hierarchy, uses Yoga for layout calculations, and coordinates native view updates through UIManager. The main limitation is the overhead associated with serialization, asynchronous queue communication, and frequent cross-boundary data transfers. The New Architecture addresses these limitations through JSI, TurboModules, Fabric, and Codegen.",
+      },
+      {
+        type: "heading",
+        content: "28. One-line revision",
+      },
+      {
+        type: "list",
+        content: [
+          "Bridge = Communication between JavaScript and native code.",
+          "Serialization = Converting data into a transferable format.",
+          "JavaScript Thread = Executes JavaScript application logic.",
+          "Native Modules = Expose native functionality to JavaScript.",
+          "Native Modules Queue = Executes native module methods.",
+          "Shadow Thread = Handles legacy shadow UI and layout work.",
+          "Yoga = Calculates Flexbox-based layout.",
+          "UIManager = Coordinates native view operations.",
+          "UI Thread = Handles native UI operations.",
+          "Paper = Legacy rendering system.",
+        ],
+      },
+    ],
+    topic: "React Native Architecture",
+  },
+
+  {
+    id: "react-native-new-architecture-complete-guide",
+    question: "Explain React Native New Architecture in detail.",
+    answer: [
+      {
+        type: "heading",
+        content: "1. What is React Native New Architecture?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native New Architecture is a major redesign of React Native's internal architecture. It changes how JavaScript communicates with native Android/iOS code, how UI components are rendered, how native modules are loaded, and how rendering work is scheduled.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Legacy Architecture used the asynchronous Bridge to communicate between JavaScript and native code. The New Architecture uses JSI (JavaScript Interface), Fabric, TurboModules, and Codegen to provide more direct communication, improved rendering capabilities, and type-safe native interfaces.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The New Architecture was introduced incrementally and became enabled by default in React Native 0.76. Starting with React Native 0.82, it is the only supported architecture; the legacy architecture opt-out was removed.",
+      },
+      {
+        type: "heading",
+        content: "2. Why was the New Architecture introduced?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Legacy Architecture worked well for many applications, but its design introduced limitations when handling high-frequency native communication, complex UI rendering, synchronous layout operations, and modern React concurrent features.",
+      },
+      {
+        type: "list",
+        content: [
+          "Bridge communication required data serialization and asynchronous message passing.",
+          "Large amounts of data transferred between JavaScript and native code could create overhead.",
+          "Native modules were traditionally initialized through the legacy module system.",
+          "The old renderer had limitations around synchronous layout measurement and prioritizing UI updates.",
+          "The architecture did not provide full support for modern React concurrent rendering features.",
+          "Maintaining separate platform implementations could increase development and maintenance complexity.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "3. Legacy Architecture vs New Architecture",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In the Legacy Architecture, JavaScript and native code communicated through the Bridge. In the New Architecture, JSI provides the JavaScript-to-native interface, TurboModules provide the native module system, and Fabric handles UI rendering.",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "Legacy Architecture", "New Architecture"],
+          ["Communication", "Asynchronous Bridge", "JSI"],
+          ["Native modules", "Legacy Native Modules", "TurboModules"],
+          ["UI rendering", "Legacy Renderer", "Fabric"],
+          [
+            "Native component integration",
+            "Legacy Native Components",
+            "Fabric Native Components",
+          ],
+          [
+            "Type safety",
+            "Mostly manually maintained contracts",
+            "Codegen-generated interfaces",
+          ],
+          [
+            "Module loading",
+            "Legacy initialization model",
+            "Lazy loading supported by default",
+          ],
+          [
+            "Layout measurement",
+            "Primarily asynchronous workflow",
+            "Synchronous layout access supported in appropriate phases",
+          ],
+          [
+            "React concurrent features",
+            "Limited support",
+            "Concurrent rendering support",
+          ],
+          ["Architecture mode", "Legacy", "Bridgeless New Architecture"],
+        ],
+      },
+      {
+        type: "heading",
+        content: "4. How Legacy Architecture works",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Legacy Architecture contains three important execution areas: JavaScript Thread, Native/UI Thread, and the Bridge.",
+      },
+      {
+        type: "list",
+        content: [
+          "JavaScript Thread: Executes JavaScript code, React component logic, state updates, and event handling.",
+          "Native/UI Thread: Handles native Android/iOS UI operations and native platform interactions.",
+          "Bridge: Transfers messages between JavaScript and native code. Data is serialized into a transportable representation and processed asynchronously.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "Legacy Architecture communication flow",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "JavaScript / React Components\n          |\n          v\n     JavaScript Thread\n          |\n          v\n     Serialize Data\n          |\n          v\n      Bridge Queue\n          |\n          v\n   Native Android / iOS\n          |\n          v\n     Native Operation\n          |\n          v\n     Bridge Queue\n          |\n          v\n    JavaScript Callback",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: JavaScript requests device information from a native module. The request is serialized and passed through the Bridge. Native code executes the operation and sends the response back through the Bridge, usually using a callback or Promise.",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content:
+          "import { NativeModules } from 'react-native';\n\nconst { DeviceInfo } = NativeModules;\n\nDeviceInfo.getDeviceName()\n  .then(name => {\n    console.log('Device name:', name);\n  })\n  .catch(error => {\n    console.log(error);\n  });",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: The Bridge did not mean that every native operation was slow. The overhead depended on communication frequency, serialization, payload size, and scheduling. Native operations could still execute efficiently once they reached native code.",
+      },
+      {
+        type: "heading",
+        content: "5. Main components of New Architecture",
+      },
+      {
+        type: "list",
+        content: [
+          "JSI - JavaScript Interface: Provides direct interoperability between JavaScript and C++ native objects.",
+          "TurboModules: New architecture for native modules, with lazy loading and typed specifications.",
+          "Fabric: New C++-based rendering system for creating and updating native UI components.",
+          "Codegen: Generates native interface and glue code from typed JavaScript/TypeScript specifications.",
+          "Bridgeless Mode: Removes dependence on the legacy Bridge and uses the New Architecture infrastructure.",
+          "Concurrent Renderer: Enables React to schedule rendering work with different priorities and support concurrent features.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "6. What is JSI (JavaScript Interface)?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "JSI stands for JavaScript Interface. It is a C++ interface that allows the JavaScript runtime to interact with C++ objects and functions. JavaScript can hold references to native C++ HostObjects and invoke their methods without requiring every interaction to pass through the old serialized Bridge.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "JSI is the foundation that enables the New Architecture's direct JavaScript and native interoperability. It is not itself a native module, renderer, or replacement JavaScript engine.",
+      },
+      {
+        type: "heading",
+        content: "How JSI works",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "JavaScript Code\n      |\n      v\nJavaScript Engine (Hermes / JSC)\n      |\n      v\n      JSI\n      |\n      v\nC++ Host Object / Native Function\n      |\n      v\nAndroid / iOS Native Implementation",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The JavaScript runtime can access native functionality through references exposed using JSI. This avoids the traditional requirement to serialize every cross-boundary interaction into Bridge messages.",
+      },
+      {
+        type: "heading",
+        content: "Example: Conceptual JSI interaction",
+      },
+      {
+        type: "code",
+        language: "cpp",
+        content:
+          '// Simplified conceptual C++ example\n// This illustrates the idea, not a complete React Native module.\n\nclass MyHostObject : public jsi::HostObject {\npublic:\n  jsi::Value get(jsi::Runtime& runtime,\n                 const jsi::PropNameID& name) override {\n    auto propertyName = name.utf8(runtime);\n\n    if (propertyName == "getValue") {\n      return jsi::Function::createFromHostFunction(\n        runtime,\n        name,\n        0,\n        [](jsi::Runtime& runtime,\n           const jsi::Value& thisValue,\n           const jsi::Value* args,\n           size_t count) -> jsi::Value {\n          return jsi::String::createFromUtf8(\n            runtime, "Hello from C++"\n          );\n        }\n      );\n    }\n\n    return jsi::Value::undefined();\n  }\n};',
+      },
+      {
+        type: "paragraph",
+        content:
+          "The above code is a conceptual example of a C++ HostObject exposing a function. In a production implementation, the HostObject must be registered with the JavaScript runtime and managed with the correct runtime and thread lifecycle.",
+      },
+      {
+        type: "heading",
+        content: "Benefits of JSI",
+      },
+      {
+        type: "list",
+        content: [
+          "Avoids traditional Bridge serialization for JSI-based interactions.",
+          "Supports direct access to C++ objects and functions.",
+          "Can handle complex native objects and large data more efficiently.",
+          "Enables synchronous native interactions when the API and execution context permit them.",
+          "Provides the foundation for high-performance libraries involving camera frames, databases, animations, and image processing.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: A camera library can expose native frame-processing functionality through JSI rather than repeatedly serializing large image buffers across the old Bridge.",
+      },
+      {
+        type: "heading",
+        content: "7. What are TurboModules?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "TurboModules are the New Architecture's native module system. They allow JavaScript or TypeScript code to communicate with native Android, iOS, or C++ implementations through typed interfaces.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "TurboModules use JSI for JavaScript/native interoperability and Codegen to generate the required native interface code. They support lazy loading, meaning a module can be initialized when it is first accessed instead of requiring every module to be initialized at application startup.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Examples include device information, Bluetooth, camera, file system, secure storage, and custom native functionality.",
+      },
+      {
+        type: "heading",
+        content: "Legacy Native Module vs TurboModule",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "Legacy Native Module", "TurboModule"],
+          ["Communication", "Bridge-based", "JSI-based"],
+          ["Specification", "Traditionally manual", "Typed specification"],
+          [
+            "Code generation",
+            "Not required by the legacy module system",
+            "Codegen",
+          ],
+          ["Loading", "Legacy initialization model", "Lazy loading supported"],
+          [
+            "C++ integration",
+            "Limited in the legacy model",
+            "First-class C++ integration",
+          ],
+          ["Type safety", "More manual work", "Generated typed interfaces"],
+        ],
+      },
+      {
+        type: "heading",
+        content: "8. TurboModule implementation example",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Let's create a custom native module named DeviceInfoModule that returns a device name. First, define the TypeScript specification. The Native prefix in the specification name is important for the standard TurboModule Codegen convention.",
+      },
+      {
+        type: "heading",
+        content: "Step 1: Create TypeScript specification",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// specs/NativeDeviceInfo.ts\n\nimport type { TurboModule } from 'react-native';\nimport { TurboModuleRegistry } from 'react-native';\n\nexport interface Spec extends TurboModule {\n  getDeviceName(): string;\n}\n\nexport default TurboModuleRegistry.getEnforcing<Spec>(\n  'NativeDeviceInfo'\n);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This specification defines the contract between JavaScript and native code. It declares that the native module exposes a getDeviceName method that returns a string.",
+      },
+      {
+        type: "heading",
+        content: "Step 2: Configure Codegen",
+      },
+      {
+        type: "code",
+        language: "json",
+        content:
+          '"codegenConfig": {\n  "name": "DeviceInfoSpec",\n  "type": "modules",\n  "jsSrcsDir": "specs",\n  "android": {\n    "javaPackageName": "com.deviceinfo"\n  }\n}',
+      },
+      {
+        type: "paragraph",
+        content:
+          "Add the Codegen configuration to package.json. Exact native project setup and generated paths depend on the React Native version and project template.",
+      },
+      {
+        type: "heading",
+        content: "Step 3: Implement native Android module",
+      },
+      {
+        type: "code",
+        language: "java",
+        content:
+          "package com.deviceinfo;\n\nimport com.facebook.react.bridge.ReactApplicationContext;\nimport com.facebook.react.module.annotations.ReactModule;\nimport com.facebook.react.bridge.NativeModule;\n\n@ReactModule(name = NativeDeviceInfoSpec.NAME)\npublic class NativeDeviceInfoModule extends NativeDeviceInfoSpec {\n\n  public NativeDeviceInfoModule(ReactApplicationContext context) {\n    super(context);\n  }\n\n  @Override\n  public String getName() {\n    return NativeDeviceInfoSpec.NAME;\n  }\n\n  @Override\n  public String getDeviceName() {\n    return android.os.Build.MODEL;\n  }\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The generated NativeDeviceInfoSpec base class is supplied by Codegen. The module extends that generated specification and implements its native method. A complete Android integration also requires registering the module through the appropriate generated package/provider mechanism for the React Native version.",
+      },
+      {
+        type: "heading",
+        content: "Step 4: Use it in JavaScript",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import DeviceInfo from './specs/NativeDeviceInfo';\n\nconst deviceName = DeviceInfo.getDeviceName();\n\nconsole.log('Device name:', deviceName);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This example uses a synchronous string-returning method to demonstrate the TurboModule API. Real operations such as network requests, Bluetooth discovery, or database queries should use suitable asynchronous APIs rather than blocking the JavaScript runtime.",
+      },
+      {
+        type: "heading",
+        content: "9. What is Fabric?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Fabric is the New Architecture's rendering system. It is implemented around a shared C++ renderer and is responsible for translating React's component tree into native platform UI.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Fabric manages the creation and updating of UI through concepts such as Shadow Nodes, Shadow Trees, layout calculation, mounting, and native view updates.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In simple terms, when you write View, Text, Image, or custom native components in React Native, Fabric is responsible for coordinating how those React elements become actual native views on Android and iOS.",
+      },
+      {
+        type: "heading",
+        content: "How Fabric works",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "React Components (JSX)\n          |\n          v\n     React Renderer\n          |\n          v\n      Shadow Tree\n          |\n          v\n     Layout Calculation\n          |\n          v\n       Commit Phase\n          |\n          v\n        Mounting\n          |\n          v\n Native Android / iOS Views",
+      },
+      {
+        type: "heading",
+        content: "Important Fabric concepts",
+      },
+      {
+        type: "list",
+        content: [
+          "Shadow Node: Represents a UI element in the renderer's internal representation.",
+          "Shadow Tree: A tree containing the Shadow Nodes representing the UI hierarchy.",
+          "Render: React calculates the next UI tree based on components, props, and state.",
+          "Commit: The renderer finalizes the next tree and associated layout information.",
+          "Mount: The renderer applies the required changes to the native view hierarchy.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Shadow Tree is managed using immutable tree updates and can have multiple in-progress versions. Fabric uses the layout engine to calculate positions and dimensions before applying updates to the native UI.",
+      },
+      {
+        type: "heading",
+        content: "Example: React Native component",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React from 'react';\nimport { View, Text, StyleSheet } from 'react-native';\n\nexport default function Profile() {\n  return (\n    <View style={styles.container}>\n      <Text style={styles.title}>React Native</Text>\n      <Text>New Architecture</Text>\n    </View>\n  );\n}\n\nconst styles = StyleSheet.create({\n  container: {\n    padding: 20,\n    backgroundColor: '#ffffff'\n  },\n  title: {\n    fontSize: 20,\n    fontWeight: 'bold'\n  }\n});",
+      },
+      {
+        type: "paragraph",
+        content:
+          "You do not need to manually create Shadow Nodes for standard React Native components. Fabric handles the rendering pipeline internally.",
+      },
+      {
+        type: "heading",
+        content: "Benefits of Fabric",
+      },
+      {
+        type: "list",
+        content: [
+          "Improved integration between React Native views and native platform views.",
+          "Better support for synchronous layout measurement in supported rendering phases.",
+          "Supports concurrent rendering and prioritized UI updates.",
+          "Provides a shared C++ rendering foundation.",
+          "Supports the new Native Component system.",
+          "Enables better interoperability between native screens and React Native surfaces.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "10. What are Native Components in Fabric?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Fabric Native Components are the New Architecture's way of exposing native UI components to React Native. A native component is different from a native module: a native module exposes functionality, while a native component exposes a UI element.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, a custom Android map view or a native camera preview can be exposed to React Native as a Fabric Native Component.",
+      },
+      {
+        type: "heading",
+        content: "Native Module vs Native Component",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "TurboModule", "Fabric Native Component"],
+          ["Purpose", "Native functionality", "Native UI"],
+          ["Example", "Bluetooth connection API", "Native camera preview"],
+          [
+            "Main responsibility",
+            "Execute native operations",
+            "Render native views",
+          ],
+          ["Codegen type", "modules", "components"],
+          [
+            "JSI usage",
+            "Native method interoperability",
+            "Renderer/native component integration",
+          ],
+        ],
+      },
+      {
+        type: "heading",
+        content: "11. What is Codegen?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Codegen is React Native's code-generation system. It reads typed JavaScript or TypeScript specifications and generates the native interface code needed to connect JavaScript with TurboModules and Fabric Native Components.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Without Codegen, developers would have to maintain more of the cross-language interface manually. Codegen helps keep JavaScript and native contracts aligned and catches certain interface mismatches during build time.",
+      },
+      {
+        type: "heading",
+        content: "How Codegen works",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "TypeScript / Flow Specification\n             |\n             v\n         Codegen\n             |\n             v\n   Generated C++ / Java / Objective-C++\n             |\n             v\n    TurboModule / Fabric Integration\n             |\n             v\n       JavaScript Application",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: If a TurboModule specification declares getDeviceName(): string, Codegen generates the native interface contract. The Android or iOS implementation must conform to the generated interface.",
+      },
+      {
+        type: "heading",
+        content: "Benefits of Codegen",
+      },
+      {
+        type: "list",
+        content: [
+          "Generates native interface code automatically.",
+          "Provides stronger type checking across JavaScript and native boundaries.",
+          "Reduces manual boilerplate.",
+          "Helps detect unsupported or mismatched API definitions during build time.",
+          "Supports TurboModules and Fabric Native Components.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "12. What is Bridgeless Mode?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Bridgeless Mode is the operating mode of the New Architecture that removes the dependency on the legacy Bridge. Instead of relying on the old Bridge infrastructure, React Native uses JSI, TurboModules, Fabric, and the new runtime integration.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Bridgeless does not mean that all communication becomes synchronous or that JavaScript directly executes every native operation on the UI thread. Threading and asynchronous APIs still matter.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In current React Native versions, Bridgeless Mode is integrated into the New Architecture rather than being a separate feature that developers independently enable.",
+      },
+      {
+        type: "heading",
+        content: "Legacy vs Bridgeless",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "LEGACY:\nJavaScript <----> Bridge <----> Native Code\n\nNEW ARCHITECTURE:\nJavaScript Runtime <----> JSI <----> C++ / Native Code\n                         |\n                         +---- TurboModules\n                         |\n                         +---- Fabric Renderer",
+      },
+      {
+        type: "heading",
+        content: "13. Threading model in React Native New Architecture",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Threading is an important senior-level interview topic. React Native does not execute the entire application on a single thread. Different responsibilities are distributed across JavaScript, UI, and background/rendering execution contexts.",
+      },
+      {
+        type: "list",
+        content: [
+          "JavaScript Thread: Executes JavaScript application code, React logic, event handlers, and much of the React rendering work.",
+          "UI/Main Thread: Responsible for native view operations, drawing coordination, and native user interaction.",
+          "Background threads: Can be used for work such as layout calculations and other renderer or native tasks, depending on the operation and scheduling.",
+          "Native module execution: Depends on the module's implementation and the method's required execution context. Do not assume every TurboModule method runs on the UI thread.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "The New Architecture allows the renderer to support multiple in-progress UI trees and schedule updates at different priorities. Some rendering and layout work can happen away from the UI thread, while mounting changes to native views must be coordinated with the UI thread.",
+      },
+      {
+        type: "heading",
+        content: "Example: User interaction",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "User taps a button\n        |\n        v\nNative event is dispatched\n        |\n        v\nJavaScript event handler executes\n        |\n        v\nReact state update is scheduled\n        |\n        v\nReact renders the next UI tree\n        |\n        v\nLayout / Commit\n        |\n        v\nMount native UI changes\n        |\n        v\nUpdated screen appears",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The exact scheduling can vary. Urgent user interactions can receive higher priority than non-urgent updates, and rendering work can be interrupted or restarted where React's concurrent rendering model permits.",
+      },
+      {
+        type: "heading",
+        content: "14. Concurrent Rendering in New Architecture",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Concurrent rendering allows React to prepare UI updates with different priorities. React can pause, resume, or abandon rendering work when a more urgent update needs attention. It does not mean that JavaScript application code runs simultaneously on multiple JavaScript threads.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This improves responsiveness for applications with large UI updates, expensive rendering, and frequent user interactions.",
+      },
+      {
+        type: "heading",
+        content: "Example: startTransition",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { useState, useTransition } from 'react';\nimport { View, TextInput, Text, FlatList } from 'react-native';\n\nexport default function SearchScreen({ products }) {\n  const [search, setSearch] = useState('');\n  const [filteredSearch, setFilteredSearch] = useState('');\n  const [isPending, startTransition] = useTransition();\n\n  const handleSearch = (value) => {\n    // Urgent update: keep the input responsive.\n    setSearch(value);\n\n    // Non-urgent update: prepare the filtered result UI.\n    startTransition(() => {\n      setFilteredSearch(value);\n    });\n  };\n\n  const filteredProducts = products.filter(item =>\n    item.name.toLowerCase().includes(filteredSearch.toLowerCase())\n  );\n\n  return (\n    <View>\n      <TextInput\n        value={search}\n        onChangeText={handleSearch}\n        placeholder=\"Search products\"\n      />\n\n      {isPending && <Text>Updating results...</Text>}\n\n      <FlatList\n        data={filteredProducts}\n        keyExtractor={item => item.id.toString()}\n        renderItem={({ item }) => <Text>{item.name}</Text>}\n      />\n    </View>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Here the input state updates urgently, while the result update is marked as a transition. The example demonstrates prioritization; for very large datasets, useMemo, optimized list rendering, and suitable data-processing strategies may also be required.",
+      },
+      {
+        type: "heading",
+        content: "15. Automatic Batching",
+      },
+      {
+        type: "paragraph",
+        content:
+          "With the React 18 renderer used by the New Architecture, React can automatically batch multiple state updates from supported sources into fewer renders. This reduces unnecessary intermediate UI updates.",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n  const [name, setName] = useState('Prashant');\n\n  const handleClick = () => {\n    setCount(previous => previous + 1);\n    setName('React Native');\n  };\n\n  return (\n    <>\n      <button onClick={handleClick}>Update</button>\n      <p>{count}</p>\n      <p>{name}</p>\n    </>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The updates can be batched into one render rather than causing a separate render for each state update. Exact behavior depends on the update context and React scheduling.",
+      },
+      {
+        type: "heading",
+        content: "16. Synchronous Layout Measurement and useLayoutEffect",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The New Architecture improves the ability to read layout synchronously during the appropriate rendering phase. This is useful when a component needs to measure its position or dimensions and update another component before the user sees an intermediate layout.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, a tooltip needs to measure its target element and calculate where it should appear. With the New Architecture, useLayoutEffect can be used with supported measurement APIs to measure and update layout in the same commit, avoiding a visible positioning jump.",
+      },
+      {
+        type: "code",
+        language: "jsx",
+        content:
+          "import React, { useLayoutEffect, useRef, useState } from 'react';\nimport { View, Text } from 'react-native';\n\nexport default function TooltipExample() {\n  const targetRef = useRef(null);\n  const [position, setPosition] = useState(null);\n\n  useLayoutEffect(() => {\n    targetRef.current?.measureInWindow((x, y, width, height) => {\n      setPosition({ x, y, width, height });\n    });\n  }, []);\n\n  return (\n    <View>\n      <View ref={targetRef}>\n        <Text>Target element</Text>\n      </View>\n\n      {position && (\n        <Text>\n          Target position: {position.x}, {position.y}\n        </Text>\n      )}\n    </View>\n  );\n}",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The key benefit is the ability to measure and apply layout-related updates within the same rendering cycle in supported scenarios. Do not assume that every native measurement or arbitrary state update is universally synchronous.",
+      },
+      {
+        type: "heading",
+        content: "17. Complete New Architecture execution flow",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Let's understand the flow when a React Native application starts and renders a screen.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "1. Application starts\n          |\n          v\n2. JavaScript runtime starts (Hermes / JSC)\n          |\n          v\n3. JavaScript bundle executes\n          |\n          v\n4. React creates component tree\n          |\n          v\n5. Fabric creates / updates Shadow Tree\n          |\n          v\n6. Layout calculation happens\n          |\n          v\n7. Renderer commits the next tree\n          |\n          v\n8. Mounting applies changes to native views\n          |\n          v\n9. Android / iOS displays the UI\n\nNative functionality request:\n\nJavaScript API\n      |\n      v\nTurboModule / Native Component API\n      |\n      v\nJSI interoperability\n      |\n      v\nNative Android / iOS / C++ implementation\n      |\n      v\nResult returned to JavaScript",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This is a conceptual overview. Actual startup, module initialization, rendering, and native operation scheduling can overlap or happen in different orders depending on the application and implementation.",
+      },
+      {
+        type: "heading",
+        content:
+          "18. Real-world example: BLE integration with a bike dashboard",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Consider an electric-bike application that connects to a bike dashboard through Bluetooth Low Energy and displays real-time speed, battery percentage, and temperature.",
+      },
+      {
+        type: "list",
+        content: [
+          "React Native screen: Displays speed, battery, temperature, and connection status.",
+          "TurboModule or compatible native library: Provides the JavaScript API for Bluetooth operations.",
+          "JSI: Provides the native interoperability mechanism used by New Architecture modules.",
+          "Android Bluetooth APIs / iOS Core Bluetooth: Handle the platform BLE functionality.",
+          "Native BLE implementation: Scans, connects, discovers services, and subscribes to characteristic notifications.",
+          "JavaScript state management: Receives telemetry updates and updates the required UI.",
+        ],
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "React Native Dashboard Screen\n             |\n             v\n       BLE JavaScript API\n             |\n             v\n  TurboModule / Compatible BLE Library\n             |\n             v\n            JSI\n             |\n             v\n  Android Bluetooth / iOS Core Bluetooth\n             |\n             v\n         Bike Dashboard\n             |\n             v\n       BLE Notifications\n             |\n             v\n      JavaScript State\n             |\n             v\n        Fabric UI Update",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: JSI does not itself implement Bluetooth. The BLE library provides the Bluetooth functionality using native platform APIs. The library must also support the React Native version and architecture being used.",
+      },
+      {
+        type: "heading",
+        content: "19. Real-world example: Camera and image processing",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Suppose an application uses a camera to capture frames and perform real-time image processing. Passing large frame buffers repeatedly through a serialized Bridge can create significant overhead.",
+      },
+      {
+        type: "list",
+        content: [
+          "Camera native implementation captures frames.",
+          "A high-performance library can expose frame access through JSI or another optimized native interface.",
+          "Native or C++ processing handles the image data.",
+          "Only the necessary result or metadata is sent to JavaScript.",
+          "React Native updates the UI through the renderer.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "This is one reason JSI-based integrations are useful for camera processing, image manipulation, and other high-throughput native use cases.",
+      },
+      {
+        type: "heading",
+        content: "20. How to enable New Architecture?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For React Native 0.76 and later, the New Architecture is enabled by default. In versions 0.76 through 0.81, the legacy architecture opt-out was available. Starting with React Native 0.82, the opt-out was removed and the New Architecture is always enabled.",
+      },
+      {
+        type: "heading",
+        content: "Older supported version configuration",
+      },
+      {
+        type: "code",
+        language: "properties",
+        content: "# android/gradle.properties\nnewArchEnabled=true",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For older iOS project templates, the New Architecture could be enabled through the Podfile environment configuration and CocoaPods installation. Follow the exact instructions for the React Native version being upgraded.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For React Native 0.82 and later, do not attempt to switch back to the legacy architecture using these flags.",
+      },
+      {
+        type: "heading",
+        content:
+          "21. How to check whether a library supports New Architecture?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When upgrading an existing React Native project, verify compatibility of all native dependencies. A library that supports the old Native Modules or Native Components system may require an updated version or an interoperability layer.",
+      },
+      {
+        type: "list",
+        content: [
+          "Check the library's official documentation and release notes.",
+          "Check React Native Directory for architecture compatibility information.",
+          "Upgrade libraries to compatible versions.",
+          "Run the Android and iOS native builds.",
+          "Test native functionality such as camera, maps, BLE, notifications, storage, and payments.",
+          "Check logs for Codegen, C++, Gradle, CocoaPods, and native registration errors.",
+          "Use Expo Doctor when working with an Expo project.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "22. Migration from Legacy Architecture to New Architecture",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Migration means upgrading React Native and ensuring the application and native dependencies work correctly with the New Architecture. For most applications, the migration is primarily dependency compatibility, native build configuration, and testing rather than rewriting all JavaScript components.",
+      },
+      {
+        type: "list",
+        content: [
+          "Step 1: Identify the current React Native version and native dependencies.",
+          "Step 2: Check which libraries support TurboModules and Fabric or have a working interoperability path.",
+          "Step 3: Upgrade React Native and compatible native dependencies.",
+          "Step 4: Update Android Gradle, Kotlin, iOS Podfile, and native build configuration as required by the target version.",
+          "Step 5: Regenerate native Codegen artifacts through the supported build workflow.",
+          "Step 6: Resolve incompatible native module or component implementations.",
+          "Step 7: Test native features on real Android and iOS devices.",
+          "Step 8: Profile performance and compare behavior before and after migration.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "23. Common problems during migration",
+      },
+      {
+        type: "list",
+        content: [
+          "Third-party library does not support the New Architecture.",
+          "Codegen specification contains unsupported types or incorrect declarations.",
+          "Android generated code or native module registration is incorrect.",
+          "iOS CocoaPods dependencies or native component registration fail.",
+          "C++ compilation or NDK configuration errors occur.",
+          "Native components render differently due to Fabric behavior.",
+          "A library depends on assumptions about the old Bridge or module lifecycle.",
+          "A custom native module uses incorrect thread assumptions or runtime lifecycle management.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "24. Does New Architecture automatically improve performance?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "No. The New Architecture provides better foundations and capabilities, but enabling it does not automatically make every application faster.",
+      },
+      {
+        type: "list",
+        content: [
+          "It reduces the overhead associated with traditional Bridge-based communication.",
+          "It enables better native interoperability through JSI.",
+          "It supports modern concurrent rendering features.",
+          "It supports more efficient native module initialization through lazy loading.",
+          "It provides a modern rendering pipeline through Fabric.",
+          "Application performance still depends on JavaScript execution, React rendering, list optimization, image processing, network requests, native code, and memory management.",
+        ],
+      },
+      {
+        type: "heading",
+        content:
+          "25. New Architecture vs React Native performance optimization",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The New Architecture and React-level optimization solve different problems. New Architecture improves the framework internals, while React-level techniques improve how application components and data are handled.",
+      },
+      {
+        type: "table",
+        content: [
+          ["Optimization", "Responsibility"],
+          ["React.memo", "Avoids some unnecessary component renders"],
+          ["useMemo", "Caches expensive calculated values"],
+          ["useCallback", "Maintains function references when useful"],
+          ["FlatList optimization", "Controls rendering of large lists"],
+          ["Hermes", "JavaScript engine and runtime optimization"],
+          ["JSI", "Efficient JavaScript/native interoperability"],
+          ["TurboModules", "Modern native module system"],
+          ["Fabric", "Modern native UI rendering"],
+          ["Codegen", "Generated typed native interfaces"],
+        ],
+      },
+      {
+        type: "heading",
+        content: "26. Important senior-level interview questions",
+      },
+      {
+        type: "list",
+        content: [
+          "What is the difference between Legacy Architecture and New Architecture?",
+          "Why was the Bridge removed?",
+          "What is JSI and how does it work internally?",
+          "Is JSI a replacement for Hermes?",
+          "What is the difference between JSI and TurboModules?",
+          "What is the difference between TurboModules and Fabric Native Components?",
+          "What is Codegen and why is it required?",
+          "What is Bridgeless Mode?",
+          "Does Bridgeless Mode mean all native calls are synchronous?",
+          "What is a Shadow Tree and Shadow Node?",
+          "Explain the Fabric rendering pipeline.",
+          "What are render, commit, and mount phases?",
+          "How does React Native support concurrent rendering?",
+          "What is the difference between JavaScript Thread and UI Thread?",
+          "Can a TurboModule method block the JavaScript Thread?",
+          "How does useLayoutEffect benefit from the New Architecture?",
+          "What happens when a third-party library does not support the New Architecture?",
+          "How would you migrate a large production application?",
+          "How would you debug a Codegen or C++ compilation error?",
+          "Does enabling New Architecture automatically improve FlatList performance?",
+        ],
+      },
+      {
+        type: "heading",
+        content: "27. Interview-ready answer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native New Architecture is a complete redesign of the internal framework. Earlier, JavaScript communicated with native Android and iOS code through an asynchronous Bridge, which involved serialization and message passing. The New Architecture introduces JSI for direct JavaScript and native interoperability, TurboModules for the new native module system, Fabric as the new rendering engine, and Codegen for generating type-safe native interfaces. It also supports Bridgeless Mode and modern React features such as concurrent rendering, automatic batching, Transitions, and improved synchronous layout measurement. In real-world applications, this architecture is especially useful for native integrations such as Bluetooth, camera, maps, and other performance-sensitive functionality. However, performance still needs to be measured and optimized at the application level.",
+      },
+      {
+        type: "heading",
+        content: "28. One-line revision",
+      },
+      {
+        type: "list",
+        content: [
+          "JSI = JavaScript and native interoperability.",
+          "TurboModules = New native module system.",
+          "Fabric = New UI rendering engine.",
+          "Codegen = Generates typed native interface code.",
+          "Bridgeless = Removes dependency on the legacy Bridge.",
+          "Concurrent Rendering = Supports prioritized and interruptible rendering work.",
+          "Shadow Tree = Internal representation of the UI hierarchy.",
+          "Mounting = Applies committed UI changes to native views.",
+        ],
+      },
+    ],
+    topic: "React Native Architecture",
+  },
+  {
+    id: "react-native-old-vs-new-architecture-comparison",
+    question:
+      "Compare React Native Old Architecture (Legacy Architecture) and New Architecture.",
+
+    answer: [
+      {
+        type: "image",
+        src: "/react-native-new-architecture.png",
+        alt: "Diagram comparing the legacy and new React Native architectures.",
+        caption: "React Native legacy and new architecture",
+        width: 1536,
+        height: 1024,
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native Old Architecture uses the asynchronous Bridge to communicate between JavaScript and native platforms. It relies on the Paper renderer, Native Modules, and UIManager. The New Architecture replaces the legacy Bridge-based communication model with JSI-based interoperability, introduces TurboModules and Fabric, and uses Codegen to generate native interfaces from typed specifications.",
+      },
+
+      {
+        type: "heading",
+        content: "1. High-Level Architecture Comparison",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "Old Architecture", "New Architecture"],
+          [
+            "Communication",
+            "Asynchronous Bridge",
+            "JSI-based interoperability",
+          ],
+          [
+            "JavaScript-to-Native",
+            "Bridge messages",
+            "Direct interaction through JSI-based interfaces",
+          ],
+          ["Native Modules", "Legacy Native Modules", "TurboModules"],
+          ["Rendering Engine", "Paper", "Fabric"],
+          ["UI Management", "UIManager", "Fabric Renderer"],
+          [
+            "Layout System",
+            "Yoga with legacy Shadow Nodes",
+            "Yoga with Fabric Shadow Trees",
+          ],
+          ["Native Interface Generation", "Mostly manual setup", "Codegen"],
+          [
+            "Module Loading",
+            "Generally eager module initialization",
+            "TurboModules support lazy loading",
+          ],
+          [
+            "Communication Model",
+            "Serialized and batched messages",
+            "JSI-based interoperability",
+          ],
+          [
+            "Architecture Mode",
+            "Bridge-dependent",
+            "Bridgeless mode supported",
+          ],
+          [
+            "Type Safety",
+            "More manual integration",
+            "Typed specifications with Codegen",
+          ],
+          [
+            "Concurrent Rendering",
+            "Limited by legacy integration",
+            "Better integration with modern React features",
+          ],
+          ["Renderer Implementation", "Legacy renderer", "C++-based renderer"],
+          [
+            "Migration",
+            "Legacy libraries supported",
+            "Libraries must support New Architecture",
+          ],
+        ],
+      },
+
+      {
+        type: "heading",
+        content: "2. Old Architecture – Communication Flow",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In the Old Architecture, JavaScript communicates with native Android or iOS functionality through the Bridge. Messages are serialized, queued, and processed asynchronously.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "React Components (JSX)\n        |\n        v\nJavaScript Thread\n        |\n        v\nBridge (Serialized Messages)\n        |\n        +--------------------------+\n        |                          |\n        v                          v\nNative Modules              Paper Renderer\n        |                          |\n        v                          v\nNative Module Queue         Shadow Thread\n        |                    (Yoga Layout)\n        v                          |\nAndroid / iOS APIs                 v\n                             UI Thread\n                                  |\n                                  v\n                            Native UI Screen",
+      },
+      {
+        type: "list",
+        content: [
+          "JavaScript Thread: Executes React components, application logic, event handlers, and JavaScript code.",
+          "Bridge: Transfers messages between JavaScript and native code using asynchronous, serialized communication.",
+          "Native Modules: Provide access to native capabilities such as camera, Bluetooth, location, and device information.",
+          "Native Module Queue: Native module methods execute on configured native queues.",
+          "Paper Renderer: Legacy UI rendering system responsible for coordinating native view updates.",
+          "Shadow Thread: Calculates layout using Yoga.",
+          "UI Thread: Performs native UI operations and updates native views.",
+        ],
+      },
+
+      {
+        type: "heading",
+        content: "3. New Architecture – Communication Flow",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The New Architecture introduces JSI, TurboModules, and Fabric. JSI provides a C++ interface for interoperability between the JavaScript runtime and native C++ objects. TurboModules handle native functionality, while Fabric handles UI rendering.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "React Components (JSX)\n        |\n        v\nJavaScript Runtime\n        |\n        v\nJSI (JavaScript Interface)\n        |\n        +---------------------------+\n        |              |            |\n        v              v            v\nTurboModules       Fabric        Codegen\n        |              |            |\n        v              v            v\nNative APIs      Fabric Shadow   Generated Native\n(Android/iOS)       Trees          Interfaces\n        |              |\n        +--------------+\n                |\n                v\n        Bridgeless Communication\n                |\n                v\n        Android / iOS Native Layer\n                |\n                v\n          Native UI Screen",
+      },
+      {
+        type: "list",
+        content: [
+          "JSI: Provides interoperability between JavaScript and C++ without depending on the legacy Bridge.",
+          "TurboModules: Modern native module system supporting typed specifications and lazy loading.",
+          "Fabric: New rendering system built around C++ and Fabric Shadow Trees.",
+          "Codegen: Generates native interface and binding code from typed JavaScript or TypeScript specifications.",
+          "Bridgeless Mode: Allows React Native to run without depending on the legacy Bridge.",
+        ],
+      },
+
+      {
+        type: "heading",
+        content: "4. Bridge vs JSI",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Bridge and JSI are two different approaches to JavaScript-native interoperability.",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "Bridge", "JSI"],
+          ["Full Form", "Communication Bridge", "JavaScript Interface"],
+          [
+            "Communication",
+            "Asynchronous message passing",
+            "C++ interoperability",
+          ],
+          [
+            "Serialization",
+            "Messages require serialization",
+            "Can expose C++ objects and functions to JavaScript",
+          ],
+          [
+            "Data Transfer",
+            "Messages are queued and batched",
+            "Direct interaction through JSI interfaces",
+          ],
+          [
+            "Overhead",
+            "Serialization and queue scheduling overhead",
+            "Avoids legacy Bridge serialization for JSI interactions",
+          ],
+          [
+            "Synchronous Access",
+            "Traditional Bridge calls are asynchronous",
+            "Can support synchronous interaction where the API and threading model permit",
+          ],
+          [
+            "Implementation",
+            "Legacy React Native architecture",
+            "New React Native architecture",
+          ],
+        ],
+      },
+      {
+        type: "heading",
+        content: "Example: Bridge vs JSI",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "// OLD ARCHITECTURE - Conceptual legacy Native Module usage\nimport { NativeModules } from 'react-native';\n\nconst { DeviceInfo } = NativeModules;\n\nDeviceInfo.getBatteryLevel()\n  .then(level => {\n    console.log('Battery:', level);\n  });\n\n// NEW ARCHITECTURE - Conceptual JSI Host Function usage\n// A native C++ function is exposed to the JavaScript runtime.\n// Exact implementation and registration are native-side and version-dependent.\n\nconst batteryLevel = global.getBatteryLevel?.();\nconsole.log('Battery:', batteryLevel);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: The second example is conceptual pseudocode, not a standard React Native API. JSI does not automatically create global functions. Native code must explicitly expose the required functionality.",
+      },
+
+      {
+        type: "heading",
+        content: "5. Native Modules vs TurboModules",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "Legacy Native Modules", "TurboModules"],
+          ["Architecture", "Bridge-based", "JSI-based interoperability"],
+          ["Initialization", "Generally eager", "Supports lazy loading"],
+          [
+            "Specification",
+            "Often manually defined",
+            "Typed TypeScript or Flow specification",
+          ],
+          [
+            "Code Generation",
+            "Mostly manual integration",
+            "Codegen generates interfaces",
+          ],
+          [
+            "Communication",
+            "Serialized Bridge messages",
+            "JSI-based interaction",
+          ],
+          [
+            "Performance",
+            "Bridge serialization overhead",
+            "Can reduce communication overhead",
+          ],
+          ["Compatibility", "Legacy Architecture", "New Architecture"],
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: A Bluetooth module can expose connect(), disconnect(), and getDeviceData() methods. Under the legacy architecture, these methods are exposed through NativeModules. Under the New Architecture, a TurboModule can expose a typed specification and use generated native interfaces.",
+      },
+      {
+        type: "heading",
+        content: "6. Paper vs Fabric",
+      },
+      {
+        type: "table",
+        content: [
+          ["Feature", "Paper", "Fabric"],
+          ["Architecture", "Legacy renderer", "New renderer"],
+          [
+            "Implementation",
+            "Legacy UI rendering system",
+            "C++-based renderer",
+          ],
+          [
+            "Shadow Tree",
+            "Legacy Shadow Nodes",
+            "Fabric Shadow Nodes and Trees",
+          ],
+          ["Layout", "Yoga", "Yoga"],
+          ["UI Management", "UIManager", "Fabric Renderer"],
+          [
+            "React Integration",
+            "Legacy rendering integration",
+            "Improved integration with modern React features",
+          ],
+          [
+            "Synchronous Layout",
+            "More limited legacy integration",
+            "Supports synchronous layout measurement in supported scenarios",
+          ],
+          ["Architecture", "Old Architecture", "New Architecture"],
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Paper is the old rendering system. Fabric is the new rendering system. Fabric improves the integration between React's rendering process and native UI operations. Both architectures use Yoga for layout calculations.",
+      },
+
+      {
+        type: "heading",
+        content: "7. Codegen – Why Is It Needed?",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Codegen generates native interface and binding code from typed JavaScript or TypeScript specifications. It reduces repetitive manual native integration and helps maintain consistency between JavaScript and native implementations.",
+      },
+      {
+        type: "code",
+        language: "TypeScript",
+        content:
+          "// Conceptual TurboModule specification\nimport type { TurboModule } from 'react-native';\nimport { TurboModuleRegistry } from 'react-native';\n\nexport interface Spec extends TurboModule {\n  getBatteryLevel(): Promise<number>;\n  getDeviceName(): string;\n}\n\nexport default TurboModuleRegistry.getEnforcing<Spec>(\n  'DeviceInfo'\n);",
+      },
+      {
+        type: "list",
+        content: [
+          "Developer defines a typed specification.",
+          "Codegen reads the specification.",
+          "Codegen generates the required native interfaces and bindings.",
+          "Native developers implement the generated interface.",
+          "React Native connects JavaScript and native implementations.",
+        ],
+      },
+
+      {
+        type: "heading",
+        content: "8. Threading Model Comparison",
+      },
+      {
+        type: "table",
+        content: [
+          ["Thread / Area", "Old Architecture", "New Architecture"],
+          [
+            "JavaScript Thread",
+            "Executes JS and React logic",
+            "Executes JS and React logic",
+          ],
+          [
+            "Bridge",
+            "Dedicated asynchronous communication mechanism",
+            "Legacy Bridge is no longer required in Bridgeless mode",
+          ],
+          [
+            "Native Module Execution",
+            "Configured native module queues",
+            "TurboModule execution depends on module and API threading requirements",
+          ],
+          [
+            "Shadow Thread",
+            "Legacy Paper layout processing",
+            "Fabric uses its own rendering and scheduling model",
+          ],
+          [
+            "UI Thread",
+            "Native view operations",
+            "Native view mounting and UI operations",
+          ],
+          [
+            "Concurrent Rendering",
+            "Limited legacy integration",
+            "Better integration with concurrent React rendering",
+          ],
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "The New Architecture does not mean JavaScript executes on multiple threads automatically. Concurrent rendering allows React to prioritize, pause, and resume rendering work. It does not mean arbitrary JavaScript code runs in parallel on multiple JavaScript threads.",
+      },
+
+      {
+        type: "heading",
+        content: "9. Performance Comparison",
+      },
+      {
+        type: "table",
+        content: [
+          ["Scenario", "Old Architecture", "New Architecture"],
+          [
+            "Frequent Native Calls",
+            "Bridge message and serialization overhead",
+            "Can reduce overhead through JSI-based interfaces",
+          ],
+          [
+            "Large Data Transfer",
+            "Serialization can become expensive",
+            "Can use more efficient native interoperability patterns",
+          ],
+          [
+            "Native Module Loading",
+            "Generally eager initialization",
+            "TurboModules support lazy loading",
+          ],
+          ["UI Rendering", "Paper renderer", "Fabric renderer"],
+          [
+            "Layout Measurement",
+            "Legacy asynchronous integration patterns",
+            "Synchronous measurement supported in appropriate scenarios",
+          ],
+          [
+            "React Rendering",
+            "Legacy integration",
+            "Better integration with concurrent rendering",
+          ],
+          [
+            "Overall Performance",
+            "Can experience Bridge-related bottlenecks",
+            "Provides opportunities for improved performance",
+          ],
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "The New Architecture does not automatically make every application faster. Actual performance depends on JavaScript workload, native implementation, rendering complexity, memory usage, third-party libraries, and application architecture. Always profile the application before and after migration.",
+      },
+
+      {
+        type: "heading",
+        content: "10. Real-World Example – BLE Bike Dashboard",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Consider a React Native application connected to an electric bike dashboard through Bluetooth Low Energy (BLE). The application receives real-time speed, temperature, battery percentage, and other telemetry information.",
+      },
+      {
+        type: "list",
+        content: [
+          "Old Architecture: React Native JavaScript communicates with the BLE native module through the Bridge. Frequent telemetry events may create serialization and queue overhead.",
+          "New Architecture: A TurboModule can expose typed BLE functionality using JSI-based interoperability. Fabric handles the UI rendering of the telemetry dashboard.",
+          "Native BLE APIs: Android Bluetooth APIs and iOS Core Bluetooth still perform the actual Bluetooth operations.",
+          "Important: JSI does not implement Bluetooth functionality. It provides the interoperability mechanism used by native integrations.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "11. Advantages and Disadvantages",
+      },
+      {
+        type: "table",
+        content: [
+          ["Architecture", "Advantages", "Disadvantages"],
+          [
+            "Old Architecture",
+            "Mature ecosystem, broad legacy library support, familiar integration model",
+            "Bridge serialization overhead, less efficient frequent communication, legacy rendering limitations",
+          ],
+          [
+            "New Architecture",
+            "JSI interoperability, TurboModules, Fabric, Codegen, better modern React integration",
+            "Migration effort, library compatibility requirements, native implementation complexity",
+          ],
+        ],
+      },
+
+      {
+        type: "heading",
+        content: "12. Version Compatibility",
+      },
+      {
+        type: "list",
+        content: [
+          "React Native 0.76: New Architecture became enabled by default, with the ability to opt out.",
+          "React Native 0.76–0.81: Legacy Architecture opt-out remained available.",
+          "React Native 0.82: New Architecture became the only supported architecture; the Legacy Architecture opt-out was removed.",
+          "When upgrading, verify React Native version, native dependencies, and third-party library compatibility.",
+        ],
+      },
+
+      {
+        type: "heading",
+        content: "13. When Should You Use Each Architecture?",
+      },
+      {
+        type: "list",
+        content: [
+          "Old Architecture: Relevant when maintaining an older React Native application that depends on legacy native integrations.",
+          "New Architecture: Recommended for modern React Native applications and projects using current React Native releases.",
+          "Migration: Check native module compatibility, update libraries, validate Android and iOS builds, and test critical native features.",
+          "Performance: Benchmark real user flows rather than assuming that migration alone guarantees improvement.",
+        ],
+      },
+
+      {
+        type: "heading",
+        content: "14. Frequently Asked Senior-Level Interview Questions",
+      },
+      {
+        type: "list",
+        content: [
+          "What is the main difference between the Bridge and JSI?",
+          "Why was the Bridge a performance bottleneck?",
+          "Does JSI mean JavaScript directly executes native Android or iOS code?",
+          "What is the difference between Native Modules and TurboModules?",
+          "What is the difference between Paper and Fabric?",
+          "What is Codegen, and why is it required?",
+          "What is Bridgeless Mode?",
+          "Does the New Architecture eliminate all asynchronous communication?",
+          "Does Fabric replace Yoga?",
+          "Does Concurrent Rendering mean JavaScript executes on multiple threads?",
+          "How would you migrate an existing application to the New Architecture?",
+          "How would you debug a third-party native library that is incompatible with the New Architecture?",
+          "How would you optimize frequent BLE events in a React Native application?",
+        ],
+      },
+
+      {
+        type: "heading",
+        content: "15. Interview-Ready Answer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native Old Architecture uses an asynchronous Bridge to communicate between JavaScript and native platforms. It uses Native Modules for native functionality and Paper as its rendering engine. The Bridge serializes and transfers messages between JavaScript and native code, which can introduce overhead when applications make frequent native calls or transfer large amounts of data.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native New Architecture introduces JSI, TurboModules, Fabric, and Codegen. JSI provides interoperability between JavaScript and C++. TurboModules modernize native module integration, Fabric replaces the Paper renderer, and Codegen generates native interfaces from typed specifications. The New Architecture also supports Bridgeless Mode and improves integration with modern React rendering features.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The biggest difference is that the New Architecture removes the dependency on the legacy Bridge and provides a more efficient and flexible foundation for communication, native modules, and UI rendering. However, actual performance improvements depend on how the application and native modules are implemented.",
+      },
+
+      {
+        type: "heading",
+        content: "16. Quick Revision – Remember These Differences",
+      },
+      {
+        type: "table",
+        content: [
+          ["Old Architecture", "New Architecture"],
+          ["Bridge", "JSI"],
+          ["Native Modules", "TurboModules"],
+          ["Paper", "Fabric"],
+          ["Legacy UIManager", "Fabric Renderer"],
+          ["Manual Native Integration", "Codegen-generated interfaces"],
+          ["Bridge-dependent", "Bridgeless Mode supported"],
+          ["Legacy React Integration", "Improved Concurrent React integration"],
+        ],
+      },
+    ],
+
+    topic: "React Native Architecture",
+  },
+  {
+    id: "fabric-turbomodules-performance",
+    question:
+      "How do Fabric and TurboModules improve React Native performance?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Fabric and TurboModules are important components of React Native's New Architecture.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "TurboModules provide a more efficient native module system with support for lazy loading and typed interfaces through Codegen.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Fabric is the new rendering system that improves communication between JavaScript and native rendering components and supports modern React features.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Together, these technologies reduce limitations associated with the old architecture and improve integration between JavaScript and native code.",
+      },
+    ],
+    topic: "React Native New Architecture",
+  },
+  {
+    id: "timers-and-state-updates",
+    question:
+      "How can excessive use of timers and frequent state updates affect React Native performance?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Excessive use of setTimeout, setInterval, and frequent state updates can create unnecessary JavaScript execution and repeated rendering work. This can overload the JavaScript thread, increase CPU and battery consumption, and cause UI lag, dropped frames, and delayed user interactions.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Whenever state changes, React schedules a re-render of the affected component. Frequent updates can increase reconciliation work, especially when components contain complex UI, large lists, or expensive calculations.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Excessive timers can also create unnecessary callback execution. If intervals or timeouts are not properly cleaned up, they may continue running after components unmount, causing memory leaks and unexpected behavior.",
+      },
+      {
+        type: "heading",
+        content: "Best practices to optimize performance:",
+      },
+      {
+        type: "list",
+        content: [
+          "Avoid unnecessary setTimeout and setInterval calls.",
+          "Always clear intervals and timeouts during component cleanup.",
+          "Use functional state updates to avoid stale state and unnecessary dependencies.",
+          "Batch related state updates where appropriate.",
+          "Use React.memo, useMemo, and useCallback when they provide measurable benefits.",
+          "Use debounce and throttle to control frequent events and state updates.",
+          "Avoid updating the entire component tree when only a small part of the UI needs to change.",
+          "Use React Native Reanimated for suitable animations to reduce dependence on the JavaScript thread.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "Example:",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content: `useEffect(() => {
+  const interval = setInterval(() => {
+    setCount(prev => prev + 1);
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, []);`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "In this example, the functional state updater avoids stale state, the empty dependency array prevents unnecessary interval recreation, and clearInterval ensures proper cleanup when the component unmounts.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, control the frequency of state updates, minimize unnecessary JavaScript execution, and update only the UI components that actually need to change.",
+      },
+    ],
+    topic: "Performance optimization",
+  },
+  {
+    id: "enable-hermes-react-native",
+    question: "How do you enable Hermes in a React Native application?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Hermes is the JavaScript engine used by default in new React Native projects. It can improve startup time and memory efficiency through optimized JavaScript execution and bytecode compilation.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Hermes configuration depends on the React Native version and project setup. Developers should follow the official React Native installation and upgrade documentation rather than applying older Gradle or Podfile instructions blindly.",
+      },
+    ],
+    topic: "Hermes engine",
+  },
+  {
+    id: "proguard-code-shrinking-resource-shrinking",
+    question:
+      "How do ProGuard, code shrinking, and resource shrinking help reduce Android application size?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "ProGuard, code shrinking, and resource shrinking help reduce the final Android application size by removing unused code, optimizing bytecode, obfuscating class and method names, and eliminating unused resources such as images, layouts, strings, and XML files.",
+      },
+      {
+        type: "heading",
+        content: "1. ProGuard",
+      },
+      {
+        type: "paragraph",
+        content:
+          "ProGuard is an Android code optimization tool that performs code shrinking, optimization, and obfuscation. It removes unused classes, methods, and fields, optimizes bytecode, and renames classes and methods to shorter names to make reverse engineering more difficult.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In modern Android projects, R8 is the default code shrinker and optimizer. It incorporates ProGuard-compatible configuration rules and performs shrinking, optimization, and obfuscation during the release build.",
+      },
+      {
+        type: "heading",
+        content: "2. Code Shrinking",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Code shrinking removes unused Java, Kotlin, and library code that is not required by the application. For example, if an imported library contains 100 classes but the application uses only 20, the shrinker can remove the unused classes when it can safely determine that they are not needed.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This reduces the DEX bytecode size and helps decrease the overall application package size.",
+      },
+      {
+        type: "heading",
+        content: "3. Resource Shrinking",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Resource shrinking removes unused Android resources, including drawable images, layouts, strings, colors, XML files, and other resources that are not referenced by the application.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, if the project contains 50 images but only 30 are used, resource shrinking can remove the unused images from the release build, reducing the APK or App Bundle size.",
+      },
+      {
+        type: "heading",
+        content: "4. Android Gradle Configuration",
+      },
+      {
+        type: "paragraph",
+        content:
+          "These optimizations are generally enabled for release builds through the Android Gradle configuration.",
+      },
+      {
+        type: "code",
+        language: "groovy",
+        content: `android {
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+
+            proguardFiles(
+                getDefaultProguardFile(
+                    'proguard-android-optimize.txt'
+                ),
+                'proguard-rules.pro'
+            )
+        }
+    }
+}`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "minifyEnabled true enables R8 code shrinking, optimization, and obfuscation. shrinkResources true enables removal of unused Android resources and works alongside code shrinking.",
+      },
+      {
+        type: "heading",
+        content: "5. ProGuard Rules",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Sometimes libraries use reflection, JNI, serialization, or dynamically accessed classes. R8 may not detect these usages automatically. In such cases, keep rules are required to prevent essential classes or methods from being removed or renamed.",
+      },
+      {
+        type: "code",
+        language: "pro",
+        content: `# Keep a specific class
+-keep class com.example.MyClass {
+    *;
+}
+
+# Keep all model classes
+-keep class com.example.models.** {
+    *;
+}
+
+# Preserve annotations
+-keepattributes *Annotation*`,
+      },
+      {
+        type: "heading",
+        content: "6. Benefits",
+      },
+      {
+        type: "list",
+        content: [
+          "Reduces APK and Android App Bundle size.",
+          "Removes unused Java and Kotlin code.",
+          "Removes unused Android resources.",
+          "Optimizes bytecode and can improve startup or runtime performance in some cases.",
+          "Obfuscates class and method names, making reverse engineering more difficult.",
+          "Reduces download size and storage requirements.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "7. Important Considerations",
+      },
+      {
+        type: "list",
+        content: [
+          "Test release builds thoroughly because incorrect keep rules can break reflection-based libraries.",
+          "Maintain mapping.txt files to de-obfuscate production crash stack traces.",
+          "Validate third-party SDK compatibility with R8.",
+          "Measure APK or AAB size before and after enabling shrinking.",
+          "Use Android App Bundle (AAB) to deliver device-specific resources and native libraries where applicable.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, R8 reduces unnecessary application code, resource shrinking removes unused assets, and obfuscation makes code harder to understand through reverse engineering. Together, these techniques help produce smaller and more optimized Android release builds.",
+      },
+    ],
+    topic: "Android optimization",
+  },
+  {
+    id: "code-splitting-lazy-loading",
+    question:
+      "What is code splitting and how does lazy loading help reduce application startup time?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Code splitting is a performance optimization technique that divides application code into smaller independent modules or bundles instead of loading the entire application code at once. Lazy loading loads specific modules, components, or screens only when they are required.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In React Native, code splitting and lazy loading help reduce the initial JavaScript execution and initialization work by avoiding unnecessary loading and evaluation of features that the user does not immediately need.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, an application may contain Home, Profile, Settings, Payment, and Reports screens. Instead of initializing every screen immediately, lazy loading can defer the initialization of screens until the user navigates to them.",
+      },
+      {
+        type: "paragraph",
+        content: "Benefits of code splitting and lazy loading:",
+      },
+      {
+        type: "paragraph",
+        content:
+          "1. Faster startup: Reduces the amount of JavaScript code that needs to be initialized during application startup.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "2. Reduced memory usage: Avoids creating and retaining unnecessary component instances before they are needed.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "3. Better performance: Reduces unnecessary initialization and processing work.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "4. Improved user experience: Displays important screens first while loading less frequently used features when required.",
+      },
+      {
+        type: "paragraph",
+        content: "Example using React.lazy and Suspense in React:",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React.lazy dynamically imports a component, and Suspense displays fallback UI while that component is loading.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Note: React.lazy with dynamic import is commonly used for web bundlers. Standard React Native Metro bundling does not automatically provide production web-style code splitting. React Native applications can use techniques such as React Navigation's lazy screen rendering and platform-supported bundle strategies to defer screen initialization.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, code splitting divides application code into smaller parts, while lazy loading ensures that features are initialized or loaded only when needed. Together, these techniques can reduce startup work and improve perceived application performance.",
+      },
+    ],
+    topic: "Performance optimization",
+  },
+  {
+    id: "controlling-state-scope",
+    question:
+      "How does controlling state scope improve React Native performance?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Controlling state scope means keeping state as close as possible to the components that actually need it instead of maintaining all application state in a common parent or global store. This reduces unnecessary component re-renders and improves rendering performance.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When state is maintained in a parent component, updating that state can cause the parent and its child components to re-render. If multiple unrelated components share the same state, they may perform unnecessary rendering work even when their UI does not depend on the updated value.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, consider a screen containing a search input, user profile, product list, and notification counter. If all these states are maintained in one parent component, updating the search input may cause the parent and its children to re-render.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Instead, keep search state inside the search component, profile state inside the profile component, and notification state in the component or store that actually needs it.",
+      },
+      {
+        type: "paragraph",
+        content: "Benefits of controlling state scope:",
+      },
+      {
+        type: "paragraph",
+        content:
+          "1. Reduced unnecessary re-renders: Only components that depend on the updated state need to update.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "2. Better rendering performance: Smaller component trees perform less rendering and reconciliation work.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "3. Improved maintainability: Components become more independent and easier to debug.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "4. Better scalability: Large applications become easier to manage when state ownership is clearly separated.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "5. Reduced unnecessary global updates: Avoids triggering unrelated components through frequently changing global state or Context values.",
+      },
+      {
+        type: "paragraph",
+        content: "Example:",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content: `// Avoid: Keeping unrelated state in a common parent
+
+const HomeScreen = () => {
+  const [search, setSearch] = useState("");
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <SearchBar
+        search={search}
+        setSearch={setSearch}
+      />
+      <Notification count={count} />
+    </>
+  );
+};
+
+// Better: Keep state close to where it is used
+
+const SearchBar = () => {
+  const [search, setSearch] = useState("");
+
+  return (
+    <TextInput
+      value={search}
+      onChangeText={setSearch}
+      placeholder="Search..."
+    />
+  );
+};
+
+const Notification = () => {
+  const [count, setCount] = useState(0);
+
+  return <Text>{count}</Text>;
+};`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "In the improved approach, updating the search input does not trigger a state-driven re-render of the Notification component because both components manage their own independent state.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Important: State should not always be local. Use Context API, Redux, Zustand, or another global state solution when multiple unrelated components genuinely need shared data. Use selectors or subscriptions to prevent unnecessary updates.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, controlling state scope reduces unnecessary rendering, improves component isolation, minimizes rendering overhead, and makes React Native applications more efficient and maintainable.",
+      },
+    ],
+    topic: "Performance optimization",
+  },
+  {
+    id: "react-native-performance-monitoring",
+    question:
+      "Which tools and techniques can be used to monitor and identify performance issues in React Native?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "React Native provides several tools and techniques to monitor application performance, identify bottlenecks, detect memory leaks, analyze rendering behavior, and optimize JavaScript and native UI execution.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "1. React Native DevTools: Used to inspect components, debug JavaScript code, analyze React component rendering, and identify performance bottlenecks. It includes React Components and Profiler capabilities.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "2. React DevTools Profiler: Helps identify components that re-render frequently, measure rendering duration, and understand which state or prop changes trigger unnecessary renders.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "3. Flipper: A desktop debugging platform that has historically been used with React Native for inspecting logs, network requests, and application behavior. Its availability depends on the React Native version and integration.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "4. Android Studio Profiler: Helps monitor CPU usage, memory consumption, network activity, and energy usage in Android applications. It is useful for identifying memory leaks, excessive CPU consumption, and native performance issues.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "5. Xcode Instruments: Used for iOS performance analysis. Instruments such as Time Profiler, Allocations, and Leaks help identify CPU bottlenecks, memory allocation issues, and memory leaks.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "6. Firebase Performance Monitoring: Helps track application startup time, screen rendering performance, network request duration, and custom performance traces in production.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "7. Sentry: Helps monitor application crashes, JavaScript errors, performance transactions, slow operations, and production issues.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "8. React Native Performance Monitor: Provides development-time FPS information and JS/UI performance indicators, depending on the React Native version and tooling available.",
+      },
+      {
+        type: "paragraph",
+        content: "Important performance monitoring techniques:",
+      },
+      {
+        type: "paragraph",
+        content:
+          "1. Monitor FPS: Check whether animations and scrolling maintain approximately 60 FPS or the device's supported refresh rate.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "2. Monitor JS thread: Identify long-running JavaScript tasks, excessive timers, expensive calculations, and frequent state updates.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "3. Monitor UI thread: Identify slow layout operations, excessive native view creation, and animation bottlenecks.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "4. Analyze component rendering: Use React Profiler to identify unnecessary re-renders and expensive component trees.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "5. Monitor memory usage: Identify memory leaks caused by uncleared timers, event listeners, subscriptions, and retained objects.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "6. Analyze network requests: Monitor API response times, payload sizes, repeated requests, and slow endpoints.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "7. Test release builds: Always validate performance in release builds on real devices because development mode introduces additional overhead.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: If a FlatList screen becomes laggy while scrolling, I would use React DevTools Profiler to identify unnecessary component re-renders, inspect FlatList configuration, and use Android Studio Profiler to check CPU and memory consumption.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, React Native DevTools and React Profiler help identify JavaScript and rendering issues, Android Studio Profiler and Xcode Instruments help analyze native performance, and Firebase Performance Monitoring or Sentry helps monitor real-world production performance.",
+      },
+    ],
+    topic: "Performance optimization",
+  },
+  {
+    id: "reduce-react-native-app-size",
+    question: "How can you reduce the application size in React Native?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Reducing React Native application size involves optimizing JavaScript bundles, removing unused dependencies and assets, enabling Android code shrinking, optimizing images, and reducing unnecessary native libraries.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "1. Enable ProGuard / R8: Use R8 code shrinking, optimization, and obfuscation to remove unused Java and Kotlin code and optimize the Android release build.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "2. Enable Resource Shrinking: Remove unused Android resources such as images, layouts, strings, colors, and XML files from the release build.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "3. Optimize Images: Compress images, use WebP where appropriate, resize large images, and avoid unnecessarily high-resolution assets.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "4. Remove Unused Dependencies: Analyze package dependencies and remove unnecessary third-party libraries that increase JavaScript bundle size or native binary size.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "5. Enable Hermes: Hermes is an optimized JavaScript engine for React Native that can improve startup performance and memory usage. It uses bytecode compilation and may affect application size depending on the build configuration.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "6. Optimize Native Libraries: Include only the required Android ABIs and native modules. Avoid bundling unnecessary architecture-specific native libraries.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "7. Use Android App Bundle (AAB): Generate an AAB instead of distributing a universal APK. Google Play can deliver device-specific APKs containing only the required resources and native libraries.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "8. Remove Unnecessary Assets: Delete unused fonts, icons, animations, JSON files, and other bundled resources.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "9. Optimize JavaScript Bundle: Avoid importing entire libraries when only a small portion is required. Prefer lightweight alternatives and remove unused code.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "10. Use Release Builds: Ensure that production builds do not include development tools, debugging configurations, unnecessary logs, or development-only dependencies.",
+      },
+      {
+        type: "heading",
+        content: "Android Gradle Configuration:",
+      },
+      {
+        type: "code",
+        language: "groovy",
+        content: `android {
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+
+            proguardFiles(
+                getDefaultProguardFile(
+                    "proguard-android-optimize.txt"
+                ),
+                "proguard-rules.pro"
+            )
+        }
+    }
+}`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Here, minifyEnabled true enables R8 code shrinking, optimization, and obfuscation. shrinkResources true removes unused Android resources. Both are configured for the release build.",
+      },
+      {
+        type: "heading",
+        content: "Useful Commands:",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content: `# Generate Android release APK
+cd android
+./gradlew assembleRelease
+
+# Generate Android App Bundle
+./gradlew bundleRelease`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, the best approach is to enable R8 and resource shrinking, optimize images and assets, remove unused dependencies, use Hermes where beneficial, and distribute Android App Bundles to reduce download size.",
+      },
+    ],
+    topic: "Performance optimization",
+  },
+  {
+    id: "fast-refresh-react-native",
+    question: "How does Fast Refresh work in React Native?",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Fast Refresh is a React Native development feature that automatically updates the application when developers modify JavaScript or TypeScript code, without requiring a complete application rebuild or manual reload.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "It improves development productivity by applying code changes quickly while preserving component state whenever possible.",
+      },
+      {
+        type: "paragraph",
+        content: "How Fast Refresh works:",
+      },
+      {
+        type: "paragraph",
+        content:
+          "1. Code Modification: A developer changes a component, function, style, or other JavaScript/TypeScript code.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "2. Metro Bundler Detection: Metro detects the file modification and rebuilds the affected JavaScript modules.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "3. Module Update: Metro sends the updated modules to the running React Native application through the development connection.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "4. Component Refresh: React applies the updated module and re-renders the affected components.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "5. State Preservation: React attempts to preserve component state when the updated component is compatible with Fast Refresh.",
+      },
+      {
+        type: "paragraph",
+        content: "Example:",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content: `const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <View>
+      <Text>Count: {count}</Text>
+
+      <Button
+        title="Increment"
+        onPress={() => setCount(count + 1)}
+      />
+    </View>
+  );
+};`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Suppose the counter value is 5 and you modify the Text component's styling or update its displayed label. Fast Refresh applies the changes and generally preserves the counter value instead of resetting the entire application.",
+      },
+      {
+        type: "heading",
+        content: "Fast Refresh vs Reload:",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Fast Refresh updates modified modules and attempts to preserve component state. A full reload re-executes the application entry point and generally resets the in-memory component state.",
+      },
+      {
+        type: "heading",
+        content: "Important Points:",
+      },
+      {
+        type: "paragraph",
+        content:
+          "1. Fast Refresh works during development, not as a production feature.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "2. Component state is preserved when React can safely apply the update.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "3. Some changes, such as modifying module initialization or incompatible exports, may require a full reload.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "4. Syntax errors and runtime errors are displayed during development and can be corrected without manually restarting the application in many cases.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "5. Fast Refresh does not replace a native rebuild. Changes to native Android or iOS code, native dependencies, or native configuration may require rebuilding the application.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, Fast Refresh works through Metro's module update mechanism and React's component refresh capabilities. It updates JavaScript changes quickly and preserves component state whenever possible, making React Native development faster and more efficient.",
+      },
+    ],
+    topic: "React Native fundamentals",
   },
   {
     id: "how-does-the-asynchronous-bridge-affect-the-performance",
@@ -2234,17 +6629,147 @@ Investigate component-related issues.`,
     ],
   },
   {
-    id: "when-do-we-have-to-enable-codegen-turbo-modules-and-hermes-engine-in-rea",
+    id: "codegen-turbomodules-hermes",
     question:
-      "When do we have to enable codegen,turbo modules and hermes engine in react native?",
+      "When do we have to enable Codegen, TurboModules, and Hermes Engine in React Native?",
     answer: [
       {
         type: "paragraph",
         content:
-          "Enabling Codegen, TurboModules, and the Hermes engine is essential when you want to opt into React Native\u2019s New Architecture, which unlocks better performance and a modern infrastructure. Hermes Engine When to enable: Hermes is already the default JavaScript engine starting from React Native 0.70. You only need to manually enable it if: You're on a version before 0.70, or You want to ensure it's turned on for performance or size benefits. Why: Faster app startup Lower memory usage Smaller APK/IPA sizes AOT (Ahead-of-Time) compilation TurboModules When to enable: Enable TurboModules if you are adopting the New Architecture. They are part of that system. You should enable TurboModules: When you're writing or using modern native modules that benefit from lazy loading and better native bridge performance. When you want reduced memory usage and faster JS-native communication. TurboModules can only be used with: Hermes enabled Codegen set up correctly A compatible RN version (recommended: RN 0.70+) Codegen When to enable: Codegen is required if you are building custom native modules with TurboModules or Fabric components. You must enable Codegen if: You are defining new native modules/components using Flow or TypeScript types. You\u2019re working in the New Architecture and want to avoid manual native binding boilerplate. Why: Automatically generates native code based on JS/TS type definitions Prevents runtime bridge bugs Speeds up development of native modules",
+          "Codegen, TurboModules, and Hermes are important technologies associated with React Native's New Architecture and JavaScript execution. They serve different purposes: Codegen generates native interfaces, TurboModules connect JavaScript with native functionality, and Hermes executes JavaScript code.",
+      },
+      {
+        type: "heading",
+        content: "1. Codegen (Code Generation)",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Codegen is a tool that automatically generates native code from TypeScript or Flow specifications. It reduces manual native interface implementation and provides type-safe communication between JavaScript and native Android/iOS code.",
+      },
+      {
+        type: "paragraph",
+        content: "When do we need Codegen?",
+      },
+      {
+        type: "list",
+        content: [
+          "When developing custom native modules using TurboModules.",
+          "When developing custom native UI components using Fabric.",
+          "When integrating libraries that support the New Architecture.",
+          "When defining type-safe communication between JavaScript and native functionality.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: If we are developing a custom Bluetooth module, we define a TypeScript specification containing methods such as connect(), disconnect(), and getDeviceInfo(). Codegen generates the required native interfaces and glue code. We still need to implement the actual Bluetooth functionality in Kotlin/Java or Swift/Objective-C.",
+      },
+      {
+        type: "heading",
+        content: "2. TurboModules",
+      },
+      {
+        type: "paragraph",
+        content:
+          "TurboModules are part of React Native's New Architecture. They provide a modern mechanism for connecting JavaScript with native Android and iOS functionality. They support lazy loading, typed interfaces, and more efficient communication between JavaScript and native code.",
+      },
+      {
+        type: "paragraph",
+        content: "When do we need TurboModules?",
+      },
+      {
+        type: "list",
+        content: [
+          "When integrating Bluetooth and BLE functionality.",
+          "When accessing native Wi-Fi and device APIs.",
+          "When implementing background services.",
+          "When developing custom Android or iOS functionality.",
+          "When building native integrations that require efficient JavaScript-to-native communication.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "Example: In a smart bike application, JavaScript can communicate with native Android/iOS Bluetooth implementations through a TurboModule to receive real-time speed, temperature, and device information.",
+      },
+      {
+        type: "heading",
+        content: "3. Hermes JavaScript Engine",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Hermes is an open-source JavaScript engine optimized for React Native applications. It executes JavaScript code and can improve application startup time and memory usage.",
+      },
+      {
+        type: "paragraph",
+        content: "When should we use Hermes?",
+      },
+      {
+        type: "list",
+        content: [
+          "For applications with complex JavaScript logic.",
+          "When improving application startup time.",
+          "When optimizing JavaScript memory consumption.",
+          "When working with large React Native applications.",
+          "For most production React Native applications where library compatibility has been verified.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "How Hermes works: Metro bundles JavaScript code, the Hermes compiler generates Hermes bytecode (HBC), and the Hermes engine executes that bytecode at runtime. This reduces the need for JavaScript compilation work during application startup.",
+      },
+      {
+        type: "heading",
+        content: "4. How to Enable Them in React Native",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For Android, New Architecture and Hermes can be configured in android/gradle.properties:",
+      },
+      {
+        type: "code",
+        language: "properties",
+        content: `# Enable New Architecture
+newArchEnabled=true
+
+# Enable Hermes
+hermesEnabled=true`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Codegen is configured through codegenConfig in package.json when developing a custom native module or component. It is invoked as part of the native build process.",
+      },
+      {
+        type: "code",
+        language: "json",
+        content: `{
+  "codegenConfig": {
+    "name": "NativeBluetoothSpec",
+    "type": "modules",
+    "jsSrcsDir": "specs",
+    "android": {
+      "javaPackageName": "com.example.bluetooth"
+    }
+  }
+}`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Note: Standard React Native projects use Hermes by default in modern versions, and the New Architecture is also enabled by default in current React Native releases. Always check the configuration and defaults for your specific React Native version.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, Hermes is the JavaScript engine, TurboModules provide JavaScript-to-native integration, and Codegen generates the native interfaces required by the New Architecture. For new React Native applications, Hermes and the New Architecture are generally recommended, provided native dependencies are compatible.",
       },
     ],
-    topic: "Native & tooling",
+    topic: "React Native New Architecture",
   },
   {
     id: "so-when-should-you-enable-all-three",
@@ -2268,12 +6793,12 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "Phase 2: App Run time When a user launches the app, the rest of the work happens from the new architecture flow of the React Native app. Mainly two big components run when the app has been launched by any user on their device: Turbo Module component Fabric component All the other sub components of React Native\u2019s new architecture also come inside this \u201cPhase 2: App Run time\u201d. These are \ud83d\udc47 Hermes engine JSI (JavaScript Interface) Native Module Yoga Fabric Renderer Remember once again: Codegen already ran in \u201cPhase 1: App Build time\u201d. At the end of the Article, we will see the full flow of how the New Architecture works. Also, we will see the relation between each component of new architecture. For now, let\u2019s understand each component of New Architecture closely \ud83d\udc47\ud83d\udc47",
+          "Phase 2: App Run time When a user launches the app, the rest of the work happens from the new architecture flow of the React Native app. Mainly two big components run when the app has been launched by any user on their device: Turbo Module component Fabric component All the other sub components of React Native\u2019s new architecture also come inside this \u201cPhase 2: App Run time\u201d. These are  Hermes engine JSI (JavaScript Interface) Native Module Yoga Fabric Renderer Remember once again: Codegen already ran in \u201cPhase 1: App Build time\u201d. At the end of the Article, we will see the full flow of how the New Architecture works. Also, we will see the relation between each component of new architecture. For now, let\u2019s understand each component of New Architecture closely ",
       },
       {
         type: "paragraph",
         content:
-          "\u2014--------------------------------------------------->>>>>>>------------------------------------------- Codegen (Native Code Generator) Codegen specially do these 2 jobs in new architecture of React Native Static type checking Generate \u201cNative code\u201d Let\u2019s understand these 2 more clearly below. Static type checking JavaScript is a dynamically typed (you don\u2019t need to define the type of a variable) language, and JSI is written in C++, which is a statically typed (you must have to define variable type) language. Consequently, there are some communication issues between the two (JS and C++). That\u2019s why the new architecture includes a static type checker called CodeGen. It solves the type related communication issue between JavaScript & C++. Remember that Codegen makes ready Native Code for JSI. Codegen doesn't use JSI. Generate \u201cNative code\u201d Codegen is responsible for generating Native Code for 2 big components of New Architecture. These are: The Turbo Module component and The Fabric component Both of these 2 big components of New Architecture need Native Code that should be generated by Codegen. Let\u2019s understand how Codegen generate Native Code \ud83d\udc47 You write \u201ctyped JavaScript code\u201d to define the Native components or Native modules that you want to use in your app. Codegen creates \u201cnative code\u201d for each platform as output from your written \u201ctyped JavaScript code\u201d. These generated \u201cnative code\u201d can communicate with \u201ctyped JavaScript code\u201d directly, without using the bridge. As a result Codegen makes the communication between JavaScript and native code faster and more reliable, since it avoids using the bridge. CodeGen generates native code at build time instead of run time. By using Codegen, you don\u2019t have to write the \u201cnative code\u201d yourself. You just have to write the \u201ctyped JavaScript code\u201d that defines the interface of your component or module. Codegen will do the rest for you. The advantage of using Codegen is that it reduces the amount of work required for creating and maintaining native modules and components.",
+          "Codegen (Native Code Generator) Codegen specially do these 2 jobs in new architecture of React Native Static type checking Generate \u201cNative code\u201d Let\u2019s understand these 2 more clearly below. Static type checking JavaScript is a dynamically typed (you don\u2019t need to define the type of a variable) language, and JSI is written in C++, which is a statically typed (you must have to define variable type) language. Consequently, there are some communication issues between the two (JS and C++). That\u2019s why the new architecture includes a static type checker called CodeGen. It solves the type related communication issue between JavaScript & C++. Remember that Codegen makes ready Native Code for JSI. Codegen doesn't use JSI. Generate \u201cNative code\u201d Codegen is responsible for generating Native Code for 2 big components of New Architecture. These are: The Turbo Module component and The Fabric component Both of these 2 big components of New Architecture need Native Code that should be generated by Codegen. Let\u2019s understand how Codegen generate Native Code  You write \u201ctyped JavaScript code\u201d to define the Native components or Native modules that you want to use in your app. Codegen creates \u201cnative code\u201d for each platform as output from your written \u201ctyped JavaScript code\u201d. These generated \u201cnative code\u201d can communicate with \u201ctyped JavaScript code\u201d directly, without using the bridge. As a result Codegen makes the communication between JavaScript and native code faster and more reliable, since it avoids using the bridge. CodeGen generates native code at build time instead of run time. By using Codegen, you don\u2019t have to write the \u201cnative code\u201d yourself. You just have to write the \u201ctyped JavaScript code\u201d that defines the interface of your component or module. Codegen will do the rest for you. The advantage of using Codegen is that it reduces the amount of work required for creating and maintaining native modules and components.",
       },
       {
         type: "paragraph",
@@ -2282,7 +6807,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "JavaScript Interface (JSI) is the deepest part of the New Architecture of React Native and it is being used by all of these components of New Architecture\ud83d\udc47 Hermes Engine (A JS engine that runs JS code in devices) Turbo Module (It Implements Native Module by using JSI & Native Code) Fabric (Native UI renderer/ New render engine) We will see about these in next sections. But for now let\u2019s understand JSI first clearly. Then we will move to other parts of the New Architecture. JSI (JavaScript Interface) was written in C++. It replaced the bridge from the OLD architecture and provided a direct, native interface to JavaScript objects and functions. This idea unlocks several benefits \ud83d\udc47 Concurrency: JavaScript can invoke functions that are executed on different threads. Synchronous execution: the capability to execute synchronously those functions that should not have been asynchronous in the first place. Lower overhead: The New Architecture does not need to serialize or deserialize data anymore, which eliminates the need for serialization taxes. Code sharing: The introduction of C++ has enabled the development of platform-independent code, which can be shared easily between platforms. Type safety: To ensure that JavaScript can properly invoke methods on C++ objects, a layer of code has been added to the language. This code is generated starting from some JavaScript specifications that must be typed through Flow or TypeScript. Lightweight: JSI is a lightweight general-purpose JavaScript interface, written in C++, that can be used by the JavaScript engine to directly invoke methods in the native realm. Decouple the interface from the JS Engine: The OLD architecture uses the JSC (JavaScriptCore) Engine. The Bridge was only compatible with this particular JSC engine, however the new architecture will decouple the interface from the Engine, enabling the use of other JavaScript Engines like Chakra, v8 and Hermes, etc.",
+          "JavaScript Interface (JSI) is the deepest part of the New Architecture of React Native and it is being used by all of these components of New Architecture Hermes Engine (A JS engine that runs JS code in devices) Turbo Module (It Implements Native Module by using JSI & Native Code) Fabric (Native UI renderer/ New render engine) We will see about these in next sections. But for now let\u2019s understand JSI first clearly. Then we will move to other parts of the New Architecture. JSI (JavaScript Interface) was written in C++. It replaced the bridge from the OLD architecture and provided a direct, native interface to JavaScript objects and functions. This idea unlocks several benefits  Concurrency: JavaScript can invoke functions that are executed on different threads. Synchronous execution: the capability to execute synchronously those functions that should not have been asynchronous in the first place. Lower overhead: The New Architecture does not need to serialize or deserialize data anymore, which eliminates the need for serialization taxes. Code sharing: The introduction of C++ has enabled the development of platform-independent code, which can be shared easily between platforms. Type safety: To ensure that JavaScript can properly invoke methods on C++ objects, a layer of code has been added to the language. This code is generated starting from some JavaScript specifications that must be typed through Flow or TypeScript. Lightweight: JSI is a lightweight general-purpose JavaScript interface, written in C++, that can be used by the JavaScript engine to directly invoke methods in the native realm. Decouple the interface from the JS Engine: The OLD architecture uses the JSC (JavaScriptCore) Engine. The Bridge was only compatible with this particular JSC engine, however the new architecture will decouple the interface from the Engine, enabling the use of other JavaScript Engines like Chakra, v8 and Hermes, etc.",
       },
     ],
     topic: "App development",
@@ -2357,7 +6882,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "Turbo Modules Turbo Modules is just a Native Module system which replaced the OLD Native Module system. The OLD Native Module system is also known as Bridge-based native module system or Legacy native module system. The OLD native module system used the technique of JSON data serialization which was slow in performance. The New Native module system is also known as \u201cTurbo Module\u201d which uses JSI technology instead of JSON data serialization. JSI (JavaScript Interface) was written in C++. Turbo Module is a new way of implementing \u201cNative modules\u201d in React Native. It implements Native Module by using JSI & \u201cNative Code\u201d that was generated by Codegen. In New Architecture, Turbo Module introduced Lazy Loading for Native Modules (e.g. Bluetooth, Geo Location and File Storage) to load when a user launches an app. In OLD architecture all Native Modules used in the app must be initialized in the start-up, even if the user does not require one of these modules \ud83e\udd74. Turbo Modules allow your JavaScript code to hold references of these Native modules. As a result a particular Native Module will be loaded only when the Module is required. This improved app start-up time \ud83d\udcaf. For the above reasons, Turbo Modules are called a new version of Native Modules in New Architecture. As in the new architecture, JavaScript uses JSI to communicate with Native Modules, so it will help you by reducing the amount of work required for porting your app to multiple platforms. This is because JSI was written in C++. C++ is a language that can run on multiple platforms, such as Android, iOS, Windows, or macOS. It is also a language that can interact with other native languages, such as Java or Objective-C, through bindings. This means that you can write your \u201cNative module\u201d logic in C++, and then use bindings to expose it to the other native languages. This way, you can share the same implementation across different platforms, and only write the bindings for each platform.",
+          "Turbo Modules Turbo Modules is just a Native Module system which replaced the OLD Native Module system. The OLD Native Module system is also known as Bridge-based native module system or Legacy native module system. The OLD native module system used the technique of JSON data serialization which was slow in performance. The New Native module system is also known as \u201cTurbo Module\u201d which uses JSI technology instead of JSON data serialization. JSI (JavaScript Interface) was written in C++. Turbo Module is a new way of implementing \u201cNative modules\u201d in React Native. It implements Native Module by using JSI & \u201cNative Code\u201d that was generated by Codegen. In New Architecture, Turbo Module introduced Lazy Loading for Native Modules (e.g. Bluetooth, Geo Location and File Storage) to load when a user launches an app. In OLD architecture all Native Modules used in the app must be initialized in the start-up, even if the user does not require one of these modules. Turbo Modules allow your JavaScript code to hold references of these Native modules. As a result a particular Native Module will be loaded only when the Module is required. This improved app start-up time. For the above reasons, Turbo Modules are called a new version of Native Modules in New Architecture. As in the new architecture, JavaScript uses JSI to communicate with Native Modules, so it will help you by reducing the amount of work required for porting your app to multiple platforms. This is because JSI was written in C++. C++ is a language that can run on multiple platforms, such as Android, iOS, Windows, or macOS. It is also a language that can interact with other native languages, such as Java or Objective-C, through bindings. This means that you can write your \u201cNative module\u201d logic in C++, and then use bindings to expose it to the other native languages. This way, you can share the same implementation across different platforms, and only write the bindings for each platform.",
       },
       {
         type: "paragraph",
@@ -2367,7 +6892,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "The Fabric render pipeline (three phases) The Fabric Renderer is React Native\u2019s new rendering system. It is a conceptual evolution of the legacy (old) render system and is designed to unify more render logic in C++, improve interoperability with host platforms (Ex: Android or iOS), and unlock new capabilities for React Native. The Fabric render pipeline occurs in three phases: The Render phase The Commit phase The Mount phaseI have created a Flow chart of how the Fabric Render Pipeline works. Look a bit into it \ud83d\udc47. Don\u2019t be too much into it now as we are going to discuss in details about these 3 phase below \ud83d\ude80 Flow of New Architecture The app starts by loading the bytecode file that contains the JavaScript code of the app. The bytecode file is a simpler and more efficient form of code that can be executed directly by Hermes, a JavaScript engine that runs on Android devices & iOS devices. Hermes improves the app size, the memory usage, and the start-up time of the app.",
+          "The Fabric render pipeline (three phases) The Fabric Renderer is React Native\u2019s new rendering system. It is a conceptual evolution of the legacy (old) render system and is designed to unify more render logic in C++, improve interoperability with host platforms (Ex: Android or iOS), and unlock new capabilities for React Native. The Fabric render pipeline occurs in three phases: The Render phase The Commit phase The Mount phaseI have created a Flow chart of how the Fabric Render Pipeline works. Look a bit into it . Don\u2019t be too much into it now as we are going to discuss in details about these 3 phase below Flow of New Architecture The app starts by loading the bytecode file that contains the JavaScript code of the app. The bytecode file is a simpler and more efficient form of code that can be executed directly by Hermes, a JavaScript engine that runs on Android devices & iOS devices. Hermes improves the app size, the memory usage, and the start-up time of the app.",
       },
       {
         type: "paragraph",
@@ -2700,77 +7225,77 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "\ud83d\ude80 1. Rendering Optimizations \u2705 React.memo() / PureComponent Prevents unnecessary re-renders of functional or class components when props haven't changed. \u2705 useCallback() and useMemo() Memoizes functions and values to avoid re-creation on every render. \u2705 FlatList / SectionList over ScrollView FlatList renders lazily (only visible items), unlike ScrollView which renders everything at once. \u2705 Key Extractor in FlatList Providing a stable keyExtractor improves list performance and prevents unnecessary re-renders.",
+          "1. Rendering Optimizations \ React.memo() / PureComponent Prevents unnecessary re-renders of functional or class components when props haven't changed. \ useCallback() and useMemo() Memoizes functions and values to avoid re-creation on every render. \ FlatList / SectionList over ScrollView FlatList renders lazily (only visible items), unlike ScrollView which renders everything at once. \ Key Extractor in FlatList Providing a stable keyExtractor improves list performance and prevents unnecessary re-renders.",
       },
       {
         type: "paragraph",
         content:
-          "\ud83e\udde0 2. State Management \u2705 Global State via Context API or Zustand/Recoil/Jotai Avoids prop drilling and keeps components decoupled. \u2705 Redux with Reselect Use selectors and memoization to prevent re-renders of connected components.",
+          "2. State Management \ Global State via Context API or Zustand/Recoil/Jotai Avoids prop drilling and keeps components decoupled. \ Redux with Reselect Use selectors and memoization to prevent re-renders of connected components.",
       },
       {
         type: "paragraph",
         content:
-          "\ud83d\udcf1 3. UI & Animation Optimization \u2705 Use Native Driver in Animations useNativeDriver: true for smoother animations by offloading to native thread.",
+          "3. UI & Animation Optimization \ Use Native Driver in Animations useNativeDriver: true for smoother animations by offloading to native thread.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 react-native-reanimated or react-native-gesture-handler These libraries offer performant gesture handling and animations compared to Animated.",
+          "\ react-native-reanimated or react-native-gesture-handler These libraries offer performant gesture handling and animations compared to Animated.",
       },
       {
         type: "paragraph",
         content:
-          "\ud83d\udce6 4. Bundle & Memory Optimization \u2705 Code Splitting & Lazy Loading Dynamically load screens or modules with libraries like react-native-dynamic-bundle or react-native-screens.",
+          "4. Bundle & Memory Optimization \ Code Splitting & Lazy Loading Dynamically load screens or modules with libraries like react-native-dynamic-bundle or react-native-screens.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 Avoid Large Inline Images Use Image with resizeMode and react-native-fast-image for caching and performance.",
+          "Avoid Large Inline Images Use Image with resizeMode and react-native-fast-image for caching and performance.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 Reduce JS Bundle Size Remove unused libraries, optimize assets, enable Proguard (Android) and Bitcode (iOS).",
+          "Reduce JS Bundle Size Remove unused libraries, optimize assets, enable Proguard (Android) and Bitcode (iOS).",
       },
       {
         type: "paragraph",
         content:
-          "\ud83d\udce1 5. Network & Storage Optimization \u2705 Axios/Fastify + Caching Use caching layers (e.g. react-query, swr, AsyncStorage) for efficient data fetching.",
+          "5. Network & Storage Optimization \ Axios/Fastify + Caching Use caching layers (e.g. react-query, swr, AsyncStorage) for efficient data fetching.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 Debouncing API calls Use debounce or throttle in search bars, autocomplete, etc.",
+          "Debouncing API calls Use debounce or throttle in search bars, autocomplete, etc.",
       },
       {
         type: "paragraph",
         content:
-          "\u2699\ufe0f 6. App Lifecycle & Threads \u2705 Avoid Blocking the JS Thread No heavy computation on the main thread. Offload to native modules or use JSThread.",
+          "6. App Lifecycle & Threads \ Avoid Blocking the JS Thread No heavy computation on the main thread. Offload to native modules or use JSThread.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 Background Processing with react-native-background-fetch, react-native-threads Use separate threads for background tasks.",
+          "Background Processing with react-native-background-fetch, react-native-threads Use separate threads for background tasks.",
       },
       {
         type: "paragraph",
         content:
-          "\ud83d\udd0d 7. Profiling & Debugging Tools \u2705 Flipper with React DevTools Inspect component renders, memory usage, and network requests.",
+          "Profiling & Debugging Tools \ Flipper with React DevTools Inspect component renders, memory usage, and network requests.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 Hermes Engine (Android) Improves app startup and memory usage by using a lightweight JS engine.",
+          "Hermes Engine (Android) Improves app startup and memory usage by using a lightweight JS engine.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 Performance Monitors Tools like why-did-you-render, React Profiler, and Perf Monitor help spot bottlenecks.",
+          "Performance Monitors Tools like why-did-you-render, React Profiler, and Perf Monitor help spot bottlenecks.",
       },
       {
         type: "paragraph",
         content:
-          "\u2705 Bonus: General Best Practices Avoid anonymous functions in render Minimize inline styles & rerenders Minimize use of unnecessary console.logs in production Use InteractionManager to defer heavy work until after animations Paginate or virtualize long lists",
+          "Bonus: General Best Practices Avoid anonymous functions in render Minimize inline styles & rerenders Minimize use of unnecessary console.logs in production Use InteractionManager to defer heavy work until after animations Paginate or virtualize long lists",
       },
       {
         type: "paragraph",
@@ -2787,15 +7312,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "@react-navigation/native: This is the core package of React Navigation. It provides the base navigation functionality, such as: NavigationContainer (the navigation context provider) Navigation state management Navigating between screens Back button handling (Android) Think of it as the brain of your navigation system. react-native-screens This package improves navigation performance by using native navigation primitives (iOS UIViewController, Android Fragment) instead of just pure JS views. Benefits: Better memory management Smoother animations Faster screen rendering Think of it as an engine booster for your navigation system. react-native-safe-area-context: Helps in properly handling safe areas (like notches, status bars, home indicators) in devices such as iPhones or modern Android phones. Ensures UI doesn't get hidden behind notches or system bars. Used internally by React Navigation and other libraries for layout padding. Think of it as a seatbelt ensuring your UI stays safe in visible areas. @react-navigation/native-stack Provides the native stack navigator (createNativeStackNavigator) built on top of react-native-screens. It gives you: Native-like transitions (push/pop animations) Better performance than JS-based stack Header customization Think of it as the visual interface or gear of your navigation experience.",
-      },
-      {
-        type: "paragraph",
-        content: "Senior Interview questions",
-      },
-      {
-        type: "paragraph",
-        content: "\ud83d\udd39 Core React Native Architecture (Senior Level)",
+          "\n**@react-navigation/native**: This is the core package of React Navigation. It provides the base navigation functionality, such as: NavigationContainer (the navigation context provider) Navigation state management Navigating between screens Back button handling (Android) Think of it as the brain of your navigation system. \n**react-native-screens**: This package improves navigation performance by using native navigation primitives (iOS UIViewController, Android Fragment) instead of just pure JS views. Benefits: Better memory management Smoother animations Faster screen rendering Think of it as an engine booster for your navigation system. \n**react-native-safe-area-context**: Helps in properly handling safe areas (like notches, status bars, home indicators) in devices such as iPhones or modern Android phones. Ensures UI doesn't get hidden behind notches or system bars. Used internally by React Navigation and other libraries for layout padding. Think of it as a seatbelt ensuring your UI stays safe in visible areas. \n**@react-navigation/native-stack**: Provides the native stack navigator (createNativeStackNavigator) built on top of react-native-screens. It gives you: Native-like transitions (push/pop animations) Better performance than JS-based stack Header customization Think of it as the visual interface or gear of your navigation experience.",
       },
     ],
     topic: "App development",
@@ -3123,11 +7640,6 @@ Investigate component-related issues.`,
         content:
           "In React Native, rendering can be thought of as synchronous or asynchronous depending on how React updates the UI in response to state or prop changes. Synchronous rendering means that when a state update occurs, React immediately recalculates the component tree, reconciles changes, and sends updates to native views in a single, blocking flow. The JavaScript thread executes the render, reconciliation, and commit phases without yielding control, so the UI updates happen immediately\u2014but this can block the JS thread if the tree is large or computations are heavy, causing lag or dropped frames. Asynchronous rendering, introduced with React\u2019s concurrent mode and fully leveraged in the new React Native architecture with Fabric, allows rendering to be split into small chunks and scheduled over time. When a state update occurs, React can pause, interrupt, or prioritize updates based on urgency. For example, updates triggered by typing or scrolling can be prioritized, while less critical updates like off-screen components can be deferred. This scheduling ensures the JS thread remains responsive, prevents blocking the UI, and allows animations and gestures to remain smooth, even if other updates are happening simultaneously. The difference also shows up on the native side. In the old Bridge-based architecture, all updates were asynchronous in nature because messages had to cross the Bridge, making every native update inherently delayed. Fabric, combined with JSI, allows React Native to perform synchronous updates when needed, letting critical changes be applied immediately on the UI thread without waiting for asynchronous serialization. In summary, synchronous rendering in React Native is immediate but can block the JS thread, while asynchronous rendering spreads work over time, improving responsiveness and user experience. Modern React Native combines both approaches: synchronous rendering for critical updates and asynchronous, interruptible rendering for non-critical updates, enabling smooth, interactive applications at scale.",
       },
-      {
-        type: "paragraph",
-        content:
-          "\ud83d\udd39 Performance Optimization (Very Important \ud83d\udd25)",
-      },
     ],
     topic: "App development",
   },
@@ -3139,31 +7651,6 @@ Investigate component-related issues.`,
         type: "paragraph",
         content:
           "Debugging and fixing UI jank in React Native is all about finding which thread is being blocked and optimizing the rendering pipeline. UI jank usually shows up as stuttered animations, delayed scrolling, or frozen screens, and it happens when either the JS thread, the UI thread, or the native modules thread is overloaded. The first step is to identify the bottleneck. You can use the built-in React Native Performance Monitor or tools like Flipper, Systrace, or React DevTools. Look at the frame rate, JS thread activity, and memory usage. If the JS thread is constantly hitting high utilization, the app is likely blocked by heavy computation, expensive state updates, or unnecessary re-renders. If the UI thread is overloaded, native layout or view updates may be the cause. Once you locate the bottleneck, you can fix it in several ways. If the JS thread is the problem, reduce the work happening during renders: use React.memo or PureComponent to prevent unnecessary re-renders, move expensive computations off the JS thread using Web Workers or native modules, and optimize lists with FlatList or SectionList by providing keyExtractor and getItemLayout. For animations, use Reanimated or native-driven animations so the work happens directly on the UI thread instead of waiting for JS. If the UI thread is blocked, check if too many views are being updated at once. Simplify layouts, avoid deeply nested views, and reduce heavy image processing on the main thread. For native modules, make sure asynchronous calls run off the UI thread, especially for tasks like database queries, network requests, or image decoding. Finally, test under realistic conditions\u2014large lists, simultaneous animations, and slower devices. Debugging tools like Flipper\u2019s React DevTools, Systrace, or the FPS monitor help you see exactly which operations are causing frame drops. The key principle is: keep the JS thread and UI thread unblocked, move work off the critical path, and use lazy or native-driven updates wherever possible.",
-      },
-    ],
-    topic: "Performance",
-  },
-  {
-    id: "difference-between-usememo-usecallback-and-react-memo-in-rn",
-    question: "Difference between useMemo, useCallback, and React.memo in RN.",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "Here\u2019s a clear way to understand the differences in React Native (and React in general), because they often confuse developers: useMemo is a hook that memoizes a computed value. You use it when you have an expensive calculation inside a component and you don\u2019t want to recompute it on every render unless its dependencies change. For example, filtering a large list or calculating derived data. It returns the result of a computation. useCallback is a hook that memoizes a function. In React Native, functions are recreated on every render, and passing them to child components can trigger unnecessary re-renders if those children rely on reference equality. useCallback ensures the same function reference is reused as long as its dependencies don\u2019t change. Essentially, it returns a stable function. React.memo is a higher-order component (HOC) that memoizes an entire component. It prevents re-rendering of a child component if its props haven\u2019t changed, using a shallow comparison by default. This is useful for functional components that receive props from a parent and don\u2019t need to re-render on every parent update. In short: useMemo \u2192 memoizes values.",
-      },
-      {
-        type: "paragraph",
-        content: "useCallback \u2192 memoizes functions.",
-      },
-      {
-        type: "paragraph",
-        content: "React.memo \u2192 memoizes components based on props.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "A practical combination in React Native: if you have a child component wrapped with React.memo and you\u2019re passing it a function prop, you often also wrap that function in useCallback to avoid breaking the memoization. Similarly, if you have heavy derived data passed as props, use useMemo so the props don\u2019t get recreated on every render.",
       },
     ],
     topic: "Performance",
@@ -3528,7 +8015,7 @@ Investigate component-related issues.`,
     answer: [
       {
         type: "paragraph",
-        content: "\ud83d\udd39 State Management & Data Flow",
+        content: "State Management & Data Flow",
       },
       {
         type: "diagram",
@@ -4654,7 +9141,7 @@ Investigate component-related issues.`,
       },
       {
         type: "paragraph",
-        content: "\ud83d\udd39 Navigation & Deep Linking",
+        content: " Navigation & Deep Linking",
       },
     ],
     topic: "State & data",
@@ -4684,16 +9171,184 @@ Investigate component-related issues.`,
     topic: "Navigation",
   },
   {
-    id: "how-do-you-handle-deep-linking",
-    question: "How do you handle deep linking?",
+    id: "react-native-deep-linking",
+    question: "How do you handle deep linking in React Native?",
     answer: [
       {
         type: "paragraph",
         content:
-          "Handling deep linking in a React Native app means allowing your app to open specific screens via URLs or custom schemes, even when the app is closed. It\u2019s essential for user experience, sharing links, notifications, and integrating with web content. Internally, deep linking works by mapping a URL to a navigation action that updates the navigation state tree. React Navigation has built-in support for this via a linking configuration, where you define patterns that correspond to screens. For example, a URL like myapp://profile/42 can be mapped to the Profile screen with id=42 as a route parameter. When the app is opened via a deep link, the URL is parsed, and React Navigation dispatches a navigation action to reconstruct the appropriate stack or tab state so that the correct screen is active. If the app is already running in the background, it still listens for new links via an event listener, updating the navigation state without restarting the app. On iOS, deep links can come from custom URL schemes or universal links, while on Android, they can come from intent filters or app links. React Native provides the Linking API to detect these URLs at startup (Linking.getInitialURL()) or while the app is running (Linking.addEventListener('url', callback)). Deep linking can also be combined with parameter parsing, query strings, and nested navigators. For example, a URL can open a tab navigator at a certain index and push a specific screen in a stack inside that tab. React Navigation\u2019s linking config handles this by converting URL segments into nested navigation actions automatically. For security and reliability, you usually validate the parsed URL, sanitize parameters, and handle cases where the link doesn\u2019t match any route by redirecting to a fallback screen. In short: Deep linking lets your app respond to external URLs by translating them into navigation actions that update the navigation state tree, opening the correct screens with the right parameters, whether the app is closed, backgrounded, or foregrounded.",
+          "Deep linking is a technique that allows users to navigate directly to a specific screen or feature inside a mobile application using a URL. It helps connect external sources such as websites, emails, notifications, and other applications to specific screens in a React Native application.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, when a user clicks a link like myapp://profile/123, the application opens directly on the profile screen of user 123 instead of opening the home screen.",
+      },
+      {
+        type: "heading",
+        content: "1. Types of Deep Linking",
+      },
+      {
+        type: "list",
+        content: [
+          "Custom URL Schemes: Use application-specific URLs such as myapp://profile/123 to open a particular screen.",
+          "Android App Links: Use verified HTTPS URLs to open the Android application directly when the domain is associated with the app.",
+          "iOS Universal Links: Use verified HTTPS URLs to open the iOS application when the domain is associated with the app.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. How Deep Linking Works",
+      },
+      {
+        type: "list",
+        content: [
+          "A user clicks a deep link from a website, email, SMS, or notification.",
+          "The operating system checks whether an installed application can handle the URL.",
+          "The application receives the URL through its linking configuration.",
+          "React Native parses the URL and extracts the route and parameters.",
+          "React Navigation navigates the user to the corresponding screen.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "3. React Native Implementation Using React Navigation",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native provides the Linking API to handle incoming URLs. React Navigation also provides built-in linking configuration to map URLs to application screens.",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content: `import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+const linking = {
+  prefixes: ['myapp://', 'https://example.com'],
+  config: {
+    screens: {
+      Home: '',
+      Profile: 'profile/:userId',
+      Product: 'product/:productId',
+    },
+  },
+};
+
+export default function App() {
+  return (
+    <NavigationContainer linking={linking}>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="Product" component={ProductScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Here, prefixes define the supported URL schemes and domains, while the config object maps incoming URL paths to navigation screens and extracts route parameters.",
+      },
+      {
+        type: "heading",
+        content: "4. Handling URLs Using React Native Linking API",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native Linking API provides two important methods: getInitialURL() handles links that opened the application from a closed state, and addEventListener() handles links received while the application is already running or in the background.",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content: `import { Linking } from 'react-native';
+import { useEffect } from 'react';
+
+useEffect(() => {
+  // Handle initial URL
+  Linking.getInitialURL().then(url => {
+    if (url) {
+      console.log('Initial URL:', url);
+    }
+  });
+
+  // Handle incoming URLs
+  const subscription = Linking.addEventListener(
+    'url',
+    ({ url }) => {
+      console.log('Received URL:', url);
+    }
+  );
+
+  return () => subscription.remove();
+}, []);`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "When using React Navigation's linking configuration, it generally handles initial URLs and incoming URL events automatically. Avoid implementing duplicate navigation handling for the same links.",
+      },
+      {
+        type: "heading",
+        content: "5. Android and iOS Configuration",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For Android, custom URL schemes are configured using intent filters in AndroidManifest.xml. HTTPS App Links additionally require domain verification through assetlinks.json.",
+      },
+      {
+        type: "code",
+        language: "xml",
+        content: `<activity
+    android:name=".MainActivity"
+    android:exported="true">
+
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:scheme="myapp" />
+    </intent-filter>
+
+</activity>`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "For iOS, custom URL schemes are configured through URL Types in the application's Info.plist. Universal Links require Associated Domains configuration and an apple-app-site-association file hosted on the associated domain.",
+      },
+      {
+        type: "heading",
+        content: "6. Important Considerations",
+      },
+      {
+        type: "list",
+        content: [
+          "Handle both initial links and incoming links while the app is running.",
+          "Validate URL parameters before navigating to a screen.",
+          "Handle invalid URLs and unknown routes gracefully.",
+          "Support authentication flows when a deep link requires a logged-in user.",
+          "Handle cases where the application is not installed.",
+          "Test links when the application is closed, in the background, and in the foreground.",
+          "Use HTTPS Universal Links and Android App Links for verified web-to-app linking.",
+          "Never trust sensitive information or authorization tokens passed directly through URLs.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "In short, I handle deep linking using React Native Linking API and React Navigation's linking configuration. I configure custom URL schemes or verified HTTPS links on Android and iOS, map URLs to navigation routes, extract parameters, and handle both initial and runtime incoming links.",
       },
     ],
-    topic: "Navigation",
+    topic: "Navigation and deep linking",
   },
   {
     id: "how-do-you-manage-navigation-state-globally",
@@ -4803,7 +9458,7 @@ Investigate component-related issues.`,
       },
       {
         type: "paragraph",
-        content: "\ud83d\udd39 Native Modules & Platform Knowledge",
+        content: "Native Modules & Platform Knowledge",
       },
     ],
     topic: "Navigation",
@@ -5232,48 +9887,6 @@ Investigate component-related issues.`,
     topic: "Native & tooling",
   },
   {
-    id: "explain-your-experience-with-custom-native-ui-components",
-    question: "Explain your experience with custom native UI components.",
-    answer: [
-      {
-        type: "paragraph",
-        content:
-          "In one project, I needed a highly performant, animated calendar component that wasn\u2019t available as a ready-made React Native library. The challenge was that React Native\u2019s JS-based animations were not smooth enough for the complex interactions and large datasets we required. To solve this, I created a custom native UI component for both iOS and Android: On iOS, I used UIKit and implemented a UICollectionView-based calendar. I wrapped it in a Swift class conforming to RCTViewManager, exposing properties like selectedDate, events, and callbacks like onDateSelect to JS.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "On Android, I built a RecyclerView-based calendar in Kotlin, also wrapped in a ViewManager, with similar props and event callbacks.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "On the JS side, I exposed it as a reusable React component: <NativeCalendar events={events} selectedDate={selectedDate} onDateSelect={(date) => setSelectedDate(date)} />",
-      },
-      {
-        type: "paragraph",
-        content:
-          "The key benefits were: Performance: The component handled hundreds of events smoothly without blocking the JS thread.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Native gestures and animations: By leveraging native views, we got smooth scrolling, selection animations, and swipe gestures.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Unified JS interface: Despite being implemented natively on each platform, JS components could use the same props and callbacks, so the app code remained clean and cross-platform.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "I also ensured proper memory management by cleaning up listeners when the component unmounted and made the component configurable, so it could be reused across multiple screens with different layouts or event types. This experience taught me how to bridge native UI components to React Native, balance performance vs flexibility, and maintain a consistent JS interface for complex, high-performance UI elements.",
-      },
-    ],
-    topic: "Core concepts",
-  },
-  {
     id: "what-is-the-role-of-gradle-in-rn",
     question: "What is the role of Gradle in RN?",
     answer: [
@@ -5315,7 +9928,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "\ud83d\udd39 Animations (Senior Favorite \ud83d\udd25) Difference between Animated API and Reanimated. In React Native, the Animated API and Reanimated both handle animations, but they differ significantly in performance, architecture, and flexibility. The built-in Animated API runs most of its work on the JavaScript thread. When you start an animation, JS calculates each frame, updates values, and sends them to the UI thread. For simple animations like fading, translating, or scaling small elements, this works fine. However, for complex or continuous animations, especially when the JS thread is busy (network calls, heavy renders, Redux updates), it can cause frame drops and jank because the UI thread has to wait for JS to finish calculations. Animated supports basic interpolation, timing, spring, and sequence animations, but it\u2019s limited when you want gesture-driven, native-smooth interactions. Reanimated, on the other hand, was built to run animations directly on the native thread. Its architecture allows you to define animation logic in JS, but the actual updates are executed off the JS thread, meaning the animations remain smooth even if the JS thread is blocked. Reanimated also introduces a declarative API, \u201cworklets\u201d (JS code that runs on the native thread), and hooks like useSharedValue and useAnimatedStyle, which make it easier to build gesture-driven, high-performance animations that can respond in real-time to gestures or state changes. For example, with a simple pan gesture: Using Animated, you have to listen to gesture events in JS, update the animated value, and render. If JS is busy, the UI lags.",
+          "Animations Difference between Animated API and Reanimated. In React Native, the Animated API and Reanimated both handle animations, but they differ significantly in performance, architecture, and flexibility. The built-in Animated API runs most of its work on the JavaScript thread. When you start an animation, JS calculates each frame, updates values, and sends them to the UI thread. For simple animations like fading, translating, or scaling small elements, this works fine. However, for complex or continuous animations, especially when the JS thread is busy (network calls, heavy renders, Redux updates), it can cause frame drops and jank because the UI thread has to wait for JS to finish calculations. Animated supports basic interpolation, timing, spring, and sequence animations, but it\u2019s limited when you want gesture-driven, native-smooth interactions. Reanimated, on the other hand, was built to run animations directly on the native thread. Its architecture allows you to define animation logic in JS, but the actual updates are executed off the JS thread, meaning the animations remain smooth even if the JS thread is blocked. Reanimated also introduces a declarative API, \u201cworklets\u201d (JS code that runs on the native thread), and hooks like useSharedValue and useAnimatedStyle, which make it easier to build gesture-driven, high-performance animations that can respond in real-time to gestures or state changes. For example, with a simple pan gesture: Using Animated, you have to listen to gesture events in JS, update the animated value, and render. If JS is busy, the UI lags.",
       },
       {
         type: "paragraph",
@@ -5456,10 +10069,6 @@ Investigate component-related issues.`,
         type: "paragraph",
         content:
           "Key takeaway: Gesture-driven animations should run on the native UI thread as much as possible, capturing touch input natively and updating animated values via Reanimated worklets. The JS thread should only handle high-level logic or state changes, not per-frame calculations.",
-      },
-      {
-        type: "paragraph",
-        content: "\ud83d\udd39 Networking, Security & Storage",
       },
     ],
     topic: "Animation",
@@ -5888,166 +10497,454 @@ Investigate component-related issues.`,
     topic: "Security",
   },
   {
-    id: "why-we-should-not-store-in-async-storage",
-    question: "why we should not store in async storage",
+    id: "react-native-deep-linking-types",
+    question: "What are the different types of deep linking in React Native?",
     answer: [
       {
         type: "paragraph",
         content:
-          "We shouldn\u2019t store sensitive data in AsyncStorage in React Native because it\u2019s essentially just a key-value store saved as plain text on the device. Unlike secure storage, it has no encryption or hardware-backed protection, so anyone with physical access to the device or who can extract the app data can read it easily. For example, if you store an access token or password in AsyncStorage, a user could use tools to browse the app\u2019s storage folder and retrieve that value. Similarly, if the device is rooted or jailbroken, all AsyncStorage data becomes fully accessible. Because of this, any critical information like authentication tokens, API keys, or personal user data should never live there. AsyncStorage is fine for non-sensitive app data like UI preferences, theme settings, or caching non-critical information, but for anything that could compromise security or privacy, you should use native secure storage like Keychain on iOS or Keystore on Android, which encrypts data and often leverages hardware-backed security. In short, AsyncStorage is convenient but insecure, and using it for sensitive information exposes your users to data theft and potential account compromise.",
+          "Deep linking allows users to navigate directly to a specific screen or feature inside a mobile application using a URL. React Native supports different approaches to deep linking depending on the platform and application requirements.",
+      },
+      {
+        type: "heading",
+        content: "1. Custom URL Schemes",
       },
       {
         type: "paragraph",
         content:
-          "Unit testing Unit testing in React Native is all about testing small, isolated pieces of your app\u2014like functions, components, or hooks\u2014independently of the rest of the app to ensure they behave correctly. The goal is not to test the entire app or the UI in integration, but to verify that each unit works as intended in isolation. In practice, React Native unit tests are written in JavaScript/TypeScript, and they don\u2019t run the full app on a simulator. Instead, they run in a Node.js environment using test runners like Jest, which is the default for React Native projects. Jest provides features like mocking modules, snapshot testing, and assertions to make testing predictable and fast. For components, unit testing typically focuses on render logic and output rather than actual device behavior. You can render a component using @testing-library/react-native or react-test-renderer and check whether it displays the correct text, responds to props, or calls functions as expected. For example, you might render a button component and assert that pressing it calls the right handler. For functions or hooks, you test their pure behavior: given certain inputs, do they return the expected outputs? For example, a function that calculates a discounted price or a custom hook that manages state can be unit tested without touching the UI. Mocks are important because React Native has native modules that don\u2019t run in Node.js. You can mock modules like AsyncStorage, react-native-fs, or react-navigation so your unit tests don\u2019t fail due to missing native behavior. Unit tests are usually fast, run entirely in memory, and are ideal for continuous integration. They catch regressions early and give confidence when refactoring, because they verify specific units independently rather than relying on manual testing. In short, unit testing in React Native means isolating small pieces of code\u2014functions, components, hooks\u2014running them in a Node environment with Jest, using mocks for native modules, and asserting that their behavior is correct, which keeps your app maintainable, predictable, and bug-resistant.",
+          "Custom URL schemes use application-specific URL protocols to open a mobile application and navigate to a particular screen.",
+      },
+      {
+        type: "paragraph",
+        content: "Example: myapp://profile/123",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When a user clicks this URL, the operating system identifies the application registered with the myapp scheme and opens it. React Native can then extract the route and parameters using the Linking API.",
+      },
+      {
+        type: "paragraph",
+        content: "Configuration:",
+      },
+      {
+        type: "code",
+        language: "xml",
+        content: `<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="myapp" />
+</intent-filter>`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Use cases: Opening specific screens from notifications, emails, or other applications. Limitation: Custom schemes are not domain-verified and can potentially be claimed by another application.",
+      },
+      {
+        type: "heading",
+        content: "2. Android App Links",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Android App Links are verified HTTPS URLs that allow users to open an Android application directly from a website link when the domain is associated with the application.",
+      },
+      {
+        type: "paragraph",
+        content: "Example: https://example.com/profile/123",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Android verifies the association between the website domain and the application using a digital asset links file named assetlinks.json hosted on the website.",
+      },
+      {
+        type: "paragraph",
+        content: "Configuration:",
+      },
+      {
+        type: "code",
+        language: "xml",
+        content: `<intent-filter android:autoVerify="true">
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data
+        android:scheme="https"
+        android:host="example.com"
+    />
+</intent-filter>`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Use cases: Opening product pages, user profiles, payment pages, and other application screens through verified website links. If the application is not installed, the link can open the website in a browser.",
+      },
+      {
+        type: "heading",
+        content: "3. iOS Universal Links",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Universal Links are Apple's HTTPS-based deep linking mechanism. They allow users to open specific screens in an iOS application through verified website URLs.",
+      },
+      {
+        type: "paragraph",
+        content: "Example: https://example.com/product/456",
+      },
+      {
+        type: "paragraph",
+        content:
+          "iOS verifies the relationship between the application and the website using Associated Domains and an apple-app-site-association file hosted on the website.",
+      },
+      {
+        type: "paragraph",
+        content: "Configuration:",
+      },
+      {
+        type: "code",
+        language: "plaintext",
+        content: `// Entitlements
+applinks:example.com`,
+      },
+      {
+        type: "paragraph",
+        content:
+          "Use cases: Opening product details, shared content, user profiles, and specific application features directly from Safari, Messages, emails, or other applications. If the application is not installed, the URL generally opens the website.",
+      },
+      {
+        type: "heading",
+        content: "4. Comparison Between Different Types",
+      },
+      {
+        type: "paragraph",
+        content:
+          "| Feature | Custom URL Scheme | Android App Links | iOS Universal Links |\n|---|---|---|---|\n| Platform | Android and iOS | Android | iOS |\n| URL format | myapp:// | HTTPS | HTTPS |\n| Domain verification | No | Yes | Yes |\n| App installed | Opens app | Opens app | Opens app |\n| App not installed | No automatic website fallback | Opens website | Opens website |\n| Security | Less secure | Domain verified | Domain verified |",
+      },
+      {
+        type: "heading",
+        content: "5. Handling Deep Links in React Native",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native provides the Linking API to receive incoming URLs. React Navigation provides a linking configuration to map URLs to specific screens.",
       },
       {
         type: "code",
         language: "JavaScript",
-        content:
-          "import React from 'react';\nimport { render, fireEvent } from '@testing-library/react-native';\nimport MyButton from './MyButton';\n\ndescribe('MyButton', () => {\nit('renders correctly with the given title', () => {\n    const { getByText } = render(<MyButton title=\"Click Me\" onPress={() => {}} />);\n    expect(getByText('Click Me')).toBeTruthy();\n});\n\nit('calls onPress when pressed', () => {\n    const onPressMock = jest.fn();\n    const { getByTestId } = render(<MyButton title=\"Click Me\" onPress={onPressMock} />);",
-      },
-      {
-        type: "paragraph",
-        content: "fireEvent.press(getByTestId('my-button'));",
-      },
-      {
-        type: "paragraph",
-        content: "expect(onPressMock).toHaveBeenCalledTimes(1); }); });",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Explanation Render the component We use render() from @testing-library/react-native to render the component in a virtual DOM in Node.js. Nothing is displayed on a real device; it\u2019s all in memory.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Test text rendering In the first test, getByText('Click Me') searches for the Text element. If it exists, the test passes. This verifies that the component renders the title correctly.",
+        content: `const linking = {
+  prefixes: [
+    'myapp://',
+    'https://example.com',
+  ],
+  config: {
+    screens: {
+      Home: '',
+      Profile: 'profile/:userId',
+      Product: 'product/:productId',
+    },
+  },
+};`,
       },
       {
         type: "paragraph",
         content:
-          "Test button press We create a mock function using jest.fn() and pass it as onPress. fireEvent.press(getByTestId('my-button')) simulates a button press. Finally, expect(onPressMock).toHaveBeenCalledTimes(1) checks that the handler was called exactly once. This ensures that the button behaves correctly when interacted with.",
-      },
-      {
-        type: "paragraph",
-        content: "Isolation",
-      },
-      {
-        type: "paragraph",
-        content: "We don\u2019t need a real device or simulator.",
-      },
-      {
-        type: "paragraph",
-        content: "Native modules are not involved here.",
-      },
-      {
-        type: "paragraph",
-        content: "The test is fast and deterministic.",
+          "In this configuration, prefixes define the supported URL formats, while config maps URL paths to navigation screens and extracts route parameters.",
       },
       {
         type: "paragraph",
         content:
-          "Key Takeaways Unit tests in React Native verify small units of code in isolation.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Using @testing-library/react-native, you can simulate interactions and check rendering.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Jest\u2019s mock functions let you test callbacks without depending on actual implementation.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "These tests are fast, repeatable, and ideal for catching regressions. In Jest (the testing framework used in React Native), describe and it (or test) serve different but complementary purposes in structuring tests.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "describe is used to group related tests together. Think of it as a container or a section for a set of tests that share a common context. It doesn\u2019t execute a test by itself; it just helps organize your tests and can also apply setup/teardown logic to all tests in the group using hooks like beforeEach or afterEach. Example: describe('MyButton component', () => { // All tests related to MyButton go here });",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Here, we\u2019re saying: \u201cThis group contains tests for the MyButton component.\u201d You can nest describe blocks if needed.",
-      },
-      {
-        type: "code",
-        language: "JavaScript",
-        content:
-          "it (or test) defines a single test case\u2014an actual executable check of behavior. Each it block should test one specific expectation or behavior.\nExample:\nit('renders the correct title', () => {\n  // render the component\n  // assert that the title is displayed\n});\n\nit('calls onPress when pressed', () => {\n  // simulate a button press\n  // assert that the handler is called\n});",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Each it block is independent and runs separately. If one fails, it doesn\u2019t affect the others.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Analogy describe \u2192 A chapter in a book (groups related content)",
-      },
-      {
-        type: "paragraph",
-        content: "it \u2192 A paragraph in that chapter (tests a single idea)",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Key Points You can have multiple it blocks inside a describe.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "describe can be nested, e.g., grouping tests by component, feature, or scenario.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "it always contains the actual expectations/assertions that Jest runs.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "describe is optional; you can write it blocks directly, but describe helps readability and organization, especially for large test suites.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "\ud83d\udd39 CI/CD, Build & Release (Senior Level) Explain your CI/CD pipeline for RN In a React Native project, a CI/CD pipeline is a structured workflow that automatically builds, tests, and deploys your app to testers or stores, ensuring consistent quality and faster delivery. The pipeline is split into Continuous Integration (CI) and Continuous Deployment/Delivery (CD) stages. In my typical setup, it starts with source code management. Whenever a developer pushes code to a branch, say main or develop, the CI system\u2014like GitHub Actions, CircleCI, or Bitrise\u2014is triggered. The first step in CI is installing dependencies, usually npm install or yarn install, and sometimes caching node_modules to speed up builds. Then, the pipeline runs linting and static analysis to enforce code quality and unit tests with Jest or integration tests using Detox or React Native Testing Library. This ensures that new code doesn\u2019t break existing functionality. Once tests pass, the pipeline moves to building the app for both platforms. For iOS, it uses Xcode command-line tools (xcodebuild) to generate .ipa files, and for Android, it uses Gradle to produce .apk or .aab bundles. If signing credentials are needed, these are securely stored in the CI environment. The next stage is artifact distribution and deployment. For development or QA, builds can be uploaded to TestFlight, Firebase App Distribution, or HockeyApp, giving testers immediate access. For production, the CD step might automatically submit builds to the Apple App Store or Google Play Store, sometimes after a manual approval gate. Additional steps in my pipeline include versioning and release notes generation, automated changelog updates, and optional static code analysis or security checks. I also monitor build times and failures, and configure notifications via Slack or email for immediate feedback. The key in React Native pipelines is handling cross-platform builds, native dependencies, and environment-specific configurations (like API keys or feature flags) securely and reliably, while ensuring tests run fast and consistently. This setup guarantees that every commit goes through a repeatable process, reducing human error and maintaining app quality.",
+          "In short, Custom URL Schemes use application-specific protocols, Android App Links provide verified HTTPS deep linking for Android, and iOS Universal Links provide verified HTTPS deep linking for iOS. For production applications, verified HTTPS links are generally preferred.",
       },
     ],
-    topic: "State & data",
+    topic: "Navigation and deep linking",
   },
+
   {
-    id: "how-do-you-automate-builds-using-github-actions",
+    id: "github-actions-build-automation",
     question: "How do you automate builds using GitHub Actions?",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "GitHub Actions is a CI/CD automation platform that allows us to automatically build, test, and deploy applications whenever code is pushed to a repository or a pull request is created. In React Native, I use GitHub Actions to automate Android and iOS builds, run tests, and generate APK, AAB, or IPA artifacts.",
+      },
+      {
+        type: "heading",
+        content: "1. Create a GitHub Actions workflow",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Create a .github/workflows directory in the project root and add a YAML workflow file, for example, build.yml.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content: ".github/\n  workflows/\n    build.yml",
+      },
+      {
+        type: "heading",
+        content: "2. Configure workflow triggers",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Define when the workflow should execute. Common triggers include pushing code to a branch, creating a pull request, or manually triggering a workflow.",
+      },
+      {
+        type: "code",
+        language: "yaml",
+        content:
+          "name: React Native CI\n\non:\n  push:\n    branches: [main, develop]\n  pull_request:\n    branches: [main]\n  workflow_dispatch:",
+      },
+      {
+        type: "heading",
+        content: "3. Configure the build job",
+      },
+      {
+        type: "paragraph",
+        content:
+          "GitHub Actions provides hosted runners such as Ubuntu, macOS, and Windows. For Android builds, I generally use Ubuntu. For iOS builds, I use macOS because Xcode is required.",
+      },
+      {
+        type: "code",
+        language: "yaml",
+        content:
+          "jobs:\n  android-build:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup Node.js\n        uses: actions/setup-node@v4\n        with:\n          node-version: 20\n          cache: npm\n\n      - name: Install dependencies\n        run: npm ci\n\n      - name: Setup Java\n        uses: actions/setup-java@v4\n        with:\n          distribution: temurin\n          java-version: 17\n\n      - name: Build Android APK\n        run: cd android && chmod +x gradlew && ./gradlew assembleRelease\n\n      - name: Upload APK\n        uses: actions/upload-artifact@v4\n        with:\n          name: android-release-apk\n          path: android/app/build/outputs/apk/release/*.apk",
+      },
+      {
+        type: "heading",
+        content: "4. Run tests before building",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I add linting and unit tests before the build step. If any test fails, the workflow stops and the build is marked as failed.",
+      },
+      {
+        type: "code",
+        language: "yaml",
+        content:
+          "- name: Run ESLint\n  run: npm run lint\n\n- name: Run unit tests\n  run: npm test -- --runInBand",
+      },
+      {
+        type: "heading",
+        content: "5. Manage environment variables and secrets",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Sensitive information such as signing passwords, API keys, and keystore credentials should be stored in GitHub repository or environment secrets. I access them through the secrets context instead of hardcoding them in the workflow.",
+      },
+      {
+        type: "code",
+        language: "yaml",
+        content:
+          "- name: Build signed Android APK\n  env:\n    KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}\n    KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}\n  run: cd android && ./gradlew assembleRelease",
+      },
+      {
+        type: "heading",
+        content: "6. Complete CI/CD pipeline",
+      },
+      {
+        type: "list",
+        content: [
+          "Developer pushes code to GitHub.",
+          "GitHub Actions detects the push or pull request.",
+          "The workflow checks out the source code.",
+          "Node.js and Java environments are configured.",
+          "Dependencies are installed.",
+          "ESLint and unit tests are executed.",
+          "The Android release build is generated.",
+          "The APK or AAB is uploaded as a workflow artifact.",
+          "The team can download the generated build from the workflow run.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "7. CI vs CD",
+      },
+      {
+        type: "paragraph",
+        content:
+          "| CI (Continuous Integration) | CD (Continuous Delivery/Deployment) |\n|---|---|\n| Automatically checks code changes. | Automates release and deployment steps. |\n| Runs linting and unit tests. | Publishes builds to distribution platforms. |\n| Builds APK/AAB artifacts. | Can upload builds to Play Console or testing services. |\n| Detects issues early. | Reduces manual release effort. |",
+      },
+      {
+        type: "heading",
+        content: "8. Interview-ready answer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In my React Native projects, I use GitHub Actions to automate the CI/CD pipeline. Whenever a developer pushes code or creates a pull request, the workflow gets triggered. It checks out the code, installs dependencies, runs linting and unit tests, and generates the Android release build using Gradle. I also configure GitHub Secrets for sensitive credentials and upload the generated APK or AAB as an artifact. This reduces manual effort, catches issues early, and ensures consistent builds.",
       },
     ],
-    topic: "Build & release",
+    topic: "React Native CI/CD",
   },
   {
     id: "how-do-you-handle-environment-based-builds",
     question: "How do you handle environment-based builds?",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "Environment-based builds allow us to maintain different configurations for Development, Staging, and Production without changing the application source code. Each environment can have its own API URLs, API keys, Firebase configuration, app name, bundle ID, and other environment-specific settings.",
+      },
+      {
+        type: "heading",
+        content: "1. Different Environments",
+      },
+      {
+        type: "list",
+        content: [
+          "Development: Used by developers for local development, debugging, testing, and integration with development APIs.",
+          "Staging / QA: Used by QA teams and testers to validate application functionality against staging or pre-production APIs.",
+          "Production: The live application released to end users through Google Play Store or Apple App Store. It uses production APIs and production configurations.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. Environment Configuration in React Native",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In React Native, we can manage environment-specific variables using libraries such as react-native-config or build-time configuration through native Android and iOS build settings.",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content: "npm install react-native-config",
+      },
+      {
+        type: "paragraph",
+        content: "Create separate environment files in the project root:",
+      },
+      {
+        type: "code",
+        language: "text",
+        content: ".env.development\n.env.staging\n.env.production",
+      },
+      {
+        type: "paragraph",
+        content: "Example configuration:",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content:
+          "# .env.development\nBASE_URL=https://dev-api.example.com\nENVIRONMENT=development\n\n# .env.staging\nBASE_URL=https://staging-api.example.com\nENVIRONMENT=staging\n\n# .env.production\nBASE_URL=https://api.example.com\nENVIRONMENT=production",
+      },
+      {
+        type: "heading",
+        content: "3. Access Environment Variables in Application",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can import Config from react-native-config and access the environment-specific values wherever required.",
+      },
+      {
+        type: "code",
+        language: "javascript",
+        content:
+          "import Config from 'react-native-config';\n\nconst BASE_URL = Config.BASE_URL;\n\nconst getUsers = async () => {\n  const response = await fetch(`${BASE_URL}/users`);\n  return response.json();\n};",
+      },
+      {
+        type: "heading",
+        content: "4. Environment-Based Android Builds",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For Android, we use productFlavors in android/app/build.gradle to generate different APK or AAB files for each environment.",
+      },
+      {
+        type: "code",
+        language: "groovy",
+        content:
+          'android {\n    flavorDimensions "environment"\n\n    productFlavors {\n        development {\n            dimension "environment"\n            applicationIdSuffix ".dev"\n            versionNameSuffix "-dev"\n        }\n\n        staging {\n            dimension "environment"\n            applicationIdSuffix ".staging"\n            versionNameSuffix "-staging"\n        }\n\n        production {\n            dimension "environment"\n        }\n    }\n}',
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can generate environment-specific builds using Gradle commands:",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content:
+          "# Development\ncd android && ./gradlew assembleDevelopmentDebug\n\n# Staging\n./gradlew assembleStagingRelease\n\n# Production APK\n./gradlew assembleProductionRelease\n\n# Production AAB\n./gradlew bundleProductionRelease",
+      },
+      {
+        type: "heading",
+        content: "5. Environment-Based iOS Builds",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For iOS, we configure separate Build Configurations and Schemes in Xcode, such as Development, Staging, and Production. Each scheme can have its own bundle identifier, environment variables, signing settings, and Firebase configuration.",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content:
+          "# Development\nnpx react-native run-ios --scheme MyApp-Development\n\n# Staging\nnpx react-native run-ios --scheme MyApp-Staging\n\n# Production\nnpx react-native run-ios --scheme MyApp-Production",
+      },
+      {
+        type: "heading",
+        content: "6. Automating Environment-Based Builds Using CI/CD",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can configure GitHub Actions to automatically generate environment-specific builds based on the branch, Git tag, or workflow input.",
+      },
+      {
+        type: "list",
+        content: [
+          "Development branch → Development build.",
+          "Staging branch → Staging build.",
+          "Main branch or release tag → Production build.",
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "We also store sensitive configuration values in GitHub Actions Secrets or environment-level secrets instead of committing them directly to the repository.",
+      },
+      {
+        type: "heading",
+        content: "7. Best Practices",
+      },
+      {
+        type: "list",
+        content: [
+          "Never hardcode API URLs or environment-specific values in application code.",
+          "Keep separate API configurations for Development, Staging, and Production.",
+          "Use different application IDs and app names when installing multiple environment builds on the same device.",
+          "Keep API keys and sensitive configuration out of Git repositories.",
+          "Use separate Firebase projects or configurations for different environments where appropriate.",
+          "Validate environment variables before generating release builds.",
+          "Test the production build separately before publishing it to the app stores.",
+          "Ensure debugging tools and development logs are disabled in production.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "8. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I handle it in real projects",
+        content:
+          "In my React Native projects, I manage environment-based builds using separate configurations for Development, Staging, and Production. I use react-native-config to manage environment variables such as API base URLs and other configuration values. For Android, I configure productFlavors in Gradle, and for iOS, I maintain separate Xcode schemes and build configurations. I also integrate these configurations with GitHub Actions to automate environment-specific builds. This approach helps us maintain consistent configurations, avoid manual changes during releases, and reduce the risk of deploying a build with incorrect API endpoints.",
       },
     ],
     topic: "Build & release",
@@ -6057,14 +10954,214 @@ Investigate component-related issues.`,
     question: "How do you manage app versioning?",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "App versioning is the process of maintaining and tracking application releases. In React Native, we manage versioning separately for Android and iOS while keeping the application version consistent across both platforms. It helps identify releases, track updates, manage compatibility, and publish new versions to Google Play Store and Apple App Store.",
+      },
+      {
+        type: "heading",
+        content: "1. Understanding App Versioning",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We generally follow Semantic Versioning (MAJOR.MINOR.PATCH), where each number represents a different type of application update.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "1.2.3\n\n1 → MAJOR version (Breaking changes)\n2 → MINOR version (New features)\n3 → PATCH version (Bug fixes)",
+      },
+      {
+        type: "unordered-list",
+        items: [
+          {
+            heading: "MAJOR version",
+            content:
+              "Incremented when introducing major changes or breaking changes that may affect existing functionality. Example: 1.0.0 → 2.0.0.",
+          },
+          {
+            heading: "MINOR version",
+            content:
+              "Incremented when adding new features or functionality without breaking existing functionality. Example: 1.2.0 → 1.3.0.",
+          },
+          {
+            heading: "PATCH version",
+            content:
+              "Incremented when fixing bugs, security issues, or making small improvements. Example: 1.2.3 → 1.2.4.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. Android App Versioning",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In Android, we manage application versions inside android/app/build.gradle using versionCode and versionName.",
+      },
+      {
+        type: "code",
+        language: "groovy",
+        content:
+          'android {\n    defaultConfig {\n        applicationId "com.myapp"\n        versionCode 12\n        versionName "1.2.3"\n    }\n}',
+      },
+      {
+        type: "unordered-list",
+        items: [
+          {
+            heading: "versionCode",
+            content:
+              "An internal integer used by Google Play Store to identify and compare releases. It must increase with every new Play Store release.",
+          },
+          {
+            heading: "versionName",
+            content:
+              "A user-visible version string displayed in application settings or app information. Example: 1.2.3.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, when releasing a bug-fix update, we increment versionCode from 12 to 13 and versionName from 1.2.3 to 1.2.4.",
+      },
+      {
+        type: "heading",
+        content: "3. iOS App Versioning",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In iOS, we manage application versioning through Xcode project settings or the Info.plist build settings.",
+      },
+      {
+        type: "code",
+        language: "xml",
+        content:
+          "<key>CFBundleShortVersionString</key>\n<string>1.2.3</string>\n\n<key>CFBundleVersion</key>\n<string>12</string>",
+      },
+      {
+        type: "unordered-list",
+        items: [
+          {
+            heading: "CFBundleShortVersionString",
+            content:
+              "Represents the user-visible application version, such as 1.2.3.",
+          },
+          {
+            heading: "CFBundleVersion",
+            content:
+              "Represents the build number used to identify individual builds. It should be incremented for each new App Store Connect build.",
+          },
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, we can release version 1.2.3 with build number 12 and upload another build with the same application version but build number 13.",
+      },
+      {
+        type: "heading",
+        content: "4. Versioning in React Native",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In React Native, we maintain the application version in package.json and synchronize it with native Android and iOS configurations. However, package.json version does not automatically update the native application versions unless we configure a versioning script or automation.",
+      },
+      {
+        type: "code",
+        language: "json",
+        content: '{\n  "name": "myapp",\n  "version": "1.2.3"\n}',
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can maintain a consistent version across platforms and automate version updates using CI/CD pipelines.",
+      },
+      {
+        type: "heading",
+        content: "5. Managing Versioning Through CI/CD",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can automate version increments and build numbering through GitHub Actions. Whenever a release is triggered, the pipeline can update version information, generate Android APK/AAB and iOS IPA builds, and publish the artifacts.",
+      },
+      {
+        type: "code",
+        language: "yaml",
+        content:
+          "name: React Native Release\n\non:\n  push:\n    tags:\n      - 'v*'\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup Node.js\n        uses: actions/setup-node@v4\n        with:\n          node-version: 20\n\n      - name: Install dependencies\n        run: npm ci\n\n      - name: Build Android Release\n        run: |\n          cd android\n          ./gradlew bundleRelease",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can also use Git tags to identify releases and maintain a clear release history.",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content: "git tag v1.2.3\ngit push origin v1.2.3",
+      },
+      {
+        type: "heading",
+        content: "6. Example of Version Management",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Consider an application that starts with version 1.0.0. As we introduce new features and bug fixes, the version and build numbers are updated.",
+      },
+      {
+        type: "table",
+        content: [
+          [
+            "Release",
+            "Version",
+            "Android versionCode",
+            "iOS build number",
+            "Changes",
+          ],
+          ["Initial release", "1.0.0", "1", "1", "Initial application"],
+          ["Feature update", "1.1.0", "2", "2", "New features"],
+          ["Bug fixes", "1.1.1", "3", "3", "Bug fixes"],
+          ["Major update", "2.0.0", "4", "4", "Breaking changes"],
+        ],
+      },
+      {
+        type: "heading",
+        content: "7. Best Practices",
+      },
+      {
+        type: "list",
+        content: [
+          "Follow Semantic Versioning (MAJOR.MINOR.PATCH).",
+          "Always increment Android versionCode for every Play Store release.",
+          "Increment the iOS build number for every uploaded build.",
+          "Keep Android and iOS application versions synchronized.",
+          "Maintain release notes and changelogs for every release.",
+          "Use Git tags to identify production releases.",
+          "Automate version updates and build numbering through CI/CD.",
+          "Test release builds before publishing them to app stores.",
+          "Never reuse an already published Android versionCode or an iOS build number within the same app version.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "8. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I manage it in real projects",
+        content:
+          "In my React Native projects, I follow Semantic Versioning using MAJOR.MINOR.PATCH. For Android, I maintain versionCode and versionName in Gradle, where versionCode is an incremental integer used by Google Play Store and versionName is the user-visible application version. For iOS, I maintain CFBundleShortVersionString and CFBundleVersion, which represent the app version and build number respectively. I also maintain consistent versions across both platforms and use Git tags and CI/CD pipelines to automate release builds. This helps us track releases, identify bugs in specific versions, and maintain a reliable app release process.",
       },
     ],
-    topic: "Native & tooling",
+    topic: "Build & release",
   },
   {
     id: "how-do-you-reduce-apk-ipa-size",
@@ -6103,14 +11200,239 @@ Investigate component-related issues.`,
     question: "How do you handle OTA updates?",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "OTA (Over-The-Air) updates allow us to deliver JavaScript and asset updates to users without requiring them to download a new application version from Google Play Store or Apple App Store. In React Native, OTA updates are commonly implemented using services such as Microsoft CodePush (legacy) or Expo EAS Update. They help deliver bug fixes, UI changes, and JavaScript logic updates quickly.",
+      },
+      {
+        type: "heading",
+        content: "1. Understanding OTA Updates",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Normally, when we make changes to an application, we generate a new APK/AAB or IPA and publish it to the app stores. With OTA updates, we can push compatible JavaScript bundle and asset changes directly to users.",
+      },
+      {
+        type: "list",
+        content: [
+          "JavaScript code changes can be delivered without publishing a new store release.",
+          "Images, fonts, and other bundled assets can be updated.",
+          "Bug fixes and minor UI improvements can be delivered quickly.",
+          "Users receive updates when the application checks for and downloads a new compatible update.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. What Can and Cannot Be Updated Through OTA?",
+      },
+      {
+        type: "table",
+        content: [
+          ["Update Type", "OTA Supported?", "Explanation"],
+          ["JavaScript logic", "Yes", "Updated JS bundle can be downloaded."],
+          [
+            "React Native UI changes",
+            "Yes",
+            "Compatible component and styling changes can be delivered.",
+          ],
+          ["Images and assets", "Yes", "Bundled assets can be updated."],
+          [
+            "Native Android code",
+            "No",
+            "Requires a new native application build.",
+          ],
+          ["Native iOS code", "No", "Requires a new native application build."],
+          [
+            "Native modules",
+            "No",
+            "New or modified native functionality requires a store release.",
+          ],
+          [
+            "Android permissions",
+            "No",
+            "Changes to native manifest configuration require a new build.",
+          ],
+          [
+            "SDK or React Native version",
+            "No",
+            "Requires a new application binary.",
+          ],
+        ],
+      },
+      {
+        type: "callout",
+        title: "Important interview point",
+        tone: "caution",
+        content:
+          "OTA updates cannot replace native application releases. If we add a new native module, modify Android or iOS permissions, or change native dependencies, we must generate and publish a new application build.",
+      },
+      {
+        type: "heading",
+        content: "3. OTA Updates Using Expo EAS Update",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For Expo-based React Native applications, we can use EAS Update to deliver over-the-air JavaScript and asset updates. It supports update channels and runtime version compatibility to ensure users receive updates intended for their application binary.",
+      },
+      {
+        type: "ordered-list",
+        items: [
+          {
+            heading: "Step 1: Install EAS CLI",
+            content:
+              "Install the Expo Application Services CLI and configure the project.",
+            code: "npm install -g eas-cli\n\neas login\n\neas build:configure",
+            language: "bash",
+          },
+          {
+            heading: "Step 2: Configure Updates",
+            content:
+              "Configure the project ID, update URL, runtime version, and update settings in app.json.",
+            code: '{\n  "expo": {\n    "name": "MyApp",\n    "slug": "myapp",\n    "runtimeVersion": {\n      "policy": "appVersion"\n    },\n    "updates": {\n      "url": "https://u.expo.dev/YOUR_PROJECT_ID"\n    },\n    "extra": {\n      "eas": {\n        "projectId": "YOUR_PROJECT_ID"\n      }\n    }\n  }\n}',
+            language: "json",
+          },
+          {
+            heading: "Step 3: Configure Update Channels",
+            content:
+              "We can maintain separate channels for development, staging, and production to control which users receive each update.",
+            code: "eas channel:create development\neas channel:create staging\neas channel:create production",
+            language: "bash",
+          },
+          {
+            heading: "Step 4: Publish an OTA Update",
+            content:
+              "After making JavaScript or asset changes, publish an update to the appropriate channel.",
+            code: '# Development\neas update --channel development --message "Development update"\n\n# Staging\neas update --channel staging --message "Staging release"\n\n# Production\neas update --channel production --message "Production bug fix"',
+            language: "bash",
+          },
+          {
+            heading: "Step 5: Application Downloads the Update",
+            content:
+              "The application checks for compatible updates, downloads the update bundle, and applies it according to the configured update strategy. Depending on the configuration, the update can be applied on the next application launch or after a reload.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        content: "4. Checking and Applying Updates Programmatically",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can use expo-updates APIs to check whether a new update is available, download it, and reload the application to apply it.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import * as Updates from 'expo-updates';\n\nconst checkForUpdates = async () => {\n  try {\n    if (__DEV__) return;\n\n    const update = await Updates.checkForUpdateAsync();\n\n    if (update.isAvailable) {\n      await Updates.fetchUpdateAsync();\n      await Updates.reloadAsync();\n    }\n  } catch (error) {\n    console.log('OTA update failed:', error);\n  }\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can call this function during application startup or from an update settings screen. In production, we should also consider user experience, network availability, and whether an immediate reload is appropriate.",
+      },
+      {
+        type: "heading",
+        content: "5. OTA Updates Using CodePush",
+      },
+      {
+        type: "paragraph",
+        content:
+          "CodePush was a popular OTA update solution for React Native applications. It allowed developers to publish JavaScript bundles and assets directly to installed applications without requiring a new store release.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import codePush from 'react-native-code-push';\n\nconst App = () => {\n  return (\n    // Application components\n  );\n};\n\nexport default codePush({\n  checkFrequency: codePush.CheckFrequency.ON_APP_START,\n  installMode: codePush.InstallMode.ON_NEXT_RESTART\n})(App);",
+      },
+      {
+        type: "callout",
+        title: "CodePush status",
+        tone: "caution",
+        content:
+          "Microsoft retired App Center on March 31, 2025, including its hosted CodePush service. For new projects, prefer actively supported alternatives such as Expo EAS Update or another maintained OTA solution. Existing self-hosted CodePush-compatible setups should be evaluated separately.",
+      },
+      {
+        type: "heading",
+        content: "6. OTA Update Workflow",
+      },
+      {
+        type: "diagram",
+        title: "How OTA updates work",
+        nodes: [
+          {
+            label: "Developer",
+            detail: "Makes JavaScript or asset changes.",
+          },
+          {
+            label: "OTA Service",
+            detail: "Publishes the new update bundle.",
+          },
+          {
+            label: "Mobile Application",
+            detail: "Checks for a compatible update.",
+          },
+          {
+            label: "Download Update",
+            detail: "Downloads the bundle and assets.",
+          },
+          {
+            label: "Apply Update",
+            detail: "Applies the update on reload or next launch.",
+          },
+        ],
+        note: "Native code changes still require a new Android or iOS application build.",
+      },
+      {
+        type: "heading",
+        content: "7. Best Practices",
+      },
+      {
+        type: "list",
+        content: [
+          "Use runtime version compatibility to prevent incompatible updates from being installed.",
+          "Maintain separate development, staging, and production update channels.",
+          "Test OTA updates in staging before publishing to production.",
+          "Never use OTA updates to bypass app store review requirements.",
+          "Avoid publishing updates containing incomplete or untested functionality.",
+          "Use gradual rollouts when supported by the OTA provider.",
+          "Monitor update download failures and application crashes.",
+          "Maintain a rollback strategy for faulty updates.",
+          "Do not force an immediate application restart while users are performing critical operations.",
+          "Ensure updates comply with Google Play and Apple App Store policies.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "8. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I handle OTA updates in real projects",
+        tone: "info",
+        content:
+          "In React Native, I use OTA updates to deliver JavaScript and asset changes without requiring users to download a new application version from the app stores. For Expo-based applications, I can use EAS Update with separate development, staging, and production channels. I configure runtime version compatibility so that updates are delivered only to compatible application builds. The application checks for updates, downloads the bundle, and applies it on the next launch or through a controlled reload. However, if we introduce native modules, change native dependencies, or modify Android or iOS configurations, I generate a new application build and publish it through the respective app stores. I also test updates in staging, monitor failures, and maintain a rollback strategy.",
       },
     ],
     topic: "Build & release",
+    references: [
+      {
+        label: "Expo EAS Update Documentation",
+        href: "https://docs.expo.dev/eas-update/introduction/",
+      },
+      {
+        label: "Expo Updates API",
+        href: "https://docs.expo.dev/versions/latest/sdk/updates/",
+      },
+      {
+        label: "React Native Documentation",
+        href: "https://reactnative.dev/docs/getting-started",
+      },
+    ],
   },
   {
     id: "what-are-your-app-release-strategies",
@@ -6118,96 +11440,1966 @@ Investigate component-related issues.`,
     answer: [
       {
         type: "paragraph",
-        content: "\ud83d\udd39 System Design (RN-specific)",
+        content:
+          "App release strategy is the process of planning, building, testing, and deploying application updates to end users. In React Native, I follow a structured release process to ensure application stability, minimize production issues, and deliver new features smoothly through Google Play Store and Apple App Store.",
+      },
+      {
+        type: "heading",
+        content: "1. Different App Release Strategies",
+      },
+      {
+        type: "ordered-list",
+        items: [
+          {
+            heading: "Development Release",
+            content:
+              "Development builds are generated for developers to test new features, integrate APIs, debug issues, and validate native functionality.",
+            bottomContent:
+              "Example: Internal APK or development IPA shared with the development team.",
+          },
+          {
+            heading: "Internal Testing Release",
+            content:
+              "The application is shared with a limited group of developers, testers, or internal stakeholders to validate functionality before wider testing.",
+            bottomContent:
+              "Example: Google Play Internal Testing and TestFlight internal testing.",
+          },
+          {
+            heading: "Beta / Staging Release",
+            content:
+              "A release candidate is distributed to QA teams or selected users to validate new features, performance, compatibility, and real-world scenarios.",
+            bottomContent:
+              "Example: Google Play Closed Testing and TestFlight external testing.",
+          },
+          {
+            heading: "Production Release",
+            content:
+              "After successful testing and approval, the application is published to end users through Google Play Store and Apple App Store.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. Production Release Strategies",
+      },
+      {
+        type: "unordered-list",
+        items: [
+          {
+            heading: "A. Big Bang Release",
+            content: "All changes are deployed to all users at once.",
+            bottomContent:
+              "Suitable for smaller applications or releases where deployment risk is low.",
+          },
+          {
+            heading: "B. Phased / Staged Rollout",
+            content:
+              "The new version is gradually distributed to a percentage of users instead of releasing it to everyone immediately.",
+            bottomContent:
+              "Example: Release to 10% → 25% → 50% → 100% of users, monitoring crashes and performance at each stage.",
+          },
+          {
+            heading: "C. Canary Release",
+            content:
+              "The new version is initially released to a small group of users to identify production issues before expanding the release.",
+            bottomContent:
+              "Example: Deploy the new version to employees or selected users before making it available to the general audience.",
+          },
+          {
+            heading: "D. Feature Flag Release",
+            content:
+              "New features are deployed in the application but remain disabled until they are enabled through remote configuration or a feature flag system.",
+            bottomContent:
+              "Example: Release a payment feature with a feature flag and enable it gradually after validation.",
+          },
+          {
+            heading: "E. Hotfix Release",
+            content:
+              "A quick production release is generated to resolve critical bugs, crashes, or security issues without waiting for the next regular release cycle.",
+            bottomContent:
+              "Example: Fixing a payment failure or application crash affecting production users.",
+          },
+          {
+            heading: "F. Rollback Strategy",
+            content:
+              "If a production release introduces critical issues, we stop further rollout and restore the previous stable experience using a supported recovery mechanism.",
+            bottomContent:
+              "Example: Reverting a backend deployment, disabling a problematic feature flag, or publishing a corrected mobile application release.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        content: "3. React Native App Release Workflow",
+      },
+      {
+        type: "diagram",
+        title: "End-to-End Mobile App Release Process",
+        nodes: [
+          {
+            label: "Development",
+            detail: "Implement features and bug fixes.",
+          },
+          {
+            label: "Code Review",
+            detail: "PR reviews, static analysis, and quality checks.",
+          },
+          {
+            label: "Build Generation",
+            detail: "Generate Android AAB/APK and iOS IPA.",
+          },
+          {
+            label: "QA / Staging",
+            detail: "Functional, regression, and device testing.",
+          },
+          {
+            label: "Release Approval",
+            detail: "Product, QA, and stakeholder sign-off.",
+          },
+          {
+            label: "Production",
+            detail: "Publish through the app stores.",
+          },
+          {
+            label: "Monitoring",
+            detail: "Monitor crashes, analytics, and user feedback.",
+          },
+        ],
+        note: "If production issues occur, stop the rollout, disable problematic features, or prepare a hotfix release.",
+      },
+      {
+        type: "heading",
+        content: "4. Android Release Process",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For Android, I generate a signed APK or Android App Bundle (AAB) using Gradle. The AAB is generally preferred for Google Play Store distribution.",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content:
+          "# Generate release APK\ncd android\n./gradlew assembleRelease\n\n# Generate release AAB\n./gradlew bundleRelease",
+      },
+      {
+        type: "paragraph",
+        content:
+          "After generating the release build, we validate the application, upload the AAB to Google Play Console, and select an appropriate testing or production rollout track.",
+      },
+      {
+        type: "heading",
+        content: "5. iOS Release Process",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For iOS, I configure the Release scheme in Xcode, verify signing certificates and provisioning profiles, generate an archive, and upload the IPA build to App Store Connect using Xcode or an automated CI/CD pipeline.",
+      },
+      {
+        type: "list",
+        content: [
+          "Configure the correct bundle identifier and version.",
+          "Verify signing certificates and provisioning profiles.",
+          "Generate the Release archive.",
+          "Upload the build to App Store Connect.",
+          "Distribute through TestFlight for testing.",
+          "Submit the application for App Store review and release.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "6. Automating Releases Using CI/CD",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I use GitHub Actions to automate application builds, testing, and release workflows. This reduces manual effort and ensures consistent builds across environments.",
+      },
+      {
+        type: "code",
+        language: "yaml",
+        content:
+          "name: React Native Release\n\non:\n  push:\n    tags:\n      - 'v*'\n\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v4\n\n      - name: Setup Node.js\n        uses: actions/setup-node@v4\n        with:\n          node-version: 20\n\n      - name: Install dependencies\n        run: npm ci\n\n      - name: Run tests\n        run: npm test -- --watchAll=false\n\n      - name: Build Android AAB\n        run: cd android && ./gradlew bundleRelease",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can extend the pipeline with signing credentials, artifact storage, Fastlane, and Google Play or App Store Connect deployment steps.",
+      },
+      {
+        type: "heading",
+        content: "7. Post-Release Monitoring",
+      },
+      {
+        type: "paragraph",
+        content:
+          "After releasing the application, I continuously monitor production stability to identify issues early and decide whether to continue, pause, or roll back the rollout.",
+      },
+      {
+        type: "list",
+        content: [
+          "Crash reports using Firebase Crashlytics.",
+          "Application performance and API response times.",
+          "ANR (Application Not Responding) issues on Android.",
+          "User feedback and application ratings.",
+          "Login, payment, and critical business-flow success rates.",
+          "Adoption rate of the latest application version.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "8. Best Practices",
+      },
+      {
+        type: "list",
+        content: [
+          "Always maintain separate Development, Staging, and Production environments.",
+          "Perform regression testing before production releases.",
+          "Use semantic versioning and increment native build numbers correctly.",
+          "Keep production signing credentials secure.",
+          "Use phased rollouts to reduce deployment risks.",
+          "Use feature flags to enable or disable functionality without releasing another build.",
+          "Maintain release notes and deployment documentation.",
+          "Monitor application crashes and performance after deployment.",
+          "Maintain backward compatibility between mobile application versions and backend APIs.",
+          "Have a hotfix and rollback plan ready before every major release.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "9. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I handle app releases in real projects",
+        tone: "info",
+        content:
+          "In my React Native projects, I follow a structured release strategy. First, we generate development builds and validate new features. Then we distribute staging builds to the QA team through internal testing or TestFlight. After functional and regression testing, we generate signed production builds for Android and iOS. I use GitHub Actions to automate builds and testing, maintain proper versioning, and manage environment-specific configurations. For production deployments, I prefer phased rollouts so that we can monitor crashes, ANRs, and application performance before making the release available to everyone. If a critical issue occurs, we stop the rollout, disable the affected feature if possible, or prepare a hotfix release. This approach helps us minimize production risks and maintain application stability.",
       },
     ],
     topic: "Build & release",
+    references: [
+      {
+        label: "Google Play Console – Release",
+        href: "https://support.google.com/googleplay/android-developer/answer/9859348",
+      },
+      {
+        label: "Apple – App Store Connect",
+        href: "https://developer.apple.com/help/app-store-connect/",
+      },
+      {
+        label: "React Native Documentation",
+        href: "https://reactnative.dev/docs/publishing-to-app-store",
+      },
+      {
+        label: "GitHub Actions Documentation",
+        href: "https://docs.github.com/en/actions",
+      },
+    ],
   },
   {
-    id: "how-would-you-design-a-scalable-rn-app-from-scratch",
+    id: "how-would-you-design-a-scalable-react-native-app-from-scratch",
     question: "How would you design a scalable RN app from scratch?",
     answer: [
       {
         type: "paragraph",
         content:
-          "Designing a scalable React Native app from scratch requires thinking beyond just building screens\u2014it\u2019s about structuring the architecture, state management, navigation, APIs, and assets so the app remains maintainable, performant, and easy to extend as it grows. I would start by defining a modular folder structure that separates concerns. Typically, the app would have directories like components for reusable UI pieces, screens for full-page views, services or api for network requests, state for global or feature-level state, and utils for helper functions. This separation makes it easy to locate and change code without affecting unrelated areas. Next, state management is critical. For small, isolated state, I\u2019d use useState or useReducer within components. For global, cross-cutting state, I prefer Redux Toolkit or Zustand, depending on complexity. Redux Toolkit is ideal for larger apps with multiple developers and predictable state flows, while Zustand is lightweight and works well for medium-sized apps. I\u2019d enforce immutability and structure state by feature domain to prevent tangled updates. Navigation should be planned upfront. Using React Navigation, I\u2019d design a combination of stack, tab, and drawer navigators, and manage navigation state centrally if needed. Deep linking, authentication flows, and role-based access should be considered early to avoid messy hacks later. API layer design is another pillar. I would create a service layer that handles network requests, retries, caching, and error handling. Libraries like Axios with interceptors, or React Query for caching and server state management, make this layer maintainable. For large apps, handling pagination, offline mode, and data persistence is essential. Performance and scalability come from using memoization (React.memo, useMemo, useCallback), lazy loading components, and optimizing lists with FlatList or FlashList. Native modules should be abstracted so the JS layer doesn\u2019t depend on platform-specific details unnecessarily. Finally, I\u2019d integrate CI/CD pipelines for automated testing, builds, and deployment, and enforce coding standards, testing (unit and integration), and code reviews to keep the codebase maintainable. Asset management\u2014fonts, images, icons\u2014would use a centralized approach to reduce duplication. In short, a scalable RN app is built with a modular structure, clean state and API management, thoughtful navigation, performance optimization, and automated pipelines, ensuring that as the app grows, new features can be added with minimal friction and technical debt.",
+          "When designing a scalable React Native application from scratch, I focus on building a modular, maintainable, reusable, and performance-oriented architecture. The goal is to ensure that the application can grow from a few features to 100+ features without creating tightly coupled components or making future development difficult.",
+      },
+      {
+        type: "heading",
+        content: "1. Requirement Analysis and Technology Selection",
       },
       {
         type: "paragraph",
-        content: "Folder structure for large apps.",
+        content:
+          "Before starting development, I understand the business requirements, application complexity, expected user traffic, supported platforms, offline requirements, third-party integrations, and future scalability.",
+      },
+      {
+        type: "table",
+        content: [
+          ["Requirement", "Technology / Approach"],
+          ["Mobile framework", "React Native with TypeScript"],
+          ["Navigation", "React Navigation"],
+          ["State management", "Redux Toolkit / Zustand"],
+          ["API integration", "Axios / Fetch"],
+          ["Server state", "TanStack Query"],
+          ["Local storage", "MMKV / AsyncStorage"],
+          ["Secure storage", "Keychain / Android Keystore"],
+          ["Forms and validation", "React Hook Form + Yup / Zod"],
+          ["Unit testing", "Jest + React Native Testing Library"],
+          ["E2E testing", "Detox / Maestro"],
+          ["Crash monitoring", "Firebase Crashlytics"],
+          ["CI/CD", "GitHub Actions / Fastlane"],
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. Choose a Scalable Architecture",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I prefer a feature-based modular architecture with separation of concerns. Instead of keeping all screens, components, API calls, and business logic in separate global folders, I organize most feature-specific code together.",
+      },
+      {
+        type: "diagram",
+        title: "Scalable React Native Architecture",
+        nodes: [
+          {
+            label: "Presentation Layer",
+            detail: "Screens, components, navigation, UI",
+          },
+          {
+            label: "Business Logic Layer",
+            detail: "Hooks, use cases, validation, business rules",
+          },
+          {
+            label: "Data Layer",
+            detail: "API services, repositories, local database",
+          },
+          {
+            label: "Infrastructure Layer",
+            detail: "Storage, authentication, analytics, native modules",
+          },
+        ],
+        note: "Each layer has a clear responsibility. Dependencies should flow through well-defined interfaces rather than tightly coupling screens to infrastructure.",
+      },
+      {
+        type: "heading",
+        content: "3. Design a Feature-Based Folder Structure",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I organize the project around business features so that developers can work independently on modules such as Authentication, Profile, Payments, Orders, and Notifications.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "src/\n│\n├── app/\n│   ├── navigation/\n│   ├── providers/\n│   └── store/\n│\n├── features/\n│   ├── auth/\n│   │   ├── components/\n│   │   ├── screens/\n│   │   ├── hooks/\n│   │   ├── services/\n│   │   ├── store/\n│   │   ├── types/\n│   │   └── utils/\n│   │\n│   ├── profile/\n│   ├── payments/\n│   ├── orders/\n│   └── notifications/\n│\n├── shared/\n│   ├── components/\n│   ├── hooks/\n│   ├── constants/\n│   ├── utils/\n│   └── types/\n│\n├── services/\n│   ├── api/\n│   ├── analytics/\n│   └── storage/\n│\n├── theme/\n│   ├── colors.ts\n│   ├── typography.ts\n│   └── spacing.ts\n│\n└── assets/\n    ├── images/\n    ├── fonts/\n    └── icons/",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, all authentication-related screens, hooks, API services, types, and state management stay inside the auth feature. Shared components such as buttons, inputs, and modals are maintained separately.",
+      },
+      {
+        type: "heading",
+        content: "4. Implement TypeScript and Reusable Components",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I use TypeScript throughout the application to ensure type safety, reduce runtime errors, and maintain consistent contracts between components, APIs, and navigation.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "interface User {\n  id: string;\n  name: string;\n  email: string;\n}\n\ntype UserCardProps = {\n  user: User;\n  onPress: (userId: string) => void;\n};\n\nconst UserCard: React.FC<UserCardProps> = ({\n  user,\n  onPress,\n}) => {\n  return (\n    <Pressable onPress={() => onPress(user.id)}>\n      <Text>{user.name}</Text>\n      <Text>{user.email}</Text>\n    </Pressable>\n  );\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I also build a reusable design system containing buttons, text fields, cards, typography, colors, spacing, and common UI patterns to maintain consistency across multiple features.",
+      },
+      {
+        type: "heading",
+        content: "5. State Management Strategy",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I avoid putting every application state into a single global store. Instead, I select state management based on the type and scope of data.",
+      },
+      {
+        type: "table",
+        content: [
+          ["State Type", "Recommended Approach"],
+          ["Component-specific state", "useState / useReducer"],
+          ["Shared UI state", "Context API / Zustand"],
+          ["Complex global state", "Redux Toolkit"],
+          ["Server/API state", "TanStack Query"],
+          ["Persistent preferences", "MMKV / AsyncStorage"],
+          ["Sensitive information", "Keychain / Keystore"],
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, authentication details can be managed through a global authentication store, while API responses and caching are handled through TanStack Query. This avoids unnecessary global state updates and improves maintainability.",
+      },
+      {
+        type: "heading",
+        content: "6. API Integration and Data Layer",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I create a centralized API client using Axios with common configurations such as base URL, request interceptors, response interceptors, authentication tokens, timeout handling, and error handling.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import axios from 'axios';\n\nexport const apiClient = axios.create({\n  baseURL: 'https://api.example.com',\n  timeout: 15000,\n  headers: {\n    'Content-Type': 'application/json',\n  },\n});\n\napiClient.interceptors.request.use(async config => {\n  const token = await getAccessToken();\n\n  if (token) {\n    config.headers.Authorization = `Bearer ${token}`;\n  }\n\n  return config;\n});\n\napiClient.interceptors.response.use(\n  response => response,\n  error => {\n    return Promise.reject(error);\n  }\n);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I keep API methods separate from UI components and use repository or service layers when the application has complex data sources or business logic.",
+      },
+      {
+        type: "heading",
+        content: "7. Navigation and Deep Linking",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I use React Navigation with a structured navigation hierarchy. I separate authentication navigation from the main application navigation and use typed route parameters.",
+      },
+      {
+        type: "list",
+        content: [
+          "Authentication Stack: Login, Registration, Forgot Password.",
+          "Main Stack: Dashboard, Profile, Settings.",
+          "Feature Stack: Payments, Orders, Notifications.",
+          "Bottom Tab Navigation: Main application sections.",
+          "Deep Linking: Support navigation from external URLs and push notifications.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "8. Performance Optimization",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I consider performance from the beginning rather than waiting until the application becomes slow. I focus on minimizing unnecessary renders, optimizing large lists, reducing bundle size, and improving communication between JavaScript and native layers.",
+      },
+      {
+        type: "list",
+        content: [
+          "Use FlatList or FlashList for large datasets instead of rendering everything inside ScrollView.",
+          "Use React.memo, useMemo, and useCallback when they provide measurable benefits.",
+          "Keep state close to the components that need it.",
+          "Use lazy loading and code splitting where supported by the application setup.",
+          "Optimize images and use appropriate image formats.",
+          "Avoid expensive calculations during rendering.",
+          "Use Hermes for improved JavaScript execution and memory characteristics.",
+          "Use the React Native New Architecture when supported and beneficial.",
+          "Profile JavaScript and native performance using React Native DevTools and platform-specific profilers.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "9. Native Module and Third-Party Integration",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When application requirements involve native functionality such as Bluetooth, NFC, background processing, custom Android overlays, or platform-specific APIs, I evaluate existing libraries first. If a suitable library is unavailable, I create a native module using Kotlin for Android or Swift for iOS.",
+      },
+      {
+        type: "list",
+        content: [
+          "Use TurboModules for appropriate native module integrations.",
+          "Use Codegen for type-safe native interfaces in the New Architecture.",
+          "Handle platform-specific functionality separately.",
+          "Avoid unnecessary native-to-JavaScript communication.",
+          "Document native dependencies and integration requirements.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "10. Offline Support and Data Persistence",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For applications that need to work with unstable internet connectivity, I implement offline support using local storage or a local database. I also design synchronization and conflict-resolution strategies.",
+      },
+      {
+        type: "list",
+        content: [
+          "Use MMKV or AsyncStorage for suitable local key-value data.",
+          "Use SQLite or another database for structured offline data.",
+          "Cache API responses where appropriate.",
+          "Queue operations when the device is offline.",
+          "Synchronize pending operations when connectivity returns.",
+          "Handle duplicate requests and data conflicts safely.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "11. Security Implementation",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Security is an important part of scalable application architecture. I implement authentication, secure data storage, API communication protection, and input validation.",
+      },
+      {
+        type: "list",
+        content: [
+          "Use HTTPS for API communication.",
+          "Store authentication tokens using Keychain or Android Keystore-backed secure storage.",
+          "Avoid storing sensitive information in plain AsyncStorage.",
+          "Implement token expiration and refresh handling.",
+          "Validate API responses and user inputs.",
+          "Avoid hardcoding secrets in the application bundle.",
+          "Use appropriate certificate validation and security controls.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "12. Testing Strategy",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I follow a layered testing strategy to catch issues early and maintain application quality as the codebase grows.",
+      },
+      {
+        type: "table",
+        content: [
+          ["Testing Type", "Tools", "Purpose"],
+          [
+            "Unit Testing",
+            "Jest",
+            "Test functions, hooks, and business logic.",
+          ],
+          [
+            "Component Testing",
+            "React Native Testing Library",
+            "Validate UI behavior and interactions.",
+          ],
+          [
+            "Integration Testing",
+            "Jest / RNTL",
+            "Test API and component integration.",
+          ],
+          [
+            "E2E Testing",
+            "Detox / Maestro",
+            "Validate complete user journeys.",
+          ],
+          [
+            "Performance Testing",
+            "React Native DevTools / Native profilers",
+            "Identify performance bottlenecks.",
+          ],
+        ],
+      },
+      {
+        type: "heading",
+        content: "13. CI/CD and Release Management",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I establish automated pipelines using GitHub Actions to run linting, type checking, tests, and platform-specific builds. I maintain separate Development, Staging, and Production environments.",
+      },
+      {
+        type: "list",
+        content: [
+          "Use Git feature branches and pull requests.",
+          "Run ESLint, Prettier, and TypeScript checks.",
+          "Execute automated unit and component tests.",
+          "Generate Android APK/AAB and iOS IPA builds.",
+          "Manage signing certificates and secrets securely.",
+          "Use environment-specific configurations.",
+          "Distribute staging builds through internal testing and TestFlight.",
+          "Use phased production releases and monitor crashes through Crashlytics.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "14. Monitoring and Maintenance",
+      },
+      {
+        type: "paragraph",
+        content:
+          "After deployment, I monitor application health and continuously improve performance and stability.",
+      },
+      {
+        type: "list",
+        content: [
+          "Firebase Crashlytics for crash reporting.",
+          "Analytics for user behavior and feature adoption.",
+          "API monitoring for response times and failures.",
+          "ANR monitoring for Android.",
+          "Application startup time and memory usage.",
+          "User feedback and production issue tracking.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "15. Best Practices for Scalable Architecture",
+      },
+      {
+        type: "list",
+        content: [
+          "Use feature-based modular architecture.",
+          "Follow SOLID principles where appropriate.",
+          "Use TypeScript across the application.",
+          "Maintain reusable components and a centralized design system.",
+          "Separate UI, business logic, and data access.",
+          "Avoid unnecessary global state.",
+          "Use consistent naming conventions and coding standards.",
+          "Maintain proper API error handling and logging.",
+          "Write unit, integration, and E2E tests.",
+          "Automate builds, testing, and releases.",
+          "Document architecture decisions and module responsibilities.",
+          "Design modules so that new features can be added without modifying unrelated features.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "16. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I would design it in a real project",
+        tone: "info",
+        content:
+          "If I were designing a React Native application from scratch, I would start by understanding the business requirements and selecting the right technology stack. I would use React Native with TypeScript and follow a feature-based modular architecture so that features such as Authentication, Profile, Payments, and Notifications remain independent and maintainable. I would use Redux Toolkit or Zustand for global client state and TanStack Query for server state and API caching. I would create reusable UI components, centralized API services, typed navigation, and separate environment configurations. I would also plan for offline support, secure storage, native integrations, and performance optimization from the beginning. For quality, I would implement Jest, React Native Testing Library, and E2E testing. Finally, I would configure GitHub Actions for automated testing and builds, integrate Crashlytics for production monitoring, and follow phased releases. My main focus would be to build an architecture that supports new features, multiple developers, and future business requirements without making the application tightly coupled or difficult to maintain.",
       },
     ],
-    topic: "App development",
+    topic: "Architecture & system design",
+    references: [
+      {
+        label: "React Native Architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+      {
+        label: "React Native Performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+      {
+        label: "React Navigation",
+        href: "https://reactnavigation.org/docs/getting-started",
+      },
+      {
+        label: "TanStack Query",
+        href: "https://tanstack.com/query/latest/docs/framework/react/overview",
+      },
+      {
+        label: "React Native Testing Library",
+        href: "https://callstack.github.io/react-native-testing-library/",
+      },
+    ],
   },
   {
     id: "how-do-you-handle-feature-based-architecture",
     question: "How do you handle feature-based architecture?",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "Feature-based architecture is a software design approach where we organize the application based on business features rather than grouping all files by technical types such as screens, components, hooks, and services. Each feature maintains its own screens, components, hooks, API services, state management, types, and business logic. This makes the application modular, maintainable, reusable, and easier to scale as the number of features increases.",
+      },
+      {
+        type: "heading",
+        content: "1. Understanding Feature-Based Architecture",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, consider an e-commerce application containing Authentication, Products, Cart, Orders, Payments, and Profile modules. Instead of maintaining all screens in one folder and all API services in another, I organize related files inside their respective feature folders.",
+      },
+      {
+        type: "diagram",
+        title: "Feature-Based Architecture",
+        nodes: [
+          {
+            label: "Application Layer",
+            detail: "Navigation, providers, global configuration",
+          },
+          {
+            label: "Feature Modules",
+            detail: "Auth, Products, Cart, Orders, Payments, Profile",
+          },
+          {
+            label: "Shared Layer",
+            detail: "Reusable UI, hooks, utilities, themes",
+          },
+          {
+            label: "Infrastructure Layer",
+            detail: "API client, storage, analytics, native integrations",
+          },
+        ],
+        note: "Each feature owns its business logic while shared infrastructure provides common functionality.",
+      },
+      {
+        type: "heading",
+        content: "2. Recommended Folder Structure",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I maintain a feature-oriented folder structure where each module contains everything related to that business functionality.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "src/\n│\n├── app/\n│   ├── navigation/\n│   ├── providers/\n│   ├── store/\n│   └── App.tsx\n│\n├── features/\n│   ├── auth/\n│   │   ├── components/\n│   │   ├── screens/\n│   │   ├── hooks/\n│   │   ├── services/\n│   │   ├── store/\n│   │   ├── types/\n│   │   ├── utils/\n│   │   └── index.ts\n│   │\n│   ├── products/\n│   │   ├── components/\n│   │   ├── screens/\n│   │   ├── hooks/\n│   │   ├── services/\n│   │   ├── store/\n│   │   └── types/\n│   │\n│   ├── cart/\n│   ├── orders/\n│   ├── payments/\n│   └── profile/\n│\n├── shared/\n│   ├── components/\n│   ├── hooks/\n│   ├── constants/\n│   ├── utils/\n│   ├── types/\n│   └── theme/\n│\n├── infrastructure/\n│   ├── api/\n│   ├── storage/\n│   ├── analytics/\n│   └── notifications/\n│\n└── assets/\n    ├── images/\n    ├── fonts/\n    └── icons/",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, all login-related components, screens, API calls, hooks, and state management stay inside the auth module. Other features do not need to know about the internal implementation of authentication.",
+      },
+      {
+        type: "heading",
+        content: "3. Responsibilities of Each Feature",
+      },
+      {
+        type: "table",
+        content: [
+          ["Folder", "Responsibility"],
+          ["components/", "Feature-specific reusable UI components."],
+          ["screens/", "Complete application screens."],
+          ["hooks/", "Custom hooks and feature-specific logic."],
+          ["services/", "API calls and data access."],
+          ["store/", "Feature-specific state management."],
+          ["types/", "TypeScript interfaces and types."],
+          ["utils/", "Feature-specific helper functions."],
+          ["index.ts", "Public exports of the feature."],
+        ],
+      },
+      {
+        type: "heading",
+        content: "4. Example: Authentication Feature Implementation",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Consider implementing a login feature. I separate the UI, API integration, and state management instead of writing everything inside a single LoginScreen component.",
+      },
+      {
+        type: "paragraph",
+        content: "Step 1: Define authentication types.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// features/auth/types/auth.types.ts\n\nexport interface LoginRequest {\n  email: string;\n  password: string;\n}\n\nexport interface User {\n  id: string;\n  name: string;\n  email: string;\n}\n\nexport interface LoginResponse {\n  token: string;\n  user: User;\n}",
+      },
+      {
+        type: "paragraph",
+        content: "Step 2: Create the authentication API service.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// features/auth/services/auth.service.ts\n\nimport { apiClient } from '../../../infrastructure/api/apiClient';\nimport { LoginRequest, LoginResponse } from '../types/auth.types';\n\nexport const loginUser = async (\n  payload: LoginRequest\n): Promise<LoginResponse> => {\n  const response = await apiClient.post<LoginResponse>(\n    '/login',\n    payload\n  );\n\n  return response.data;\n};",
+      },
+      {
+        type: "paragraph",
+        content: "Step 3: Create a custom hook to manage login functionality.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// features/auth/hooks/useLogin.ts\n\nimport { useMutation } from '@tanstack/react-query';\nimport { loginUser } from '../services/auth.service';\n\nexport const useLogin = () => {\n  return useMutation({\n    mutationFn: loginUser,\n  });\n};",
+      },
+      {
+        type: "paragraph",
+        content: "Step 4: Consume the hook inside the LoginScreen.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "// features/auth/screens/LoginScreen.tsx\n\nimport React from 'react';\nimport { View, Button, Text } from 'react-native';\nimport { useLogin } from '../hooks/useLogin';\n\nconst LoginScreen = () => {\n  const { mutate, isPending, error } = useLogin();\n\n  const handleLogin = () => {\n    mutate({\n      email: 'test@example.com',\n      password: 'password123',\n    });\n  };\n\n  return (\n    <View>\n      <Button\n        title={isPending ? 'Logging in...' : 'Login'}\n        onPress={handleLogin}\n        disabled={isPending}\n      />\n      {error && <Text>Login failed</Text>}\n    </View>\n  );\n};\n\nexport default LoginScreen;",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This separation ensures that the screen handles UI interactions, the custom hook handles mutation state, and the service handles API communication.",
+      },
+      {
+        type: "heading",
+        content: "5. Shared Components and Code Reusability",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I keep components that are used across multiple features inside the shared/components folder. Feature-specific components remain inside their respective feature folders.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "shared/\n  components/\n    AppButton.tsx\n    AppInput.tsx\n    AppLoader.tsx\n    AppModal.tsx\n    AppHeader.tsx\n  hooks/\n    useDebounce.ts\n    useNetworkStatus.ts\n  utils/\n    dateUtils.ts\n    validationUtils.ts",
+      },
+      {
+        type: "list",
+        content: [
+          "Shared components should contain generic reusable functionality.",
+          "Feature-specific components should not be moved into shared folders unnecessarily.",
+          "Avoid duplicating common UI logic across different features.",
+          "Keep shared components independent of specific business modules.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "6. State Management in Feature-Based Architecture",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I manage state based on its ownership and usage. Each feature can maintain its own state, while genuinely shared application state is managed centrally.",
+      },
+      {
+        type: "table",
+        content: [
+          ["State", "Management"],
+          ["Login form state", "useState / React Hook Form"],
+          ["Authentication state", "Redux Toolkit / Zustand"],
+          ["Product API data", "TanStack Query"],
+          ["Cart state", "Cart feature store"],
+          ["Theme and language", "Shared application store"],
+          ["User preferences", "Persistent local storage"],
+        ],
+      },
+      {
+        type: "paragraph",
+        content:
+          "This approach prevents unrelated components from subscribing to unnecessary state updates and reduces coupling between features.",
+      },
+      {
+        type: "heading",
+        content: "7. Feature Communication and Dependencies",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In a scalable application, features sometimes need to communicate with each other. I avoid directly accessing another feature's internal components, services, or store implementation. Instead, I expose a controlled public interface through index.ts or use shared application-level services and state.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// features/auth/index.ts\n\nexport { default as LoginScreen } from './screens/LoginScreen';\nexport { useLogin } from './hooks/useLogin';\nexport type { User, LoginRequest } from './types/auth.types';",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Other modules can import only the functionality that the auth feature intentionally exposes. This reduces tight coupling and makes internal implementation changes easier.",
+      },
+      {
+        type: "heading",
+        content: "8. Navigation Management",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I maintain application-level navigation inside the app/navigation folder and keep feature screens inside their respective modules. This separates navigation configuration from business logic.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// app/navigation/AppNavigator.tsx\n\nimport { createNativeStackNavigator } from '@react-navigation/native-stack';\nimport { LoginScreen } from '../../features/auth';\nimport HomeScreen from '../../features/home/screens/HomeScreen';\n\nconst Stack = createNativeStackNavigator();\n\nexport const AppNavigator = () => {\n  return (\n    <Stack.Navigator>\n      <Stack.Screen name=\"Login\" component={LoginScreen} />\n      <Stack.Screen name=\"Home\" component={HomeScreen} />\n    </Stack.Navigator>\n  );\n};",
+      },
+      {
+        type: "heading",
+        content: "9. Benefits of Feature-Based Architecture",
+      },
+      {
+        type: "list",
+        content: [
+          "Scalability: New features can be added without restructuring the entire application.",
+          "Maintainability: Related files stay together, making code easier to understand and modify.",
+          "Reusability: Common components and utilities can be shared across features.",
+          "Team collaboration: Multiple developers can work on different modules independently.",
+          "Testability: Each feature can have its own unit and integration tests.",
+          "Reduced coupling: Features communicate through controlled interfaces.",
+          "Code ownership: Teams can take responsibility for specific business modules.",
+          "Easier debugging: Issues can be isolated within individual features.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "10. Best Practices",
+      },
+      {
+        type: "list",
+        content: [
+          "Organize code around business features rather than only technical file types.",
+          "Keep each feature responsible for its own business logic.",
+          "Use TypeScript for strong contracts between modules.",
+          "Maintain clear public exports for each feature.",
+          "Avoid circular dependencies between features.",
+          "Keep shared components generic and reusable.",
+          "Avoid creating unnecessary global state.",
+          "Separate API services from presentation components.",
+          "Write feature-specific unit and integration tests.",
+          "Use consistent naming conventions and folder structures.",
+          "Establish dependency rules to prevent features from accessing each other's internal implementation.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "11. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I handle it in real projects",
+        tone: "info",
+        content:
+          "In my React Native projects, I prefer feature-based architecture because it makes the application easier to scale and maintain. I organize the code based on business modules such as Authentication, Profile, Orders, Payments, and Notifications. Each feature maintains its own screens, components, hooks, API services, types, and state management. I keep common reusable components, utilities, themes, and API infrastructure in shared folders. For state management, I use Redux Toolkit or Zustand for global client state and TanStack Query for server-side data. I also maintain clear module boundaries and public exports to avoid tight coupling between features. This architecture allows multiple developers to work on different modules independently and makes it easier to add new functionality without affecting existing features.",
       },
     ],
-    topic: "Architecture",
+    topic: "Architecture & system design",
+    references: [
+      {
+        label: "React Native Architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+      {
+        label: "React Native Documentation",
+        href: "https://reactnative.dev/docs/getting-started",
+      },
+      {
+        label: "Redux Toolkit Documentation",
+        href: "https://redux-toolkit.js.org/",
+      },
+      {
+        label: "TanStack Query Documentation",
+        href: "https://tanstack.com/query/latest/docs/framework/react/overview",
+      },
+    ],
   },
   {
     id: "how-do-you-handle-multiple-themes",
     question: "How do you handle multiple themes?",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "In React Native, I manage multiple themes using a centralized theme system. Instead of hardcoding colors, font sizes, backgrounds, and other styling properties inside individual components, I define reusable design tokens for each theme. This allows users to switch between Light Mode, Dark Mode, or custom themes dynamically without modifying the component structure.",
       },
-    ],
-    topic: "App development",
-  },
-  {
-    id: "how-do-you-handle-localization",
-    question: "How do you handle localization?",
-    answer: [
+      {
+        type: "heading",
+        content: "1. Understanding Multiple Themes",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A theme defines the visual appearance of an application, including colors, typography, backgrounds, borders, spacing, and other UI properties.",
+      },
+      {
+        type: "list",
+        content: [
+          "Light Theme: Uses light backgrounds, dark text, and lighter UI elements.",
+          "Dark Theme: Uses dark backgrounds, light text, and darker UI elements.",
+          "System Theme: Automatically follows the device's Light or Dark Mode preference.",
+          "Custom Theme: Allows different branding or user-selected color schemes.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. Create a Centralized Theme Structure",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I create a centralized theme folder to maintain colors, typography, spacing, and theme definitions separately.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "src/\n├── theme/\n│   ├── colors.ts\n│   ├── lightTheme.ts\n│   ├── darkTheme.ts\n│   ├── theme.types.ts\n│   ├── ThemeProvider.tsx\n│   └── useTheme.ts\n│\n├── components/\n│   └── AppButton.tsx\n│\n└── screens/\n    └── HomeScreen.tsx",
+      },
+      {
+        type: "heading",
+        content: "3. Define Theme Types",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I use TypeScript interfaces to maintain a consistent structure across different themes.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// theme/theme.types.ts\n\nexport interface AppTheme {\n  colors: {\n    primary: string;\n    background: string;\n    surface: string;\n    text: string;\n    secondaryText: string;\n    border: string;\n    error: string;\n  };\n}",
+      },
+      {
+        type: "heading",
+        content: "4. Create Light and Dark Themes",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I define separate theme objects containing the same properties but different color values.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// theme/lightTheme.ts\nimport { AppTheme } from './theme.types';\n\nexport const lightTheme: AppTheme = {\n  colors: {\n    primary: '#2563EB',\n    background: '#FFFFFF',\n    surface: '#F3F4F6',\n    text: '#111827',\n    secondaryText: '#6B7280',\n    border: '#E5E7EB',\n    error: '#DC2626',\n  },\n};\n\n// theme/darkTheme.ts\nimport { AppTheme } from './theme.types';\n\nexport const darkTheme: AppTheme = {\n  colors: {\n    primary: '#60A5FA',\n    background: '#111827',\n    surface: '#1F2937',\n    text: '#FFFFFF',\n    secondaryText: '#9CA3AF',\n    border: '#374151',\n    error: '#F87171',\n  },\n};",
+      },
+      {
+        type: "heading",
+        content: "5. Implement Theme Context and Provider",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I use React Context API to provide the selected theme throughout the application. This avoids passing theme properties manually through multiple component levels.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "// theme/ThemeProvider.tsx\n\nimport React, { createContext, useState } from 'react';\nimport { lightTheme } from './lightTheme';\nimport { darkTheme } from './darkTheme';\nimport { AppTheme } from './theme.types';\n\ninterface ThemeContextType {\n  theme: AppTheme;\n  isDark: boolean;\n  toggleTheme: () => void;\n}\n\nexport const ThemeContext = createContext<ThemeContextType | undefined>(undefined);\n\nexport const ThemeProvider = ({ children }: { children: React.ReactNode }) => {\n  const [isDark, setIsDark] = useState(false);\n\n  const theme = isDark ? darkTheme : lightTheme;\n\n  const toggleTheme = () => {\n    setIsDark(previous => !previous);\n  };\n\n  return (\n    <ThemeContext.Provider value={{ theme, isDark, toggleTheme }}>\n      {children}\n    </ThemeContext.Provider>\n  );\n};",
+      },
+      {
+        type: "heading",
+        content: "6. Create a Custom useTheme Hook",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I create a custom hook to access the current theme and theme-switching functionality from any component.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// theme/useTheme.ts\n\nimport { useContext } from 'react';\nimport { ThemeContext } from './ThemeProvider';\n\nexport const useTheme = () => {\n  const context = useContext(ThemeContext);\n\n  if (!context) {\n    throw new Error('useTheme must be used inside ThemeProvider');\n  }\n\n  return context;\n};",
+      },
+      {
+        type: "heading",
+        content: "7. Apply Theme to Reusable Components",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Instead of hardcoding colors, I consume theme values through the useTheme hook. This ensures that reusable components automatically adapt when the theme changes.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "// components/AppButton.tsx\n\nimport React from 'react';\nimport { Pressable, Text, StyleSheet } from 'react-native';\nimport { useTheme } from '../theme/useTheme';\n\nexport const AppButton = () => {\n  const { theme } = useTheme();\n\n  return (\n    <Pressable\n      style={{\n        backgroundColor: theme.colors.primary,\n        padding: 12,\n        borderRadius: 8,\n      }}\n    >\n      <Text style={{ color: '#FFFFFF' }}>Continue</Text>\n    </Pressable>\n  );\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The same approach can be used for screens, cards, headers, input fields, modals, and navigation components.",
+      },
+      {
+        type: "heading",
+        content: "8. Support System-Based Theme Detection",
+      },
+      {
+        type: "paragraph",
+        content:
+          "React Native provides the useColorScheme hook to detect whether the device is currently using Light Mode or Dark Mode.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "import { useColorScheme } from 'react-native';\nimport { lightTheme } from './lightTheme';\nimport { darkTheme } from './darkTheme';\n\nexport const useSystemTheme = () => {\n  const colorScheme = useColorScheme();\n\n  return colorScheme === 'dark'\n    ? darkTheme\n    : lightTheme;\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The useColorScheme hook subscribes to system appearance changes, allowing the application to respond when users change their device theme.",
+      },
+      {
+        type: "heading",
+        content: "9. Persist User Theme Preference",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If users manually select Light, Dark, or System mode, I persist their preference using AsyncStorage or MMKV so that the selected theme remains consistent after restarting the application.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import AsyncStorage from '@react-native-async-storage/async-storage';\n\nexport type ThemeMode = 'light' | 'dark' | 'system';\n\nexport const saveThemePreference = async (mode: ThemeMode) => {\n  await AsyncStorage.setItem('APP_THEME', mode);\n};\n\nexport const getThemePreference = async (): Promise<ThemeMode> => {\n  const mode = await AsyncStorage.getItem('APP_THEME');\n\n  return (mode as ThemeMode) || 'system';\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In a complete implementation, I load the saved preference when the ThemeProvider initializes, resolve system mode using useColorScheme, and update the theme whenever either the preference or device appearance changes.",
+      },
+      {
+        type: "heading",
+        content: "10. Handle Multiple Brand Themes",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For applications that support multiple brands or white-label products, I extend the theme configuration to include different branding, primary colors, logos, typography, and component styles.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "export const themes = {\n  default: {\n    primary: '#2563EB',\n    background: '#FFFFFF',\n  },\n  corporate: {\n    primary: '#16A34A',\n    background: '#F0FDF4',\n  },\n  premium: {\n    primary: '#9333EA',\n    background: '#FAF5FF',\n  },\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We can select the appropriate brand theme based on the application configuration, user preference, or organization.",
+      },
+      {
+        type: "heading",
+        content: "11. Best Practices",
+      },
+      {
+        type: "list",
+        content: [
+          "Maintain a centralized theme configuration.",
+          "Use design tokens instead of hardcoded colors.",
+          "Keep the same theme interface across all themes.",
+          "Use Context API or a suitable state management solution to share theme preferences.",
+          "Support Light, Dark, and System modes.",
+          "Persist user-selected theme preferences.",
+          "Avoid unnecessary component re-renders when theme values change.",
+          "Ensure sufficient color contrast and accessibility.",
+          "Apply themes consistently to navigation, status bars, modals, and native UI components.",
+          "Test every screen in all supported themes.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "12. Interview Answer",
+      },
       {
         type: "callout",
+        title: "How I handle multiple themes in real projects",
         tone: "info",
-        title: "Answer content needed",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "In my React Native projects, I manage multiple themes using a centralized theme configuration and reusable design tokens. I maintain separate theme objects for Light Mode, Dark Mode, and any custom branding requirements. I use the Context API with a custom useTheme hook to make theme values accessible throughout the application. For automatic theme detection, I use React Native's useColorScheme hook, and for manually selected preferences, I persist the user's choice using AsyncStorage or MMKV. I also ensure that reusable components, navigation, status bars, and other UI elements follow the selected theme. This approach allows us to introduce new themes without modifying individual screens and keeps the application consistent and maintainable.",
       },
     ],
-    topic: "App development",
+    topic: "Architecture & system design",
+    references: [
+      {
+        label: "React Native Appearance",
+        href: "https://reactnative.dev/docs/appearance",
+      },
+      {
+        label: "React Native useColorScheme",
+        href: "https://reactnative.dev/docs/usecolorscheme",
+      },
+      {
+        label: "React Context API",
+        href: "https://react.dev/reference/react/useContext",
+      },
+    ],
   },
   {
-    id: "how-do-you-handle-real-time-updates",
-    question: "How do you handle real-time updates?",
+    id: "rn-localization-001",
+    question: "How do you handle localization in React Native?",
+    topic: "Architecture & system design",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "Localization (L10n) is the process of adapting an application to different languages, regions, date formats, number formats, currencies, and cultural preferences. Internationalization (i18n) is the process of designing the application so it can support multiple locales without major code changes.",
+      },
+      {
+        type: "heading",
+        content: "1. Choose a localization library",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For React Native applications, I commonly use i18next with react-i18next for translation management. I use react-native-localize to detect the device's preferred language and locale information.",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content:
+          "npm install i18next react-i18next\nnpm install react-native-localize",
+      },
+      {
+        type: "heading",
+        content: "2. Organize translation files",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I maintain separate JSON translation files for each supported language. This keeps translations independent from UI components and makes it easier to add new languages.",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "src/\n  localization/\n    index.ts\n    locales/\n      en.json\n      hi.json\n      fr.json\n  components/\n  features/\n  navigation/\n  App.tsx",
+      },
+      {
+        type: "heading",
+        content: "3. Define translation files",
+      },
+      {
+        type: "code",
+        language: "json",
+        content:
+          '// locales/en.json\n{\n  "welcome": "Welcome",\n  "login": "Login",\n  "logout": "Logout",\n  "greeting": "Hello, {{name}}"\n}\n\n// locales/hi.json\n{\n  "welcome": "स्वागत है",\n  "login": "लॉग इन करें",\n  "logout": "लॉग आउट करें",\n  "greeting": "नमस्ते, {{name}}"\n}',
+      },
+      {
+        type: "heading",
+        content: "4. Configure i18next",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I configure i18next with the supported languages, fallback language, and device locale detection. If the device language is not supported, the application falls back to English.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import i18n from 'i18next';\nimport { initReactI18next } from 'react-i18next';\nimport * as RNLocalize from 'react-native-localize';\n\nimport en from './locales/en.json';\nimport hi from './locales/hi.json';\nimport fr from './locales/fr.json';\n\nconst resources = {\n  en: { translation: en },\n  hi: { translation: hi },\n  fr: { translation: fr },\n};\n\nconst supportedLanguages = Object.keys(resources);\n\nconst deviceLanguage =\n  RNLocalize.getLocales()[0]?.languageCode ?? 'en';\n\nconst initialLanguage = supportedLanguages.includes(deviceLanguage)\n  ? deviceLanguage\n  : 'en';\n\ni18n\n  .use(initReactI18next)\n  .init({\n    resources,\n    lng: initialLanguage,\n    fallbackLng: 'en',\n    compatibilityJSON: 'v4',\n    interpolation: {\n      escapeValue: false,\n    },\n  });\n\nexport default i18n;",
+      },
+      {
+        type: "callout",
+        title: "Important",
+        content:
+          "Import the localization configuration once, before rendering the application. For production apps, I also consider region-specific locales such as en-US and en-GB rather than relying only on language codes.",
+        tone: "info",
+      },
+      {
+        type: "heading",
+        content: "5. Use translations inside components",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I use the useTranslation hook instead of hardcoding text inside components. This makes the UI automatically respond when the selected language changes.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "import React from 'react';\nimport { View, Text, Button } from 'react-native';\nimport { useTranslation } from 'react-i18next';\n\nconst HomeScreen = () => {\n  const { t } = useTranslation();\n\n  return (\n    <View>\n      <Text>{t('welcome')}</Text>\n      <Button title={t('login')} onPress={() => {}} />\n    </View>\n  );\n};\n\nexport default HomeScreen;",
+      },
+      {
+        type: "heading",
+        content: "6. Handle language switching dynamically",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If users want to change the language manually, I provide a language-selection screen. I call i18n.changeLanguage() and persist the selected language so the preference is retained after restarting the application.",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content: "npm install @react-native-async-storage/async-storage",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import AsyncStorage from '@react-native-async-storage/async-storage';\nimport i18n from './index';\n\nconst LANGUAGE_KEY = 'app_language';\n\nexport const changeLanguage = async (language: string) => {\n  await i18n.changeLanguage(language);\n  await AsyncStorage.setItem(LANGUAGE_KEY, language);\n};\n\nexport const loadSavedLanguage = async () => {\n  const savedLanguage = await AsyncStorage.getItem(LANGUAGE_KEY);\n\n  if (savedLanguage) {\n    await i18n.changeLanguage(savedLanguage);\n  }\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I call loadSavedLanguage() during application startup and wait for it to complete before rendering the main UI. In a production implementation, I validate the saved language against the supported-language list before applying it.",
+      },
+      {
+        type: "heading",
+        content: "7. Handle pluralization and dynamic values",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Different languages have different pluralization rules. I use i18next's pluralization support instead of manually checking whether a count is one or greater than one.",
+      },
+      {
+        type: "code",
+        language: "json",
+        content:
+          '{\n  "items_one": "{{count}} item",\n  "items_other": "{{count}} items"\n}',
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "const { t } = useTranslation();\n\n<Text>{t('items', { count: 1 })}</Text>\n<Text>{t('items', { count: 5 })}</Text>",
+      },
+      {
+        type: "heading",
+        content: "8. Handle date, time, number, and currency formats",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Translations alone are not sufficient. I use the JavaScript Intl APIs to format dates, numbers, and currencies according to the selected locale.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "const locale = 'en-IN';\n\nconst date = new Intl.DateTimeFormat(locale, {\n  day: '2-digit',\n  month: 'long',\n  year: 'numeric',\n}).format(new Date());\n\nconst amount = new Intl.NumberFormat(locale, {\n  style: 'currency',\n  currency: 'INR',\n}).format(25000);\n\nconst number = new Intl.NumberFormat(locale).format(150000);\n\nconsole.log(date);\nconsole.log(amount);\nconsole.log(number);",
+      },
+      {
+        type: "heading",
+        content: "9. Handle right-to-left (RTL) languages",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Languages such as Arabic and Hebrew require right-to-left layouts. I use I18nManager to detect and configure RTL support, and I avoid hardcoding left and right positioning in styles.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import { I18nManager } from 'react-native';\n\n// Run when applying a language that changes layout direction.\nI18nManager.allowRTL(true);\nI18nManager.forceRTL(isRTL);\n\n// A reload may be required for the layout direction to take effect.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I prefer logical layout properties such as start and end instead of left and right wherever supported. RTL changes should be tested carefully because forcing RTL may require an application restart and can affect navigation, icons, and animations.",
+      },
+      {
+        type: "heading",
+        content: "10. Localization best practices",
+      },
+      {
+        type: "list",
+        content: [
+          "Never hardcode user-facing text inside components.",
+          "Keep translations in separate locale files.",
+          "Use a fallback language for missing translations.",
+          "Persist the user's language preference.",
+          "Support pluralization and interpolation for dynamic content.",
+          "Format dates, numbers, and currencies using locale-aware APIs.",
+          "Avoid concatenating translated strings because word order differs between languages.",
+          "Use flexible layouts to accommodate longer translated text.",
+          "Test RTL languages and different screen sizes.",
+          "Use translation validation tools and native-speaker reviews before production releases.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "11. Localization execution flow",
+      },
+      {
+        type: "diagram",
+        title: "React Native localization flow",
+        nodes: [
+          {
+            label: "Application Startup",
+            detail: "Initialize i18next and load saved preferences.",
+          },
+          {
+            label: "Detect Language",
+            detail: "Read device locale or user's saved language.",
+          },
+          {
+            label: "Select Translation",
+            detail: "Load the matching JSON resource or fallback language.",
+          },
+          {
+            label: "Render UI",
+            detail: "Components display translated text using t().",
+          },
+          {
+            label: "Change Language",
+            detail: "Update i18next and persist the user's selection.",
+          },
+        ],
+        note: "The translation hook subscribes to language changes, allowing components using translations to re-render when the language changes.",
+      },
+      {
+        type: "heading",
+        content: "12. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I handle localization in React Native",
+        content:
+          "I handle localization using i18next and react-i18next, along with react-native-localize to detect the device language. I maintain separate JSON translation files for supported languages and use the useTranslation hook to display translated content instead of hardcoding strings. I support fallback languages, dynamic language switching, and persist the user's preference using AsyncStorage. I also handle pluralization, date and currency formatting using Intl APIs, and RTL layouts for languages such as Arabic. Finally, I test translations across different screen sizes and validate missing keys before releasing the application.",
       },
     ],
-    topic: "App development",
+    references: [
+      {
+        label: "i18next Documentation",
+        href: "https://www.i18next.com/",
+      },
+      {
+        label: "react-i18next Documentation",
+        href: "https://react.i18next.com/",
+      },
+      {
+        label: "React Native I18nManager",
+        href: "https://reactnative.dev/docs/i18nmanager",
+      },
+      {
+        label: "React Native Localize",
+        href: "https://github.com/zoontek/react-native-localize",
+      },
+    ],
   },
   {
-    id: "how-do-you-design-reusable-components",
-    question: "How do you design reusable components?",
+    id: "rn-realtime-updates-001",
+    question: "How do you handle real-time updates in React Native?",
+    topic: "Architecture & system design",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "I handle real-time updates in React Native using technologies such as WebSockets, Socket.IO, Firebase Realtime Database, or Firestore, depending on the application requirements. Real-time communication allows the application to receive server-side changes immediately without continuously polling the backend.",
+      },
+      {
+        type: "heading",
+        content: "1. Choose the appropriate real-time technology",
+      },
+      {
+        type: "table",
+        content: [
+          ["Technology", "How it works", "Use cases"],
+          [
+            "WebSocket",
+            "Provides persistent, two-way communication between client and server.",
+            "Live tracking, chat, dashboards.",
+          ],
+          [
+            "Socket.IO",
+            "Provides event-based communication with reconnection and fallback mechanisms.",
+            "Chat applications, notifications, live status.",
+          ],
+          [
+            "Firebase Realtime Database",
+            "Synchronizes data between connected clients in real time.",
+            "Live status, collaborative data.",
+          ],
+          [
+            "Cloud Firestore",
+            "Uses snapshot listeners to deliver document and query changes.",
+            "Live feeds, order updates.",
+          ],
+          [
+            "Server-Sent Events (SSE)",
+            "Provides a server-to-client event stream over HTTP.",
+            "Live feeds, monitoring dashboards.",
+          ],
+          [
+            "Polling",
+            "Periodically requests updated data from the backend.",
+            "Simple status updates when real-time infrastructure is unavailable.",
+          ],
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. WebSocket implementation using Socket.IO",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For applications requiring two-way communication, I can use Socket.IO. The client establishes a connection with the backend and listens for events such as new messages, order status changes, or live tracking updates.",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content: "npm install socket.io-client",
+      },
+      {
+        type: "heading",
+        content: "3. Create a reusable socket service",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import { io, Socket } from 'socket.io-client';\n\nlet socket: Socket | null = null;\n\nexport const connectSocket = (token: string) => {\n  if (socket?.connected) return socket;\n\n  socket = io('https://api.example.com', {\n    transports: ['websocket'],\n    auth: { token },\n    reconnection: true,\n    reconnectionAttempts: Infinity,\n    reconnectionDelay: 1000,\n    reconnectionDelayMax: 5000,\n  });\n\n  socket.on('connect', () => {\n    console.log('Socket connected:', socket?.id);\n  });\n\n  socket.on('disconnect', (reason) => {\n    console.log('Socket disconnected:', reason);\n  });\n\n  socket.on('connect_error', (error) => {\n    console.log('Socket connection error:', error.message);\n  });\n\n  return socket;\n};\n\nexport const getSocket = () => socket;\n\nexport const disconnectSocket = () => {\n  socket?.disconnect();\n  socket = null;\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I keep the socket connection in a centralized service rather than creating a new connection inside every screen. In production, I also handle authentication expiry, token refresh, and connection cleanup.",
+      },
+      {
+        type: "heading",
+        content: "4. Listen to real-time events in a component",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I subscribe to the required events inside useEffect and remove the event listener during cleanup. This prevents duplicate listeners and memory leaks when users navigate between screens.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "import React, { useEffect, useState } from 'react';\nimport { View, Text } from 'react-native';\nimport { getSocket } from './socketService';\n\ntype Order = {\n  id: string;\n  status: string;\n};\n\nconst OrderScreen = () => {\n  const [order, setOrder] = useState<Order | null>(null);\n\n  useEffect(() => {\n    const socket = getSocket();\n    if (!socket) return;\n\n    const handleOrderUpdate = (updatedOrder: Order) => {\n      setOrder(updatedOrder);\n    };\n\n    socket.on('order:update', handleOrderUpdate);\n\n    return () => {\n      socket.off('order:update', handleOrderUpdate);\n    };\n  }, []);\n\n  return (\n    <View>\n      <Text>Order Status: {order?.status ?? 'Loading'}</Text>\n    </View>\n  );\n};\n\nexport default OrderScreen;",
+      },
+      {
+        type: "heading",
+        content: "5. Emit events from React Native",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The client can also send events to the backend. For example, when a user sends a chat message or changes an order-related action, the application emits an event to the server.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import { getSocket } from './socketService';\n\nexport const sendMessage = (message: string) => {\n  const socket = getSocket();\n\n  if (!socket?.connected) {\n    throw new Error('Socket is not connected');\n  }\n\n  socket.emit('chat:send', {\n    message,\n    sentAt: new Date().toISOString(),\n  });\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For important operations, I prefer server acknowledgements, message IDs, and retry-safe APIs instead of assuming that emitting an event means the server successfully processed it.",
+      },
+      {
+        type: "heading",
+        content: "6. Handle connection lifecycle and reconnection",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Mobile networks are unstable. A user may switch between Wi-Fi and mobile data, lose connectivity, or move the application into the background. I monitor the connection state and make sure the application can recover gracefully.",
+      },
+      {
+        type: "list",
+        content: [
+          "Use automatic reconnection with exponential backoff and jitter.",
+          "Listen for connect, disconnect, and connection-error events.",
+          "Refresh expired authentication tokens before reconnecting.",
+          "Rejoin required rooms or channels after reconnection.",
+          "Fetch missed updates using a last-event ID, sequence number, or timestamp.",
+          "Avoid opening multiple socket connections for the same user session.",
+          "Clean up listeners and connections when they are no longer required.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "Important mobile limitation",
+        content:
+          "A WebSocket connection is not guaranteed to remain active when an application is backgrounded or terminated. For background notifications, I use push notifications such as Firebase Cloud Messaging (FCM), and synchronize the latest data when the application becomes active again.",
+        tone: "caution",
+      },
+      {
+        type: "heading",
+        content: "7. Handle real-time updates using Firebase",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If the application already uses Firebase, I can use Firestore snapshot listeners or Firebase Realtime Database listeners instead of maintaining a custom WebSocket backend.",
+      },
+      {
+        type: "code",
+        language: "bash",
+        content:
+          "npm install @react-native-firebase/app @react-native-firebase/firestore",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "import firestore from '@react-native-firebase/firestore';\n\nexport const subscribeToOrder = (\n  orderId: string,\n  onUpdate: (data: any) => void\n) => {\n  return firestore()\n    .collection('orders')\n    .doc(orderId)\n    .onSnapshot((document) => {\n      if (document.exists) {\n        onUpdate({\n          id: document.id,\n          ...document.data(),\n        });\n      }\n    });\n};\n\n// Usage inside a component:\nuseEffect(() => {\n  const unsubscribe = subscribeToOrder(orderId, setOrder);\n\n  return unsubscribe;\n}, [orderId]);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The onSnapshot listener immediately provides the current document state and then notifies the application when that document changes. I unsubscribe when the screen or subscription is no longer needed.",
+      },
+      {
+        type: "heading",
+        content: "8. Manage real-time data with global state",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For larger applications, I avoid updating multiple screens independently. I maintain a centralized data flow using Redux Toolkit, Zustand, or another suitable state-management solution. The socket event updates the store, and subscribed components render the latest state.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// Example with Zustand\nimport { create } from 'zustand';\n\ntype OrderState = {\n  status: string;\n  updateStatus: (status: string) => void;\n};\n\nexport const useOrderStore = create<OrderState>((set) => ({\n  status: 'pending',\n  updateStatus: (status) => set({ status }),\n}));\n\n// Register this listener once in the socket lifecycle manager.\nsocket.on('order:update', (data) => {\n  useOrderStore.getState().updateStatus(data.status);\n});\n\n// Any subscribed component can read the latest value.\nconst status = useOrderStore((state) => state.status);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I keep server-owned data separate from temporary UI state. For high-frequency updates, I also avoid unnecessary updates to unrelated components by selecting only the required state.",
+      },
+      {
+        type: "heading",
+        content: "9. Handle application foreground and background states",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I use AppState from React Native to detect when the application moves between active, background, and inactive states. On returning to the foreground, I verify the connection and synchronize any missed data.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "import { AppState } from 'react-native';\nimport { useEffect } from 'react';\nimport { connectSocket, getSocket } from './socketService';\n\nuseEffect(() => {\n  const subscription = AppState.addEventListener(\n    'change',\n    (nextState) => {\n      if (nextState === 'active') {\n        if (!getSocket()?.connected) {\n          connectSocket(authToken);\n        }\n\n        // Fetch latest data to recover missed updates.\n        refreshOrders();\n      }\n    }\n  );\n\n  return () => subscription.remove();\n}, [authToken]);",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I do not rely only on socket events for data consistency. When the app resumes, I fetch the latest server state because events may have been missed while the application was suspended or disconnected.",
+      },
+      {
+        type: "heading",
+        content: "10. Optimize real-time performance",
+      },
+      {
+        type: "list",
+        content: [
+          "Subscribe only to events required by the current feature.",
+          "Use rooms or channels to receive relevant updates instead of broadcasting everything.",
+          "Batch or throttle high-frequency updates such as GPS coordinates.",
+          "Use FlatList virtualization for large live lists.",
+          "Keep event payloads small and send only changed fields when appropriate.",
+          "Avoid unnecessary React state updates and broad global-store subscriptions.",
+          "Use timestamps or sequence numbers to prevent stale events from overwriting newer data.",
+          "Implement pagination and unsubscribe from inactive data streams.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "11. Real-world example: Live logistics tracking",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For a logistics application, real-time updates can be used to track a truck's location, delivery status, and payment status. The driver application sends location updates to the backend, and the server distributes relevant updates to authorized customer applications.",
+      },
+      {
+        type: "diagram",
+        title: "Real-time tracking architecture",
+        nodes: [
+          {
+            label: "Driver App",
+            detail: "Sends GPS coordinates and trip status.",
+          },
+          {
+            label: "Backend Server",
+            detail: "Validates events and processes business logic.",
+          },
+          {
+            label: "WebSocket / Socket.IO",
+            detail: "Distributes updates to authorized users or rooms.",
+          },
+          {
+            label: "Customer App",
+            detail: "Receives updates and refreshes map and trip status.",
+          },
+          {
+            label: "Push Notifications",
+            detail: "Notifies users when the app is backgrounded or offline.",
+          },
+        ],
+        note: "The backend remains the source of truth. On reconnect or app resume, the client synchronizes the latest trip state.",
+      },
+      {
+        type: "heading",
+        content: "12. Security and reliability considerations",
+      },
+      {
+        type: "list",
+        content: [
+          "Authenticate socket connections using secure tokens.",
+          "Authorize room subscriptions on the backend; never trust client-provided user or room IDs.",
+          "Use HTTPS/WSS and avoid sending sensitive information in event payloads.",
+          "Validate event payloads on both client and server.",
+          "Use event IDs and idempotency to prevent duplicate processing.",
+          "Handle token expiry, reconnect failures, and server-side disconnects.",
+          "Apply rate limits and validate high-frequency events such as location updates.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "13. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I handle real-time updates in React Native",
+        content:
+          "I handle real-time updates using WebSockets or Socket.IO when the application requires two-way communication. I create a centralized socket service to manage connections, authentication, event listeners, and reconnection. I listen to server events and update the required application state using Zustand or Redux Toolkit so that subscribed components receive the latest data. If the application uses Firebase, I can also use Firestore snapshot listeners. Since mobile applications can lose connectivity or enter the background, I handle reconnection, AppState changes, and data synchronization when the app becomes active. For background notifications, I use FCM. I also focus on security, listener cleanup, performance, and preventing duplicate or stale updates.",
       },
     ],
-    topic: "Core concepts",
+    references: [
+      {
+        label: "React Native AppState",
+        href: "https://reactnative.dev/docs/appstate",
+      },
+      {
+        label: "Socket.IO Client Documentation",
+        href: "https://socket.io/docs/v4/client-api/",
+      },
+      {
+        label: "Firebase Firestore Real-time Updates",
+        href: "https://firebase.google.com/docs/firestore/query-data/listen",
+      },
+      {
+        label: "Firebase Cloud Messaging",
+        href: "https://firebase.google.com/docs/cloud-messaging",
+      },
+    ],
+  },
+  {
+    id: "rn-reusable-components-001",
+    question: "How do you design reusable components in React Native?",
+    topic: "Architecture & system design",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "I design reusable components by following the principles of component-based architecture, separation of concerns, consistency, and single responsibility. Instead of writing the same UI logic repeatedly across screens, I create common components that can be configured through props and reused across multiple features.",
+      },
+      {
+        type: "heading",
+        content: "1. Identify common UI elements",
+      },
+      {
+        type: "paragraph",
+        content:
+          "First, I identify UI elements that are repeated across multiple screens. I move these elements into a shared components directory and make them configurable through props.",
+      },
+      {
+        type: "list",
+        content: [
+          "Buttons: Primary, secondary, outlined, disabled, and loading states.",
+          "Input fields: Text input, password input, validation, and error messages.",
+          "Cards: Product cards, order cards, and profile cards.",
+          "Headers: Common navigation headers and screen titles.",
+          "Modals: Confirmation dialogs, alerts, and bottom sheets.",
+          "Loaders: Full-screen loaders and inline loading indicators.",
+          "Lists: Reusable FlatList components with empty and loading states.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. Follow a scalable folder structure",
+      },
+      {
+        type: "code",
+        language: "text",
+        content:
+          "src/\n  components/\n    common/\n      Button/\n        Button.tsx\n        Button.styles.ts\n        Button.types.ts\n        index.ts\n      Input/\n        Input.tsx\n        Input.styles.ts\n        Input.types.ts\n        index.ts\n      Loader/\n        Loader.tsx\n      Card/\n        Card.tsx\n  features/\n    auth/\n      components/\n      screens/\n    products/\n      components/\n      screens/\n  theme/\n    colors.ts\n    spacing.ts\n    typography.ts\n  hooks/\n  utils/",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I separate globally reusable components from feature-specific components. For example, a common Button belongs in the shared components directory, while a ProductPriceCard used only in the products feature should remain inside that feature.",
+      },
+      {
+        type: "heading",
+        content: "3. Design components using props",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I use TypeScript interfaces to define clear component contracts. Props allow the same component to support different labels, variants, sizes, states, and callbacks without duplicating implementation.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "import React from 'react';\nimport {\n  ActivityIndicator,\n  Pressable,\n  Text,\n  StyleSheet,\n} from 'react-native';\n\ntype ButtonProps = {\n  title: string;\n  variant?: 'primary' | 'secondary' | 'outline';\n  disabled?: boolean;\n  loading?: boolean;\n  onPress: () => void;\n};\n\nconst Button = ({\n  title,\n  variant = 'primary',\n  disabled = false,\n  loading = false,\n  onPress,\n}: ButtonProps) => {\n  const isDisabled = disabled || loading;\n\n  return (\n    <Pressable\n      onPress={onPress}\n      disabled={isDisabled}\n      style={[\n        styles.button,\n        variant === 'primary' && styles.primary,\n        variant === 'secondary' && styles.secondary,\n        variant === 'outline' && styles.outline,\n        isDisabled && styles.disabled,\n      ]}\n    >\n      {loading ? (\n        <ActivityIndicator color=\"#FFFFFF\" />\n      ) : (\n        <Text style={styles.text}>{title}</Text>\n      )}\n    </Pressable>\n  );\n};\n\nconst styles = StyleSheet.create({\n  button: {\n    padding: 14,\n    borderRadius: 8,\n    alignItems: 'center',\n  },\n  primary: { backgroundColor: '#2563EB' },\n  secondary: { backgroundColor: '#64748B' },\n  outline: {\n    backgroundColor: 'transparent',\n    borderWidth: 1,\n    borderColor: '#2563EB',\n  },\n  disabled: { opacity: 0.5 },\n  text: { color: '#FFFFFF', fontWeight: '600' },\n});\n\nexport default Button;",
+      },
+      {
+        type: "heading",
+        content: "4. Reuse the component across screens",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Once the component is created, I use it across different screens by passing different props. The component implementation remains the same while its behavior and appearance can be customized.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          '// Login screen\n<Button\n  title="Login"\n  variant="primary"\n  onPress={handleLogin}\n/>\n\n// Signup screen\n<Button\n  title="Create Account"\n  variant="secondary"\n  onPress={handleSignup}\n/>\n\n// Save action\n<Button\n  title="Save Changes"\n  variant="outline"\n  loading={isSaving}\n  onPress={handleSave}\n/>',
+      },
+      {
+        type: "heading",
+        content: "5. Use theme-based styling",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I avoid hardcoding colors, spacing, font sizes, and border radii inside reusable components. Instead, I use centralized design tokens or a theme provider. This makes it easier to support light mode, dark mode, and multiple branding requirements.",
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "export const lightTheme = {\n  colors: {\n    primary: '#2563EB',\n    background: '#FFFFFF',\n    text: '#111827',\n    border: '#D1D5DB',\n  },\n  spacing: {\n    small: 8,\n    medium: 16,\n    large: 24,\n  },\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A reusable component can consume these values through a useTheme hook, ensuring consistent styling throughout the application.",
+      },
+      {
+        type: "heading",
+        content: "6. Keep components focused on a single responsibility",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I follow the single responsibility principle. A reusable Button should handle button presentation and interaction, not API calls, authentication logic, or navigation decisions. Business logic stays in feature hooks, services, or screen-level containers.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          '// Good: UI component only handles presentation\nconst UserCard = ({\n  name,\n  email,\n  onPress,\n}: {\n  name: string;\n  email: string;\n  onPress: () => void;\n}) => (\n  <Pressable onPress={onPress}>\n    <Text>{name}</Text>\n    <Text>{email}</Text>\n  </Pressable>\n);\n\n// Screen owns business behavior\nconst ProfileScreen = () => {\n  const handleUserPress = () => {\n    // Navigate or perform feature-specific action\n  };\n\n  return (\n    <UserCard\n      name="Prashant"\n      email="user@example.com"\n      onPress={handleUserPress}\n    />\n  );\n};',
+      },
+      {
+        type: "heading",
+        content: "7. Use composition instead of too many props",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When a component needs highly variable content, I prefer composition using children or clearly defined slots instead of adding many boolean props. This keeps the API flexible and prevents a component from becoming difficult to maintain.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "import React from 'react';\nimport { View, Text, StyleSheet } from 'react-native';\n\ntype CardProps = {\n  title: string;\n  children: React.ReactNode;\n  footer?: React.ReactNode;\n};\n\nconst Card = ({ title, children, footer }: CardProps) => (\n  <View style={styles.card}>\n    <Text style={styles.title}>{title}</Text>\n    <View>{children}</View>\n    {footer && <View>{footer}</View>}\n  </View>\n);\n\nconst styles = StyleSheet.create({\n  card: {\n    padding: 16,\n    borderRadius: 10,\n    backgroundColor: '#FFFFFF',\n  },\n  title: {\n    fontSize: 18,\n    fontWeight: '600',\n  },\n});\n\nexport default Card;",
+      },
+      {
+        type: "heading",
+        content: "8. Optimize reusable components",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Reusable components should also be performance-friendly. I avoid unnecessary state, expensive calculations, and broad subscriptions inside shared components.",
+      },
+      {
+        type: "list",
+        content: [
+          "Use React.memo when a component frequently re-renders with unchanged props and profiling shows a benefit.",
+          "Use useCallback when stable function references help memoized children avoid unnecessary renders.",
+          "Use useMemo for expensive calculations when there is a measurable benefit.",
+          "Avoid creating unnecessary objects and functions during rendering when their identity matters to memoized children.",
+          "Use FlatList for large collections instead of rendering every item inside a ScrollView.",
+          "Keep state close to the component that owns it.",
+          "Avoid deeply nested component hierarchies when a simpler composition is possible.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "9. Handle accessibility and different screen sizes",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I make reusable components accessible and responsive by default. For interactive elements, I provide accessibility labels, roles, and appropriate states. I also support dynamic text sizes, flexible layouts, and different screen dimensions.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          '<Pressable\n  accessibilityRole="button"\n  accessibilityLabel="Submit form"\n  accessibilityState={{ disabled: false }}\n  onPress={handleSubmit}\n  style={{ minHeight: 48, paddingHorizontal: 16 }}\n>\n  <Text>Submit</Text>\n</Pressable>',
+      },
+      {
+        type: "heading",
+        content: "10. Test reusable components",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Since shared components are used across multiple features, a defect can affect several screens. I write unit and component tests using Jest and React Native Testing Library.",
+      },
+      {
+        type: "code",
+        language: "tsx",
+        content:
+          "import React from 'react';\nimport { render, fireEvent } from '@testing-library/react-native';\nimport Button from './Button';\n\ntest('renders title and handles press', () => {\n  const onPress = jest.fn();\n\n  const { getByText } = render(\n    <Button title=\"Login\" onPress={onPress} />\n  );\n\n  fireEvent.press(getByText('Login'));\n\n  expect(onPress).toHaveBeenCalledTimes(1);\n});",
+      },
+      {
+        type: "heading",
+        content: "11. Reusable component design principles",
+      },
+      {
+        type: "table",
+        content: [
+          ["Principle", "How I apply it"],
+          [
+            "Single responsibility",
+            "Each component handles one clear UI responsibility.",
+          ],
+          [
+            "Configurability",
+            "Use typed props for variants, sizes, and states.",
+          ],
+          ["Composition", "Use children and slots for flexible content."],
+          ["Consistency", "Use shared design tokens and theme values."],
+          [
+            "Maintainability",
+            "Keep business logic outside shared UI components.",
+          ],
+          ["Performance", "Avoid unnecessary renders and expensive work."],
+          [
+            "Accessibility",
+            "Support labels, roles, states, and scalable text.",
+          ],
+          ["Testability", "Test behavior, variants, and edge cases."],
+        ],
+      },
+      {
+        type: "heading",
+        content: "12. Interview Answer",
+      },
+      {
+        type: "callout",
+        title: "How I design reusable components in React Native",
+        content:
+          "I design reusable components by identifying common UI patterns across the application and moving them into a shared component library. I use TypeScript to define clear props and support different variants, sizes, loading states, and callbacks. I follow the single responsibility principle, keeping UI components independent from API calls and business logic. For flexible layouts, I use composition with children, and I maintain consistent styling through centralized theme tokens. I also consider accessibility, responsiveness, performance, and unit testing. This approach reduces code duplication, improves consistency, and makes the application easier to maintain as the number of features grows.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native Components and APIs",
+        href: "https://reactnative.dev/docs/components-and-apis",
+      },
+      {
+        label: "React Documentation - Passing Props",
+        href: "https://react.dev/learn/passing-props-to-a-component",
+      },
+      {
+        label: "React Documentation - Passing JSX as Children",
+        href: "https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children",
+      },
+      {
+        label: "React Native Testing Library",
+        href: "https://callstack.github.io/react-native-testing-library/",
+      },
+    ],
   },
   {
     id: "how-do-you-prevent-tight-coupling",
@@ -6216,7 +13408,7 @@ Investigate component-related issues.`,
       {
         type: "paragraph",
         content:
-          "\ud83d\udd39 Behavioral + Real Experience (Very Important) Describe a production performance issue you fixed. One production performance issue I faced in a React Native app was related to UI jank and slow screen transitions when loading a property listing screen with hundreds of items and images. Users were experiencing frame drops and occasional freezes, especially on mid-range devices. After profiling the app with Flipper and React DevTools, I discovered that the problem was caused by three main factors: first, the FlatList was rendering too many items at once without proper optimization; second, heavy image loading was happening synchronously on the JS thread; and third, some components were re-rendering unnecessarily due to passing non-memoized functions and objects as props. To fix it, I implemented several optimizations: I switched the listing to use FlatList with initialNumToRender, windowSize, removeClippedSubviews, and getItemLayout for efficient virtualization, which reduced the number of items rendered off-screen. I also used react-native-fast-image to asynchronously load images with caching, offloading decoding from the JS thread. Then, I wrapped expensive components in React.memo and memoized callback functions with useCallback to prevent unnecessary re-renders. Finally, I offloaded some heavy calculations to InteractionManager so that they would run after animations completed, preventing UI blocking. After these changes, the screen became smooth, animations and scrolling were consistent at 60 FPS, and app responsiveness improved significantly across all devices. Monitoring via Flipper showed that the JS thread was no longer blocked, and CPU usage dropped during list rendering. This experience reinforced the importance of profiling, understanding the JS and native thread interaction, optimizing FlatLists, memoizing components, and offloading heavy work in React Native production apps to solve real-world performance issues.",
+          "Behavioral + Real Experience (Very Important) Describe a production performance issue you fixed. One production performance issue I faced in a React Native app was related to UI jank and slow screen transitions when loading a property listing screen with hundreds of items and images. Users were experiencing frame drops and occasional freezes, especially on mid-range devices. After profiling the app with Flipper and React DevTools, I discovered that the problem was caused by three main factors: first, the FlatList was rendering too many items at once without proper optimization; second, heavy image loading was happening synchronously on the JS thread; and third, some components were re-rendering unnecessarily due to passing non-memoized functions and objects as props. To fix it, I implemented several optimizations: I switched the listing to use FlatList with initialNumToRender, windowSize, removeClippedSubviews, and getItemLayout for efficient virtualization, which reduced the number of items rendered off-screen. I also used react-native-fast-image to asynchronously load images with caching, offloading decoding from the JS thread. Then, I wrapped expensive components in React.memo and memoized callback functions with useCallback to prevent unnecessary re-renders. Finally, I offloaded some heavy calculations to InteractionManager so that they would run after animations completed, preventing UI blocking. After these changes, the screen became smooth, animations and scrolling were consistent at 60 FPS, and app responsiveness improved significantly across all devices. Monitoring via Flipper showed that the JS thread was no longer blocked, and CPU usage dropped during list rendering. This experience reinforced the importance of profiling, understanding the JS and native thread interaction, optimizing FlatLists, memoizing components, and offloading heavy work in React Native production apps to solve real-world performance issues.",
       },
     ],
     topic: "App development",
@@ -6238,118 +13430,2266 @@ Investigate component-related issues.`,
     question: "How do you mentor junior developers?",
     answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        type: "paragraph",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "I mentor junior developers by focusing on knowledge sharing, practical guidance, code quality, problem-solving skills, and gradually increasing their ownership of tasks. My goal is not just to help them complete assigned tasks but to make them independent developers who can understand requirements, design solutions, debug issues, and deliver features confidently.",
       },
-    ],
-    topic: "App development",
-  },
-  {
-    id: "how-do-you-handle-pr-reviews",
-    question: "How do you handle PR reviews?",
-    answer: [
+      {
+        type: "heading",
+        content: "1. Understand their skill level",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Before mentoring, I understand each developer's strengths, weaknesses, experience, and familiarity with the project. Based on that, I create a learning path and assign tasks according to their current capabilities.",
+      },
+      {
+        type: "list",
+        content: [
+          "Evaluate knowledge of JavaScript, TypeScript, React, and React Native.",
+          "Understand their knowledge of components, hooks, state management, and navigation.",
+          "Check their understanding of REST APIs, asynchronous operations, and debugging.",
+          "Identify gaps in architecture, performance optimization, and testing.",
+          "Set achievable short-term learning goals.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "2. Follow a structured onboarding process",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I introduce junior developers to the project architecture, coding standards, development environment, Git workflow, API integration, and release process before assigning complex development tasks.",
+      },
+      {
+        type: "ordered-list",
+        items: [
+          {
+            heading: "Project understanding",
+            content:
+              "Explain the application flow, business requirements, features, and overall architecture.",
+          },
+          {
+            heading: "Development environment",
+            content:
+              "Help them configure React Native, Android Studio, Xcode where applicable, dependencies, and environment variables.",
+          },
+          {
+            heading: "Codebase walkthrough",
+            content:
+              "Explain folder structure, reusable components, navigation, state management, API services, and native integrations.",
+          },
+          {
+            heading: "Coding standards",
+            content:
+              "Explain naming conventions, TypeScript practices, error handling, Git branching, and pull request guidelines.",
+          },
+          {
+            heading: "First development task",
+            content:
+              "Assign a small feature or bug fix so they can understand the complete development workflow.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        content: "3. Assign tasks progressively",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I follow a gradual responsibility model. Initially, I assign smaller tasks and then move toward complete feature ownership as their confidence and technical understanding improve.",
+      },
+      {
+        type: "table",
+        content: [
+          ["Level", "Task examples", "Expected outcome"],
+          [
+            "Beginner",
+            "UI changes, reusable components, simple bug fixes",
+            "Understand project structure and coding standards",
+          ],
+          [
+            "Intermediate",
+            "REST API integration, forms, navigation, state management",
+            "Implement features independently",
+          ],
+          [
+            "Advanced",
+            "Complete feature development, unit testing, performance improvements",
+            "Take ownership of features",
+          ],
+          [
+            "Independent",
+            "Architecture decisions, code reviews, technical discussions",
+            "Contribute to technical decisions and support others",
+          ],
+        ],
+      },
+      {
+        type: "heading",
+        content: "4. Use code reviews as a learning opportunity",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I review their pull requests carefully and explain why a particular implementation should be improved instead of simply asking them to change the code. I focus on maintainability, readability, performance, reusability, and best practices.",
+      },
+      {
+        type: "list",
+        content: [
+          "Check code readability and naming conventions.",
+          "Identify duplicated logic and opportunities for reusable components.",
+          "Review TypeScript types and avoid unnecessary use of any.",
+          "Check API error handling and loading states.",
+          "Identify unnecessary React re-renders and performance issues.",
+          "Verify edge cases and test coverage.",
+          "Explain alternative approaches and their trade-offs.",
+        ],
+      },
+      {
+        type: "code",
+        language: "typescript",
+        content:
+          "// Instead of accepting an untyped API response\nconst getUser = async (id: string): Promise<any> => {\n  const response = await api.get(`/users/${id}`);\n  return response.data;\n};\n\n// Prefer defining a clear response type\ntype User = {\n  id: string;\n  name: string;\n  email: string;\n};\n\nconst getUser = async (id: string): Promise<User> => {\n  const response = await api.get<User>(`/users/${id}`);\n  return response.data;\n};",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, if a junior developer uses any for API responses, I explain how TypeScript interfaces or types improve compile-time safety, code completion, and maintainability.",
+      },
+      {
+        type: "heading",
+        content:
+          "5. Encourage problem-solving instead of giving direct answers",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When a junior developer faces an issue, I first ask them to explain what they have tried, what they expected, and what actually happened. Instead of immediately providing the solution, I guide them through debugging and help them identify the root cause.",
+      },
+      {
+        type: "ordered-list",
+        items: [
+          {
+            heading: "Understand the problem",
+            content:
+              "Ask them to explain the requirement, expected behavior, and actual behavior.",
+          },
+          {
+            heading: "Investigate the issue",
+            content:
+              "Guide them to check logs, network requests, component state, and error messages.",
+          },
+          {
+            heading: "Identify the root cause",
+            content:
+              "Help them isolate whether the issue is related to UI rendering, API responses, state management, or native functionality.",
+          },
+          {
+            heading: "Evaluate solutions",
+            content:
+              "Discuss possible approaches, their advantages, disadvantages, and impact on existing features.",
+          },
+          {
+            heading: "Review the implementation",
+            content:
+              "Ask them to implement the fix, test edge cases, and explain why their solution works.",
+          },
+        ],
+      },
+      {
+        type: "heading",
+        content: "6. Conduct regular knowledge-sharing sessions",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I organize short technical discussions to share project knowledge, explain difficult concepts, and discuss common development challenges. I prefer practical examples from our actual codebase rather than only theoretical explanations.",
+      },
+      {
+        type: "list",
+        content: [
+          "React Native architecture and component lifecycle.",
+          "JavaScript event loop, promises, async/await, and closures.",
+          "React hooks, state management, and rendering optimization.",
+          "REST API integration and error handling.",
+          "Android native modules and platform-specific functionality.",
+          "Unit testing, debugging, and Git workflows.",
+          "Build automation and application release processes.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "7. Encourage ownership and accountability",
+      },
+      {
+        type: "paragraph",
+        content:
+          "As developers improve, I encourage them to take ownership of complete features rather than only implementing individual UI components. They should understand the requirement, estimate development effort, implement the feature, test it, and communicate progress.",
+      },
+      {
+        type: "list",
+        content: [
+          "Encourage developers to participate in requirement discussions.",
+          "Ask them to provide realistic development estimates.",
+          "Let them take responsibility for assigned features.",
+          "Encourage them to identify risks and communicate blockers early.",
+          "Involve them in testing and production issue investigation.",
+          "Recognize improvements and provide constructive feedback.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "8. Track progress and provide feedback",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I conduct regular one-to-one discussions to understand their progress, challenges, and learning goals. I provide specific feedback on technical skills, communication, problem-solving, and task ownership.",
+      },
+      {
+        type: "table",
+        content: [
+          ["Area", "What I evaluate"],
+          [
+            "Technical skills",
+            "React Native, JavaScript, TypeScript, APIs, and architecture",
+          ],
+          [
+            "Code quality",
+            "Readability, reusability, maintainability, and testing",
+          ],
+          ["Problem-solving", "Debugging approach and root-cause analysis"],
+          ["Delivery", "Estimation, task completion, and ownership"],
+          [
+            "Communication",
+            "Progress updates, collaboration, and blocker reporting",
+          ],
+        ],
+      },
+      {
+        type: "heading",
+        content: "9. Real-world example from React Native development",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Suppose a junior developer is assigned a user profile feature. Initially, I explain the requirement and expected UI behavior. Then I guide them through creating reusable input components, integrating the profile API, managing form state, handling validation, and writing tests. During code review, I explain improvements in TypeScript types, error handling, and component reusability. Once they complete the feature successfully, I assign a more complex feature involving navigation, state management, and API integration.",
+      },
+      {
+        type: "diagram",
+        title: "Junior developer mentoring workflow",
+        nodes: [
+          {
+            label: "Assess Skills",
+            detail: "Understand technical strengths and knowledge gaps.",
+          },
+          {
+            label: "Explain Architecture",
+            detail: "Introduce project structure and coding standards.",
+          },
+          {
+            label: "Assign Tasks",
+            detail: "Start with small tasks and gradually increase complexity.",
+          },
+          {
+            label: "Review Code",
+            detail: "Provide technical feedback and explain improvements.",
+          },
+          {
+            label: "Track Progress",
+            detail: "Conduct discussions and evaluate development.",
+          },
+          {
+            label: "Build Ownership",
+            detail:
+              "Enable independent feature development and decision-making.",
+          },
+        ],
+        note: "Mentoring is a continuous process. I repeat this cycle with progressively more challenging responsibilities.",
+      },
+      {
+        type: "heading",
+        content: "10. Common mistakes to avoid while mentoring",
+      },
+      {
+        type: "list",
+        content: [
+          "Do not micromanage every implementation detail.",
+          "Do not provide solutions without explaining the reasoning.",
+          "Do not assign tasks that are significantly beyond their current skill level without support.",
+          "Do not discourage developers for making mistakes; use mistakes as learning opportunities.",
+          "Do not focus only on coding speed; prioritize code quality and understanding.",
+          "Do not delay feedback until performance reviews.",
+          "Do not create dependency on one senior developer for every technical decision.",
+        ],
+      },
+      {
+        type: "heading",
+        content: "11. Interview Answer",
+      },
       {
         type: "callout",
-        tone: "info",
-        title: "Answer content needed",
+        title: "How I mentor junior developers",
         content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+          "I mentor junior developers by first understanding their technical strengths and knowledge gaps. I help them understand the project architecture, coding standards, development workflow, and business requirements. Initially, I assign smaller tasks and gradually increase their responsibilities as they become more confident. I regularly review their pull requests and explain improvements related to code quality, performance, reusability, and TypeScript best practices. When they face technical challenges, I guide them through debugging and root-cause analysis instead of directly giving them solutions. I also conduct knowledge-sharing sessions and regular one-to-one discussions. My ultimate goal is to make them independent developers who can take ownership of features and contribute confidently to the team.",
       },
     ],
-    topic: "Core concepts",
-  },
-  {
-    id: "how-do-you-make-technical-decisions",
-    question: "How do you make technical decisions?",
-    answer: [
+    references: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
-        content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+        label: "Google Engineering Practices - Code Review",
+        href: "https://google.github.io/eng-practices/review/",
       },
-    ],
-    topic: "App development",
-  },
-  {
-    id: "describe-a-feature-you-implemented-end-to-end",
-    question: "Describe a feature you implemented end-to-end.",
-    answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
-        content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+        label: "Atlassian - Code Review Best Practices",
+        href: "https://www.atlassian.com/agile/software-development/code-reviews",
       },
-    ],
-    topic: "App development",
-  },
-  {
-    id: "how-do-you-handle-disagreements-with-product-design",
-    question: "How do you handle disagreements with product/design?",
-    answer: [
       {
-        type: "callout",
-        tone: "info",
-        title: "Answer content needed",
-        content:
-          "This prompt is in the supplied notes, but no answer text followed it. Add the answer here when ready.",
+        label: "GitHub - About Pull Requests",
+        href: "https://docs.github.com/en/pull-requests",
       },
     ],
-    topic: "App development",
+    topic: "Team Management & Leadership",
   },
   {
-    id: "how-do-you-balance-speed-vs-quality",
-    question: "How do you balance speed vs quality?",
+    id: "how-would-you-architect-a-react-native-application-that-needs-to-scale-f",
+    question:
+      "How would you architect a React Native application that needs to scale from 10 features to 100+ features?",
+    topic: "Architecture",
     answer: [
       {
         type: "paragraph",
-        content: "\ud83c\udfaf Ultra-short interview answers (practice)",
+        content:
+          "I would scale the React Native application using feature-based modular architecture rather than organizing everything by file type. 1. Feature-based structure src/ ├── features/ │   ├── auth/ │   ├── payments/ │   ├── orders/ │   └── profile/ ├── core/ │   ├── api/ │   ├── navigation/ │   ├── storage/ │   ├── analytics/ │   └── security/ ├── components/ ├── design-system/ ├── hooks/ ├── utils/ └── config/ 2. Define clear boundaries Each feature owns its screens, hooks, API logic, state and tests. Shared functionality goes into core or design-system. Avoid direct dependencies between unrelated features. 3. State management Local UI state → useState/useReducer Feature state → Zustand/Redux Server state → TanStack Query Persist only data that actually needs persistence. 4. API layer Create a centralized API client with: Authentication/interceptors Error handling Request cancellation Retry policies Response normalization 5. Design system Build reusable: Buttons Inputs Modals Typography Colors Spacing Accessibility primitives This prevents 100+ features from creating inconsistent UI. 6. Navigation Use modular navigation with feature-level navigators instead of maintaining one huge navigation file. 7. Performance Plan for: Lazy loading FlatList optimization Memoization where justified Image caching Avoiding unnecessary global state updates Profiling JS/UI thread performance 8. Testing Each feature should have: Unit tests Component tests Integration tests Critical E2E flows 9. CI/CD and quality gates Automate: lint → type-check → tests → build → security checks → deployment 10. Scalability principle The key is to make features independently developable, testable, and removable without affecting the rest of the application. For 100+ features, I would also consider monorepo/package-level modularization if the team and codebase become large enough.",
+      },
+      {
+        type: "diagram",
+        title: "Scalable feature architecture",
+        nodes: [
+          {
+            label: "App shell",
+            detail: "Navigation, startup, environment config",
+          },
+          {
+            label: "Feature modules",
+            detail: "Each owns UI, state, API calls, and domain rules",
+          },
+          {
+            label: "Shared contracts",
+            detail: "Design system, platform adapters, common services",
+          },
+          {
+            label: "Data layer",
+            detail: "API clients, local repository, cache and sync",
+          },
+          {
+            label: "Delivery pipeline",
+            detail: "Checks, builds, release controls and telemetry",
+          },
+        ],
+        note: "Keep feature dependencies flowing through small public interfaces.",
       },
     ],
-    topic: "App development",
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
   },
   {
-    id: "biggest-rn-bottleneck",
-    question: "Biggest RN bottleneck?",
+    id: "how-do-you-decide-when-a-react-native-application-needs-modularization",
+    question:
+      "How do you decide when a React Native application needs modularization?",
+    topic: "Architecture",
     answer: [
       {
         type: "paragraph",
-        content: "\u2192 JS thread blocking",
+        content:
+          "I look for complexity and team scalability, not just project size. I would modularize when: Features become tightly coupled and changes in one feature affect others. The codebase develops large shared files/components that are difficult to maintain. Multiple developers/teams frequently create merge conflicts. Feature ownership becomes unclear. Build/test times start increasing significantly. Business domains can be clearly separated, such as auth, payments, orders, profile. Features need to be developed, tested, or released independently. Reusable functionality is duplicated across multiple features. Interview line: “I don't modularize based on the number of screens. I modularize when the codebase has clear domain boundaries, ownership problems, coupling, or team-scaling issues. The goal is to create independent, maintainable modules without introducing unnecessary complexity.”",
       },
     ],
-    topic: "App development",
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
   },
   {
-    id: "best-optimization-tool",
-    question: "Best optimization tool?",
+    id: "how-would-you-structure-a-large-react-native-codebase-used-by-multiple-d",
+    question:
+      "How would you structure a large React Native codebase used by multiple development teams?",
+    topic: "Architecture",
     answer: [
       {
         type: "paragraph",
-        content: "\u2192 Profiling before optimizing",
+        content:
+          "I would use a domain/feature-based architecture with clear ownership boundaries. src/ ├── features/ │   ├── auth/ │   ├── payments/ │   ├── orders/ │   └── profile/ │ ├── shared/ │   ├── components/ │   ├── hooks/ │   ├── utils/ │   └── types/ │ ├── core/ │   ├── api/ │   ├── navigation/ │   ├── storage/ │   ├── analytics/ │   └── security/ │ └── design-system/ Each team owns specific features/domains. Features should have minimal dependency on each other. core contains infrastructure; shared contains genuinely reusable code. Establish dependency rules so one feature cannot directly access another feature's internals. Use TypeScript with strict typing and shared contracts. For a very large organization, move independent domains into workspace packages/monorepo modules. Enforce standards through ESLint, TypeScript, tests, CI/CD and code ownership. Interview line: “My primary goal is to make team boundaries match code boundaries, so teams can develop and test their features independently without creating coupling or merge conflicts.”",
       },
     ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-design-communication-between-independent-feature-modules",
+    question:
+      "How would you design communication between independent feature modules?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use well-defined interfaces/contracts rather than direct internal imports. Shared services/interfaces for common operations. Navigation for user-flow communication. Event bus only for loosely coupled cross-cutting events. Shared state only when truly necessary. Prevent direct access to another feature's internals. Rule: Feature A should depend on Feature B's public contract, not its implementation.",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-handle-shared-utilities-components-hooks-and-services-acro",
+    question:
+      "How would you handle shared utilities, components, hooks, and services across multiple modules?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Create a shared layer for genuinely reusable code. shared/ ├── components/ ├── hooks/ ├── utils/ ├── services/ └── types/ components → reusable UI hooks → reusable behavior utils → pure utilities services → common infrastructure Avoid putting feature-specific logic into shared. If something is shared by only one feature, keep it inside that feature.",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-design-a-react-native-app-where-android-and-ios-have-signi",
+    question:
+      "How would you design a React Native app where Android and iOS have significantly different business requirements?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Keep common business logic shared, while isolating platform-specific behavior. features/payment/ ├── Payment.ts ├── Payment.android.ts └── Payment.ios.ts Use: Platform-specific files Platform.select Native modules when required Shared domain models and interfaces Don't force identical implementations when the platform requirements are genuinely different.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-migrate-a-large-existing-react-native-application-without-",
+    question:
+      "How would you migrate a large existing React Native application without stopping feature development?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use incremental migration, not a big-bang rewrite. Identify boundaries and technical debt. Introduce the target architecture alongside the existing one. Migrate one feature at a time. Keep old and new modules interoperable. Add tests around migrated areas. Remove legacy code after migration. Use feature flags for risky changes. Strangler pattern: gradually replace the old architecture while development continues.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-identify-architectural-bottlenecks-in-a-react-native-appli",
+    question:
+      "How would you identify architectural bottlenecks in a React Native application?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "I would measure before changing architecture. Check: JS/UI thread performance Rendering and re-render frequency Startup time Memory usage Network/API latency Navigation performance Bundle size Native bridge/JS communication Build time Crash and ANR rates Use profiling, production monitoring and performance traces to identify the actual bottleneck.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "when-would-you-choose-native-modules-over-implementing-functionality-ent",
+    question:
+      "When would you choose native modules over implementing functionality entirely in JavaScript?",
+    topic: "Native & tooling",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "When functionality requires: Platform APIs unavailable in RN High-performance native processing Background execution Bluetooth/NFC/call handling Deep OS integration Existing native SDKs Real-time processing Use JavaScript for business logic and UI when possible; use native code when platform capabilities or performance require it.",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-design-a-react-native-application-that-needs-extensive-nat",
+    question:
+      "How would you design a React Native application that needs extensive native Android and iOS integrations?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Create a native integration layer behind stable TypeScript interfaces. React Native ↓ TypeScript Interface ↓ Native Module ↙     ↘ Android   iOS Kotlin    Swift Keep: Native code responsible for OS integration. JS responsible for UI/business orchestration. Platform differences hidden behind common interfaces.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-decide-whether-a-feature-should-be-implemented-in-react-na",
+    question:
+      "How would you decide whether a feature should be implemented in React Native, Kotlin/Java, or Swift/Objective-C?",
+    topic: "Native & tooling",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "I evaluate: Does RN provide the required API? Is performance critical? Does it require OS-level/background functionality? Is there an existing native SDK? Is the functionality platform-specific? RN: UI and shared business logic Kotlin/Swift: OS-specific or performance-critical functionality Java/Objective-C: mainly when integrating existing legacy native libraries/code.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-handle-platform-specific-code-without-duplicating-the-enti",
+    question:
+      "How would you handle platform-specific code without duplicating the entire feature?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Share the feature's domain logic and UI structure, and isolate only the platform-specific implementation. Feature ├── business logic ├── shared UI └── platform adapter ├── Android └── iOS Use .android.ts, .ios.ts, Platform, or native modules.",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-design-an-architecture-that-allows-react-native-and-native",
+    question:
+      "How would you design an architecture that allows React Native and native screens to coexist?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use native navigation as the application-level shell and embed RN screens/modules where appropriate. Native App ├── Native Screen ├── React Native Screen ├── Native Screen └── React Native Screen Define clear navigation and lifecycle contracts between native and RN. This is particularly useful for incremental migration or applications with heavy native functionality.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-approach-migrating-a-legacy-react-native-application-to-th",
+    question:
+      "How would you approach migrating a legacy React Native application to the New Architecture?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "I would migrate incrementally: Audit third-party dependencies and native modules. Upgrade React Native and dependencies. Identify incompatible libraries. Replace deprecated/native integrations. Enable New Architecture in development. Test Fabric/TurboModules/JSI integrations. Monitor performance and crashes. Roll out gradually. I would avoid enabling it blindly across a large production application without dependency and native-module validation.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "what-architectural-problems-become-more-visible-as-a-react-native-applic",
+    question:
+      "What architectural problems become more visible as a React Native application grows?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Common problems: Tight coupling Large global state Circular dependencies Duplicate business logic God components Poor feature boundaries Excessive re-renders Slow builds Difficult testing Inconsistent UI Native/JS boundary problems Increasing dependency complexity",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-design-a-react-native-application-for-millions-of-users",
+    question:
+      "How would you design a React Native application for millions of users?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Focus on reliability, performance and scalability across the entire system. CDN and optimized assets API scalability and caching Pagination/lazy loading Efficient local caching Crash/ANR monitoring Offline handling Feature flags CI/CD with staged rollout Remote configuration Performance monitoring Secure storage and API communication Mobile clients should remain lightweight while scalability is primarily handled through resilient backend infrastructure and efficient client-server communication.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-design-react-native-applications-for-multiple-white-label-",
+    question:
+      "How would you design React Native applications for multiple white-label clients?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Separate core functionality from client configuration and branding. Core ├── Features ├── Business Logic └── Design System",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Client A → Theme + Config + Assets Client B → Theme + Config + Assets Client C → Theme + Config + Assets Use: Environment/client configuration Theme tokens Asset configuration Feature flags Client-specific adapters where required For larger scale, use monorepo/workspace packages and separate app targets.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-handle-multiple-app-environments-such-as-development-stagi",
+    question:
+      "How would you handle multiple app environments such as development, staging, UAT, and production?",
+    topic: "Build & release",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use environment-specific configuration, not hardcoded values. .env.development .env.staging .env.uat .env.production Separate: API endpoints Firebase projects Bundle/application IDs where required Feature flags Signing configurations Analytics configuration Use CI/CD to select the environment and inject configuration during builds. Production secrets should never be committed to the repository.",
+      },
+      {
+        type: "ordered-list",
+        items: [
+          {
+            heading: "React Native New Architecture",
+            content: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "what-are-the-major-differences-between-the-old-and-new-architecture-of-r",
+    question:
+      "What are the major differences between the old and New Architecture of React Native?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Old Architecture New Architecture Bridge-based communication JSI-based interop Batched/serialized communication More direct native/JS interaction Legacy Native Modules TurboModules Legacy renderer Fabric Runtime-dynamic interfaces Codegen-generated interfaces More bridge overhead Reduced communication overhead",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Key point: The New Architecture is designed to reduce JS-native communication overhead and provide better extensibility and performance.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-do-fabric-turbomodules-jsi-and-codegen-work-together",
+    question: "How do Fabric, TurboModules, JSI, and Codegen work together?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "TypeScript Spec ↓ Codegen ↓ Native Interfaces ↓ TurboModules ──────→ Native APIs │ ↓ JSI ↑ │ Fabric ← React rendering JSI → low-level JS ↔ native interoperability. TurboModules → modern native module system using JSI. Fabric → modern rendering system. Codegen → generates type-safe native interfaces from JS/TS specifications.",
+      },
+      {
+        type: "diagram",
+        title: "How the New Architecture pieces fit",
+        nodes: [
+          {
+            label: "Typed specs",
+            detail: "Codegen creates native interfaces",
+          },
+          {
+            label: "JSI",
+            detail: "JavaScript/native interoperability",
+          },
+          {
+            label: "TurboModules",
+            detail: "Lazy, typed native modules",
+          },
+          {
+            label: "Fabric",
+            detail: "Concurrent renderer and native host views",
+          },
+        ],
+        note: "The pieces solve different parts of the integration; enabling the architecture does not make every workload faster automatically.",
+      },
+    ],
+  },
+  {
+    id: "what-problem-does-jsi-solve-in-react-native",
+    question: "What problem does JSI solve in React Native?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "JSI provides a direct C++ interface between JavaScript and native/C++ code, avoiding the traditional serialized Bridge communication model. This enables: Lower communication overhead Synchronous calls when appropriate Direct access to native/C++ objects Better support for high-performance libraries",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-are-turbomodules-different-from-the-legacy-native-module-system",
+    question:
+      "How are TurboModules different from the legacy Native Module system?",
+    topic: "Native & tooling",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Legacy: Uses the Bridge. Module initialization can be eager. Data is serialized between JS and native. TurboModules: Use JSI. Support lazy module loading. Use Codegen-generated interfaces. Reduce communication overhead. Provide stronger type contracts.",
+      },
+    ],
+  },
+  {
+    id: "what-problem-does-fabric-solve",
+    question: "What problem does Fabric solve?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Fabric is React Native's new rendering architecture. It improves: Rendering consistency JS/native interoperability Concurrent React support Component interoperability Rendering performance It replaces the legacy UIManager/renderer approach.",
+      },
+    ],
+  },
+  {
+    id: "how-does-the-new-architecture-affect-application-performance",
+    question: "How does the New Architecture affect application performance?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Potential improvements include: Reduced JS-native communication overhead Faster native module access Lazy TurboModule initialization More efficient rendering with Fabric Better handling of concurrent rendering But: New Architecture does not automatically make every application faster. Poor React rendering, excessive state updates, large lists, network latency, or inefficient business logic can still be bottlenecks.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "what-migration-problems-have-you-encountered-when-moving-a-project-to-th",
+    question:
+      "What migration problems have you encountered when moving a project to the New Architecture?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Typical issues include: Third-party libraries using legacy Native Modules. Custom native modules requiring migration. Fabric incompatibilities. Codegen/specification errors. Android/iOS build failures. Changes in lifecycle or initialization behavior. Native dependencies relying on deprecated APIs. I would migrate dependencies first, then custom native modules, followed by application-level validation.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-identify-whether-a-third-party-library-is-compatible-with-",
+    question:
+      "How would you identify whether a third-party library is compatible with the New Architecture?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "I would check: Library documentation. Current release/changelog. Whether it explicitly supports Fabric/TurboModules. GitHub issues and migration status. Native implementation for legacy Bridge dependencies. Test it in a New Architecture-enabled sample/application. I would not assume compatibility just because the library works with the latest React Native version.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "what-happens-if-a-critical-dependency-is-not-compatible-with-the-new-arc",
+    question:
+      "What happens if a critical dependency is not compatible with the New Architecture?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "I would evaluate: Upgrade to a compatible version. Replace the dependency. Patch/fork and migrate it. Temporarily isolate the dependency if technically possible. Delay migration if it is business-critical and cannot safely be replaced. Never force the migration at the expense of production stability.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-design-a-custom-native-module-using-turbomodules",
+    question: "How would you design a custom native module using TurboModules?",
+    topic: "Native & tooling",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Define a typed JS/TS specification first: TypeScript Spec ↓ Codegen ↓ TurboModule interface ↓ Android implementation ↓ iOS implementation The JS layer interacts only with the generated interface, while Kotlin/Swift implements the platform-specific behavior.",
+      },
+    ],
+  },
+  {
+    id: "what-is-codegen-and-why-is-it-important-in-the-new-architecture",
+    question:
+      "What is Codegen and why is it important in the New Architecture?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Codegen automatically generates native interfaces and boilerplate from typed JS/TS specifications. It provides: Type safety Consistent JS/native contracts Less manual boilerplate Earlier detection of API mismatches Better TurboModule/Fabric integration",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "what-is-the-difference-between-synchronous-and-asynchronous-native-calls",
+    question:
+      "What is the difference between synchronous and asynchronous native calls?",
+    topic: "Native & tooling",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Synchronous: JS → Native → result → JS JS waits for the native result. Asynchronous: JS → Native ↓ later result ↓ Promise/Event/Callback JS continues execution without waiting.",
+      },
+    ],
+  },
+  {
+    id: "what-risks-are-associated-with-using-synchronous-jsi-calls",
+    question: "What risks are associated with using synchronous JSI calls?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Main risk: blocking the JavaScript thread. If the native operation is expensive, it can cause: UI freezes Frame drops Increased input latency ANRs/jank indirectly through JS work Use synchronous calls only for small, fast operations where blocking is predictable.",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-debug-a-crash-that-occurs-only-after-enabling-the-new-arch",
+    question:
+      "How would you debug a crash that occurs only after enabling the New Architecture?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "I would isolate the problem systematically: Confirm the crash disappears when New Architecture is disabled. Check native crash logs and stack traces. Identify recently migrated/third-party native modules. Verify TurboModule/Fabric compatibility. Check Codegen-generated interfaces. Reproduce in a minimal environment. Test Android and iOS independently. Upgrade/patch the problematic dependency. Add a staged rollout after fixing. The key is to determine whether the failure is in Fabric, TurboModules, Codegen, JSI, or a third-party native dependency.",
+      },
+      {
+        type: "diagram",
+        title: "Narrow down a New Architecture crash",
+        nodes: [
+          {
+            label: "Reproduce",
+            detail: "Confirm it is tied to the architecture setting",
+          },
+          {
+            label: "Inspect",
+            detail: "Native stack, Codegen output, and library compatibility",
+          },
+          {
+            label: "Isolate",
+            detail: "Test Fabric, TurboModules, and dependencies",
+          },
+          {
+            label: "Roll out",
+            detail: "Patch, verify, then stage the release",
+          },
+        ],
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-investigate-a-screen-that-takes-3-4-seconds-to-become-inte",
+    question:
+      "How would you investigate a screen that takes 3–4 seconds to become interactive?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Measure startup → JS execution → API → rendering → interaction. Profile JS thread and UI thread. Check slow synchronous initialization and large component trees. Check API latency. Check bundle loading/parsing. Identify expensive effects, calculations and renders. Reproduce in release build, not only debug.",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-identify-whether-a-performance-issue-is-in-javascript-native-",
+    question:
+      "How do you identify whether a performance issue is in JavaScript, native code, rendering, or the network?",
     topic: "Performance",
-  },
-  {
-    id: "the-most-common-mistake",
-    question: "The most common mistake?",
     answer: [
       {
         type: "paragraph",
-        content: "\u2192 Overusing memoization",
+        content:
+          "Use profiling and timing: JS: CPU profile, long JS tasks, excessive renders. Native/UI: Android Studio Profiler / Xcode Instruments. Rendering: dropped frames, UI thread activity, React DevTools/Profiler. Network: request duration, DNS, TLS, server response and payload size.",
+      },
+      {
+        type: "diagram",
+        title: "Isolate the slow layer",
+        nodes: [
+          {
+            label: "Measure",
+            detail: "Capture the user-visible delay",
+          },
+          {
+            label: "JS",
+            detail: "Look for long tasks and excess renders",
+          },
+          {
+            label: "UI/native",
+            detail: "Profile frames, layout, and native work",
+          },
+          {
+            label: "Network",
+            detail: "Measure DNS, TLS, server time, and payload",
+          },
+        ],
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-optimize-a-component-that-renders-thousands-of-times-durin",
+    question:
+      "How would you optimize a component that renders thousands of times during an interaction?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "First identify what triggers each render. Then: Localize state. Split the component. Narrow state subscriptions/selectors. Memoize stable child components. Remove unnecessary context dependencies. Avoid creating unnecessary objects/functions. Virtualize large lists.",
+      },
+    ],
+  },
+  {
+    id: "when-should-you-use-react-memo-usememo-and-usecallback",
+    question: "When should you use React.memo, useMemo, and useCallback?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "React.memo → prevent child re-render when props haven't meaningfully changed. useMemo → cache an expensive calculated value. useCallback → preserve function reference when reference stability matters. Use them based on profiling, not by default.",
+      },
+    ],
+  },
+  {
+    id: "when-can-usememo-or-usecallback-make-performance-worse",
+    question: "When can useMemo or useCallback make performance worse?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "They introduce: Dependency comparison overhead. Memory usage. More complex code. Potentially unnecessary work when computation is already cheap. If the component rarely re-renders or the calculation is trivial, memoization may provide no benefit.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "how-do-flatlist-sectionlist-scrollview-and-virtualizedlist-differ",
+    question:
+      "How do FlatList, SectionList, ScrollView, and VirtualizedList differ?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Component Use ScrollView Small content; renders everything FlatList Large flat lists; virtualized SectionList Large grouped/sectioned lists VirtualizedList Lower-level/custom virtualization",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-handle-10-000-records",
+    question: "How do you handle 10,000+ records?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Don't render/load all records at once. Use: Server-side pagination/infinite scrolling. FlatList virtualization. Database/local storage pagination if offline. Memoized rows. Efficient selectors. Search/filter on the backend where appropriate.",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-optimize-images",
+    question: "How do you optimize images?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use appropriately sized/compressed images. Prefer thumbnails for lists. Lazy-load images. Cache frequently used images. Avoid unnecessarily large resolution. Use modern formats where supported. Prevent repeated image downloads.",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-diagnose-excessive-memory-consumption",
+    question: "How do you diagnose excessive memory consumption?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Reproduce the scenario repeatedly. Monitor memory over time. Capture heap/native memory snapshots. Look for objects continuously increasing. Check images, large arrays, caches and native resources. Compare memory before/after navigation cycles.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "what-causes-memory-leaks",
+    question: "What causes memory leaks?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Common causes: Unremoved event listeners. Timers/intervals. Subscriptions. WebSockets. Long-lived references/closures. Large caches. Native resources not released. Incorrect lifecycle handling.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-identify-and-fix-event-listener-memory-leaks",
+    question: "How do you identify and fix event-listener memory leaks?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Check whether listeners increase after every mount. useEffect(() => { const subscription = emitter.addListener('event', handler);",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "return () => {\n    subscription.remove();\n  };\n}, []);\nEnsure every subscription has a corresponding cleanup.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "what-techniques-reduce-the-javascript-bundle-size",
+    question: "What techniques reduce JavaScript bundle size?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Remove unused dependencies. Prefer smaller libraries. Enable tree shaking where applicable. Split/lazy-load features where supported. Avoid importing entire utility libraries. Compress production assets. Analyze the bundle to find large dependencies.",
+      },
+    ],
+  },
+  {
+    id: "how-does-hermes-affect-react-native-performance",
+    question: "How does Hermes affect React Native performance?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Hermes is a JavaScript engine optimized for React Native. It can improve: Startup time. Memory usage. JavaScript execution efficiency. Production runtime characteristics. The actual benefit depends on the application and device.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-investigate-frame-drops-during-scrolling",
+    question: "How do you investigate frame drops during scrolling?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Check both JS and UI threads. Profile scrolling. Look for expensive renderItem. Check image decoding/loading. Check excessive JS work. Check layout calculations. Check animations. Check list configuration.",
+      },
+    ],
+  },
+  {
+    id: "how-do-the-javascript-and-ui-threads-differ",
+    question: "How do the JavaScript and UI threads differ?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "JS thread: executes React/JavaScript logic, state updates and JS event handling. UI/main thread: handles native UI operations, layout and drawing. A bottleneck on either can cause poor user experience.",
+      },
+      {
+        type: "diagram",
+        title: "A frame depends on timely work",
+        nodes: [
+          {
+            label: "JavaScript",
+            detail: "App logic, React work, and event handlers",
+          },
+          {
+            label: "Renderer",
+            detail: "Schedules and commits view updates",
+          },
+          {
+            label: "UI thread",
+            detail: "Applies native view updates and draws",
+          },
+        ],
+        note: "Thread responsibilities vary by work and architecture; profile the actual bottleneck.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "what-happens-when-js-thread-is-blocked-for-500-ms",
+    question: "What happens when JS thread is blocked for 500 ms?",
+    topic: "Architecture",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "JavaScript work cannot execute during that period. Potential effects: Delayed state updates. Delayed event handling. Unresponsive interactions. JS-driven animations stutter. UI can appear frozen depending on what work depends on JS.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-handle-cpu-intensive-processing",
+    question: "How do you handle CPU-intensive processing?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Move expensive work away from the main JS execution path. Options: Native Kotlin/Swift modules. JSI/C++ for performance-critical workloads. Worker/background processing where appropriate. Server-side processing. Chunk the work into smaller operations.",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-optimize-animations",
+    question: "How do you optimize animations?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Prefer UI-thread/native-driven animation systems. Use Reanimated. Avoid heavy JS work during animation. Avoid unnecessary component re-renders. Animate transform/opacity where possible. Avoid expensive layout changes every frame.",
+      },
+    ],
+  },
+  {
+    id: "why-can-js-driven-animations-cause-problems",
+    question: "Why can JS-driven animations cause problems?",
+    topic: "Animation",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Animations requiring JS execution depend on the JS thread. If JS is busy: Heavy JS work ↓ JS thread blocked ↓ Animation updates delayed ↓ Dropped frames",
+      },
+    ],
+  },
+  {
+    id: "how-do-reanimated-worklets-improve-animation-performance",
+    question: "How do Reanimated worklets improve animation performance?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Worklets allow animation logic to execute outside the normal JS execution path, typically on the UI thread. Therefore animation can continue smoothly even when the JS thread is busy.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "how-would-you-investigate-a-performance-issue-that-appears-only-on-low-e",
+    question:
+      "How would you investigate a performance issue that appears only on low-end Android devices?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Compare: CPU usage Memory pressure JS execution time UI thread frame time Image sizes Network latency Device-specific native behavior Then reproduce on a representative low-end device in release mode and optimize the actual bottleneck.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-monitor-react-native-performance-in-production",
+    question: "How do you monitor React Native performance in production?",
+    topic: "Performance",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Track: Crash-free sessions ANRs App startup time Screen/load time API latency JS errors Memory usage Frame/render performance Network failures Use tools such as Firebase Performance/Crashlytics, Sentry, native profilers and custom performance metrics.",
+      },
+    ],
+    references: [
+      {
+        label: "React Native architecture",
+        href: "https://reactnative.dev/architecture/landing-page",
+      },
+      {
+        label: "React Native performance",
+        href: "https://reactnative.dev/docs/performance",
+      },
+    ],
+  },
+  {
+    id: "what-is-ssl-pinning-in-react-native",
+    question: "What is SSL pinning in React Native?",
+    topic: "Security",
+    answer: [
+      {
+        type: "callout",
+        tone: "caution",
+        title: "Optional hardening, with an availability cost",
+        content:
+          "Pinning tightens normal TLS trust evaluation; it should not replace certificate-chain or hostname validation. Android Developers caution that pinning can lock out installed apps after server or CA changes. Use it only when the threat model justifies it, and plan key rotation and recovery.",
       },
       {
         type: "paragraph",
         content:
-          "However, in the New Architecture, the bridge is going to be replaced with a module called JavaScript Interface, which is a lightweight, general-purpose layer, written in C++ that can be used by the JavaScript engine to directly invoke/call methods in the native realm. Another big advantage of the JSI is that it is written in C++. With the power of C++ React Native can target a large number of Systems like Smart TVs, Watches etc.",
+          "What is SSL Pinning in react native SSL pinning (also called certificate pinning) is a security technique where your app is configured to trust only a specific certificate or public key when talking to your server, instead of trusting any certificate signed by a trusted Certificate Authority (CA). Why it's needed Normally, a device trusts hundreds of CAs. If an attacker installs a rogue CA on the device (or compromises a CA), they can run a man-in-the-middle (MITM) attack using tools like Charles Proxy, Burp Suite, or mitmproxy, and read or modify your app's HTTPS traffic. Pinning blocks this: even if the certificate is \"valid\" by the system's standards, the connection fails if it doesn't match what your app expects. What can be pinned Certificate: the full server certificate. Strongest, but you must update the app whenever the cert is renewed. Public key (SPKI hash): the key inside the certificate. More flexible, since the key can stay the same across renewals. This is the commonly recommended approach. Intermediate/root CA: less strict, easier to maintain. How to implement it in React Native React Native's built-in fetch and XMLHttpRequest don't support pinning, so you need a library or native configuration. 1. react-native-ssl-pinning Replaces fetch with a pinned version. import { fetch } from 'react-native-ssl-pinning';",
+      },
+      {
+        type: "paragraph",
+        content:
+          "fetch('https://api.example.com/data', { method: 'GET', timeoutInterval: 10000, sslPinning: { certs: ['my_cert'], // cert file(s) bundled in the app (e.g., my_cert.cer) }, headers: { Accept: 'application/json' }, }) .then(res => res.json()) .then(data => console.log(data)) .catch(err => console.log('Pinning failed:', err));",
+      },
+      {
+        type: "paragraph",
+        content:
+          "You place the .cer file in android/app/src/main/assets/ and add it to the Xcode project for iOS. 2. react-native-ssl-public-key-pinning Pins by public key hash, so it's more maintainable. import { initializeSslPinning, } from 'react-native-ssl-public-key-pinning';",
+      },
+      {
+        type: "code",
+        language: "JavaScript",
+        content:
+          "await initializeSslPinning({\n  'api.example.com': {\n    includeSubdomains: true,\n    publicKeyHashes: [\n      'sha256/primaryKeyHash=',\n      'sha256/backupKeyHash=', // always include a backup\n    ],\n  },\n});",
+      },
+      {
+        type: "paragraph",
+        content:
+          "After initialization, normal fetch/axios calls to that domain are pinned. 3. Native configuration Android: Use network_security_config.xml with <pin-set>, or OkHttp's CertificatePinner. iOS: Use TrustKit or NSAppTransportSecurity / NSPinnedDomains in Info.plist (iOS 14+). Getting a public key hash openssl s_client -servername api.example.com -connect api.example.com:443 </dev/null 2>/dev/null \\ | openssl x509 -pubkey -noout \\ | openssl pkey -pubin -outform der \\ | openssl dgst -sha256 -binary | openssl enc -base64",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Drawbacks and best practices Certificate expiry can break your app. If the pinned cert changes and users haven't updated the app, requests fail. Always include backup pins. Plan for rotation. Pin the public key, and keep a backup key ready. Don't rely on it alone. Determined attackers can bypass pinning on rooted/jailbroken devices using tools like Frida or objection. Combine it with root detection, obfuscation, and server-side validation. Test with a proxy (Charles/mitmproxy) to confirm requests actually fail when intercepted. Consider remote-configurable pins or a kill switch for emergencies. Summary SSL pinning in React Native makes your app accept only your server's known certificate or public key, protecting against MITM attacks. Since React Native doesn't support it out of the box, you use a library like react-native-ssl-public-key-pinning or configure it natively on Android and iOS, and always plan for certificate rotation. If you tell me whether you're using Expo or bare React Native, and which HTTP client (fetch or axios), I can give you a more specific setup.",
+      },
+      {
+        type: "diagram",
+        title: "Where pinning fits in HTTPS",
+        nodes: [
+          {
+            label: "React Native request",
+            detail: "Use the app networking path",
+          },
+          {
+            label: "Platform TLS checks",
+            detail: "Validate trust chain, hostname, and certificate dates",
+          },
+          {
+            label: "Optional pin check",
+            detail: "Match a controlled public key or certificate",
+          },
+          {
+            label: "API server",
+            detail: "Proceed only when every check passes",
+          },
+        ],
+        note: "Keep a backup pin and verify that the implementation covers the networking clients and WebView paths your app uses.",
       },
     ],
-    topic: "App development",
+    references: [
+      {
+        label: "Android network security configuration",
+        href: "https://developer.android.com/privacy-and-security/security-config",
+      },
+      {
+        label: "Apple server trust authentication",
+        href: "https://developer.apple.com/documentation/Foundation/performing-manual-server-trust-authentication",
+      },
+      {
+        label: "OWASP certificate pinning guidance",
+        href: "https://mas.owasp.org/MASTG-KNOW-0015/",
+      },
+    ],
+  },
+  {
+    id: "why-we-should-not-store-in-async-storage",
+    question: "Why not store sensitive information in AsyncStorage?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "AsyncStorage is intended for persistent non-sensitive data. It should not be treated as a secure vault. Use it for preferences/cache, not: Access tokens Refresh tokens Passwords Encryption keys Financial information",
+      },
+    ],
+  },
+  {
+    id: "how-implement-secure-token-storage-on-android-ios",
+    question: "How do you implement secure token storage on Android and iOS?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "React Native ↓ Secure Storage abstraction ↙           ↘ Android      iOS Keystore     Keychain Keep the storage implementation behind a common TypeScript interface.",
+      },
+    ],
+  },
+  {
+    id: "how-protect-an-application-against-reverse-engineering",
+    question:
+      "How do you protect a React Native app against reverse engineering?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "You cannot completely prevent reverse engineering. Use defense in depth: Minification/obfuscation. Remove debug information. Don't embed secrets. Runtime integrity checks. Root/jailbreak detection where justified. Secure API authentication/authorization. Code signing. Play Integrity/App Attest where applicable.",
+      },
+    ],
+  },
+  {
+    id: "what-sensitive-information-should-never-be-hardcoded",
+    question: "What sensitive information should never be hardcoded?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Never hardcode: Private API secrets. Database credentials. Private encryption keys. Signing credentials. Passwords. Long-lived authentication tokens. Cloud service private keys.",
+      },
+    ],
+  },
+  {
+    id: "how-protect-api-communication-from-mitm-attacks",
+    question: "How do you protect API communication from MITM attacks?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "HTTPS/TLS. Proper certificate validation. Modern TLS configuration. Certificate/public-key pinning where justified. Don't disable hostname/certificate verification. Strong server-side authentication.",
+      },
+    ],
+  },
+  {
+    id: "how-implement-certificate-pinning",
+    question: "How do you implement certificate pinning?",
+    topic: "Security",
+    answer: [
+      {
+        type: "callout",
+        tone: "caution",
+        title: "Keep the pin check in the networking path",
+        content:
+          "React Native fetch and XMLHttpRequest do not expose a JavaScript pin policy. Use native network configuration or a maintained library that enforces pins in the native HTTP stack, and confirm every relevant client and WebView path is covered. Keep standard TLS validation enabled and test certificate rotation before release.",
+      },
+      {
+        type: "callout",
+        tone: "caution",
+        title: "Check the platform guidance first",
+        content:
+          "Android documentation warns that pinning can lock out installed apps after server or CA changes. If your threat model still calls for pinning, keep backup keys and a managed rotation plan. On iOS, preserve App Transport Security and tighten server trust evaluation rather than weakening it.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Implement pinning at the native networking layer or through a trusted library that supports Android/iOS pinning. RN API Client ↓ Native HTTP stack ↓ TLS validation + pinned certificate/public key ↓ Server Validate the expected certificate/public key before trusting the connection.",
+      },
+    ],
+    references: [
+      {
+        label: "Android network security configuration",
+        href: "https://developer.android.com/privacy-and-security/security-config",
+      },
+      {
+        label: "Apple server trust authentication",
+        href: "https://developer.apple.com/documentation/Foundation/performing-manual-server-trust-authentication",
+      },
+      {
+        label: "OWASP certificate pinning guidance",
+        href: "https://mas.owasp.org/MASTG-KNOW-0015/",
+      },
+    ],
+  },
+  {
+    id: "what-are-the-limitations-of-certificate-pinning",
+    question: "What are the limitations of certificate pinning?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Certificate rotation can break the app. Requires careful backup pins. Operational complexity. Complicates debugging. Pinning does not protect a compromised/rooted device completely.",
+      },
+      {
+        type: "callout",
+        tone: "caution",
+        title: "Android operational caveat",
+        content:
+          "Android Developers do not recommend pinning for most apps because server or certificate-authority changes can break connectivity until users install an app update. If pinning is required, use backup keys, an expiration/rotation strategy, and a tested recovery path.",
+      },
+    ],
+    references: [
+      {
+        label: "Android network security configuration",
+        href: "https://developer.android.com/privacy-and-security/security-config",
+      },
+      {
+        label: "Apple server trust authentication",
+        href: "https://developer.apple.com/documentation/Foundation/performing-manual-server-trust-authentication",
+      },
+      {
+        label: "OWASP certificate pinning guidance",
+        href: "https://mas.owasp.org/MASTG-KNOW-0015/",
+      },
+    ],
+  },
+  {
+    id: "how-design-authentication-and-authorization",
+    question: "How do you design authentication and authorization?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Login ↓ Access + Refresh Token ↓ Secure Storage ↓ API requests ↓ Server validates token ↓ Authorization based on user roles/permissions Authentication answers “Who are you?” Authorization answers “What are you allowed to do?” Authorization must ultimately be enforced server-side.",
+      },
+      {
+        type: "diagram",
+        title: "Session and API authorization",
+        nodes: [
+          {
+            label: "Sign in",
+            detail: "Server issues short-lived access and refresh credentials",
+          },
+          {
+            label: "Secure persistence",
+            detail: "Keep refresh credential in Keychain or Keystore",
+          },
+          {
+            label: "API request",
+            detail: "Attach access credential over TLS",
+          },
+          {
+            label: "Server",
+            detail: "Authorize the requested resource",
+          },
+        ],
+        note: "Client-side UI checks improve flow but never replace server authorization.",
+      },
+    ],
+  },
+  {
+    id: "how-handle-token-expiration-during-multiple-api-requests",
+    question:
+      "How do you handle token expiration during multiple API requests?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use a centralized API interceptor: Request → 401 ↓ Refresh token ↓ Retry failed requests Queue requests while refresh is happening instead of independently refreshing for every request.",
+      },
+      {
+        type: "diagram",
+        title: "Single-flight token refresh",
+        nodes: [
+          {
+            label: "Several requests get 401",
+            detail: "Pause and share one refresh operation",
+          },
+          {
+            label: "Refresh once",
+            detail: "Rotate credentials with the server",
+          },
+          {
+            label: "Retry requests",
+            detail: "Resume with the new access token",
+          },
+          {
+            label: "Refresh fails",
+            detail: "Clear session and request sign-in",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "how-prevent-simultaneous-refresh-requests",
+    question: "How do you prevent simultaneous token refresh requests?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use a single-flight refresh mechanism: Request A ─┐ Request B ─┼→ Refresh Lock → One refresh request Request C ─┘                     ↓ Retry queued requests Only the first request performs the refresh; others wait for its result.",
+      },
+      {
+        type: "diagram",
+        title: "Single-flight token refresh",
+        nodes: [
+          {
+            label: "Several requests get 401",
+            detail: "Pause and share one refresh operation",
+          },
+          {
+            label: "Refresh once",
+            detail: "Rotate credentials with the server",
+          },
+          {
+            label: "Retry requests",
+            detail: "Resume with the new access token",
+          },
+          {
+            label: "Refresh fails",
+            detail: "Clear session and request sign-in",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "how-protect-locally-stored-offline-data",
+    question: "How do you protect locally stored offline data?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Encrypt sensitive data at rest. Store encryption keys in Keystore/Keychain. Minimize stored data. Apply data expiration/cleanup. Use database-level encryption where appropriate. Never log sensitive offline data.",
+      },
+    ],
+  },
+  {
+    id: "how-detect-rooted-jailbroken-devices",
+    question: "How do you detect rooted or jailbroken devices?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use platform-specific integrity/root detection mechanisms and security libraries. Look for signals such as: Suspicious filesystem access. Modified system binaries. Debugging/instrumentation indicators. Platform integrity failures. Treat detection as a risk signal, not proof.",
+      },
+    ],
+  },
+  {
+    id: "should-the-app-completely-trust-root-jailbreak-detection",
+    question: "Should the app completely trust root/jailbreak detection?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "No. Detection can be bypassed. Use it as one signal in a broader defense strategy, especially for high-risk operations.",
+      },
+    ],
+  },
+  {
+    id: "how-protect-a-payment-related-application",
+    question: "How do you protect a payment-related application?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use: TLS and appropriate pinning. Secure token storage. Strong server-side authorization. Token rotation. Device/app integrity checks. Minimal local sensitive data. No payment secrets in the app. Secure WebViews/payment SDKs. Transaction verification on the backend. Audit/security monitoring. Never trust the mobile client to authorize a payment.",
+      },
+    ],
+  },
+  {
+    id: "how-prevent-sensitive-information-in-logs",
+    question:
+      "How do you prevent sensitive information from appearing in logs?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Never log tokens/passwords/payment data. Create a centralized logging wrapper. Redact sensitive fields automatically. Disable verbose logs in production. Review third-party SDK logging. Ensure crash-reporting tools don't capture secrets.",
+      },
+    ],
+  },
+  {
+    id: "how-implement-biometric-authentication",
+    question: "How do you implement biometric authentication?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use platform biometric APIs through a trusted RN/native module. RN ↓ Biometric API ↓ Android BiometricPrompt / iOS LocalAuthentication ↓ Success/Failure Prefer biometrics to unlock a locally stored credential rather than treating biometric data itself as application data.",
+      },
+    ],
+  },
+  {
+    id: "how-protect-screenshots-on-sensitive-android-screens",
+    question: "How do you protect screenshots on sensitive Android screens?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use Android's FLAG_SECURE on sensitive activities/windows. This can prevent screenshots and screen recording in supported Android scenarios. iOS requires different platform-specific handling and has different limitations.",
+      },
+    ],
+  },
+  {
+    id: "how-prevent-sensitive-information-through-deep-links",
+    question:
+      "How do you prevent sensitive information from leaking through deep links?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Never put secrets in URLs. Avoid: myapp://reset?token=SECRET Prefer a short-lived identifier/code and exchange it securely with the backend.",
+      },
+    ],
+  },
+  {
+    id: "how-securely-handle-deep-links",
+    question: "How do you handle deep links securely?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Validate: Scheme/domain. Path. Parameters. Authentication state. Authorization. For sensitive links, prefer Universal Links/App Links + HTTPS and validate everything server-side.",
+      },
+    ],
+  },
+  {
+    id: "how-secure-webview-communication",
+    question: "How do you secure WebView communication?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Load only trusted origins. Validate URLs/navigation. Minimize JavaScript injection. Restrict postMessage communication. Validate message origin/content. Don't expose unnecessary native methods. Never pass secrets unnecessarily.",
+      },
+    ],
+  },
+  {
+    id: "how-identify-vulnerabilities-in-third-party-dependencies",
+    question:
+      "How do you identify vulnerabilities in third-party dependencies?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Use: npm audit GitHub Dependabot/security alerts SCA/dependency scanners Lockfiles Package changelogs/security advisories Regular dependency updates Also review native Android/iOS dependencies, not just npm packages.",
+      },
+    ],
+  },
+  {
+    id: "what-would-you-do-if-a-vulnerability-were-discovered-in-production",
+    question:
+      "What would you do if a vulnerability were discovered in production?",
+    topic: "Security",
+    answer: [
+      {
+        type: "paragraph",
+        content:
+          "Assess severity and exploitability. Identify affected versions. Check whether the vulnerability is actually reachable in the app. Upgrade/patch immediately if possible. Replace or temporarily isolate the dependency if necessary. Release through an expedited/staged deployment. Revoke/rotate exposed credentials if applicable. Monitor for exploitation. Document the incident and remediation.",
+      },
+    ],
+  },
+  {
+    id: "how-do-you-choose-a-local-database-for-react-native-offline-data",
+    question:
+      "How do you choose a local database for offline React Native data?",
+    topic: "State & data",
+    answer: [
+      paragraph(
+        "Choose storage from the data model and access patterns. For structured, relational, frequently updated, or large datasets, compare database options such as SQLite-based storage and Realm against the app's requirements. A key-value store is better suited to small preferences or simple caches than complex relational queries.",
+      ),
+      namedPoints([
+        [
+          "Query patterns",
+          "List the filters, sorts, joins, and pagination the app needs, then compare query performance.",
+        ],
+        [
+          "Consistency",
+          "Check transaction support and how multi-record changes remain atomic.",
+        ],
+        [
+          "Security",
+          "Review encryption at rest, key handling, backups, and data deletion behavior.",
+        ],
+        [
+          "Offline sync",
+          "Check how the chosen storage fits the app's conflict and synchronization model.",
+        ],
+        [
+          "Operations",
+          "Consider React Native integration, maintenance, migration tooling, and the team's experience.",
+        ],
+      ]),
+      paragraph(
+        "Keep the database behind a repository interface so screens and features do not depend on a specific storage library.",
+      ),
+    ],
+  },
+  {
+    id: "how-do-you-design-offline-sync-and-conflict-resolution",
+    question:
+      "How do you design offline synchronization and conflict resolution?",
+    topic: "State & data",
+    answer: [
+      diagram("A synchronization cycle", [
+        {
+          label: "Local edits",
+          detail: "Save record IDs, versions, and pending status",
+        },
+        {
+          label: "Push",
+          detail: "Send queued operations with stable operation IDs",
+        },
+        {
+          label: "Pull",
+          detail: "Fetch server changes since the last sync cursor",
+        },
+        { label: "Resolve", detail: "Apply explicit conflict rules" },
+        {
+          label: "Update local DB",
+          detail: "Commit server state and sync status",
+        },
+      ]),
+      namedPoints([
+        [
+          "Last-write-wins",
+          "Simple, but timestamps can overwrite a meaningful concurrent change.",
+        ],
+        [
+          "Server-wins or client-wins",
+          "Useful only when one side has a clearly defined priority.",
+        ],
+        [
+          "Field-level merge",
+          "Combine independent changes when the domain permits it.",
+        ],
+        [
+          "Domain-specific resolution",
+          "Best for important records where business rules determine how competing edits should be reconciled.",
+        ],
+      ]),
+      paragraph(
+        "Use versions, updated timestamps, or ETags to detect stale writes. Do not rely only on device clocks for ordering changes.",
+      ),
+    ],
+  },
+  {
+    id: "how-do-you-build-a-durable-offline-operation-queue",
+    question: "How do you build a durable offline operation queue?",
+    topic: "State & data",
+    answer: [
+      code(
+        "TypeScript",
+        "type PendingOperation = {\n  id: string; // stable client operation ID\n  type: string;\n  payload: unknown;\n  status: 'pending' | 'in-progress' | 'failed';\n  retryCount: number;\n  createdAt: number;\n};",
+      ),
+      namedPoints([
+        [
+          "Persist before sending",
+          "Write the operation and its ID to the local database before attempting delivery.",
+        ],
+        [
+          "Make retries safe",
+          "Send an idempotency key and have the server return the same result for a repeated operation ID.",
+        ],
+        [
+          "Retry selectively",
+          "Use exponential backoff with jitter and a maximum retry count; retry transient failures, respect Retry-After, and do not retry permanent client errors blindly.",
+        ],
+        [
+          "Recover after restart",
+          "On startup, inspect pending and in-progress records and reconcile them with server state or idempotency results.",
+        ],
+        [
+          "Track each operation",
+          "A failed operation should not erase successful neighboring operations; retry only the failed work.",
+        ],
+      ]),
+      diagram("Safe retry path", [
+        { label: "Save operation ID", detail: "Persist the outbox entry" },
+        { label: "Send request", detail: "Include the same idempotency key" },
+        {
+          label: "Server deduplicates",
+          detail: "Return the stored result on a repeat",
+        },
+        { label: "Mark complete", detail: "Remove or archive the operation" },
+      ]),
+    ],
+  },
+  {
+    id: "how-do-you-present-cached-data-and-detect-connectivity-offline",
+    question:
+      "How do you present cached data and detect connectivity in an offline-first app?",
+    topic: "State & data",
+    answer: [
+      diagram(
+        "Stale-while-revalidate",
+        [
+          { label: "Read local cache", detail: "Render immediately" },
+          {
+            label: "Refresh from API",
+            detail: "Run without blocking the current screen",
+          },
+          {
+            label: "Update local DB",
+            detail: "Notify subscribers of fresh data",
+          },
+        ],
+        "Show a small refresh or stale-data indicator instead of blanking the screen while refreshing.",
+      ),
+      paragraph(
+        "Use a connectivity monitor for connection type and reachability changes, but do not treat a connected network interface as proof that the backend can be reached. DNS, captive portals, TLS errors, or server outages can still prevent a request. For critical actions, confirm reachability through the API request itself.",
+      ),
+      paragraph(
+        "Represent sync status explicitly, for example: synced, pending, syncing, or failed. Let the user understand whether a local edit has reached the server.",
+      ),
+    ],
+  },
+  {
+    id: "how-do-you-handle-offline-forms-and-protect-cached-data",
+    question: "How do you handle offline forms and protect cached user data?",
+    topic: "State & data",
+    answer: [
+      diagram("Save an offline form", [
+        { label: "Submit", detail: "Validate fields locally" },
+        { label: "Persist", detail: "Save the draft or operation locally" },
+        {
+          label: "Mark pending",
+          detail: "Show that synchronization is needed",
+        },
+        { label: "Sync later", detail: "Send when the service is reachable" },
+      ]),
+      namedPoints([
+        [
+          "Minimize",
+          "Store only fields and records needed for the offline workflow.",
+        ],
+        [
+          "Protect",
+          "Encrypt sensitive data at rest when appropriate and keep encryption keys in platform-backed secure storage.",
+        ],
+        [
+          "Separate credentials",
+          "Keep refresh credentials in Keychain/Keystore-backed storage; do not treat an offline cache as authorization.",
+        ],
+        [
+          "Clear and expire",
+          "Apply retention rules and remove account data on logout or account removal.",
+        ],
+      ]),
+      paragraph(
+        "A cached record must never grant permission by itself. The server remains responsible for authorization when data is synchronized or an action is performed.",
+      ),
+    ],
+  },
+
+  {
+    id: "how-design-redux-state-large-scale",
+    question: "How would you design Redux state for a large-scale application?",
+    topic: "State & data",
+    answer: [
+      paragraph(
+        "Organize the store by business domain and feature. Keep the state minimal, normalize relational entities when useful, and keep UI-only state separate from domain data.",
+      ),
+      code(
+        "text",
+        "store/\n├── auth/\n├── users/\n├── orders/\n├── payments/\n└── settings/",
+      ),
+      namedPoints([
+        [
+          "Selectors",
+          "Keep selectors separate from reducers and memoize expensive derived data.",
+        ],
+        [
+          "Async behavior",
+          "Put request workflows in the appropriate thunk or middleware layer.",
+        ],
+        [
+          "Normalized entities",
+          "Store related records by ID where it makes updates and subscriptions more focused.",
+        ],
+        [
+          "Server state",
+          "Use an API cache or server-state layer for remote data that needs staleness, refetch, or invalidation behavior.",
+        ],
+      ]),
+    ],
+  },
+  {
+    id: "how-do-you-handle-server-state-differently-from-client-state",
+    question: "How do you handle server state differently from client state?",
+    topic: "State & data",
+    answer: [
+      namedPoints([
+        [
+          "Server state",
+          "Data owned by an API. It can become stale, needs caching/refetching, may be shared across screens, and needs invalidation after mutations. A server-state tool such as TanStack Query can own those cache rules.",
+        ],
+        [
+          "Client state",
+          "Local interactions, temporary UI, preferences, and client-owned session/configuration state. Manage it with local state, Context, Redux Toolkit, Zustand, or another store chosen for its scope.",
+        ],
+      ]),
+      paragraph(
+        "Keep one clear owner for each piece of data. Avoid copying every API response into a global client store if the query cache already owns its freshness and lifecycle.",
+      ),
+    ],
+    references: [
+      {
+        label: "TanStack Query documentation",
+        href: "https://tanstack.com/query/latest/docs/framework/react/overview",
+      },
+    ],
+  },
+  {
+    id: "what-problems-occur-when-api-data-and-ui-state-are-stored-together",
+    question:
+      "What problems occur when API data and UI state are stored together?",
+    topic: "State & data",
+    answer: [
+      points([
+        "API data can become stale or duplicated across different store slices.",
+        "Cache invalidation and refresh rules become difficult to reason about.",
+        "Reducers accumulate loading, error, and synchronization details unrelated to client UI state.",
+        "Broad updates can cause extra re-renders.",
+        "It becomes harder to reconcile local interaction state with backend-owned data.",
+      ]),
+      paragraph(
+        "Give remote data a clear cache owner and keep temporary view state close to the UI that owns it.",
+      ),
+    ],
+  },
+  {
+    id: "how-do-you-handle-cache-invalidation",
+    question: "How do you handle cache invalidation?",
+    topic: "State & data",
+    answer: [
+      paragraph(
+        "Define cache ownership and invalidation rules around queries and mutations. For example, after creating an order, invalidate the affected orders query so the cache refreshes the relevant data.",
+      ),
+      diagram("Targeted invalidation", [
+        { label: "Create order", detail: "Mutation succeeds" },
+        { label: "Invalidate orders", detail: "Mark related query stale" },
+        { label: "Refetch", detail: "Load the current server result" },
+      ]),
+      points([
+        "Use stable query keys or tags to identify data ownership.",
+        "Set freshness times that reflect how quickly the data changes.",
+        "Invalidate targeted queries after related mutations.",
+        "Avoid clearing the entire cache for every update.",
+      ]),
+    ],
+  },
+  {
+    id: "how-do-you-handle-optimistic-updates",
+    question: "How do you handle optimistic updates?",
+    topic: "State & data",
+    answer: [
+      paragraph(
+        "An optimistic update changes the visible client/cache state before the server confirms the mutation. Capture enough previous state to restore it if the request fails.",
+      ),
+      diagram("Optimistic update lifecycle", [
+        { label: "User action", detail: "Save the previous state" },
+        {
+          label: "Update cache",
+          detail: "Show the expected result immediately",
+        },
+        {
+          label: "Send request",
+          detail: "Ask the server to commit the change",
+        },
+        {
+          label: "Success / failure",
+          detail: "Keep the update or restore prior state",
+        },
+      ]),
+    ],
+  },
+  {
+    id: "what-happens-if-an-optimistic-update-fails",
+    question: "What happens if an optimistic update fails?",
+    topic: "State & data",
+    answer: [
+      points([
+        "Roll back to the captured previous state or refetch the canonical server result.",
+        "Show a clear message that the change was not saved.",
+        "Offer retry when the failure is transient and retry is safe.",
+        "Log the operation outcome without recording sensitive values.",
+      ]),
+      paragraph(
+        "The user should not be left with a success-looking screen after the server rejected the change.",
+      ),
+    ],
+  },
+  {
+    id: "how-do-you-prevent-race-conditions-between-api-requests",
+    question:
+      "How do you prevent race conditions between API requests that update the same state?",
+    topic: "State & data",
+    answer: [
+      diagram("Latest valid response wins", [
+        { label: "Request A", detail: "Version 1" },
+        { label: "Request B", detail: "Version 2, sent later" },
+        { label: "Responses arrive", detail: "May arrive out of order" },
+        {
+          label: "Apply safely",
+          detail: "Ignore stale response A when B supersedes it",
+        },
+      ]),
+      points([
+        "Attach a request ID or version and accept only the latest valid response for replaceable reads.",
+        "Cancel obsolete reads when the networking/query layer supports cancellation.",
+        "Use query libraries that manage request identity and deduplicate equivalent requests.",
+        "Serialize mutations or use server versions/ETags when write ordering matters; latest-response-wins alone is not safe for every mutation.",
+      ]),
+    ],
+  },
+  {
+    id: "how-do-you-restore-authentication-state-after-app-restart",
+    question:
+      "How do you manage authentication state across application restarts?",
+    topic: "Security",
+    answer: [
+      diagram("Restore a session safely", [
+        {
+          label: "App starts",
+          detail: "Read refresh credential from secure storage",
+        },
+        { label: "Refresh session", detail: "Exchange it with the backend" },
+        {
+          label: "Validate user",
+          detail: "Fetch current account and permissions",
+        },
+        {
+          label: "Continue or sign in",
+          detail: "Restore session or clear invalid credentials",
+        },
+      ]),
+      points([
+        "Keep access tokens short-lived and store refresh credentials in Keychain/Keystore-backed storage.",
+        "Restore the session with the server instead of trusting a locally persisted isLoggedIn flag.",
+        "Fetch or validate the current user and authorization after refresh.",
+        "Clear credentials and in-memory session data on logout or invalid refresh.",
+      ]),
+    ],
+  },
+  {
+    id: "how-do-you-migrate-persisted-redux-state",
+    question:
+      "How do you handle state migration when persisted Redux structure changes?",
+    topic: "State & data",
+    answer: [
+      paragraph(
+        "Version the persisted schema. When the app loads an older version, run a migration that maps it to the new shape before reducers and screens consume it.",
+      ),
+      code(
+        "TypeScript",
+        "type PersistedStateV2 = {\n  version: 2;\n  preferences: { theme: 'light' | 'dark' };\n};\n\nfunction migrateV1ToV2(old: { theme?: string }): PersistedStateV2 {\n  return {\n    version: 2,\n    preferences: {\n      theme: old.theme === 'dark' ? 'dark' : 'light',\n    },\n  };\n}",
+      ),
+      paragraph(
+        "Test migrations against representative old snapshots. If data is corrupt or cannot be migrated safely, fall back to a known initial state and preserve a recoverable error report without leaking user data.",
+      ),
+    ],
+  },
+  {
+    id: "how-do-you-debug-a-production-only-state-management-issue",
+    question:
+      "How do you debug a state-management issue that only occurs in production?",
+    topic: "Testing & debugging",
+    answer: [
+      list(
+        [
+          {
+            heading: "Capture context",
+            content:
+              "Add structured action/request diagnostics while redacting tokens, passwords, and personal data.",
+          },
+          {
+            heading: "Reconstruct sequence",
+            content:
+              "Record the order of relevant actions, requests, responses, and persistence events.",
+          },
+          {
+            heading: "Compare versions",
+            content:
+              "Check app version, persisted schema version, and production configuration.",
+          },
+          {
+            heading: "Check timing",
+            content:
+              "Look for request races, retries, cancellations, and startup hydration order.",
+          },
+          {
+            heading: "Reproduce",
+            content:
+              "Replay the same state and action sequence in a production-like build.",
+          },
+          {
+            heading: "Add focused telemetry",
+            content:
+              "If the cause remains unclear, measure the affected transition without logging sensitive payloads.",
+          },
+        ],
+        true,
+      ),
+    ],
   },
 ];

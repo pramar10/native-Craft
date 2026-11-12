@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type {
   InterviewAnswerBlock,
   InterviewQuestion,
   InterviewQuestionMeta,
 } from "@/data/interview-types";
+import { InterviewReferenceImage } from "@/components/interview-reference-image";
 import { subjects } from "@/data/subjects";
 
 const groupedSubjects = subjects.reduce<Record<string, typeof subjects>>(
@@ -84,6 +85,45 @@ function AnswerBlockView({ block }: { block: InterviewAnswerBlock }) {
       return <p>{renderAnswerText(block.content)}</p>;
     case "heading":
       return <h3 className="interview-answer-heading">{block.content}</h3>;
+    case "list":
+      return (
+        <ul className="interview-answer-list">
+          {block.content.map((item, index) => (
+            <li key={`${index}-${item}`}>
+              <p>{renderAnswerText(item)}</p>
+            </li>
+          ))}
+        </ul>
+      );
+    case "table": {
+      const [header, ...rows] = block.content;
+      if (!header) return null;
+
+      return (
+        <div className="interview-answer-table-wrap">
+          <table className="interview-answer-table">
+            <thead>
+              <tr>
+                {header.map((cell, index) => (
+                  <th key={`${index}-${cell}`} scope="col">
+                    {renderAnswerText(cell)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, rowIndex) => (
+                <tr key={`row-${rowIndex}`}>
+                  {row.map((cell, cellIndex) => (
+                    <td key={`cell-${cellIndex}`}>{renderAnswerText(cell)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
     case "ordered-list":
     case "unordered-list": {
       const List = block.type === "ordered-list" ? "ol" : "ul";
@@ -122,6 +162,8 @@ function AnswerBlockView({ block }: { block: InterviewAnswerBlock }) {
           </pre>
         </div>
       );
+    case "image":
+      return <InterviewReferenceImage block={block} />;
     case "diagram":
       return (
         <div
@@ -179,6 +221,8 @@ export function InterviewExplorer({
   >({});
   const [failedAnswer, setFailedAnswer] = useState<string | null>(null);
   const [retryVersion, setRetryVersion] = useState(0);
+  const expandedQuestionRef = useRef<HTMLElement | null>(null);
+  const scrollToExpandedQuestion = useRef(false);
 
   const selectedSubject =
     subjects.find((subject) => subject.slug === selectedSlug) ?? subjects[0];
@@ -198,6 +242,20 @@ export function InterviewExplorer({
       selectedTopic === "All topics" || item.topic === selectedTopic;
     return matchesQuery && matchesTopic;
   });
+
+  useEffect(() => {
+    if (!scrollToExpandedQuestion.current || !openQuestion) return;
+    scrollToExpandedQuestion.current = false;
+
+    const frame = window.requestAnimationFrame(() => {
+      expandedQuestionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [openQuestion]);
 
   useEffect(() => {
     if (!openQuestion) return;
@@ -384,6 +442,7 @@ export function InterviewExplorer({
                     <article
                       className={`interview-question-card ${expanded ? "expanded" : ""}`}
                       key={item.id}
+                      ref={expanded ? expandedQuestionRef : null}
                     >
                       <button
                         className="interview-question-trigger"
@@ -392,6 +451,7 @@ export function InterviewExplorer({
                         aria-controls={answerId}
                         onClick={() => {
                           setFailedAnswer(null);
+                          if (!expanded) scrollToExpandedQuestion.current = true;
                           setOpenQuestion(expanded ? null : item.id);
                         }}
                       >
